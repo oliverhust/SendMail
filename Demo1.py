@@ -11,6 +11,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
+from mylog import *
 from mail_list import *
 #import pdb; pdb.set_trace()
 
@@ -71,6 +72,7 @@ def send_mail(mail_list, sub, content_html, append_list):
     msg_text = MIMEText(content_html, 'html', ENCODE)
     msg.attach(msg_text)
 
+    logging("Read Appends")
     for each_append in append_list:
         f = open(each_append, 'rb')
         f_basename = os.path.basename(each_append).encode(ENCODE)
@@ -78,20 +80,30 @@ def send_mail(mail_list, sub, content_html, append_list):
         msg_append.add_header('Content-Disposition', 'attachment', filename=f_basename)
         msg.attach(msg_append)
 
+    logging("Start to connect.")
     s = smtplib.SMTP()
     s.connect(MAIL_HOST)   #没网, 或DNS
+    logging("Connetc success")
     s.login(MAIL_USER, MAIL_PASS) #用户名密码错误
 
-    s.sendmail(me, mail_list, msg.as_string())
+    logging("Before Send Email, there are {} receivers.".format(len(mail_list)))
+    try:
+        err_mail = s.sendmail(me, mail_list, msg.as_string())
+    except smtplib.SMTPRecipientsRefused, e:
+        print("==============Catch SMTPRecipientsRefused Error================")
+        print(e)
+        print("-------")
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    logging("After Send Email.")
     s.close()
     print ("Send email success to " + repr(mail_list))
 
 
 def test_send_email():
     print("---------------------test_send_email---------------------------")
-    #mail_list = [ "1026815245@qq.com", "1307408482@qq.com" ]
-    mail_list = MAIL_LIST_ALL[:4]
-    subject = u'4_HAHAH2。此邮件为测试邮件， ——请删除, 谢谢——'
+    mail_list_my = [ "1026815245@qq.com", "1307408482@qq.com" ]
+    mail_list = [mail_list_my[1]] + MAIL_LIST_ALL[1300:1300] + [mail_list_my[0]]
+    subject = u'{}_HAHAH。此邮件为测试邮件， ——请删除, 谢谢——'.format(len(mail_list))
     body = u'''
 2016年5月23日，李克强总理考察湖北十堰市民服务中心，细询营改增实施效果，并再次重申“所有行业税负只减不增”。
 　　3月18日召开的国务院常务会议决定，为进一步减轻企业负担，促进经济结构转型升级，从今年5月1日起，将营改增试点范围扩大到建筑业、房地产业、金融业和生活服务业，并将所有企业新增不动产所含增值税纳入抵扣范围。4月30日，国务院印发《关于做好全面推开营改增试点工作的通知》和《全面推开营改增试点后调整中央与地方增值税收入划分过渡方案的通知》，要求各级政府平稳、有序开展工作，确保各行业税负只减不增。
@@ -134,9 +146,12 @@ def chdir_myself():
 
     
 def main():
-    chdir_myself()
+    p = chdir_myself()
+    logging_init("Demo1.log")
     #test_xls()
     test_send_email()
+    logging("Exit the program.")
+    logging_fini()
     
     
 if __name__ == "__main__":

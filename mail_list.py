@@ -4,11 +4,9 @@
 
 
 MAIL_LIST_ALL = [
-"1307408482@qq.com",
 "webmaster@goldencity.net.cn",
 "hezelumin@sina.com",
 "wushaosheng@hotmail.com",
-"1026815245@qq.com",
 "info@spfia.com",
 "cn@quartz8.com",
 "chyubing@sohu.com",

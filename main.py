@@ -18,6 +18,8 @@ ERROR_FINISH = 1
 ERROR_PAUSE = 2
 ERROR_OPEN_APPEND_FAILED = 3
 ERROR_READ_APPEND_FAILED = 4
+ERROR_SEND_TOO_MANY = 5
+ERROR_SEND_ONE_TOO_MANY = 6
 
 class Account:
     def __init__(self, mail_user, mail_passwd, mail_host, sender_name):
@@ -115,9 +117,23 @@ class MailProc:
         s = smtplib.SMTP()
         s.connect(account.host)
         s.login(account.user, account.passwd)
-        s.sendmail(me, mail_list, msg.as_string())
+        try:
+            err_mail = s.sendmail(me, mail_list, msg.as_string())
+        except smtplib.SMTPRecipientsRefused, e:
+            err_mail = mail_list
+            if len(self._AccountsList) != 1:
+                err = ERROR_SEND_TOO_MANY
+                self._CurrAccount =  (self._CurrAccount + 1) % len(self._AccountsList)
+                account_next = self._AccountsList[self._CurrAccount]
+                err_info = u"当前账号{}发送邮件过多被拒，切换到账号{}".format(account.user, account_next.user)
+            else:
+                err = ERROR_SEND_ONE_TOO_MANY
+                err_info = u"当前账号{}发送邮件过多被拒，等待再次尝试".format(account.user)
+        err_mail = err_mail.keys()
+
         s.close()
         logging("Send email success to " + repr(mail_list))
+        return err, err_info
 
     def send_once(self, user_signal):
         """ 主要发送函数 该函数需被反复调用来发送
