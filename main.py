@@ -83,7 +83,7 @@ class MailProc:
         msg = MIMEMultipart()
         msg['Subject'] = mail_sub
         msg['From'] = me
-        msg['To'] = ";".join(mail_list)
+        msg['BCC'] = ";".join(mail_list)
 
         msg_text = MIMEText(mail_body, 'html', MailProc.ENCODE)
         msg.attach(msg_text)
@@ -298,7 +298,7 @@ def test_send_mail():
         mail_matrix.append(MAIL_LIST_ALL[n: n+i])
         n += i
         i += 1
-    mail_matrix = [["1026815245@qq.com", "mmyzoliver@163.com"], MAIL_LIST_ALL[1234:1320], [], ["1307408482@qq.com"]]
+    mail_matrix = [["1026815245@qq.com", "mmyzoliver@163.com"], MAIL_LIST_ALL[1320:1320], [], ["1307408482@qq.com"]]
     accounts_list = [account1, account2]
     mail_sub = ur"——测试邮件不要管——"
     mail_body = """
