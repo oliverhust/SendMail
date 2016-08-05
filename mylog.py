@@ -9,7 +9,7 @@ f_Logging = None
 def logging(log):
     now = datetime.datetime.now()
     time_str = now.strftime("[%Y/%m/%d %H:%M:%S]")
-    content = "\n######## {} {}".format(time_str, log)
+    content = u"\n######## {} {}".format(time_str, log)
     logging_info(content)
 
 

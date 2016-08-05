@@ -12,7 +12,7 @@ from email.mime.application import MIMEApplication
 from mylog import *
 from mail_list import *
 
-# import pdb; pdb.set_trace()
+import pdb; pdb.set_trace()
 
 ERROR_SUCCESS = 0
 ERROR_FINISH = 1
@@ -107,7 +107,7 @@ class MailProc:
             err = ERROR_LOGIN_FAILED
             err_info = u"{}登录失败，账号或密码错误\n{}".format(account.user, e)
             return err, err_info, fail_mail
-        logging_info("Account {} login Success.".format(account.user))
+        logging_info(u"Account {} login Success.".format(account.user))
 
         try:
             fail_mail = s.sendmail(me, mail_list, msg.as_string())
@@ -158,7 +158,7 @@ class MailProc:
             msg_append = MIMEApplication(file_content)
             f_basename = os.path.basename(each_append).encode(MailProc.ENCODE)
             msg_append.add_header('Content-Disposition', 'attachment', filename=f_basename)
-            self._MailAppendList.append(msg_append)
+            self._MsgAppendList.append(msg_append)
         logging(ret[1])
         return ret
 
@@ -289,8 +289,8 @@ def chdir_myself():
 
 
 def test_send_mail():
-    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉")
-    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"李嘉")
+    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx----", "mail.hust.edu.cn", u"李嘉")
+    account2 = Account("U201313778@hust.edu.cn", "dian201313778----", "mail.hust.edu.cn", u"李嘉")
     mail_matrix = [ [""] ]
     i = 35
     n = 0
@@ -298,6 +298,7 @@ def test_send_mail():
         mail_matrix.append(MAIL_LIST_ALL[n: n+i])
         n += i
         i += 1
+    mail_matrix = [["1026815245@qq.com", "mmyzoliver@163.com"], MAIL_LIST_ALL[1234:1320], [], ["1307408482@qq.com"]]
     accounts_list = [account1, account2]
     mail_sub = ur"——测试邮件不要管——"
     mail_body = """
@@ -331,33 +332,33 @@ a_list.index('a')
             pass
         elif ERROR_FINISH == err:
             print("OOOOOOOOOOOOOOOOO已经发完了最后一封邮件OOOOOOOOOOOOOOOOOOO")
-            print("发送失败的邮件有：{}".format(fail_list))
+            print(u"发送失败的邮件有：{}".format(fail_list))
             break
         elif ERROR_OPEN_APPEND_FAILED == err:
-            print("打开附件失败")
+            print(u"打开附件失败")
             break
         elif ERROR_READ_APPEND_FAILED == err:
-            print("读取附件失败")
+            print(u"读取附件失败")
             break
         elif ERROR_SEND_TOO_MANY == err:
-            print("一时发送过多")
+            print(u"一时发送过多")
         elif ERROR_SEND_TOO_MANY_NEED_WAIT == err:
-            print("真的发太多了，等等吧")
+            print(u"真的发太多了，等等吧")
             time.sleep(20)
         elif ERROR_CONNECT_FAILED == err:
-            print("没网了，5秒后再尝试")
+            print(u"没网了，5秒后再尝试")
             time.sleep(5)
         elif ERROR_LOGIN_FAILED == err:
-            print("用户名密码错误")
+            print(u"用户名密码错误")
             break
         elif ERROR_SEND_FAILED_UNKNOWN == err:
-            print("未知错误，将再次尝试")
+            print(u"未知错误，将再次尝试")
         elif ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
-            print("太多未知错误了")
+            print(u"太多未知错误了")
             time.sleep(5)
         elif ERROR_SOME_EMAILS_FAILED == err:
-            print("部分发送失败")
-
+            print(u"部分发送失败")
+            fail_list += ret["FailedList"]
 
 
 if __name__ == "__main__":
