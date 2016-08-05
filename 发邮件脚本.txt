@@ -1,0 +1,88 @@
+【当前待解决问题】
+1. 发送失败的部分邮件(别的有成功的): 延时再次尝试如果还失败就记录为失败邮件
+   未知原因，全组异常/一组就一封邮件的情况: 出现次数太多就请用户排查
+
+
+【已解决】
+
+
+【各种错误码】
+ERROR_SUCCESS = 0
+ERROR_FINISH = 1  @@@@@@ break @@@@
+ERROR_PAUSE = 2 # 预留，未用
+ERROR_OPEN_APPEND_FAILED = 3   @@@@@@ break @@@@
+ERROR_READ_APPEND_FAILED = 4   @@@@@@ break @@@@
+ERROR_SEND_TOO_MANY = 5
+ERROR_SEND_TOO_MANY_NEED_WAIT = 6
+ERROR_CONNECT_FAILED = 7
+ERROR_LOGIN_FAILED = 8    @@@@@@ break @@@@
+ERROR_SEND_FAILED_UNKNOWN = 9
+ERROR_SEND_FAILED_UNKNOWN_TOO_MANY = 10  
+ERROR_SOME_EMAILS_FAILED = 11
+
+
+1.Excel表格无法读取
+2.短时间大量发送邮件不允许
+3.意外发送中断
+4.安装360浏览器的用不了
+
+
+【难点】
+XLS表格读取
+邮箱及附件发送
+配置保存(下次启动有提示)
+GUI界面(坑)
+
+
+【功能】
+xls内搜索邮箱
+
+http://www.jb51.net/article/77626.htm
+
+【XLS获取邮箱】
+
+
+【邮件发送】
+一组一组发送，发送成功就记录；发送失败则不断重试
+
+
+
+【发送进度保存】
+继续上次进度(配置信息，已发邮件)
+
+
+【发送错误】
+s.connect(MAIL_HOST)   #没网, 或DNS
+用户名或密码错误  smtplib.SMTPAuthenticationError: (535, 'Error: authentication failed')
+sendmail失败 一次性太多人了 smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+
+发送太多？？？
+Traceback (most recent call last):
+  File "E:/MyDocument/Python/SendEmail/Demo1.py", line 143, in <module>
+    main()
+  File "E:/MyDocument/Python/SendEmail/Demo1.py", line 139, in main
+    test_send_email()
+  File "E:/MyDocument/Python/SendEmail/Demo1.py", line 110, in test_send_email
+    send_mail(mail_list, subject, body, append_list)
+  File "E:/MyDocument/Python/SendEmail/Demo1.py", line 85, in send_mail
+    s.sendmail(me, mail_list, msg.as_string())
+  File "C:\Python27\lib\smtplib.py", line 746, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (450, 'Requested action not taken: GQEQrJCL3+0VQ6NXtm+JAA--.8448S2, please try again')
+
+
+
+File "E:/MyDocument/Python/SendEmail/Demo1.py", line 85, in send_mail
+    s.sendmail(me, mail_list, msg.as_string())
+  File "C:\Python27\lib\smtplib.py", line 742, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'1307408482@qq.com': (450, 'Requested mail action not taken: too much recipient'), 'hezelumin@sina.com': (450, 'Requested mail action not taken: too much recipient'), 'wushaosheng@hotmail.com': (450, 'Requested mail action not taken: too much recipient'), 'webmaster@goldencity.net.cn': (450, 'Requested mail action not taken: too much recipient')}
+
+Process finished with exit code 1
+
+ mail_list, account, mail_sub, mail_body, msg_append_list
+
+
+
+
+
