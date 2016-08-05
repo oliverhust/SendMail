@@ -104,3 +104,18 @@ Connect mail.hust.edu.cn Success.
 
 ######## [2016/08/05 22:33:28] Start to send a group.
 Connect mail.hust.edu.cn Success.
+
+
+
+
+
+
+
+
+
+
+################################################################
+######## [2016/08/05 22:41:40] Start the program.
+
+######## [2016/08/05 22:41:40] 无法打开附件: E:\点石月刊 发行-\简报邮件正文内容.txt 
+[Errno 2] No such file or directory: u'E:\\\u70b9\u77f3\u6708\u520a \u53d1\u884c-\\\u7b80\u62a5\u90ae\u4ef6\u6b63\u6587\u5185\u5bb9.txt'

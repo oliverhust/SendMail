@@ -289,8 +289,8 @@ def chdir_myself():
 
 
 def test_send_mail():
-    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx----", "mail.hust.edu.cn", u"李嘉")
-    account2 = Account("U201313778@hust.edu.cn", "dian201313778----", "mail.hust.edu.cn", u"李嘉")
+    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉")
+    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"李嘉")
     mail_matrix = [ [""] ]
     i = 35
     n = 0
