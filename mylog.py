@@ -6,6 +6,11 @@ import datetime
 f_Logging = None
 
 
+def get_time_str():
+    now = datetime.datetime.now()
+    time_str = now.strftime("[%Y/%m/%d %H:%M:%S]")
+    return time_str
+
 def logging(log):
     now = datetime.datetime.now()
     time_str = now.strftime("[%Y/%m/%d %H:%M:%S]")
@@ -14,7 +19,7 @@ def logging(log):
 
 
 def logging_warn(log):
-    logging_info("[WARNING] "+"@"*16+" "+log+" "+"@"*16)
+    logging_info(u"[WARNING] "+u"@"*16+u" "+log+u" "+u"@"*16)
 
 
 def logging_info(log):

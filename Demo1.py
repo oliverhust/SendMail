@@ -101,7 +101,7 @@ def send_mail(mail_list, sub, content_html, append_list):
 
 def test_send_email():
     print("---------------------test_send_email---------------------------")
-    mail_list_my = [ "1026815245@qq.com", "1307408482@qq.com" ]
+    mail_list_my = [ "mmyzoliver@163.com", "1307408482@qq.com" ]
     mail_list = [mail_list_my[1]] + MAIL_LIST_ALL[1300:1300] + [mail_list_my[0]]
     subject = u'{}_HAHAH。此邮件为测试邮件， ——请删除, 谢谢——'.format(len(mail_list))
     body = u'''
