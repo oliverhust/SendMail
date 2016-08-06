@@ -127,7 +127,7 @@ class MailProc:
         return err, err_info, fail_mail
 
     def _group_mail_get(self):
-        if self._CurrLine >= len(self._AccountsList):
+        if self._CurrLine >= len(self._MailMatrix):
             return ERROR_FINISH
         return self._MailMatrix[self._CurrLine][self._CurrRow : self._CurrRow+MailProc.MAILS_IN_GROUP]
 
