@@ -277,6 +277,7 @@ class XlsMatrix:
         return self._xls.sheet_names()
 
     # 注意selected_sheets从1开始，与用户看到的一致，与表格模块不一致 列名： 'A' 'B' ..
+    # 检查是否有重复的邮箱
     def init(self, user_selected_sheets, mail_which_col):
         self._init_set_data(user_selected_sheets, mail_which_col)
 
