@@ -1,6 +1,4 @@
 【当前待解决问题】
-1. 发送失败的部分邮件(别的有成功的): 延时再次尝试如果还失败就记录为失败邮件
-   未知原因，全组异常/一组就一封邮件的情况: 出现次数太多就请用户排查
 
 
 【已解决】
@@ -20,6 +18,9 @@ ERROR_SEND_FAILED_UNKNOWN = 9
 ERROR_SEND_FAILED_UNKNOWN_TOO_MANY = 10  
 ERROR_SOME_EMAILS_FAILED = 11
 
+【需要做的检查】
+1.不能有重复的邮件地址
+2.各个备用账号的登录检查
 
 1.Excel表格无法读取
 2.短时间大量发送邮件不允许
@@ -83,6 +84,10 @@ Process finished with exit code 1
  mail_list, account, mail_sub, mail_body, msg_append_list
 
 
+
+[邮箱] qwertyui
+mmyzoliver@hainan.net (mail.hainan.net)
+mmyzoliver@hainan.com
 
 
 

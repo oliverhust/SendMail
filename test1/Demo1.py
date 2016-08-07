@@ -13,7 +13,7 @@ from email.mime.application import MIMEApplication
 
 from mylog import *
 from mail_list import *
-import pdb; pdb.set_trace()
+#import pdb; pdb.set_trace()
 
 #设置服务器，用户名、口令以及邮箱的后缀
 MAIL_HOST = "mail.hust.edu.cn"
@@ -137,26 +137,6 @@ def test_xls():
             continue
         print table.row_values(i)[:13] # 取前十三列
 
-def test_xls2():
-    print("---------------------xls_test2---------------------------")
-    xls_path = ur'Q:\SVTI2\Documents\01.CI\1.5 Test\Comware V700R001 IPsec SVTI开发项目 “PhyCheck与IKE协商“ by ”heyiwen“.xls'
-    data = xlrd.open_workbook(xls_path) # 打开xls文件
-    tables = data.sheets()
-    print("{} Tales name at all.".format(len(tables)))
-    print(tables)
-    print data.sheet_names()   # 获取各个sheet的名字
-    table = data.sheets()[2] # 打开第3张表
-    #nrows = table.nrows # 获取表的行数!!! nrows是行的数量
-    #for i in range(nrows): # 循环逐行打印
-    #    if i == 0:   # 跳过第一行
-    #        continue
-    #    print table.row_values(i)[:13] # 取前十三列
-    print(table.col_values(2))
-    print("----the 3rd col-----")
-    for col in table.col_values(2):
-        print("["+col+"]")
-
-
 
 def chdir_myself():
     p = os.path.dirname(os.path.realpath(__file__))
@@ -169,8 +149,7 @@ def main():
     p = chdir_myself()
     logging_init("Demo1.log")
     #test_xls()
-    #test_send_email()
-    test_xls2()
+    test_send_email()
     logging("Exit the program.")
     logging_fini()
     

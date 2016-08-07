@@ -5,8 +5,6 @@ import os
 import sys
 import re
 import time
-import copy
-import xlrd
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -15,7 +13,7 @@ from email.mime.application import MIMEApplication
 from mylog import *
 from mail_list import *
 
-import pdb;  pdb.set_trace()
+#import pdb;  pdb.set_trace()
 
 ERROR_SUCCESS = 0
 ERROR_FINISH = 1
@@ -30,72 +28,16 @@ ERROR_SEND_FAILED_UNKNOWN = 9
 ERROR_SEND_FAILED_UNKNOWN_TOO_MANY = 10
 ERROR_SOME_EMAILS_FAILED = 11
 
-ERROR_OPEN_XLS_FAILED = 101
-
-
 
 class Account:
     def __init__(self, mail_user, mail_passwd, mail_host, sender_name):
-        # mail_host 不知道就填空，用auto_get_host获取
         self.user = mail_user
         self.passwd = mail_passwd
         self.host = mail_host
         self.sender_name = sender_name
 
-    def check(self):
-        pass
-
     def auto_get_host(self):
         pass
-
-
-class AccountsMange:
-    def __init__(self, account_list=None):
-        if account_list is not None:
-            self._AccountList = account_list[:]
-        else:
-            self._AccountList = []
-        self._CurrAccountId = 0
-
-        # 一旦出现一次"发送过多"错误就被置True
-        self._send_too_many_mark = False
-
-    def add(self, mail_user, mail_passwd, mail_host, sender_name):
-        # 用户暂停下来添加账户 未做优化
-        account = Account(mail_user, mail_passwd, mail_host, sender_name)
-        self._AccountList.append(account)
-
-    def delete(self, mail_user):
-        # 用户暂停下来删除账户 未做优化
-        for i, each_account in enumerate(self._AccountList):
-            if each_account.user == mail_user:
-                del(self._AccountList[i])
-                break
-
-    def get_an_account(self):
-        # 每调一次就切换一个账号
-        account = copy.copy(self._AccountList[self._CurrAccountId])
-        self._CurrAccountId = (self._CurrAccountId + 1) % len(self._AccountList)
-        return account
-
-    def send_too_many_proc(self, origin_err_info):
-        # 每当轮询到第一个账户失败时就一直等，除非是第一次发送第一个账号失败 需要用self._PolicyTooManyMark
-        err_info = origin_err_info
-        if 1 == len(self._AccountList):
-            self._send_too_many_mark = True
-            err = ERROR_SEND_TOO_MANY_NEED_WAIT
-        elif 0 == self._CurrAccountId and self._send_too_many_mark:
-            # 不换账号，继续尝试第一个，直到第一个成功
-            err = ERROR_SEND_TOO_MANY_NEED_WAIT
-            err_info = u"所有邮箱都已发送太多邮件被拒，将从第一个开始重新尝试"
-        else:
-            self._CurrAccountId = (self._CurrAccountId + 1) % len(self._AccountList)
-            account_next = self._AccountList[self._CurrAccountId]
-            err = ERROR_SEND_TOO_MANY
-            err_info += u"\n切换到账号{}".format(account_next.user)
-            # 只要进一次这里就永远被标记
-            self._send_too_many_mark = True
-        return err, err_info
 
 
 class MailContent:
@@ -113,21 +55,27 @@ class MailContent:
         # 判断内容里面是否有特殊含义的字符需要替换（这样每封邮件都不一样，需要一封封发送）
         self._bool_special = self._is_special_content(self._Sub, self._Body)
 
-    def sub(self, mail_matrix=None, mail_address=""):
+    def sub(self, mail_matrix=None, offset=0, mail_address=""):
         if not self.is_special_content():
             return self._Sub
         # 获取实际位置然后调用替换
-        data_tmp = mail_matrix.get_data_by_name(mail_address)
+        line = mail_matrix.curr_line
+        row = mail_matrix.curr_row + offset
+        data_tmp = mail_matrix.get_data_by_xy(line, row)
         if data_tmp:
-            logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
+            # 再进一步检查防止出错
+            if data_tmp[0] != mail_address:
+                logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
             return self.text_replace(self._Sub, data_tmp)
         return self._Sub
 
-    def body(self, mail_matrix=None, mail_address=""):
+    def body(self, mail_matrix=None, offset=0, mail_address=""):
         if not self.is_special_content():
             return self._Body
         # 获取实际位置然后调用替换
-        data_tmp = mail_matrix.get_data_by_name(mail_address)
+        line = mail_matrix.curr_line
+        row = mail_matrix.curr_row + offset
+        data_tmp = mail_matrix.get_data_by_xy(line, row)
         if data_tmp:
             # 再进一步检查防止出错
             if data_tmp[0] != mail_address:
@@ -138,7 +86,7 @@ class MailContent:
     def append_list(self):
         return self._AppendList
 
-    def msg_append_list(self):
+    def msg_append_list(self, mail_matrix=None, offset=0, mail_address=""):
         return self._msg_append_list
 
     def read_append(self):
@@ -198,8 +146,8 @@ class MailContent:
         return self._bool_special
 
 
-class SimpleMatrix:
-    """ 邮件矩阵的基类 """
+class MailMatrix:
+    """ 抽象类 邮件矩阵 """
     def __init__(self, mail_matrix=None, max_send_a_loop=0):
         self._curr_line = 0
         self._curr_row = 0
@@ -210,38 +158,32 @@ class SimpleMatrix:
         else:
             self._MatrixData = []
 
-        all_need_send = 0
-        for each_line in self._MatrixData:
-            all_need_send += len(each_line)
-
-        # 进度条
-        self._success_num = 0
-        self._failed_num = 0
-        self._not_send_num = all_need_send
-
-    def init(self):
-        pass
-
     def set_max_send_a_loop(self, max_send_a_loop):
         self._max_send_a_loop = max_send_a_loop
+
+    def curr_line(self):
+        return self._curr_line
+
+    def curr_row(self):
+        return self._curr_row
 
     def group_mail_get(self):
         if self._curr_line >= len(self._MatrixData):
             return ERROR_FINISH
         return self._MatrixData[self._curr_line][self._curr_row: self._curr_row + self._max_send_a_loop]
 
-    def group_mail_step(self, failed_mail=None):
+    def group_mail_step(self):
         self._curr_row += self._max_send_a_loop
         if self._curr_row >= len(self._MatrixData[self._curr_line]):
             self._curr_row = 0
             self._curr_line += 1
-        if failed_mail is None or failed_mail:
-            self._success_num += self._max_send_a_loop
-            self._not_send_num -= self._max_send_a_loop
-        else:
-            self._success_num += self._max_send_a_loop - len(failed_mail)
-            self._failed_num += len(failed_mail)
-            self._not_send_num -= self._max_send_a_loop
+
+    def get_data_by_xy(self, line, row):
+        # 返回一个字符串列表，[该位置的收件人名，表格中的A, B, C...]
+        if 0 <= line < len(self._MatrixData):
+            if 0 <= row <= len(self._MatrixData[line]):
+                return [self._MatrixData[line][row]]
+        return []
 
     def get_data_by_name(self, mail_name):
         # 返回一个字符串列表，[该位置的收件人名，表格中的A, B, C...]
@@ -251,118 +193,35 @@ class SimpleMatrix:
                     return [dat]
         return []
 
-    def curr_progress(self):
-        return self._success_num, self._failed_num, self._not_send_num
 
-
-class XlsMatrix:
-    """ 由xls表格实现的邮件矩阵          从xls表格导入收件人信息存为矩阵(三维)
-    1. 为MailProc发送时提供发件人列表   (策略:各域名邮箱均匀分布)
-    2. 统计已成功/失败/未发送的邮件数量
-    3. 保存(已成功和已失败的邮件)到MailDB，重启时从DB过滤已成功；提供clear_db供任务完成时调用
-    """
-    def __init__(self, max_send_a_loop, xls_path):
-        self._MaxSendALoop = max_send_a_loop
-        self._Path = xls_path
-        self._MailColNo = 0
-        self._SelectedSheets = []
-
-        self._xls = None
-
-    def read_sheets_before_init(self):     # 可能会出异常 打开失败，调用者注意
-        try:
-            self._xls = xlrd.open_workbook(self._Path)
-        finally:
-            self._xls = None
-        return self._xls.sheet_names()
-
-    # 注意selected_sheets从1开始，与用户看到的一致，与表格模块不一致 列名： 'A' 'B' ..
-    def init(self, user_selected_sheets, mail_which_col):
-        self._init_set_data(user_selected_sheets, mail_which_col)
-
-
-    def _init_set_data(self, user_selected_sheets, mail_which_col):
-        self._MailColNo = ord(mail_which_col.upper()) - ord('A')
-        self._SelectedSheets = user_selected_sheets[:]
-        for i in range(len(self._SelectedSheets)):
-            self._SelectedSheets[i] -= 1
-
-    def _get_xls_mail_list(self):
-        err, err_info = ERROR_SUCCESS, u""
-        for sheet_index in self._SelectedSheets:
-            sheet = self._xls.sheets()[sheet_index]
-            sheet.col_values(self._MailColNo)  ?????
-
-
-
-    data = xlrd.open_workbook(xls_path) # 打开xls文件
-    tables = data.sheets()
-    print("{} Tales name at all.".format(len(tables)))
-    print(tables)
-    print data.sheet_names()   # 获取各个sheet的名字
-    table = data.sheets()[2] # 打开第3张表
-    #nrows = table.nrows # 获取表的行数!!! nrows是行的数量
-    #for i in range(nrows): # 循环逐行打印
-    #    if i == 0:   # 跳过第一行
-    #        continue
-    #    print table.row_values(i)[:13] # 取前十三列
-    print(table.col_values(2))
-    print("----the 3rd col-----")
-    for col in table.col_values(2):
-        print("["+col+"]")
-?????????????????????????
-
-
-
-
-    def set_max_send_a_loop(self, max_send_a_loop):
-        self._MaxSendALoop = max_send_a_loop
-
-    def group_mail_get(self):
-        pass
-
-    def group_mail_step(self, failed_mail=None):
-        pass
-
-    def get_data_by_name(self, mail_name):
-        pass
-
-    def curr_progress(self):
-        pass
-
-    #################################################################
-
-    def sheets_name_list(self):
-        pass
-
-    def _read_has_success_mail(self):  # ?????????????????????????????
-        return []
-
-    def clear_db(self):    # ?????????????????????????????
-        pass
-
-
+class XlsMatrix(MailMatrix):
+    """ 由xls表格实现的邮件矩阵 """
+    def __init__(self, max_send_a_loop):
+        MailMatrix.__init__(self, max_send_a_loop)
 
 
 class MailProc:
     """ 发送邮件的主流程 """
+    MAX_COMMON_SEND_A_LOOP = 40                  # 一次最大发送数量
     MAX_SPECIAL_SEND_A_LOOP = 5                  # 特殊邮件一回合连续发送次数
     MAILS_TRY_AGAIN_WAIT_TIME = 5                # 出现临时错误重试的时间间隔 秒
     MAILS_UNKNOWN_ERROR_MAX_CONTINUE_TIME = 20   # 连续出现未知错误的最大次数
     ENCODE = "gb18030"
 
     def __init__(self, mail_matrix, accounts_list, mail_sub, mail_body, mail_append_list):
-        """ mail_matrix  邮件矩阵对象 MailMatrix,
+        """ mail_matrix  邮件矩阵，邮件被一行行发送,
             accounts_list Account对象列表，多个账户轮换,
             mail_sub 邮件主题,
             mail_body 邮件正文(html)
             mail_append_list 附件列表(路径名) """
         self._MailMatrix = mail_matrix
-        self._AccountsMange = AccountsMange(accounts_list)
+        self._AccountsList = accounts_list
         self._Content = MailContent(mail_sub, mail_body, mail_append_list)
 
         # 每回合发送邮件的数量
-        if self._Content.is_special_content():
+        if not self._Content.is_special_content():
+            self._MailMatrix.set_max_send_a_loop(MailProc.MAX_COMMON_SEND_A_LOOP)
+        else:
             self._MailMatrix.set_max_send_a_loop(MailProc.MAX_SPECIAL_SEND_A_LOOP)
 
         # 当前发送账号
@@ -415,12 +274,12 @@ class MailProc:
         except smtplib.SMTPRecipientsRefused, e:
             err = ERROR_SEND_TOO_MANY
             err_info = u"当前账号{}发送邮件太多被拒: {}".format(account.user, e)
-        except smtplib.SMTPDataError, e:
-            err = ERROR_SEND_TOO_MANY
-            err_info = u"当前账号{}发送邮件过多被拒: {}".format(account.user, e)
-        except smtplib.SMTPServerDisconnected, e:
-            err = ERROR_SEND_TOO_MANY
-            err_info = u"当前账号{}发送邮件过多被拒绝连接: {}".format(account.user, e)
+        #except smtplib.SMTPDataError, e:
+        #    err = ERROR_SEND_TOO_MANY
+        #    err_info = u"当前账号{}发送邮件过多被拒: {}".format(account.user, e)
+        #except smtplib.SMTPServerDisconnected, e:
+        #    err = ERROR_SEND_TOO_MANY
+        #    err_info = u"当前账号{}发送邮件过多被拒绝连接: {}".format(account.user, e)
         except Exception, e:
             err = ERROR_SEND_FAILED_UNKNOWN
             err_info = u"未知原因，暂时发送失败: {}".format(e)
@@ -437,7 +296,7 @@ class MailProc:
     def _send_try(self, mail_list):
         if not self._Content.is_special_content():
             ret = self.send_one_group(mail_list,
-                                      self._AccountsMange.get_an_account(),
+                                      self._AccountsList[self._curr_account_id],
                                       self._Content.sub(),
                                       self._Content.body(),
                                       self._Content.msg_append_list())
@@ -447,10 +306,10 @@ class MailProc:
             fail_mail = []
             for offset, each_mail in enumerate(mail_list):
                 ret = self.send_one_group(each_mail,
-                                          self._AccountsMange.get_an_account(),
-                                          self._Content.sub(self._MailMatrix, each_mail),
-                                          self._Content.body(self._MailMatrix, each_mail),
-                                          self._Content.msg_append_list())
+                                          self._AccountsList[self._curr_account_id],
+                                          self._Content.sub(self._MailMatrix, offset, each_mail),
+                                          self._Content.body(self._MailMatrix, offset, each_mail),
+                                          self._Content.msg_append_list(self._MailMatrix, each_mail))
                 if ERROR_SUCCESS == ret[0]:
                     continue
                 elif ERROR_SEND_FAILED_UNKNOWN == ret[0]:
@@ -461,11 +320,29 @@ class MailProc:
                 ret = ERROR_SOME_EMAILS_FAILED, u"部分邮件发送失败", fail_mail
         return ret
 
+    def _send_policy_too_many_proc(self, old_err_info):
+        """ 每当轮询到第一个账户失败时就一直等，除非是第一次发送第一个账号失败 需要用self._PolicyTooManyMark"""
+        err_info = old_err_info
+        if 1 == len(self._AccountsList):
+            err = ERROR_SEND_TOO_MANY_NEED_WAIT
+        elif 0 == self._curr_account_id and self._PolicyTooManyMark:
+            # 不换账号，继续尝试第一个，直到第一个成功
+            err = ERROR_SEND_TOO_MANY_NEED_WAIT
+            err_info = u"所有邮箱都已发送太多邮件被拒，将从第一个开始重新尝试"
+        else:
+            self._curr_account_id = (self._curr_account_id + 1) % len(self._AccountsList)
+            account_next = self._AccountsList[self._curr_account_id]
+            err = ERROR_SEND_TOO_MANY
+            err_info += u"\n切换到账号{}".format(account_next.user)
+            # 只要进一次这里就永远被标记
+            self._PolicyTooManyMark = True
+        return err, err_info
+
     def _send_policy1(self):
         """ 返回：错误码, log信息(显示), 已发送列表, 发送失败列表, (下一个邮件矩阵位置 x, y) """
         # ret默认为异常退出，一封也没发出去，下次将会再次尝试
         ret = {"ErrCode": ERROR_SUCCESS, "ErrLog": "", "SuccessList": [], "FailedList": [],
-               "CurrProgress": self._MailMatrix.curr_progress()}  # (成功, 失败, 未发送) 的数量
+               "SendPos": (self._MailMatrix.curr_line(), self._MailMatrix.curr_row())}
 
         err, err_info = self._Content.read_append()
         if ERROR_SUCCESS != err:
@@ -483,26 +360,25 @@ class MailProc:
 
         # 全部发送成功
         if ERROR_SUCCESS == err:
-            self._MailMatrix.group_mail_step()   # 告诉邮件矩阵已发送成功，下次将给别的收件人
+            self._MailMatrix.group_mail_step()   # 将发送位置在矩阵中向前
             ret["SuccessList"] = mail_list
-            ret["CurrProgress"] = self._MailMatrix.curr_progress()
+            ret["SendPos"] = (self._MailMatrix.curr_line(), self._MailMatrix.curr_row())
         # 部分发送成功(除此之外其他情况都是全部失败)
         elif ERROR_SOME_EMAILS_FAILED == err:
             time.sleep(MailProc.MAILS_TRY_AGAIN_WAIT_TIME)
             ret_tmp = self._send_try(fail_mail)
             if ret_tmp[0] == ERROR_SUCCESS:
+                self._MailMatrix.group_mail_step()   # 将发送位置在矩阵中向前
                 ret["ErrCode"], ret["ErrLog"] = ERROR_SUCCESS, ""
                 ret["SuccessList"] = mail_list
                 ret["FailedList"] = []
-                self._MailMatrix.group_mail_step()   # 告诉邮件矩阵当前已发送成功，下次将给别的收件人
+                ret["SendPos"] = (self._MailMatrix.curr_line(), self._MailMatrix.curr_row())
             else:
                 ret["SuccessList"] = [i for i in mail_list if i not in fail_mail]
                 ret["FailedList"] = fail_mail
-                self._MailMatrix.group_mail_step(fail_mail)   # 告诉邮件矩阵当前有一部分发送失败，下次将给别的收件人
-            ret["CurrProgress"] = self._MailMatrix.curr_progress()
         # 发送太多被拒
         elif ERROR_SEND_TOO_MANY == err:
-            err, err_info = self._AccountsMange.send_too_many_proc(err_info)
+            err, err_info = self._send_policy_too_many_proc(err_info)
             ret["ErrCode"], ret["ErrLog"] = err, err_info
 
         # 未知错误全组失败，将自动再次尝试
@@ -535,13 +411,6 @@ def is_break_error(err):
        ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
         return True
     return False
-
-
-def str_find_mailbox(mail_box):
-    r = re.findall(r'\S+@\S+', mail_box)
-    if r is not None:
-        return r[0]
-    return ""
 
 
 ###########################################################################
@@ -585,21 +454,19 @@ def test_send_mail():
     account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"李嘉成")
     account3 = Account("M201571856@hust.edu.cn", "M201571856", "mail.hust.edu.cn", u"李嘉成")
     account4 = Account("liangjinchao.happy@163.com", "ioqitwq!QAZ@WSX", "smtp.163.com", u"李嘉成")
-    account5 = Account("dian@hust.edu.cn", "diangroup1", "mail.hust.edu.cn", u"李嘉成")
     mails = [ [""] ]
-    #i = 20
-    #n = 0
-    #while n < 1900:
-    #    mails.append(MAIL_LIST_ALL[n: n+i])
-    #    n += i
-    #    i += 1
-    #mails = [MAIL_LIST_ALL[1320:1800]]
-    mails =[["mmyzoliver@163.com"]]
+    i = 20
+    n = 0
+    while n < 1900:
+        mails.append(MAIL_LIST_ALL[n: n+i])
+        n += i
+        i += 1
+    mails = [MAIL_LIST_ALL[1320:1800]]
+    #mails =[["yangtietie@sina.com"]]
     # mails = [["mmyzoliver@163.com", "1026815245@qq.com"],["M201571736@hust.edu.cn"],["1307408482@qq.com"] ]
-    mail_matrix = SimpleMatrix(mails, 2)   # 一次循环最大发送数量
-    accounts_list = [ account2 ]
-    #mail_sub = ur"——邮件发送出问题，打扰了{}——".format(get_time_str())
-    mail_sub = u"Hello,  world!"
+    mail_matrix = MailMatrix(mails)
+    accounts_list = [ account3 ]
+    mail_sub = ur"——邮件发送出问题，打扰了{}——".format(get_time_str())
     mail_body = u"""{}
 内容, 即身体和心灵两种不同的实体的根本性区分。
 但是, 在笔者看来, 斯特劳森的这种描述实际上并不
@@ -626,13 +493,10 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
 们也不能对它们构造任何物体性的观念, 这些东西
 包括认识、怀疑、无知、意志的活动等。
     """.format(get_time_str())
-    mail_body = u"My good friend, \nnice to meet you"
     mail_body = Html_AddHead(Html_TxtElem(mail_body))
-    
     append_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
                     ur'E:\X 发行资料\文本-内容.txt',
                    ]
-    append_list = []                   
     mail = MailProc(mail_matrix, accounts_list, mail_sub, mail_body, append_list)
     fail_list = []
 
