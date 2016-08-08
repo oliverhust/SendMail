@@ -559,19 +559,59 @@ class MailDB:
     """ 数据实时保存和持久化 """
     def __init__(self, path_db):
         self._path = path_db
-        self._db = None
-        self._c = None
-
-    def init(self):
         self._db = sqlite3.connect(self._path)
         self._c = self._db.cursor()
 
-        #创建各个表(如果不存在)
+    def __del__(self):
+        self._db.commit()
+        self._db.close()
+
+    def init(self):
+        # 创建各个表(如果不存在)
+        # 已发送成功的表
         self._c.execute("CREATE TABLE IF NOT EXISTS success_sent (mail TEXT)")
+        # 发送失败的表
+        self._c.execute("CREATE TABLE IF NOT EXISTS failed_sent (mail TEXT)")
 
-    def add_success_sent(self, list_succeess):
+    # ---------------------------------------------------------------------------
+    def add_success_sent(self, list_success):
+        sql_arg = [(x,) for x in list_success ]
+        self._c.executemany("INSERT INTO success_sent VALUES (?)", sql_arg)
+        self._db.commit()
 
+    def del_success_sent(self, list_to_del):
+        sql_arg = [(x,) for x in list_to_del ]
+        self._c.executemany("DELETE FROM success_sent WHERE mail=?", sql_arg)
+        self._db.commit()
 
+    def del_all_success_sent(self):
+        self._c.executemany("DELETE FROM success_sent")
+        self._db.commit()
+
+    def get_success_sent(self):
+        self._c.execute("SELECT * FROM success_sent")
+        ret = self._c.fetchall()
+        return [ret[i][0] for i in range(len(ret))]
+
+    # ---------------------------------------------------------------------------
+    def add_failed_sent(self, list_failed):
+        sql_arg = [(x,) for x in list_failed ]
+        self._c.executemany("INSERT INTO failed_sent VALUES (?)", sql_arg)
+        self._db.commit()
+
+    def del_failed_sent(self, list_to_del):
+        sql_arg = [(x,) for x in list_to_del ]
+        self._c.executemany("DELETE FROM failed_sent WHERE mail=?", sql_arg)
+        self._db.commit()
+
+    def del_all_failed_sent(self):
+        self._c.executemany("DELETE FROM failed_sent")
+        self._db.commit()
+
+    def get_failed_sent(self):
+        self._c.execute("SELECT * FROM failed_sent")
+        ret = self._c.fetchall()
+        return [ret[i][0] for i in range(len(ret))]
 
 
 
