@@ -9,6 +9,7 @@ import random
 import copy
 import xlrd
 import smtplib
+import sqlite3
 from email.header import Header
 from email.utils import parseaddr, formataddr
 from email.mime.text import MIMEText
@@ -552,6 +553,27 @@ class MailProc:
         返回：错误码, log信息(显示), 已发送列表, 发送失败列表, (下一个邮件矩阵位置 x, y)
         """
         return self._send_policy1()
+
+
+class MailDB:
+    """ 数据实时保存和持久化 """
+    def __init__(self, path_db):
+        self._path = path_db
+        self._db = None
+        self._c = None
+
+    def init(self):
+        self._db = sqlite3.connect(self._path)
+        self._c = self._db.cursor()
+
+        #创建各个表(如果不存在)
+        self._c.execute("CREATE TABLE IF NOT EXISTS success_sent (mail TEXT)")
+
+    def add_success_sent(self, list_succeess):
+
+
+
+
 
 
 def is_break_error(err):
