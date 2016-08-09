@@ -9,3 +9,113 @@
 
 
 ################################################################[2016/08/09 18:40:44] Start the program.
+
+
+
+
+
+
+
+
+
+
+################################################################[2016/08/09 20:13:36] Start the program.
+
+
+
+
+
+
+
+
+
+
+################################################################[2016/08/09 20:16:46] Start the program.
+
+
+
+
+
+
+
+
+
+
+################################################################[2016/08/09 20:17:45] Start the program.
+[2016/08/09 20:17:46] Get 90 mails from excel.
+[2016/08/09 20:17:46] 读取附件成功
+
+
+
+
+
+
+
+
+
+
+################################################################[2016/08/09 20:21:07] Start the program.
+[2016/08/09 20:21:08] Get 90 mails from excel.
+[2016/08/09 20:21:08] Origin mail list is:
+[u'hustoliver@hainan.net', u'hijjjb2005@yahoo.com.cn', u'bdwbsrn@126.com', u'1307408482@qq.com', u'bdrbfkb@yahoo.com.cn', u'yanhx0308@sina.com', u'liyz0306@sina.com', u'mxylyn@sina.com', u'anfeng119@163.com', u'fkb@sjzdaily.com.cn', u'zawenbao4@yahoo.com.cn', u'zawenbao3@yahoo.com.cn', u'zawenbao2@yahoo.com.cn', u'zawenbao1@yahoo.com.cn', u'ningfan_001@sina.com', u'ss30@sina.com', u'baitai_yzwb@sina.com', u'zhuangyan11111@sina.com', u'zzmzyc@sina.com', u'cuiliqiu@sina100.com', u'cuiliqiu@163.net', u'zhang_jihe@163.com', u'xbsb@xbsb.com.cn', u'fzb@mail.cqwb.com.cn', u'wuhao9655@sina.com', u'fkb@mail.cqwb.com.cn', u'wangwen2004@163.com', u'qingjian@126.com', u'fkb@cqrb.cn', u'rbljc@sohu.com', u'cqlys@263.net', u'xiezuogaoshou@sina.com', u'aafox8@sina.com.cn', u'stj0317@163.net', u'shenian168@163.com', u'zjjdaily@vip.163.com', u'wang4868@163.com', u'hhgbdsb@tom.com', u'hxy7109@sina.com', u'yanli8482@sina.com', u'tianre26@163.com', u'tang_cdwb@163.com', u'ly8056@163.com', u'7727160@163.com', u'chinaseerchen@sina.com', u'oyb258@sina.com', u'wxy200403@yahoo.com.cn', u'liying3254@sina.com', u'luoxl1971@sina.com', u'caodelimm@163.com', u'xxcb9988@163.com', u'xxcb888@163.com', u'li_zhixi@163.com', u'linglinlin1@sina.com', u'lxamy@sina.com', u'wy1937@263.net', u'dyaya980618@sina.com', u'muyuyuel@sina.com', u'cz_youth@21cn.com', u'wcb_bwb@163.com', u'ndzkfodo@126.com', u'1026815245@qq.com', u'zhyongk@sina.com', u'lymfei@163.com', u'zongxusheng@126.com', u'morefree520@sina.com', u'wfthn@sina.com', u'51667826@163.com', u'xujia396@vip.sina.com', u'qianwenzhong66@yahoo.com.cn', u'julian19861986@sina.com', u'zgsw2010@163.com', u'zgswj2010@163.com', u'yujicong1971@sina.com', u'wei_hengxin@hotmail.com', u'acostata@sina.com', u'lunan1969@sohu.com', u'lunan1969@sina.com', u'chenaiyizi@hotmail.com', u'wangy_602@126.com', u'lnzls@vip.qq.com', u'sangmeier@sina.com', u'yeguo1111@163.com', u'yuhe0828@163.com', u'zhongguojilv@163.com', u'xiaoming170@163.com', u'sc-tian-lu@sohu.com', u'hgliang73@263.net', u'huoqly@yahoo.com.cn', u'ly4986@sina.com']
+[2016/08/09 20:21:08] New mail list is:
+[u'yanhx0308@sina.com', u'liyz0306@sina.com', u'hijjjb2005@yahoo.com.cn', u'bdrbfkb@yahoo.com.cn', u'mxylyn@sina.com', u'ningfan_001@sina.com', u'anfeng119@163.com', u'ss30@sina.com', u'1307408482@qq.com', u'xujia396@vip.sina.com', u'zjjdaily@vip.163.com', u'baitai_yzwb@sina.com', u'zhang_jihe@163.com', u'xbsb@xbsb.com.cn', u'1026815245@qq.com', u'cuiliqiu@sina100.com', u'zawenbao4@yahoo.com.cn', u'zhuangyan11111@sina.com', u'zzmzyc@sina.com', u'zawenbao3@yahoo.com.cn', u'zawenbao2@yahoo.com.cn', u'bdwbsrn@126.com', u'wuhao9655@sina.com', u'wei_hengxin@hotmail.com', u'xiezuogaoshou@sina.com', u'wangwen2004@163.com', u'hxy7109@sina.com', u'chenaiyizi@hotmail.com', u'shenian168@163.com', u'yanli8482@sina.com', u'cqlys@263.net', u'chinaseerchen@sina.com', u'wang4868@163.com', u'tianre26@163.com', u'qingjian@126.com', u'oyb258@sina.com', u'ndzkfodo@126.com', u'tang_cdwb@163.com', u'liying3254@sina.com', u'hhgbdsb@tom.com', u'aafox8@sina.com.cn', u'ly8056@163.com', u'luoxl1971@sina.com', u'7727160@163.com', u'zawenbao1@yahoo.com.cn', u'fzb@mail.cqwb.com.cn', u'caodelimm@163.com', u'xxcb9988@163.com', u'xxcb888@163.com', u'linglinlin1@sina.com', u'cuiliqiu@163.net', u'li_zhixi@163.com', u'wcb_bwb@163.com', u'lymfei@163.com', u'lxamy@sina.com', u'51667826@163.com', u'zgsw2010@163.com', u'dyaya980618@sina.com', u'zgswj2010@163.com', u'yeguo1111@163.com', u'yuhe0828@163.com', u'muyuyuel@sina.com', u'zhyongk@sina.com', u'morefree520@sina.com', u'wxy200403@yahoo.com.cn', u'zongxusheng@126.com', u'stj0317@163.net', u'fkb@cqrb.cn', u'zhongguojilv@163.com', u'qianwenzhong66@yahoo.com.cn', u'lnzls@vip.qq.com', u'wfthn@sina.com', u'fkb@mail.cqwb.com.cn', u'rbljc@sohu.com', u'wy1937@263.net', u'julian19861986@sina.com', u'yujicong1971@sina.com', u'hgliang73@263.net', u'lunan1969@sohu.com', u'sc-tian-lu@sohu.com', u'fkb@sjzdaily.com.cn', u'acostata@sina.com', u'wangy_602@126.com', u'cz_youth@21cn.com', u'huoqly@yahoo.com.cn', u'hustoliver@hainan.net', u'xiaoming170@163.com', u'lunan1969@sina.com', u'sangmeier@sina.com', u'ly4986@sina.com']
+[2016/08/09 20:21:08] 读取附件成功
+[2016/08/09 20:21:08] Start to send a group.
+Connect 192.168.11.25 Success.
+Account sys@d3p.com login Success.
+[2016/08/09 20:21:11] Send to [u'yanhx0308@sina.com', u'liyz0306@sina.com', u'hijjjb2005@yahoo.com.cn', u'bdrbfkb@yahoo.com.cn', u'mxylyn@sina.com'] |  | []
+
+
+
+
+
+
+
+
+
+
+################################################################[2016/08/09 20:22:36] Start the program.
+[2016/08/09 20:22:36] Get 90 mails from excel.
+[2016/08/09 20:22:36] Origin mail list is:
+[u'hustoliver@hainan.net', u'bdwbsrn@126.com', u'1307408482@qq.com', u'anfeng119@163.com', u'fkb@sjzdaily.com.cn', u'zawenbao4@yahoo.com.cn', u'zawenbao3@yahoo.com.cn', u'zawenbao2@yahoo.com.cn', u'zawenbao1@yahoo.com.cn', u'ningfan_001@sina.com', u'ss30@sina.com', u'baitai_yzwb@sina.com', u'zhuangyan11111@sina.com', u'zzmzyc@sina.com', u'cuiliqiu@sina100.com', u'cuiliqiu@163.net', u'zhang_jihe@163.com', u'xbsb@xbsb.com.cn', u'fzb@mail.cqwb.com.cn', u'wuhao9655@sina.com', u'fkb@mail.cqwb.com.cn', u'wangwen2004@163.com', u'qingjian@126.com', u'fkb@cqrb.cn', u'rbljc@sohu.com', u'cqlys@263.net', u'xiezuogaoshou@sina.com', u'aafox8@sina.com.cn', u'stj0317@163.net', u'shenian168@163.com', u'zjjdaily@vip.163.com', u'wang4868@163.com', u'hhgbdsb@tom.com', u'hxy7109@sina.com', u'yanli8482@sina.com', u'tianre26@163.com', u'tang_cdwb@163.com', u'ly8056@163.com', u'7727160@163.com', u'chinaseerchen@sina.com', u'oyb258@sina.com', u'wxy200403@yahoo.com.cn', u'liying3254@sina.com', u'luoxl1971@sina.com', u'caodelimm@163.com', u'xxcb9988@163.com', u'xxcb888@163.com', u'li_zhixi@163.com', u'linglinlin1@sina.com', u'lxamy@sina.com', u'wy1937@263.net', u'dyaya980618@sina.com', u'muyuyuel@sina.com', u'cz_youth@21cn.com', u'wcb_bwb@163.com', u'ndzkfodo@126.com', u'1026815245@qq.com', u'zhyongk@sina.com', u'lymfei@163.com', u'zongxusheng@126.com', u'morefree520@sina.com', u'wfthn@sina.com', u'51667826@163.com', u'xujia396@vip.sina.com', u'qianwenzhong66@yahoo.com.cn', u'julian19861986@sina.com', u'zgsw2010@163.com', u'zgswj2010@163.com', u'yujicong1971@sina.com', u'wei_hengxin@hotmail.com', u'acostata@sina.com', u'lunan1969@sohu.com', u'lunan1969@sina.com', u'chenaiyizi@hotmail.com', u'wangy_602@126.com', u'lnzls@vip.qq.com', u'sangmeier@sina.com', u'yeguo1111@163.com', u'yuhe0828@163.com', u'zhongguojilv@163.com', u'xiaoming170@163.com', u'sc-tian-lu@sohu.com', u'hgliang73@263.net', u'huoqly@yahoo.com.cn', u'ly4986@sina.com']
+[2016/08/09 20:22:36] New mail list is:
+[u'ningfan_001@sina.com', u'ss30@sina.com', u'bdwbsrn@126.com', u'fkb@sjzdaily.com.cn', u'zawenbao4@yahoo.com.cn', u'anfeng119@163.com', u'qingjian@126.com', u'rbljc@sohu.com', u'baitai_yzwb@sina.com', u'zhang_jihe@163.com', u'cuiliqiu@sina100.com', u'zhuangyan11111@sina.com', u'zzmzyc@sina.com', u'cz_youth@21cn.com', u'wangwen2004@163.com', u'wei_hengxin@hotmail.com', u'lnzls@vip.qq.com', u'shenian168@163.com', u'wang4868@163.com', u'tianre26@163.com', u'wuhao9655@sina.com', u'lunan1969@sohu.com', u'cqlys@263.net', u'tang_cdwb@163.com', u'hustoliver@hainan.net', u'ly8056@163.com', u'zawenbao3@yahoo.com.cn', u'sc-tian-lu@sohu.com', u'ndzkfodo@126.com', u'7727160@163.com', u'caodelimm@163.com', u'xxcb9988@163.com', u'xxcb888@163.com', u'cuiliqiu@163.net', u'xiezuogaoshou@sina.com', u'fkb@cqrb.cn', u'zawenbao2@yahoo.com.cn', u'hxy7109@sina.com', u'yanli8482@sina.com', u'li_zhixi@163.com', u'zawenbao1@yahoo.com.cn', u'1307408482@qq.com', u'wcb_bwb@163.com', u'zongxusheng@126.com', u'chenaiyizi@hotmail.com', u'chinaseerchen@sina.com', u'oyb258@sina.com', u'fzb@mail.cqwb.com.cn', u'liying3254@sina.com', u'xbsb@xbsb.com.cn', u'luoxl1971@sina.com', u'hhgbdsb@tom.com', u'linglinlin1@sina.com', u'lymfei@163.com', u'51667826@163.com', u'wxy200403@yahoo.com.cn', u'lxamy@sina.com', u'zjjdaily@vip.163.com', u'qianwenzhong66@yahoo.com.cn', u'wy1937@263.net', u'stj0317@163.net', u'dyaya980618@sina.com', u'xujia396@vip.sina.com', u'1026815245@qq.com', u'muyuyuel@sina.com', u'wangy_602@126.com', u'hgliang73@263.net', u'zgsw2010@163.com', u'zgswj2010@163.com', u'zhyongk@sina.com', u'morefree520@sina.com', u'yeguo1111@163.com', u'yuhe0828@163.com', u'wfthn@sina.com', u'fkb@mail.cqwb.com.cn', u'julian19861986@sina.com', u'yujicong1971@sina.com', u'acostata@sina.com', u'zhongguojilv@163.com', u'xiaoming170@163.com', u'lunan1969@sina.com', u'aafox8@sina.com.cn', u'huoqly@yahoo.com.cn', u'sangmeier@sina.com', u'ly4986@sina.com']
+[2016/08/09 20:22:36] 读取附件成功
+[2016/08/09 20:22:36] Start to send a group.
+Connect 192.168.11.25 Success.
+Account sys@d3p.com login Success.
+[2016/08/09 20:22:39] Send to [u'ningfan_001@sina.com', u'ss30@sina.com', u'bdwbsrn@126.com', u'fkb@sjzdaily.com.cn', u'zawenbao4@yahoo.com.cn', u'anfeng119@163.com', u'qingjian@126.com', u'rbljc@sohu.com', u'baitai_yzwb@sina.com', u'zhang_jihe@163.com', u'cuiliqiu@sina100.com', u'zhuangyan11111@sina.com', u'zzmzyc@sina.com', u'cz_youth@21cn.com', u'wangwen2004@163.com', u'wei_hengxin@hotmail.com', u'lnzls@vip.qq.com', u'shenian168@163.com', u'wang4868@163.com', u'tianre26@163.com'] |  | []
+[2016/08/09 20:22:59] Start to send a group.
+Connect 192.168.11.25 Success.
+Account sys@d3p.com login Success.
+[2016/08/09 20:23:01] Send to [u'wuhao9655@sina.com', u'lunan1969@sohu.com', u'cqlys@263.net', u'tang_cdwb@163.com', u'hustoliver@hainan.net', u'ly8056@163.com', u'zawenbao3@yahoo.com.cn', u'sc-tian-lu@sohu.com', u'ndzkfodo@126.com', u'7727160@163.com', u'caodelimm@163.com', u'xxcb9988@163.com', u'xxcb888@163.com', u'cuiliqiu@163.net', u'xiezuogaoshou@sina.com', u'fkb@cqrb.cn', u'zawenbao2@yahoo.com.cn', u'hxy7109@sina.com', u'yanli8482@sina.com', u'li_zhixi@163.com'] |  | []
+[2016/08/09 20:23:21] Start to send a group.
+Connect 192.168.11.25 Success.
+Account sys@d3p.com login Success.
+[2016/08/09 20:23:24] Send to [u'zawenbao1@yahoo.com.cn', u'1307408482@qq.com', u'wcb_bwb@163.com', u'zongxusheng@126.com', u'chenaiyizi@hotmail.com', u'chinaseerchen@sina.com', u'oyb258@sina.com', u'fzb@mail.cqwb.com.cn', u'liying3254@sina.com', u'xbsb@xbsb.com.cn', u'luoxl1971@sina.com', u'hhgbdsb@tom.com', u'linglinlin1@sina.com', u'lymfei@163.com', u'51667826@163.com', u'wxy200403@yahoo.com.cn', u'lxamy@sina.com', u'zjjdaily@vip.163.com', u'qianwenzhong66@yahoo.com.cn', u'wy1937@263.net'] |  | []
+[2016/08/09 20:23:44] Start to send a group.
+Connect 192.168.11.25 Success.
+Account sys@d3p.com login Success.
+[2016/08/09 20:23:46] Send to [u'stj0317@163.net', u'dyaya980618@sina.com', u'xujia396@vip.sina.com', u'1026815245@qq.com', u'muyuyuel@sina.com', u'wangy_602@126.com', u'hgliang73@263.net', u'zgsw2010@163.com', u'zgswj2010@163.com', u'zhyongk@sina.com', u'morefree520@sina.com', u'yeguo1111@163.com', u'yuhe0828@163.com', u'wfthn@sina.com', u'fkb@mail.cqwb.com.cn', u'julian19861986@sina.com', u'yujicong1971@sina.com', u'acostata@sina.com', u'zhongguojilv@163.com', u'xiaoming170@163.com'] |  | []
+[2016/08/09 20:24:07] Start to send a group.
+Connect 192.168.11.25 Success.
+Account sys@d3p.com login Success.
+[2016/08/09 20:24:09] Send to [u'lunan1969@sina.com', u'aafox8@sina.com.cn', u'huoqly@yahoo.com.cn', u'sangmeier@sina.com', u'ly4986@sina.com'] |  | []
+
+
+
+
+
+
+
+
+
+
+################################################################[2016/08/09 20:52:30] Start the program.
+[2016/08/09 20:52:30] Get 90 mails from excel.
+[2016/08/09 20:52:30] Origin mail list is:
+[]
+[2016/08/09 20:52:30] New mail list is:
+[]
+[2016/08/09 20:52:30] 读取附件成功

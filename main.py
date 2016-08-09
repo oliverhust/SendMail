@@ -20,7 +20,7 @@ from mylog import *
 from err_code import *
 from mail_list import *
 
-import pdb;  pdb.set_trace()
+# import pdb;  pdb.set_trace()
 
 
 class Account:
@@ -35,7 +35,13 @@ class Account:
         pass
 
     def auto_get_host(self):
-        pass
+        host_dict = {"hust.edu.cn": "mail.hust.edu.cn", "163.com": "smtp.163.com"}
+        pos = self.user.find("@")
+        if -1 == pos:
+            return
+        domain = self.user[pos+1:]
+        if domain in host_dict:
+            self.host = host_dict[domain]
 
 
 class AccountsMange:
@@ -68,7 +74,7 @@ class AccountsMange:
         return account
 
     def send_too_many_proc(self, origin_err_info):
-        # 每当轮询到第一个账户失败时就一直等，除非是第一次发送第一个账号失败 需要用self._PolicyTooManyMark
+        # 每当轮询到第一个账户失败时就一直等，除非是第一次发送第一个账号失败 需要用self._send_too_many_mark
         err_info = origin_err_info
         if 1 == len(self._AccountList):
             self._send_too_many_mark = True
@@ -89,18 +95,44 @@ class AccountsMange:
 
 class MailContent:
     """  邮件内容：主题、正文、附件 """
+    BODY_TXT_ENCODE = 'gb18030'
     SPECIAL_STR_PATTERN = r'\{##[A-Z]##\}'     # 邮件正文或标题中的特殊字符
 
-    def __init__(self, mail_sub, mail_body, mail_append_list):
+    def __init__(self, mail_sub, mail_body_path, mail_append_list):
         self._Sub = mail_sub    # 原始主题
-        self._Body = mail_body  # 原始正文
+        self._Body = ""  # 原始正文
         self._AppendList = mail_append_list
+        self._BodyPath = mail_body_path
 
         # 暂存附件内容不用每次读取
         self._msg_append_list = []
 
         # 判断内容里面是否有特殊含义的字符需要替换（这样每封邮件都不一样，需要一封封发送）
         self._bool_special = self._is_special_content(self._Sub, self._Body)
+
+    def init(self):
+        err, err_info = ERROR_SUCCESS, u""
+        try:
+            f = open(self._BodyPath)
+        except Exception, e:
+            err = ERROR_OPEN_BODY_FAILED
+            err_info = u"打开邮件正文失败\n{}".format(e)
+            return err, err_info
+        try:
+            body = f.read()
+        except Exception, e:
+            err = ERROR_READ_BODY_FAILED
+            err_info = u"读取邮件正文失败\n{}".format(e)
+            return err, err_info
+        try:
+            raw_body = body.decode(MailContent.BODY_TXT_ENCODE)
+        except Exception, e:
+            err = ERROR_DECODE_BODY_FAILED
+            err_info = u"邮件正文解码失败\n{}".format(e)
+            return err, err_info
+
+        self._Body = html_add_head(html_txt_elem(raw_body))
+        return err, err_info
 
     def sub(self, mail_matrix=None, mail_address=""):
         if not self.is_special_content():
@@ -256,6 +288,7 @@ class XlsMatrix:
         self._MailColNo = 0
         self._SelectedSheets = []
         self._MailDB = mail_db
+
         self._xls = None
         self._mails_not_sent = []   # 待发送的
         self._mails_has_sent = []
@@ -277,6 +310,10 @@ class XlsMatrix:
         self._init_set_data(user_selected_sheets, mail_which_col)
         err, err_info = self._create_not_sent_list()
         return err, err_info
+
+    def delete_failed_sent(self):
+        self._mails_sent_failed = []
+        self._MailDB.del_all_failed_sent()
 
     def _init_set_data(self, user_selected_sheets, mail_which_col):
         self._MailColNo = ord(mail_which_col.upper()) - ord('A')
@@ -322,6 +359,10 @@ class XlsMatrix:
             err = ERROR_READ_MATRIX_DB_FAILED
             err_info = u"读取数据库中的已发送数据失败 {}".format(e)
             return err, err_info
+
+        # 保存上次发送成功的到总进度中(上次失败的不管)，清除数据库中发送失败的
+        self._mails_has_sent = last_sent[:]
+        self._MailDB.del_all_failed_sent()
 
         for each_last_sent in last_sent:
             if each_last_sent in mails_read:
@@ -381,7 +422,7 @@ class MailProc:
     MAILS_UNKNOWN_ERROR_MAX_CONTINUE_TIME = 20   # 连续出现未知错误的最大次数
     ENCODE = "gb18030"
 
-    def __init__(self, mail_matrix, accounts_manager, mail_sub, mail_body, mail_append_list):
+    def __init__(self, mail_matrix, accounts_manager, mail_content):
         """ mail_matrix  邮件矩阵对象 MailMatrix,
             accounts_list Account对象列表，多个账户轮换,
             mail_sub 邮件主题,
@@ -389,19 +430,14 @@ class MailProc:
             mail_append_list 附件列表(路径名) """
         self._MailMatrix = mail_matrix
         self._AccountsMange = accounts_manager
-        self._Content = MailContent(mail_sub, mail_body, mail_append_list)
+        self._Content = mail_content
 
         # 每回合发送邮件的数量
         if self._Content.is_special_content():
             self._MailMatrix.set_max_send_a_loop(MailProc.MAX_SPECIAL_SEND_A_LOOP)
 
-        # 当前发送账号
-        self._curr_account_id = 0
         # 未知错误连续发生的次数
         self._unknown_error_continue_times = 0
-
-        # 当第一次尝试完第二个账户该标志位就会一直被置True
-        self._PolicyTooManyMark = False
 
     @staticmethod
     def _format_addr(s):
@@ -793,6 +829,40 @@ class MailDB:
     # ---------------------------------------------------------------------------
 
 
+class UserOperation:  # ????????????????????????????????????????????
+    """ 用户的各种操作对应的处理   提供给上层UI进行使用"""
+    def __init__(self):
+        self._db = MailDB('send_mail.db')
+        self._db.init()
+
+    def get_last_progress(self):
+        # 如果返回[]代表没有上次
+        ret = self._db.get_sent_progress()
+        return ret
+
+    def reload_last_state(self, is_enable):
+        # 是否恢复上次的进度 是则返回之前的UI数据
+        ret = None
+        if not is_enable:
+            # 如果不恢复则清除db中的tmp和dynamic数据
+            self._db.clear_tmp_and_dynamic()
+        else:
+            # 获取上次的所有UI数据返回
+            # 返回可能是[] ???????????????????????????????????????????????????????????????????
+            ret["AccountList"] = self._db.get_accounts()
+            ret["Sub"], ret["Body"], ret["AppendList"] = self._db.get_mail_content()
+            xls_path, selected_list, col_name = self._db.get_receiver_data()
+            send_each_hour, send_each_time = self._db.get_speed_info()
+        return ret
+
+    def set_all_data(self):
+        # 用户设置完所有数据后的处理
+
+
+
+
+
+
 def is_break_error(err):
     if ERROR_FINISH == err and \
        ERROR_OPEN_APPEND_FAILED == err and \
@@ -840,6 +910,9 @@ def html_txt_elem(txt):
     ret = txt.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     return "<pre>" + ret + "</pre>"
 
+
+def os_get_curr_dir():
+    return os.path.dirname(os.path.realpath(__file__))
 
 def chdir_myself():
     p = os.path.dirname(os.path.realpath(__file__))
@@ -976,8 +1049,10 @@ def test_send_mail():
              ["1307408482@qq.com"],
              ]
 
-    # mail_matrix = SimpleMatrix(2, mails)   # 一次循环最大发送数量
-    mail_matrix = XlsMatrix(40, ur'E:\点 石测试Haha\2014点石 你好2.xls')
+    mail_db = MailDB(ur'D:\tmp\sendmail.db')
+    mail_db.init()
+    # mail_matrix = SimpleMatrix(2, mails)             # 一次循环最大发送数量
+    mail_matrix = XlsMatrix(20, ur'E:\点 石测试Haha\2014点石 你好.xls', mail_db)
     err, err_info, l = mail_matrix.read_sheets_before_init()
     if err != ERROR_SUCCESS:
         print(err_info)
@@ -988,40 +1063,21 @@ def test_send_mail():
 
     accounts_list = [ account8 ]
     account_manger = AccountsMange(accounts_list)
+
     #mail_sub = ur"——邮件发送出问题，打扰了{}——".format(get_time_str())
     mail_sub = u"再次分享内容：笛卡尔的思维"
-    mail_body = u"""{}
-在笔者看来, 斯特劳森的这种描述实际上并不
-能完全表达笛卡尔的身心关系问题的真正内容, 这
-主要表现在两个方面: 一、斯特劳森的这种描述其实
-混同了心物关系和身心关系这两个并不完全对应的
-问题, 二、由此, 在这种思路下来理解笛卡尔的心身
-关系问题就有过于简单之嫌。
-的确, 诚如斯特劳森和大家所理解的, 笛卡尔的
-哲学坚持一种形而上的区分, 即对精神性思维( 心)
-和广延性物体( 物) 的二元区分。而且, 这种区分实
-际上是笛卡尔整个哲学的基点, 正是通过这种根本
-性的区分, 笛卡尔才能为他的科学探索事业寻找到
-一种可靠的方法论根基, 从而来构建他的整个科学
-知识之树。让我们简单地来回顾一下笛卡尔的这种
-思路历程。
-早在1627 年笛卡尔所写的􀀁指导心灵探求真理
-的原则􀀁 􀀁 一书中, 笛卡尔就明确谈到了思维和物体
-相区分的思想。在原则12 中, 笛卡尔区分了纯粹智
-性的( intellectuelles ) 东西和纯粹物质性
-( mat􀀁rielles) 的东西。纯粹智性的东西, 是那些我
-们无须借助任何物体形象, 而只需理智( l 'entede􀀁
-ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
-们也不能对它们构造任何物体性的观念, 这些东西
-包括认识、怀疑、无知、意志的活动等。
-    """.format(get_time_str())
-    # mail_body = u"My good friend, \nnice to meet you"
-    mail_body = html_add_head(html_txt_elem(mail_body))
-    
+
     append_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
                     ur'E:\X 发行资料\文本-内容.txt',
                   ]
-    mail = MailProc(mail_matrix, account_manger, mail_sub, mail_body, append_list)
+    path_body = ur'E:\X 发行资料\文本-内容.txt'
+    mail_content = MailContent(mail_sub, path_body, append_list)
+    err, err_info = mail_content.init()
+    if ERROR_SUCCESS != err:
+        print(err_info)
+        return
+
+    mail = MailProc(mail_matrix, account_manger, mail_content)
     fail_list = []
 
     while True:
@@ -1060,7 +1116,7 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
         elif ERROR_SOME_EMAILS_FAILED == err:
             print(u"部分发送失败")
             fail_list += ret["FailedList"]
-        time.sleep(60)
+        time.sleep(20)
 
 
 if __name__ == "__main__":
