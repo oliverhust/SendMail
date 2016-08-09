@@ -250,23 +250,29 @@ class XlsMatrix:
     2. 统计已成功/失败/未发送的邮件数量
     3. 保存(已成功和已失败的邮件)到MailDB，重启时从DB过滤已成功；提供clear_db供任务完成时调用
     """
-    def __init__(self, max_send_a_loop, xls_path):
+    def __init__(self, max_send_a_loop, xls_path, mail_db):
         self._MaxSendALoop = max_send_a_loop
         self._Path = xls_path
         self._MailColNo = 0
         self._SelectedSheets = []
-
+        self._MailDB = mail_db
         self._xls = None
         self._mails_not_sent = []   # 待发送的
         self._mails_has_sent = []
         self._mails_sent_failed = []
 
     def read_sheets_before_init(self):     # 可能会出异常 打开失败，调用者注意
-        self._xls = xlrd.open_workbook(self._Path)
-        return self._xls.sheet_names()
+        err, err_info = ERROR_SUCCESS, u""
+        try:
+            self._xls = xlrd.open_workbook(self._Path)
+        except Exception, e:
+            err = ERROR_OPEN_XLS_FAILED
+            err_info = u"打开Excel表格失败\n{}".format(e)
+            return err, err_info, []
+        return err, err_info, self._xls.sheet_names()
 
     # 注意selected_sheets从1开始，与用户看到的一致，与表格模块不一致 列名： 'A' 'B' ..
-    # 检查是否有重复的邮箱
+    # 暂不检查是否有重复的邮箱
     def init(self, user_selected_sheets, mail_which_col):
         self._init_set_data(user_selected_sheets, mail_which_col)
         err, err_info = self._create_not_sent_list()
@@ -311,7 +317,7 @@ class XlsMatrix:
         # 根据db的已发送和当前读取的生成待发送列表
         mails_read = self._get_xls_mails()
         try:
-            last_sent, last_failed, last_not_sent = self.get_last_exit_data()
+            last_sent = self._MailDB.get_success_sent()
         except Exception, e:
             err = ERROR_READ_MATRIX_DB_FAILED
             err_info = u"读取数据库中的已发送数据失败 {}".format(e)
@@ -338,8 +344,10 @@ class XlsMatrix:
         curr_mails = self._mails_not_sent[0: self._MaxSendALoop]
         if failed_mails is None:
             self._mails_has_sent += curr_mails
+            failed_mails = []
         else:
-            self._mails_has_sent += list(set(curr_mails) - set(failed_mails))
+            curr_mails = list(set(curr_mails) - set(failed_mails))
+            self._mails_has_sent += curr_mails
             self._mails_sent_failed += failed_mails
 
         # step 为下次获取准备
@@ -348,6 +356,12 @@ class XlsMatrix:
         else:
             for i in range(self._MaxSendALoop):
                 self._mails_not_sent.pop(0)
+
+        # 保存到成功/失败/进度到数据库
+        self._MailDB.add_success_sent(curr_mails)
+        self._MailDB.add_failed_sent(failed_mails)
+        success_sent, failed_sent, not_sent = self.curr_progress()
+        self._MailDB.save_sent_progress(success_sent, failed_sent, not_sent)
 
     @staticmethod
     def get_data_by_name(mail_name):   # 暂不实现
@@ -358,15 +372,6 @@ class XlsMatrix:
         failed_num = len(self._mails_sent_failed)
         not_send = len(self._mails_not_sent)
         return success_num, failed_num, not_send
-
-    ########################## 数据库相关操作 ###########################
-
-    def clear_db(self):    # ?????????????????????????????
-        pass
-
-    def get_last_exit_data(self):
-        # 从数据库中获取上次的情况(已发，失败，未发)列表                      ???????????????
-        return [], [], []
 
 
 class MailProc:
@@ -568,24 +573,192 @@ class MailDB:
 
     def init(self):
         # 创建各个表(如果不存在)
+        self._create_forever_table()
+        self._create_tmp_table()
+        self._create_dynamic_table()
+        self._db.commit()
+
+    def _create_forever_table(self):
+
+        # 账户信息：用户名 密码 host 姓名
+        self._c.execute("CREATE TABLE IF NOT EXISTS account ("
+                        "username TEXT PRIMARY KEY NOT NULL, "
+                        "passwd TEXT NOT NULL, "
+                        "host TEXT, "
+                        "sender_name TEXT)")
+
+    def _create_tmp_table(self):
+
+        # 邮件内容 标题 正文 附件路径(换行符分开不同的附件) id永远为0
+        self._c.execute("CREATE TABLE IF NOT EXISTS mail_content ("
+                        "id INTEGER PRIMARY KEY NOT NULL, "
+                        "sub TEXT, "
+                        "body TEXT, "
+                        "appends TEXT)")
+
+        # 收件人来源 (xls路径，选择的表(逗号隔开), 列) id永远为0
+        self._c.execute("CREATE TABLE IF NOT EXISTS receiver ("
+                        "id INTEGER PRIMARY KEY NOT NULL, "
+                        "src_path TEXT, "
+                        "selected TEXT, "
+                        "col_name TEXT)")
+
+        # 速度控制信息 (每账户每小时发送数量，每次发送数量)  id永远为0
+        self._c.execute("CREATE TABLE IF NOT EXISTS speed_info ("
+                        "id INTEGER PRIMARY KEY NOT NULL, "
+                        "speed INTEGER, "
+                        "each_time INTEGER)")
+
+    def _create_dynamic_table(self):
+
+        # 发送进度 id永远为0
+        self._c.execute("CREATE TABLE IF NOT EXISTS sent_progress ("
+                        "id INTEGER PRIMARY KEY NOT NULL, "
+                        "success INTEGER NOT NULL, "
+                        "failed INTEGER NOT NULL, "
+                        "notsent INTEGER NOT NULL)")
+
         # 已发送成功的表
-        self._c.execute("CREATE TABLE IF NOT EXISTS success_sent (mail TEXT)")
+        self._c.execute("CREATE TABLE IF NOT EXISTS success_sent (mail TEXT NOT NULL)")
+
         # 发送失败的表
-        self._c.execute("CREATE TABLE IF NOT EXISTS failed_sent (mail TEXT)")
+        self._c.execute("CREATE TABLE IF NOT EXISTS failed_sent (mail TEXT NOT NULL)")
+
+    def clear_tmp_and_dynamic(self):
+        # 清除临时数据和实时数据
+        self.del_mail_content()
+        self.del_receiver_data()
+        self.del_speed_info()
+        self.del_sent_progress()
+        self.del_all_success_sent()
+        self.del_all_failed_sent()
+
+    # ---------------------------------------------------------------------------
+    def save_accounts(self, account_list):
+        # account_list:由Account对象组成的列表 每次保存都先删除原有信息 (用户名 密码 host 姓名)
+        self._c.execute("DELETE FROM account")
+        sql_arg = [(x.user, x.passwd, x.host, x.sender_name) for x in account_list]
+        self._c.executemany("INSERT INTO account VALUES (?,?,?,?)", sql_arg)
+        self._db.commit()
+
+    def get_accounts(self):
+        # 返回由Account对象组成的列表
+        self._c.execute("SELECT * FROM account")
+        ret = self._c.fetchall()
+        return [Account(ret[i][0], ret[i][1], ret[i][2], ret[i][3]) for i in range(len(ret))]
+
+    def del_all_accounts(self):
+        # 删除所有账户
+        self._c.execute("DELETE FROM account")
+        self._db.commit()
+
+    # ---------------------------------------------------------------------------
+    def save_mail_content(self, sub, body, append_path_list):
+        # 邮件内容： 标题 正文 附件路径列表 id永远为0 先删再加
+        self._c.execute("DELETE FROM mail_content")
+        append_str = "\n\n".join(append_path_list)   # 用两个换行符分开不同的附件路径
+        sql_arg = (0, sub, body, append_str)
+        self._c.execute("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+        self._db.commit()
+
+    def get_mail_content(self):
+        # 返回邮件内容：[ 标题, 正文, 附件路径列表 ] id永远为0
+        self._c.execute("SELECT * FROM mail_content")
+        ret = self._c.fetchall()
+        if not ret:
+            return []
+        ret = ret[0]
+        append_path_list = ret[3].split('\n\n')
+        return [ret[1], ret[2], append_path_list]
+
+    def del_mail_content(self):
+        self._c.execute("DELETE FROM mail_content")
+        self._db.commit()
+
+    # ---------------------------------------------------------------------------
+    def save_receiver_data(self, xls_path, selected_list, col_name):
+        # 收件人来源 [xls表路径，选择的表(数字组成的列表), 列名] id永远为0
+        self._c.execute("DELETE FROM receiver")
+        str_list = [str(x) for x in selected_list]
+        str_selected = ",".join(str_list)
+        sql_arg = (0, xls_path, str_selected, col_name)
+        self._c.execute("INSERT INTO receiver VALUES (?,?,?,?)", sql_arg)
+        self._db.commit()
+
+    def get_receiver_data(self):
+        # 返回收件人来源的信息 [xls表路径，选择的表(数字组成的列表), 列名] id永远为0
+        self._c.execute("SELECT * FROM receiver")
+        ret = self._c.fetchall()
+        if not ret:
+            return []
+        ret = ret[0]
+        str_list = ret[2].split(",")
+        selected_list = [int(x) for x in str_list]
+        return [ret[1], selected_list, ret[3]]
+
+    def del_receiver_data(self):
+        self._c.execute("DELETE FROM receiver")
+        self._db.commit()
+
+    # ---------------------------------------------------------------------------
+    def save_speed_info(self, num_each_account_hour, each_time_send):
+        # 速度控制信息 (每账户每小时发送数量，每次发送数量)  id永远为0
+        self._c.execute("DELETE FROM speed_info")
+        sql_arg = (0, num_each_account_hour, each_time_send)
+        self._c.execute("INSERT INTO speed_info VALUES (?,?,?)", sql_arg)
+        self._db.commit()
+
+    def get_speed_info(self):
+        # 速度控制信息列表 [每账户每小时发送数量，每次发送数量]  id永远为0
+        self._c.execute("SELECT * FROM speed_info")
+        ret = self._c.fetchall()
+        if not ret:
+            return []
+        ret = ret[0]
+        return [ret[1], ret[2]]
+
+    def del_speed_info(self):
+        self._c.execute("DELETE FROM speed_info")
+        self._db.commit()
+
+    # ---------------------------------------------------------------------------
+    def save_sent_progress(self, success_sent, failed_sent, not_sent):
+        # 发送进度 (已发送成功的数量, 已发送失败的数量, 未发送的数量) id永远为0
+        self._c.execute("DELETE FROM sent_progress")
+        sql_arg = (0, success_sent, failed_sent, not_sent)
+        self._c.execute("INSERT INTO sent_progress VALUES (?,?,?,?)", sql_arg)
+        self._db.commit()
+
+    def get_sent_progress(self):
+        # 发送进度 (已发送成功的数量, 已发送失败的数量, 未发送的数量) id永远为0
+        self._c.execute("SELECT * FROM sent_progress")
+        ret = self._c.fetchall()
+        if not ret:
+            return []
+        ret = ret[0]
+        return [ret[1], ret[2], ret[3]]
+
+    def del_sent_progress(self):
+        self._c.execute("DELETE FROM sent_progress")
+        self._db.commit()
 
     # ---------------------------------------------------------------------------
     def add_success_sent(self, list_success):
+        if not list_success:
+            return
         sql_arg = [(x,) for x in list_success ]
         self._c.executemany("INSERT INTO success_sent VALUES (?)", sql_arg)
         self._db.commit()
 
     def del_success_sent(self, list_to_del):
+        if not list_to_del:
+            return
         sql_arg = [(x,) for x in list_to_del ]
         self._c.executemany("DELETE FROM success_sent WHERE mail=?", sql_arg)
         self._db.commit()
 
     def del_all_success_sent(self):
-        self._c.executemany("DELETE FROM success_sent")
+        self._c.execute("DELETE FROM success_sent")
         self._db.commit()
 
     def get_success_sent(self):
@@ -595,17 +768,21 @@ class MailDB:
 
     # ---------------------------------------------------------------------------
     def add_failed_sent(self, list_failed):
+        if not list_failed:
+            return
         sql_arg = [(x,) for x in list_failed ]
         self._c.executemany("INSERT INTO failed_sent VALUES (?)", sql_arg)
         self._db.commit()
 
     def del_failed_sent(self, list_to_del):
+        if not list_to_del:
+            return
         sql_arg = [(x,) for x in list_to_del ]
         self._c.executemany("DELETE FROM failed_sent WHERE mail=?", sql_arg)
         self._db.commit()
 
     def del_all_failed_sent(self):
-        self._c.executemany("DELETE FROM failed_sent")
+        self._c.execute("DELETE FROM failed_sent")
         self._db.commit()
 
     def get_failed_sent(self):
@@ -613,7 +790,7 @@ class MailDB:
         ret = self._c.fetchall()
         return [ret[i][0] for i in range(len(ret))]
 
-
+    # ---------------------------------------------------------------------------
 
 
 def is_break_error(err):
@@ -671,6 +848,109 @@ def chdir_myself():
     return p
 
 
+def test_sql_db():
+    db_path = ur'E:\点 石测试Haha\sendmail_test.db'
+    db = MailDB(db_path)
+    db.init()
+
+    # ------------------------------------------
+    print("\nSave account_list:")
+    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉成")
+    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"")
+    account3 = Account("M201571856@hust.edu.cn", "M201571856", "", u"李嘉成")
+    account4 = Account("liangjinchao.happy@163.com", "ioqitwq!QAZ@WSX", "smtp.163.com", u"李嘉成")
+    account5 = Account("dian@hust.edu.cn", "diangroup1", "mail.hust.edu.cn", u"李市民")
+    account_list = [account1, account2, account3, account4, account5]
+    db.save_accounts(account_list)
+    ret = db.get_accounts()
+    for acc in ret:
+        print(u"{} {} {} {}".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+    print("Delete all accounts.")
+    db.del_all_accounts()
+    ret = db.get_accounts()
+    for acc in ret:
+        print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+
+    # ------------------------------------------
+    print("\nSave mail_content")
+    sub = u"再次分享内容：笛卡尔的思维"
+    body = u"""
+    早在1627 年笛卡尔所写的􀀁指导心灵探求真理
+的原则􀀁 􀀁 一书中, 笛卡尔就明确谈到了思维和物体
+相区分的思想。在原则12 中, 笛卡尔区分了纯粹智
+性的( intellectuelles ) 东西和纯粹物质性
+( mat􀀁rielles) 的东西。纯粹智性的东西, 是那些我
+们无须借助任何物体形象, 而只需理智( l 'entede􀀁
+ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
+
+    """
+    append_path_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
+                        ur'E:\X 发行资料\文本-内容.txt',
+                       ]
+    db.save_mail_content(sub, body, append_path_list)
+    sub_, body_, append_path_list_ = db.get_mail_content()
+    print(u"Sub = [{}]".format(sub_))
+    print(u"Appends = {}".format(append_path_list_))
+    # print(u"Body = [{}]".format(body_))             # body 有乱码不能打印
+    print("Clear mail content")
+    db.del_mail_content()
+    if not db.get_mail_content():
+        print "Delete success"
+
+    # ------------------------------------------
+    print("\nReceiver data Test")
+    xls_path = ur'E:\点 石测试Haha\2014点石 你好.xls'
+    selected_list = [4,5,6,7,8,9]
+    col_name = "D"
+    db.save_receiver_data(xls_path, selected_list, col_name)
+    xls_path_, selected_list_, col_name_ = db.get_receiver_data()
+    print(u"xls_path=[{}]\nselected={}\ncol_name={}".format(xls_path_, selected_list_, col_name_))
+    print("Delete receiver data")
+    if not db.get_receiver_data():
+        print("Delete success")
+
+    # ------------------------------------------
+    print("\nSpeed info Test")
+    db.save_speed_info(400, 40)
+    speed, each_time = db.get_speed_info()
+    print("Speed = {}, each time send {}".format(speed, each_time))
+    print("Delete speed info")
+    db.del_speed_info()
+    if not db.get_speed_info():
+        print("Delete success")
+
+    # -------------------------------------------
+    print("\nSent progress test")
+    db.save_sent_progress(4000, 2000, 1000)
+    a, b, c = db.get_sent_progress()
+    print(u"Success: {}, Failed: {}, NotSend: {}".format(a, b, c))
+    print("Delete progress")
+    if not db.get_sent_progress():
+        print("Delete success")
+
+    # ---------------------------------------------
+    print("\nSuccess Sent Test")
+    db.add_success_sent(["Hello", "@", "", " ", "liangjinchao.happy@jfda.com"])
+    print(db.get_success_sent())
+    print("Delete some")
+    db.del_success_sent(["Hello", " "])
+    print(db.get_success_sent())
+    print("Delete all")
+    db.del_all_success_sent()
+    print(db.get_success_sent())
+
+    # ---------------------------------------------
+    print("\nFailed Sent Test")
+    db.add_failed_sent(["Hello", "@", "", " ", "liangjinchao.happy@jfda.com"])
+    print(db.get_failed_sent())
+    print("Delete some")
+    db.del_failed_sent(["Hello", " "])
+    print(db.get_failed_sent())
+    print("Delete all")
+    db.del_all_failed_sent()
+    print(db.get_failed_sent())
+
+
 def test_send_mail():
     account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉成")
     account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"李嘉成")
@@ -697,11 +977,10 @@ def test_send_mail():
              ]
 
     # mail_matrix = SimpleMatrix(2, mails)   # 一次循环最大发送数量
-    mail_matrix = XlsMatrix(40, ur'E:\点 石测试Haha\2014点石 你好.xls')
-    try:
-        l = mail_matrix.read_sheets_before_init()
-    except Exception, e:
-        print("Read xls sheet failed:{}".format(e))
+    mail_matrix = XlsMatrix(40, ur'E:\点 石测试Haha\2014点石 你好2.xls')
+    err, err_info, l = mail_matrix.read_sheets_before_init()
+    if err != ERROR_SUCCESS:
+        print(err_info)
         return
     print(u"Get xls sheets:\n[{}]".format(u", ".join(l)))
     mail_matrix.init([3, 4], "E")
@@ -786,6 +1065,7 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
 
 if __name__ == "__main__":
     p = chdir_myself()
+    #test_sql_db()
     logging_init("SendMail.log")
     test_send_mail()
     logging_fini()
