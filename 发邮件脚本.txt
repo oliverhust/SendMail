@@ -39,6 +39,7 @@ GUI界面(坑)
 xls内搜索邮箱
 
 http://www.jb51.net/article/77626.htm
+http://www.linuxidc.com/Linux/2012-06/63652p2.htm
 
 【XLS获取邮箱】
 
