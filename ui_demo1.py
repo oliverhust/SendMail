@@ -700,4 +700,4 @@ def test8():
 
 if __name__ == "__main__":
     QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
-    test8()
+    test4()

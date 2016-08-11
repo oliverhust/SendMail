@@ -2,26 +2,59 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import time
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from ui_send1 import Ui_MainWindow
 from ui_add_account import Ui_Dialog_Account
 from ui_progress import Ui_Dialog_Progress
-from main import UIInterface
+from main import UIInterface, UITimer
+from main import Account
 
 # import pdb; pdb.set_trace()
 
-# ########################### 主窗口 ############################
+
+# ################################ GUI定时器(一次性与周期性混合) ##############################
+class GUITimer(UITimer, QTimer):
+
+    def __init__(self, period_time, callback_function, parent=None, first_set_time=None):
+        UITimer.__init__(self)
+        QTimer.__init__(self, parent)
+        self._FirstSet = first_set_time
+        self._Period = period_time
+        self._Callback = callback_function
+        self.connect(self, SIGNAL("timeout()"), self.__iner_callback)
+
+    def set_tmp_time(self, tmp_time):
+        self.setInterval(tmp_time)
+
+    def start(self, first_set_time=None):
+        if first_set_time is not None:
+            self._FirstSet = first_set_time
+        QTimer.start(self, self._FirstSet)
+
+    def stop(self):
+        QTimer.stop(self)
+
+    def __iner_callback(self):
+        QTimer.setInterval(self, self._Period)
+        self._Callback()
+
+
+# #####################################################################
+# ########################### 主窗口 ###################################
 class MainWindow(QMainWindow, Ui_MainWindow):
 
-    def __init__(self, parent=None):
+    def __init__(self, gui_proc=None, parent=None):
         super(MainWindow,self).__init__(parent)
+        self._GUIProc = gui_proc
         self.setupUi(self)
 
         # 窗口启动
         self.timer_form_load = QTimer(self)
+        self.timer_form_load.setSingleShot(True)
         self.connect(self.timer_form_load, SIGNAL("timeout()"), self.slot_form_load)
-        self.timer_form_load.start(100)
+        self.timer_form_load.start(200)
 
         # 打开正文、附件、Excel
         self.connect(self.pushButton_body, SIGNAL("clicked()"), self.slot_open_body)
@@ -46,9 +79,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self._sender_name = u""
         self._speed_each_hour = 400
         self._speed_each_time = 40
+        self._account_list = []
 
     def slot_open_body(self):
-        self.label_body.setText(QString(u"正在打开，请稍候..."))
+        self.label_body.setText(QString(u"载入时间较长，请稍等..."))
         s = QFileDialog.getOpenFileName(self, "Open file dialog", "/", "Text file(*.txt)")
         if len(s) == 0:
             self._body_path = u""
@@ -57,7 +91,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.label_body.setText(QString(s))
 
     def slot_open_appends(self):
-        self.label_append.setText(QString(u"正在打开，请稍候..."))
+        self.label_append.setText(QString(u"载入时间较长，请稍等..."))
         s_list = QFileDialog.getOpenFileNames(self, "Open file dialog", "/", "All files(*.*)")
         if not s_list:
             self.label_append.setText(QString(u""))
@@ -71,7 +105,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.label_append.setText(q_s)
 
     def slot_open_mail_list(self):
-        self.label_maillist.setText(QString(u"正在打开，请稍候..."))
+        self.label_maillist.setText(QString(u"载入时间较长，请稍等..."))
         s = QFileDialog.getOpenFileName(self, "Open file dialog", "/", "Excel file(*.xls;*.xlsx)")
         if len(s) == 0:
             self._xls_path = u""
@@ -80,8 +114,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.label_maillist.setText(QString(s))
 
     def slot_form_load(self):
-        print("Start the Form.")
-        self.timer_form_load.stop()
+        print time.strftime('%Y-%m-%d %H:%M:%S')
+        print("The form has loaded")
+        # 【【【【调用GUI的事件处理函数: 窗口启动】】】】
+        if self._GUIProc is not None:
+            self._GUIProc.event_form_load()
 
     def slot_button_cancel(self):
         r = QMessageBox.warning(self, "Warning",
@@ -99,10 +136,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             return
 
-    def _get_ui_accounts_data(self):
+    def _set_account_list_sender_name(self, sender_name):
         # 返回一个账户结构体的列表，没有则返回[]
-        self.listWidget.
-
+        for i in range(len(self._account_list)):
+            self._account_list[i].sender_name = sender_name
 
     def _ui_data_check(self):
         if len(self.lineEdit_Sub.text()) == 0:
@@ -126,7 +163,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             return False
 
         if start_str.isdigit() and end_str.isdigit() and len(col_str) == 1 \
-           and col_str.isalpha() and int(start_str) <= int(end_str):
+           and col_str.isalpha() and 1 <= int(start_str) <= int(end_str) <= 100:
             pass
         else:
             QMessageBox.critical(self, u"Input Error", QString(u"请正确输入Excel表格中从表的起始及列名"))
@@ -134,6 +171,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         if len(self.lineEdit_Sender_Name.text()) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入发件人"))
+            return False
+
+        if self.listWidget.count() == 0:
+            QMessageBox.critical(self, u"Input Error", QString(u"请输添加发送账号"))
             return False
 
         return True
@@ -151,25 +192,117 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self._sender_name = unicode(self.lineEdit_Sender_Name.text())
         self._speed_each_hour = self.spinBox_Each_Hour.value()
         self._speed_each_time = self.spinBox_Each_Time.value()
+        self._set_account_list_sender_name(self._sender_name)
         print(u"sub = {}\nbody_path = {}\nappend_list = {}\npath_xls = {}".format(self._sub, self._body_path, self._append_list, self._xls_path))
         print(u"selected = {}, col_name = {}, sender_name = {}".format(self._xls_selected_list, self._xls_col_name, self._sender_name))
         print(u"Speed each hour = {}, each time = {}".format(self._speed_each_hour, self._speed_each_time))
+        for i, account in enumerate(self._account_list):
+            print(u"Account[{}] = {}".format(i, account))
+
+        if self._GUIProc is not None:
+            self._GUIProc.event_start_send()
 
         # 弹出进度条界面
-        new_win = ProgressWindow(self)
-        if new_win.exec_():
-            print("Exit nornal")
+        # new_win = ProgressWindow(self)
+        #if new_win.exec_():
+        #   print("Exit nornal")
 
     def account_add(self):
+        # 弹出添加账户界面
         new_win = AccountWindow(self)
         if not new_win.exec_():
-            print("User cancel")
+            print(u"User cancel")
             return
-
+        for account in self._account_list:
+            if account.user == new_win.user:
+                QMessageBox.critical(self, u"Input Error", QString(u"已存在该账户，要添加请先删除"))
+                return
+        self._account_list.append(Account(new_win.user, new_win.passwd, new_win.host, u""))
         self.listWidget.addItem(QString(new_win.user))
 
     def account_del(self):
+        user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+        for i, account in enumerate(self._account_list):
+            if account.user == user_del:
+                del(self._account_list[i])
+                break
         self.listWidget.takeItem(self.listWidget.currentRow())
+
+
+# #######################################################################################
+# ################################ GUI主流程 启动及事件处理 ################################
+# #######################################################################################
+class GUIMain(UIInterface, MainWindow):
+
+    def __init__(self, parent=None):
+        UIInterface.__init__(self)
+        MainWindow.__init__(self, self)
+
+    def proc_err_same_program(self):
+        QMessageBox.critical(self, u"Program Error", QString(u"已经有另一个相同的程序在运行！\n请先停止该程序"))
+        self.close()
+
+    def proc_ask_if_recover(self, last_success_num, last_failed_num, last_not_sent):
+        ret = False
+        box = QMessageBox(self)
+        box.setWindowTitle(u"Recover or not")
+        b_recover = box.addButton(QString(u"继续上次的"), QMessageBox.ActionRole)
+        box.addButton(QString(u"重新来过"), QMessageBox.ActionRole)
+
+        box.setText(QString(u"检测到上次退出的发送情况:\n"
+                            u"成功{}，  失败{}，  未发送{}\n"
+                            u"要载入上次的进度吗？已发送的邮件不会再发送".format(
+                             last_success_num, last_failed_num, last_not_sent)))
+        box.exec_()
+
+        button = box.clickedButton()
+        if button == b_recover:
+            ret = True
+            print(u"User cancel recover")
+        else:
+            print(u"The progress will recover")
+        return ret
+
+    def proc_reload_tmp_data_to_ui(self, data):
+        self._sub = data["Sub"]
+        self.lineEdit_Sub.setText(QString(self._sub))
+        self._body_path = data["Body"]
+        self.label_body.setText(QString(self._body_path))
+
+        self._append_list = data["AppendList"][:]
+        append_str = u";".join(self._append_list)
+        append_str = append_str.replace("\\", "/")
+        self.label_append.setText(QString(append_str))
+
+        self._xls_path = data["XlsPath"]
+        self.label_maillist.setText(QString(self._xls_path))
+        self._xls_col_name = data["ColName"]
+        self.lineEdit_Xls_Col.setText(QString(self._xls_col_name))
+
+        self._xls_selected_list = data["SelectedList"][:]
+        sec_min = self._xls_selected_list[0]
+        sec_max = self._xls_selected_list[-1]
+        self.lineEdit_Xls_From.setText(QString(unicode(sec_min)))
+        self.lineEdit_Xls_To.setText(QString(unicode(sec_max)))
+
+        self._speed_each_hour = data["EachHour"]
+        self.spinBox_Each_Hour.setValue(self._speed_each_hour)
+        self._speed_each_time = data["EachTime"]
+        self.spinBox_Each_Time.setValue(self._speed_each_time)
+
+    def proc_reload_account_list_to_ui(self, account_list):
+        self._account_list = account_list[:]
+        for account in self._account_list:
+            self.listWidget.addItem(QString(account.user))
+
+    def proc_get_all_ui_data(self):
+        data = {}
+        data["Sub"], data["Body"], data["AppendList"] = self._sub, self._body_path, self._append_list[:]
+        data["XlsPath"], data["ColName"] = self._xls_path, self._xls_col_name
+        data["SelectedList"] = self._xls_selected_list[:]
+        data["EachHour"], data["EachTime"] = self._speed_each_hour, self._speed_each_time
+        data["AccountList"] = self._account_list[:]
+        return data
 
 
 # ########################### 添加账户窗口 ############################
@@ -191,7 +324,7 @@ class AccountWindow(QDialog, Ui_Dialog_Account):
     def add_account(self):
         user = unicode(self.lineEdit_user.text())
         passwd = unicode(self.lineEdit_passwd.text())
-        host = unicode(self.lineEdit_host)
+        host = unicode(self.lineEdit_host.text())
 
         if len(user) == 0 or len(passwd) == 0 or len(host) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入完整信息"))
@@ -225,6 +358,30 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         self.reject()
 
 
+class TestGUITimerClass:
+
+    def __init__(self, some_data=None):
+        self.data = some_data
+        self.timer = None
+
+    def start_timer(self):
+        print("---Start the timer---")
+        self.timer = GUITimer(15000, self.callback, None, 3000)
+        self.timer.start()
+
+    def callback(self):
+        print time.strftime('%Y-%m-%d %H:%M:%S')
+        print(u"------------Callback------------------")
+        print(u"MyData:[{}]".format(self.data))
+
+
+def test_gui_timer():
+    c = TestGUITimerClass(u"Are you OK, this is self data")
+    print time.strftime('%Y-%m-%d %H:%M:%S')
+    print("Start timer")
+    c.start_timer()
+
+
 def test_ui_progress():
     app = QApplication(sys.argv)
     Window = ProgressWindow()
@@ -232,14 +389,24 @@ def test_ui_progress():
     app.exec_()
 
 
-def main():
+def test_main_win():
     app = QApplication(sys.argv)
-    Window = MainWindow()
+    Window = MainWindow(None)
     Window.show()
     app.exec_()
 
 
+
 # Main Function
+def main():
+    QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
+    app = QApplication(sys.argv)
+    Window = GUIMain(None)
+    Window.show()
+    app.exec_()
+
+
 if __name__=='__main__':
     main()
     # test_ui_progress()
+    # test_gui_timer()

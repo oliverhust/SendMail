@@ -10,6 +10,7 @@ import copy
 import xlrd
 import smtplib
 import sqlite3
+import socket
 from email.header import Header
 from email.utils import parseaddr, formataddr
 from email.mime.text import MIMEText
@@ -21,6 +22,7 @@ from err_code import *
 from mail_list import *
 
 # import pdb;  pdb.set_trace()
+PROGRAM_UNIQUE_PORT = 48625
 
 
 class Account:
@@ -30,6 +32,9 @@ class Account:
         self.passwd = mail_passwd
         self.host = mail_host
         self.sender_name = sender_name
+
+    def __repr__(self):
+        return u"Account({}, {}, {}, {})".format(self.user, self.passwd, self.host, self.sender_name)
 
     def check(self):
         pass
@@ -324,15 +329,21 @@ class XlsMatrix:
     def _get_xls_mails(self):
         # 从xls中获取收件人数据 [有序]
         mails_read = []
-        for sheet_index in self._SelectedSheets:
-            sheet = self._xls.sheets()[sheet_index]                # 取第几张sheet
+        sheet_list = self._xls.sheets()
+        err, err_info = ERROR_SUCCESS, u""
+        for i in self._SelectedSheets:
+            if i < 0 or i >= len(sheet_list):
+                err = ERROR_XLS_SELECT_EXCEED
+                err_info = u"该Excel最多只有{}张表，而你选择了{}".format(len(sheet_list), i + 1)
+                break
+            sheet = sheet_list[i]                # 取第几张sheet
             if self._MailColNo >= sheet.ncols:                   #如果这张表没有该列则跳过
                 continue
             for each_ceil in sheet.col_values(self._MailColNo):    # sheet.col_values(列号) 获取sheet内一列
                 if "" != str_find_mailbox(each_ceil):
                     mails_read.append(each_ceil)
         logging("Get {} mails from excel.".format(len(mails_read)))
-        return mails_read
+        return err, err_info, mails_read
 
     @staticmethod
     def _random_sort_mails(mails_input):
@@ -352,7 +363,10 @@ class XlsMatrix:
 
     def _create_not_sent_list(self):
         # 根据db的已发送和当前读取的生成待发送列表
-        mails_read = self._get_xls_mails()
+        err, err_info, mails_read = self._get_xls_mails()
+        if err != ERROR_SUCCESS:
+            return err, err_info
+
         try:
             last_sent = self._MailDB.get_success_sent()
         except Exception, e:
@@ -828,39 +842,154 @@ class MailDB:
 
     # ---------------------------------------------------------------------------
 
+# #############################################################################################################
+# ############################################### UI 界面的接口 #################################################
+# #############################################################################################################
+
 
 class UIInterface:  # ????????????????????????????????????????????
-    """ 用户的各种操作对应的处理   提供给上层UI进行使用"""
+    """ 用户的各种操作对应的处理   提供给上层UI进行使用(提示: 直接继承本类)"""
     def __init__(self):
-        self._db = MailDB('send_mail.db')
+        self._db = None
+        self._path_me = u""
+        self._same_program_check = CheckSameProgram()
+
+        self._mail_matrix = None
+
+    def event_form_load(self):
+        print("The Event form load has ocurred.")
+        self._path_me = chdir_myself()
+
+        # 判断有无相同程序运行
+        if self._same_program_check.has_same():
+            self.proc_err_same_program()
+            return
+
+        # 打开MailDB判断上次情况
+        self._db = MailDB(self._path_me + "\\" + 'send_mail.db')
         self._db.init()
+        last_progress = self._db.get_sent_progress()   # 如果返回[]代表没有上次
+        if last_progress:
+            if last_progress[1] != 0 or last_progress[2] != 0:  # 失败或者未发送不为0
+                is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
+                if is_recover:
+                    # 回读所有的界面上的tmp数据然后UI显示
+                    self._reload_db_tmp_data()
+                else:
+                    # 如果不恢复则清除db中的tmp和dynamic数据
+                    self._db.clear_tmp_and_dynamic()
+        # 回读所有的账户信息数据然后UI显示
+        self._reload_db_account_data()
 
-    def get_last_progress(self):
-        # 如果返回[]代表没有上次
-        ret = self._db.get_sent_progress()
-        return ret
-
-    def reload_last_state(self, is_enable):
-        # 是否恢复上次的进度 是则返回之前的UI数据
-        ret = None
-        if not is_enable:
-            # 如果不恢复则清除db中的tmp和dynamic数据
-            self._db.clear_tmp_and_dynamic()
-        else:
-            # 获取上次的所有UI数据返回
-            # 返回可能是[] ???????????????????????????????????????????????????????????????????
-            ret["AccountList"] = self._db.get_accounts()
-            ret["Sub"], ret["Body"], ret["AppendList"] = self._db.get_mail_content()
-            xls_path, selected_list, col_name = self._db.get_receiver_data()
-            send_each_hour, send_each_time = self._db.get_speed_info()
-        return ret
-
-    def set_all_data(self):
+    def event_start_send(self):
         # 用户设置完所有数据后的处理
+        data = self.proc_get_all_ui_data()
+        # 按下按钮后当即把界面上的所有数据保存到db
+        self._save_ui_data_to_db(data)
+        # 创建发送邮件需要的对象
+
+
+
+    # -----------------------------------------------------------------------------
+
+    def _reload_db_tmp_data(self):
+        data = {}
+        tmp = self._db.get_mail_content()
+        if tmp:
+            data["Sub"], data["Body"], data["AppendList"] = tmp
+        else:
+            data["Sub"], data["Body"], data["AppendList"] = u"", u"", u""
+
+        tmp = self._db.get_receiver_data()
+        if tmp:
+            data["XlsPath"], data["SelectedList"], data["ColName"] = tmp
+        else:
+            data["XlsPath"], data["SelectedList"], data["ColName"] = u"", [], u""
+
+        tmp = self._db.get_speed_info()
+        if tmp:
+            data["EachHour"], data["EachTime"] = tmp
+        else:
+            data["EachHour"], data["EachTime"] = 0, 0
+
+        # UI把它们都显示到界面上，并更新界面的静态数据
+        self.proc_reload_tmp_data_to_ui(data)
+
+    def _reload_db_account_data(self):
+        account_list = self._db.get_accounts()
+        # UI把账户信息显示到界面上，并更新界面的静态数据
+        self.proc_reload_account_list_to_ui(account_list)
+
+    def _save_ui_data_to_db(self, data):
+        self._db.save_mail_content(data["Sub"], data["Body"], data["AppendList"])
+        self._db.save_receiver_data(data["XlsPath"], data["SelectedList"], data["ColName"])
+        self._db.save_speed_info(data["EachHour"], data["EachTime"])
+        self._db.save_accounts(data["AccountList"])
+
+    def _create_mail_objects(self, data):
+        self._mail_matrix = XlsMatrix(data["EachTime"], data["XlsPath"], self._db)
+        err, err_info, sheets = self._mail_matrix.read_sheets_before_init()
+        if err != ERROR_SUCCESS:
+            return err, err_info
+        err, err_info = self._mail_matrix.init(data["SelectedList"], data["ColName"])
+        if err != ERROR_SUCCESS:
+            return err, err_info
+
+
+    # ----------------------------- GUI 要重写的接口 -------------------------------------
+
+    def proc_err_same_program(self):
+        pass
+
+    def proc_ask_if_recover(self, last_success_num, last_failed_num, last_not_sent):
+        return False
+
+    def proc_reload_tmp_data_to_ui(self, data):
+        pass
+
+    def proc_reload_account_list_to_ui(self, account_list):
+        pass
+
+    def proc_get_all_ui_data(self):
+        return {}
+
+
+class UITimer:
+    """ 抽象类 UI界面需要继承并重写这个类的   (一次性与周期性混合的定时器)"""
+    # ----------------------------- GUI 要重写的类 -------------------------------------
+    def __init__(self, first_set_time=None, interval_time=None, callback_function=None):
+        pass
+
+    def set_tmp_time(self, tmp_time):
+        pass
+
+    def start(self, first_set_time=None):
+        pass
+
+    def stop(self):
         pass
 
 
+# #####################################################################################################
 
+
+class CheckSameProgram:
+    """ 检查是否运行了另外一个相同的程序 """
+    def __init__(self):
+        self._s = None
+
+    def has_same(self):
+        ret = False
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)   #定义socket类型，网络通信，TCP
+        self._s = s
+        try:
+            s.bind(("127.0.0.1", PROGRAM_UNIQUE_PORT))   #套接字绑定的IP与端口
+        except Exception, e:
+            ret = True
+        return ret
+
+    def fini(self):
+        self._s.close()
 
 
 def is_break_error(err):
@@ -916,9 +1045,15 @@ def os_get_curr_dir():
 
 def chdir_myself():
     p = os.path.dirname(os.path.realpath(__file__))
-    print("Change dir to MyPath = " + p)
+    print(u"Change dir to MyPath = " + p)
     os.chdir(p)
     return p
+
+
+# ############################################################################################
+# #######################################   测试   ############################################
+# ############################################################################################
+# ############################################################################################
 
 
 def test_sql_db():
@@ -1119,9 +1254,17 @@ def test_send_mail():
         time.sleep(20)
 
 
+def test_has_same_program():
+    p = CheckSameProgram()
+    if p.has_same():
+        print("Has same program runing!")
+    else:
+        print("Only myself runing.")
+        time.sleep(10)
+
+
 if __name__ == "__main__":
     p = chdir_myself()
-    #test_sql_db()
     logging_init("SendMail.log")
     test_send_mail()
     logging_fini()

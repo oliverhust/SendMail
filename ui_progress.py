@@ -35,7 +35,7 @@ class Ui_Dialog_Progress(object):
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.progressBar = QtGui.QProgressBar(Dialog_Progress)
         self.progressBar.setGeometry(QtCore.QRect(20, 70, 541, 31))
-        self.progressBar.setProperty("value", 24)
+        self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName(_fromUtf8("progressBar"))
         self.textEdit = QtGui.QTextEdit(Dialog_Progress)
         self.textEdit.setGeometry(QtCore.QRect(20, 120, 531, 221))
