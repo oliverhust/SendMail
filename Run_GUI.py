@@ -6,10 +6,12 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from ui_send1 import Ui_MainWindow
 from ui_add_account import Ui_Dialog_Account
+from ui_progress import Ui_Dialog_Progress
 from main import UIInterface
 
+# import pdb; pdb.set_trace()
 
-# Make main window class
+# ########################### 主窗口 ############################
 class MainWindow(QMainWindow, Ui_MainWindow):
 
     def __init__(self, parent=None):
@@ -41,8 +43,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self._xls_path = u""
         self._xls_selected_list = []
         self._xls_col_name = ""
+        self._sender_name = u""
+        self._speed_each_hour = 400
+        self._speed_each_time = 40
 
     def slot_open_body(self):
+        self.label_body.setText(QString(u"正在打开，请稍候..."))
         s = QFileDialog.getOpenFileName(self, "Open file dialog", "/", "Text file(*.txt)")
         if len(s) == 0:
             self._body_path = u""
@@ -51,6 +57,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.label_body.setText(QString(s))
 
     def slot_open_appends(self):
+        self.label_append.setText(QString(u"正在打开，请稍候..."))
         s_list = QFileDialog.getOpenFileNames(self, "Open file dialog", "/", "All files(*.*)")
         if not s_list:
             self.label_append.setText(QString(u""))
@@ -64,6 +71,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.label_append.setText(q_s)
 
     def slot_open_mail_list(self):
+        self.label_maillist.setText(QString(u"正在打开，请稍候..."))
         s = QFileDialog.getOpenFileName(self, "Open file dialog", "/", "Excel file(*.xls;*.xlsx)")
         if len(s) == 0:
             self._xls_path = u""
@@ -91,6 +99,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             return
 
+    def _get_ui_accounts_data(self):
+        # 返回一个账户结构体的列表，没有则返回[]
+        self.listWidget.
+
+
     def _ui_data_check(self):
         if len(self.lineEdit_Sub.text()) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入标题"))
@@ -112,14 +125,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             QMessageBox.critical(self, u"Input Error", QString(u"请输入Excel表格中邮箱所在的列"))
             return False
 
-        ret = True
         if start_str.isdigit() and end_str.isdigit() and len(col_str) == 1 \
            and col_str.isalpha() and int(start_str) <= int(end_str):
             pass
         else:
             QMessageBox.critical(self, u"Input Error", QString(u"请正确输入Excel表格中从表的起始及列名"))
-            ret = False
-        return ret
+            return False
+
+        if len(self.lineEdit_Sender_Name.text()) == 0:
+            QMessageBox.critical(self, u"Input Error", QString(u"请输入发件人"))
+            return False
+
+        return True
 
     def slot_button_run(self):
         if not self._ui_data_check():
@@ -131,12 +148,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         end = int(self.lineEdit_Xls_To.text())
         self._xls_selected_list = range(start, end + 1)
         self._xls_col_name = self.lineEdit_Xls_Col.text()
+        self._sender_name = unicode(self.lineEdit_Sender_Name.text())
+        self._speed_each_hour = self.spinBox_Each_Hour.value()
+        self._speed_each_time = self.spinBox_Each_Time.value()
         print(u"sub = {}\nbody_path = {}\nappend_list = {}\npath_xls = {}".format(self._sub, self._body_path, self._append_list, self._xls_path))
-        print(u"selected = {}, col_name = {}".format(self._xls_selected_list, self._xls_col_name))
+        print(u"selected = {}, col_name = {}, sender_name = {}".format(self._xls_selected_list, self._xls_col_name, self._sender_name))
+        print(u"Speed each hour = {}, each time = {}".format(self._speed_each_hour, self._speed_each_time))
+
+        # 弹出进度条界面
+        new_win = ProgressWindow(self)
+        if new_win.exec_():
+            print("Exit nornal")
 
     def account_add(self):
         new_win = AccountWindow(self)
-
         if not new_win.exec_():
             print("User cancel")
             return
@@ -147,7 +172,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.listWidget.takeItem(self.listWidget.currentRow())
 
 
-
+# ########################### 添加账户窗口 ############################
 class AccountWindow(QDialog, Ui_Dialog_Account):
     def __init__(self, parent=None):
         super(AccountWindow, self).__init__(parent)
@@ -185,6 +210,28 @@ class AccountWindow(QDialog, Ui_Dialog_Account):
         self.reject()
 
 
+# ########################### 进度条窗口 ############################
+class ProgressWindow(QDialog, Ui_Dialog_Progress):
+
+    def __init__(self, parent=None):
+        super(ProgressWindow, self).__init__(parent)
+        self.setAttribute(Qt.WA_DeleteOnClose)
+        self.setupUi(self)
+
+        # 暂停按钮
+        self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)
+
+    def slot_pause(self):
+        self.reject()
+
+
+def test_ui_progress():
+    app = QApplication(sys.argv)
+    Window = ProgressWindow()
+    Window.show()
+    app.exec_()
+
+
 def main():
     app = QApplication(sys.argv)
     Window = MainWindow()
@@ -195,3 +242,4 @@ def main():
 # Main Function
 if __name__=='__main__':
     main()
+    # test_ui_progress()

@@ -179,7 +179,7 @@ class Ui_MainWindow(object):
         self.lineEdit_Xls_Col.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_Xls_Col.setObjectName(_fromUtf8("lineEdit_Xls_Col"))
         self.label = QtGui.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(260, 10, 151, 41))
+        self.label.setGeometry(QtCore.QRect(260, 10, 331, 41))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Arial Unicode MS"))
         font.setPointSize(20)
@@ -292,7 +292,7 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.pushButton_cancel, self.listWidget)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "群发邮件 Made by Oliver", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "群发邮件", None))
         self.pushButton_OK.setToolTip(_translate("MainWindow", "开始发送", None))
         self.pushButton_OK.setText(_translate("MainWindow", "开始", None))
         self.pushButton_cancel.setText(_translate("MainWindow", "退出", None))
@@ -321,6 +321,7 @@ class Ui_MainWindow(object):
         self.label_11.setText(_translate("MainWindow", "列", None))
         self.lineEdit_Xls_Col.setToolTip(_translate("MainWindow", "保存在哪一列，A,B,C......", None))
         self.lineEdit_Xls_Col.setText(_translate("MainWindow", "C", None))
+        self.label.setToolTip(_translate("MainWindow", "Made by D539 Oliver, 1026815245@qq.com", None))
         self.label.setText(_translate("MainWindow", "群发邮件", None))
         self.listWidget.setToolTip(_translate("MainWindow", "多账户将自动切换发送", None))
         self.pushButton_account_add.setToolTip(_translate("MainWindow", "添加一个账户", None))

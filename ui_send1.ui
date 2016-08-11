@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>群发邮件 Made by Oliver</string>
+   <string>群发邮件</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_OK">
@@ -459,7 +459,7 @@
      <rect>
       <x>260</x>
       <y>10</y>
-      <width>151</width>
+      <width>331</width>
       <height>41</height>
      </rect>
     </property>
@@ -468,6 +468,9 @@
       <family>Arial Unicode MS</family>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Made by D539 Oliver, 1026815245@qq.com</string>
     </property>
     <property name="text">
      <string>群发邮件</string>
