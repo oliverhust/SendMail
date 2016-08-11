@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>562</height>
+    <width>636</width>
+    <height>645</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>群发邮件 Made by Oliver</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_OK">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>470</y>
+      <y>540</y>
       <width>131</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -29,17 +29,20 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>开始发送</string>
+    </property>
     <property name="text">
-     <string>确定</string>
+     <string>开始</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_cancel">
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>470</y>
+      <y>540</y>
       <width>131</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -67,6 +70,9 @@
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>请打开一个包含邮件正文的txt文件</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
     </property>
@@ -91,6 +97,9 @@
       <family>Malgun Gothic Semilight</family>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>请打开要发送的附件（可多选）</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
@@ -117,6 +126,9 @@
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>请打存放开收件人Excel表格</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
     </property>
@@ -141,6 +153,9 @@
       <family>Malgun Gothic Semilight</family>
      </font>
     </property>
+    <property name="toolTip">
+     <string>请打开一个包含邮件正文的txt文件</string>
+    </property>
     <property name="text">
      <string>浏览..</string>
     </property>
@@ -159,6 +174,9 @@
       <family>Malgun Gothic Semilight</family>
       <pointsize>16</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>邮件标题</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -251,6 +269,9 @@
       <family>Malgun Gothic Semilight</family>
      </font>
     </property>
+    <property name="toolTip">
+     <string>请打开要发送的附件（可多选）</string>
+    </property>
     <property name="text">
      <string>浏览..</string>
     </property>
@@ -269,6 +290,9 @@
       <family>Malgun Gothic Semilight</family>
      </font>
     </property>
+    <property name="toolTip">
+     <string>请打存放开收件人Excel表格</string>
+    </property>
     <property name="text">
      <string>浏览..</string>
     </property>
@@ -276,7 +300,7 @@
    <widget class="QLineEdit" name="lineEdit_Xls_From">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>90</x>
       <y>260</y>
       <width>51</width>
       <height>31</height>
@@ -288,8 +312,11 @@
       <pointsize>14</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>从1开始计数，第一张表为首张</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>1</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -298,7 +325,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>30</x>
       <y>260</y>
       <width>41</width>
       <height>30</height>
@@ -310,6 +337,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>邮箱列表保存在Excel表格中的哪几张表，以及哪一列</string>
+    </property>
     <property name="text">
      <string>从第</string>
     </property>
@@ -317,7 +347,7 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>150</x>
       <y>260</y>
       <width>84</width>
       <height>30</height>
@@ -329,6 +359,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>邮箱列表保存在Excel表格中的哪几张表，以及哪一列</string>
+    </property>
     <property name="text">
      <string>张表到第</string>
     </property>
@@ -336,7 +369,7 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>310</x>
       <y>260</y>
       <width>84</width>
       <height>30</height>
@@ -355,7 +388,7 @@
    <widget class="QLineEdit" name="lineEdit_Xls_To">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>250</x>
       <y>260</y>
       <width>51</width>
       <height>31</height>
@@ -367,6 +400,9 @@
       <pointsize>14</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>最后一张(含)</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -377,7 +413,7 @@
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>440</x>
       <y>260</y>
       <width>31</width>
       <height>30</height>
@@ -396,7 +432,7 @@
    <widget class="QLineEdit" name="lineEdit_Xls_Col">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>370</x>
       <y>260</y>
       <width>51</width>
       <height>31</height>
@@ -407,6 +443,9 @@
       <family>Malgun Gothic Semilight</family>
       <pointsize>14</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>保存在哪一列，A,B,C......</string>
     </property>
     <property name="text">
      <string>C</string>
@@ -434,19 +473,282 @@
      <string>群发邮件</string>
     </property>
    </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>370</y>
+      <width>271</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>多账户将自动切换发送</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_account_add">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>330</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>添加一个账户</string>
+    </property>
+    <property name="text">
+     <string>添加</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_account_del">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>330</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>删除一个账户</string>
+    </property>
+    <property name="text">
+     <string>删除</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>330</y>
+      <width>91</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>多账户将自动切换发送</string>
+    </property>
+    <property name="text">
+     <string>发送账户</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_Sender_Name">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>330</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>330</y>
+      <width>121</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>发件人姓名</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>390</y>
+      <width>121</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>发送速度</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>430</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>每个账号每小时的发送数量</string>
+    </property>
+    <property name="text">
+     <string>封/账号/小时</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_Each_Hour">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>430</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>71</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>每个账号每小时的发送数量</string>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>2000</number>
+    </property>
+    <property name="value">
+     <number>400</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_Each_Time">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>470</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>71</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>每一次发送的最大发送数量</string>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>40</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>470</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>每一次发送的最大发送数量</string>
+    </property>
+    <property name="text">
+     <string>封/次</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>640</width>
+     <width>636</width>
      <height>23</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_Sub</tabstop>
+  <tabstop>pushButton_body</tabstop>
+  <tabstop>pushButton_append</tabstop>
+  <tabstop>pushButton_mail_list</tabstop>
+  <tabstop>lineEdit_Xls_From</tabstop>
+  <tabstop>lineEdit_Xls_To</tabstop>
+  <tabstop>lineEdit_Xls_Col</tabstop>
+  <tabstop>pushButton_account_add</tabstop>
+  <tabstop>pushButton_account_del</tabstop>
+  <tabstop>lineEdit_Sender_Name</tabstop>
+  <tabstop>spinBox_Each_Hour</tabstop>
+  <tabstop>spinBox_Each_Time</tabstop>
+  <tabstop>pushButton_OK</tabstop>
+  <tabstop>pushButton_cancel</tabstop>
+  <tabstop>listWidget</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
