@@ -17,21 +17,29 @@ from main import Account
 # ################################ GUI定时器(一次性与周期性混合) ##############################
 class GUITimer(UITimer, QTimer):
 
-    def __init__(self, period_time, callback_function, parent=None, first_set_time=None):
+    def __init__(self, parent=None):
         UITimer.__init__(self)
         QTimer.__init__(self, parent)
-        self._FirstSet = first_set_time
+        self._FirstSet = None
+        self._Period = None
+        self._Callback = None
+
+    def setup(self, period_time, callback_function, first_set_time=None):
+        if first_set_time is None:
+            self._FirstSet = period_time
+        else:
+            self._FirstSet = first_set_time
         self._Period = period_time
         self._Callback = callback_function
         self.connect(self, SIGNAL("timeout()"), self.__iner_callback)
-
-    def set_tmp_time(self, tmp_time):
-        self.setInterval(tmp_time)
 
     def start(self, first_set_time=None):
         if first_set_time is not None:
             self._FirstSet = first_set_time
         QTimer.start(self, self._FirstSet)
+
+    def set_tmp_time(self, tmp_time):
+        self.setInterval(tmp_time)
 
     def stop(self):
         QTimer.stop(self)
@@ -200,12 +208,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             print(u"Account[{}] = {}".format(i, account))
 
         if self._GUIProc is not None:
+            # 【【【【调用GUI的事件处理函数: 开始发送】】】】
             self._GUIProc.event_start_send()
-
-        # 弹出进度条界面
-        # new_win = ProgressWindow(self)
-        #if new_win.exec_():
-        #   print("Exit nornal")
 
     def account_add(self):
         # 弹出添加账户界面
@@ -237,6 +241,7 @@ class GUIMain(UIInterface, MainWindow):
     def __init__(self, parent=None):
         UIInterface.__init__(self)
         MainWindow.__init__(self, self)
+        self.event_init_ui_timer(GUITimer(self))
 
     def proc_err_same_program(self):
         QMessageBox.critical(self, u"Program Error", QString(u"已经有另一个相同的程序在运行！\n请先停止该程序"))
@@ -304,6 +309,15 @@ class GUIMain(UIInterface, MainWindow):
         data["AccountList"] = self._account_list[:]
         return data
 
+    def proc_err_before_send(self, err, err_info):
+        QMessageBox.critical(self, u"Input Error", QString(err_info))
+
+    def proc_exec_progress_window(self):
+        # 弹出进度条界面
+        new_win = ProgressWindow(self)
+        if new_win.exec_():
+           print("Exit nornal")
+
 
 # ########################### 添加账户窗口 ############################
 class AccountWindow(QDialog, Ui_Dialog_Account):
@@ -346,8 +360,9 @@ class AccountWindow(QDialog, Ui_Dialog_Account):
 # ########################### 进度条窗口 ############################
 class ProgressWindow(QDialog, Ui_Dialog_Progress):
 
-    def __init__(self, parent=None):
+    def __init__(self, gui_proc=None, parent=None):
         super(ProgressWindow, self).__init__(parent)
+        self._GUIProc = gui_proc
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
 
@@ -355,31 +370,9 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)
 
     def slot_pause(self):
-        self.reject()
-
-
-class TestGUITimerClass:
-
-    def __init__(self, some_data=None):
-        self.data = some_data
-        self.timer = None
-
-    def start_timer(self):
-        print("---Start the timer---")
-        self.timer = GUITimer(15000, self.callback, None, 3000)
-        self.timer.start()
-
-    def callback(self):
-        print time.strftime('%Y-%m-%d %H:%M:%S')
-        print(u"------------Callback------------------")
-        print(u"MyData:[{}]".format(self.data))
-
-
-def test_gui_timer():
-    c = TestGUITimerClass(u"Are you OK, this is self data")
-    print time.strftime('%Y-%m-%d %H:%M:%S')
-    print("Start timer")
-    c.start_timer()
+        if self._GUIProc is not None:
+            self._GUIProc.event_user_canel_progress()
+        self.accept()  # 表示用户是按暂停退出而不是直接关闭窗口
 
 
 def test_ui_progress():
@@ -394,7 +387,6 @@ def test_main_win():
     Window = MainWindow(None)
     Window.show()
     app.exec_()
-
 
 
 # Main Function

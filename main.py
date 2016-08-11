@@ -847,7 +847,7 @@ class MailDB:
 # #############################################################################################################
 
 
-class UIInterface:  # ????????????????????????????????????????????
+class UIInterface:
     """ 用户的各种操作对应的处理   提供给上层UI进行使用(提示: 直接继承本类)"""
     def __init__(self):
         self._db = None
@@ -855,6 +855,13 @@ class UIInterface:  # ????????????????????????????????????????????
         self._same_program_check = CheckSameProgram()
 
         self._mail_matrix = None
+        self._account_manger = None
+        self._mail_content = None
+        self._mail_proc = None
+        self._timer = None
+
+    def event_init_ui_timer(self, ui_timer):
+        self._timer = ui_timer
 
     def event_form_load(self):
         print("The Event form load has ocurred.")
@@ -887,7 +894,22 @@ class UIInterface:  # ????????????????????????????????????????????
         # 按下按钮后当即把界面上的所有数据保存到db
         self._save_ui_data_to_db(data)
         # 创建发送邮件需要的对象
+        err, err_info = self._create_mail_objects(data)
+        if err != ERROR_SUCCESS:
+            self._delete_mail_objects()
+            self.proc_err_before_send(err, err_info)
+            return err, err_info
+        # 启动UI定时器
+        period_time = int(3600000.0/data["EachHour"]*data["EachTime"])
+        print(u"The timer period is {} ms".format(period_time))
+        self._timer.setup(period_time, callback_function, 500)   ?????????????
 
+        # 弹出进度条窗口并运行
+        self.proc_exec_progress_window()
+        # 窗口退出则停止定时器，并分析退出原因
+
+    def event_user_canel_progress(self):
+        pass
 
 
     # -----------------------------------------------------------------------------
@@ -935,6 +957,21 @@ class UIInterface:  # ????????????????????????????????????????????
         if err != ERROR_SUCCESS:
             return err, err_info
 
+        self._account_manger = AccountsMange(data["AccountList"])
+
+        self._mail_content = MailContent(data["Sub"], data["Body"], data["AppendList"])
+        err, err_info = self._mail_content.init()
+        if err != ERROR_SUCCESS:
+            return err, err_info
+
+        self._mail_proc = MailProc(self._mail_matrix, self._account_manger, self._mail_content)
+        return err, err_info
+
+    def _delete_mail_objects(self):
+        self._mail_matrix = None
+        self._account_manger = None
+        self._mail_content = None
+        self._mail_proc = None
 
     # ----------------------------- GUI 要重写的接口 -------------------------------------
 
@@ -953,17 +990,26 @@ class UIInterface:  # ????????????????????????????????????????????
     def proc_get_all_ui_data(self):
         return {}
 
+    def proc_err_before_send(self, err, err_info):
+        pass
+
+    def proc_exec_progress_window(self):
+        pass
+
 
 class UITimer:
     """ 抽象类 UI界面需要继承并重写这个类的   (一次性与周期性混合的定时器)"""
     # ----------------------------- GUI 要重写的类 -------------------------------------
-    def __init__(self, first_set_time=None, interval_time=None, callback_function=None):
+    def __init__(self, parent=None):
         pass
 
-    def set_tmp_time(self, tmp_time):
+    def setup(self, period_time, callback_function, first_set_time=None):
         pass
 
     def start(self, first_set_time=None):
+        pass
+
+    def set_tmp_time(self, tmp_time):
         pass
 
     def stop(self):
