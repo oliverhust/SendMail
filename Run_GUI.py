@@ -23,6 +23,7 @@ class GUITimer(UITimer, QTimer):
         self._FirstSet = None
         self._Period = None
         self._Callback = None
+        self.connect(self, SIGNAL("timeout()"), self.__iner_callback)
 
     def setup(self, period_time, callback_function, first_set_time=None):
         if first_set_time is None:
@@ -31,7 +32,6 @@ class GUITimer(UITimer, QTimer):
             self._FirstSet = first_set_time
         self._Period = period_time
         self._Callback = callback_function
-        self.connect(self, SIGNAL("timeout()"), self.__iner_callback)
 
     def start(self, first_set_time=None):
         if first_set_time is not None:
@@ -218,7 +218,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # 弹出添加账户界面
         new_win = AccountWindow(self)
         if not new_win.exec_():
-            print(u"User cancel")
+            print(u"User cancel add account.")
             return
         for account in self._account_list:
             if account.user == new_win.user:
@@ -260,7 +260,7 @@ class GUIMain(UIInterface, MainWindow):
         box = QMessageBox(self)
         box.setWindowTitle(u"Recover or not")
         b_recover = box.addButton(QString(u"继续上次的"), QMessageBox.ActionRole)
-        box.addButton(QString(u"重新来过"), QMessageBox.ActionRole)
+        box.addButton(QString(u"开始新任务"), QMessageBox.ActionRole)
 
         box.setText(QString(u"检测到上次退出的发送情况:\n"
                             u"成功{}，  失败{}，  未发送{}\n"
@@ -271,9 +271,9 @@ class GUIMain(UIInterface, MainWindow):
         button = box.clickedButton()
         if button == b_recover:
             ret = True
-            print(u"User cancel recover")
-        else:
             print(u"The progress will recover")
+        else:
+            print(u"User cancel recover")
         return ret
 
     def proc_reload_tmp_data_to_ui(self, data):
@@ -307,6 +307,8 @@ class GUIMain(UIInterface, MainWindow):
         self._account_list = account_list[:]
         for account in self._account_list:
             self.listWidget.addItem(QString(account.user))
+        if account_list:
+            self.lineEdit_Sender_Name.setText(QString(account_list[0].sender_name))
 
     def proc_get_all_ui_data(self):
         data = {}
@@ -321,11 +323,11 @@ class GUIMain(UIInterface, MainWindow):
         QMessageBox.critical(self, u"Input Error", QString(err_info))
 
     def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, all_sheets, select_list):
-        info1 = u"本次将发送邮件{}封，已为您跳过邮件{}封，\n".format(will_send_num, last_success_num)
-        info2 = u"以下表格的邮箱将被发送:\n"
+        info1 = u"本次将发送邮件{}封，\n上次成功发送的{}封邮件不会重复发送.\n".format(will_send_num, last_success_num)
+        info2 = u"以下表格中的邮箱将被发送:\n"
         selected_sheets = []
         for i in select_list:
-            selected_sheets.append(all_sheets[i])
+            selected_sheets.append(all_sheets[i-1])  # 用户的选择是从1开始的
         info_sheets = u"\n".join(selected_sheets)
         info3 = u"\n\n您确定要继续吗？"
 
@@ -338,9 +340,10 @@ class GUIMain(UIInterface, MainWindow):
         print(u"User cancel before send.")
         return False
 
-    def proc_exec_progress_window(self):
+    def proc_exec_progress_window(self, init_progress):
         # 弹出进度条界面
         self._progress_win = ProgressWindow(self)
+        self._progress_win.set_progress_bar(init_progress[0], init_progress[1], init_progress[2])
         if self._progress_win.exec_():
             print(u"Exit progress window normal")
 
@@ -390,10 +393,27 @@ class AccountWindow(QDialog, Ui_Dialog_Account):
             QMessageBox.critical(self, u"Input Error", QString(u"邮箱账号有误，应为xxx@@xxx.xxx"))
             return
 
-        self.user = user
-        self.passwd = passwd
-        self.host = host
-        self.accept()
+        # 询问用户是否需要验证能否登录
+        button = QMessageBox.question(self, u"Need Login test?",
+                                      QString(u"需要验证该账号能否登录吗？"),
+                                      QMessageBox.Ok | QMessageBox.Cancel,
+                                      QMessageBox.Ok)
+        if button == QMessageBox.Cancel:
+            self.user = user
+            self.passwd = passwd
+            self.host = host
+            self.accept()      # 退出添加账户窗口
+        elif button == QMessageBox.Ok:
+            # 登录验证
+            err, err_info = UIInterface.check_account_login(user, passwd, host)
+            if 0 == err:
+                self.user = user
+                self.passwd = passwd
+                self.host = host
+                QMessageBox.information(self, u"Success", QString(u"验证成功!"))
+                self.accept()  # 退出添加账户窗口
+            else:
+                QMessageBox.information(self, u"Failed", QString(u"验证失败:{}".format(err_info)))
 
     def cancel_account(self):
         self.reject()
@@ -415,7 +435,8 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         if self._GUIProc is not None:
             self._GUIProc.event_user_cancel_progress()
         QMessageBox.information(self, u"Information",
-                                QString(u'如果想重发已失败的邮件，可以再次点击"开始"\n已发送成功的邮件不会重复发送'))
+                                QString(u'如果想重发已失败的邮件，增加邮件或者修改内容，\n'
+                                        u'可以再次点击"开始"，已发送成功的邮件不会重复发送'))
         self.accept()  # 关闭窗口 表示用户是按暂停退出而不是直接关闭窗口
 
     def set_progress_bar(self, success_num, failed_num, not_sent_num):

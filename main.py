@@ -354,7 +354,7 @@ class XlsMatrix:
     def _random_sort_mails(mails_input):
         mails_origin = mails_input[:]
         mails_new = []
-        logging(u"Origin mail list is:\n{}".format(mails_origin))
+        # logging(u"Origin mail list is:\n{}".format(mails_origin))
         while mails_origin:   # 不断从mails_origin移动到mails_new直到mails_origin为空
             index_r = random.randint(0, len(mails_origin)-1)
             # 从mails_origin头开始选择与mails_origin[index_r]相同域名的邮箱
@@ -363,7 +363,7 @@ class XlsMatrix:
                     mails_new.append(each_mail)
                     mails_origin.pop(i)
                     break
-        logging(u"New mail list is:\n{}".format(mails_new))
+        # logging(u"New mail list is:\n{}".format(mails_new))
         return mails_new
 
     def _create_not_sent_list(self):
@@ -463,6 +463,23 @@ class MailProc:
         name, addr = parseaddr(s)
         return formataddr((Header(name, 'utf-8').encode(),
                            addr.encode('utf-8') if isinstance(addr, unicode) else addr))
+
+    @staticmethod
+    def check_account_login(user_name, passwd, host):
+        s = smtplib.SMTP()
+        try:
+            s.connect(host)
+        except Exception, e:
+            err = ERROR_CONNECT_FAILED
+            err_info = u"连接服务器失败\n{}".format(e)
+            return err, err_info
+        try:
+            s.login(user_name, passwd)
+        except Exception, e:
+            err = ERROR_LOGIN_FAILED
+            err_info = u"账号或密码错误\n{}".format(e)
+            return err, err_info
+        return ERROR_SUCCESS, u""
 
     @staticmethod
     def send_one_group(mail_list, account, mail_sub, mail_body, msg_append_list):
@@ -575,6 +592,10 @@ class MailProc:
             self._MailMatrix.group_mail_step()   # 告诉邮件矩阵已发送成功，下次将给别的收件人
             ret["SuccessList"] = mail_list
             ret["CurrProgress"] = self._MailMatrix.curr_progress()
+            # 如果未发送为0则表示刚才发完了最后一组
+            if 0 == ret["CurrProgress"][2]:
+                err = ERROR_FINISH
+                ret["ErrCode"] = ERROR_FINISH
         # 部分发送成功(除此之外其他情况都是全部失败)
         elif ERROR_SOME_EMAILS_FAILED == err:
             time.sleep(MailProc.MAILS_TRY_AGAIN_WAIT_TIME)
@@ -906,14 +927,13 @@ class UIInterface:
             return
         last_progress = self._db.get_sent_progress()   # 如果返回[]代表没有上次
         if last_progress:
-            if last_progress[1] != 0 or last_progress[2] != 0:  # 失败或者未发送不为0
-                is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
-                if is_recover:
-                    # 回读所有的界面上的tmp数据然后UI显示
-                    self._reload_db_tmp_data()
-                else:
-                    # 如果不恢复则清除db中的tmp和dynamic数据
-                    self._db.clear_tmp_and_dynamic()
+            is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
+            if is_recover:
+                # 回读所有的界面上的tmp数据然后UI显示
+                self._reload_db_tmp_data()
+            else:
+                # 如果不恢复则清除db中的tmp和dynamic数据
+                self._db.clear_tmp_and_dynamic()
         # 回读所有的账户信息数据然后UI显示
         self._reload_db_account_data()
 
@@ -937,18 +957,19 @@ class UIInterface:
             return
         # 发送前的信息确认
         last_success_num, last_failed_num, will_send_num = self._mail_matrix.curr_progress()
-        send_sheets_list = self._mail_matrix.get_sheet_names()
+        all_sheets_list = self._mail_matrix.get_sheet_names()
         if not self.proc_confirm_before_send(last_success_num, last_failed_num, will_send_num,
-                                             send_sheets_list, data["SelectedList"]):
+                                             all_sheets_list, data["SelectedList"]):
             self._delete_mail_objects()
             return
         # 启动UI定时器
         period_time = int(3600000.0/data["EachHour"]*data["EachTime"])
-        print(u"Start Timer.The timer period is {} ms".format(period_time))
-        self._timer.setup(period_time, self.__ui_timer_callback, 1000)
+        print(u"[{}]Start Timer.The timer period is {} ms".format(get_time_str(), period_time))
+        self._timer.setup(period_time, self.__ui_timer_callback, 2000)
         self._timer.start()
         # 弹出进度条窗口并运行
-        self.proc_exec_progress_window()
+        self.proc_exec_progress_window(self._mail_matrix.curr_progress())
+        print(u"Exit the progress windows.")
         # 窗口退出则停止定时器
         self._timer.stop()
         self._delete_mail_objects()
@@ -957,6 +978,10 @@ class UIInterface:
         # 窗口退出则停止定时器
         self._timer.stop()
         self._delete_mail_objects()
+
+    @staticmethod
+    def check_account_login(user_name, passwd, host):
+        return MailProc.check_account_login(user_name, passwd, host)
 
     # -----------------------------------------------------------------------------
 
@@ -1020,7 +1045,9 @@ class UIInterface:
         self._mail_proc = None
 
     def __ui_timer_callback(self):
+        print(u"[{}]Timer call back.".format(get_time_str()))
         fatal_err_code = (ERROR_OPEN_APPEND_FAILED, ERROR_READ_APPEND_FAILED, ERROR_CONNECT_FAILED, ERROR_LOGIN_FAILED)
+
         ret = self._mail_proc.send_once()
 
         err, err_info = ret["ErrCode"], ret["ErrLog"]
@@ -1029,9 +1056,9 @@ class UIInterface:
             progress_info += u"{}\nSend success to :\n{}".format(err_info, repr(ret["SuccessList"]))
             self.proc_update_progress(ret["CurrProgress"], progress_info)
         elif ERROR_FINISH == err:
-            self.proc_update_progress(ret["CurrProgress"], progress_info+u"Send Finished")
-            # 关闭定时器
-            self._timer.stop()
+            progress_info += u"{}\nSend success to :\n{}".format(err_info, repr(ret["SuccessList"]))
+            self.proc_update_progress(ret["CurrProgress"], progress_info+u"\nSend Finished")
+            self._timer.stop()  # 关闭定时器
             self._delete_mail_objects()
             # 分两种情况，用户确认后关闭发送
             success_num, failed_num, not_sent_num = ret["CurrProgress"]
@@ -1044,6 +1071,7 @@ class UIInterface:
             # 等待20分钟再尝试
             self._timer.set_tmp_time(20*60*1000)
         elif err in fatal_err_code:
+            self._timer.stop()       # 关闭定时器
             self.proc_err_fatal_run(err, err_info)
         elif ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
             self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
@@ -1081,10 +1109,10 @@ class UIInterface:
     def proc_err_before_send(self, err, err_info):
         pass
 
-    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, send_sheets_list, select_list):
+    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, all_sheets_list, select_list):
         return True
 
-    def proc_exec_progress_window(self):
+    def proc_exec_progress_window(self, init_progress):
         pass
 
     def proc_update_progress(self, progress_tuple=None, progress_info=None):
@@ -1098,6 +1126,7 @@ class UIInterface:
 
     def proc_err_fatal_run(self, err, err_info):
         pass
+
 
 class UITimer:
     """ 抽象类 UI界面需要继承并重写这个类的   (一次性与周期性混合的定时器)"""
@@ -1152,6 +1181,8 @@ def is_break_error(err):
 
 
 def str_find_mailbox(mail_box):
+    if type(mail_box) != str and type(mail_box) != unicode:
+        return ""
     r = re.findall(r'\S+@\S+', mail_box)
     if r:
         return r[0]
@@ -1159,6 +1190,10 @@ def str_find_mailbox(mail_box):
 
 
 def str_is_domain_equal(mailbox1, mailbox2):
+    if type(mailbox1) != str and type(mailbox1) != unicode:
+        return False
+    if type(mailbox2) != str and type(mailbox2) != unicode:
+        return False
     pos1 = mailbox1.find("@")
     pos2 = mailbox2.find("@")
     if -1 == pos1 or -1 == pos2:

@@ -8,7 +8,7 @@ f_Logging = None
 
 def get_time_str():
     now = datetime.datetime.now()
-    time_str = now.strftime("[%Y/%m/%d %H:%M:%S]")
+    time_str = now.strftime("%Y/%m/%d %H:%M:%S")
     return time_str
 
 def logging(log):

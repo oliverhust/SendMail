@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['Run_GUI.py'],
-             pathex=['E:\\MyDocuments\\Python\\SendMail'],
+             pathex=['E:\\MyDocument\\Python\\SendMail'],
              binaries=None,
              datas=None,
              hiddenimports=[],
