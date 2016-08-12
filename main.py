@@ -309,6 +309,11 @@ class XlsMatrix:
             return err, err_info, []
         return err, err_info, self._xls.sheet_names()
 
+    def get_sheet_names(self):
+        if self._xls is not None:
+            return self._xls.sheet_names()
+        return []
+
     # 注意selected_sheets从1开始，与用户看到的一致，与表格模块不一致 列名： 'A' 'B' ..
     # 暂不检查是否有重复的邮箱
     def init(self, user_selected_sheets, mail_which_col):
@@ -614,8 +619,8 @@ class MailDB:
     """ 数据实时保存和持久化 """
     def __init__(self, path_db):
         self._path = path_db
-        self._db = sqlite3.connect(self._path)
-        self._c = self._db.cursor()
+        self._db = None
+        self._c = None
 
     def __del__(self):
         self._db.commit()
@@ -623,10 +628,24 @@ class MailDB:
 
     def init(self):
         # 创建各个表(如果不存在)
+        err, err_info = ERROR_SUCCESS, u""
+        try:
+            self._db = sqlite3.connect(self._path)
+        except Exception, e:
+            err = ERROR_READ_MATRIX_DB_FAILED
+            err_info = u"打开数据库失败！\n{}".format(e)
+            return err, err_info
+        self._c = self._db.cursor()
         self._create_forever_table()
         self._create_tmp_table()
         self._create_dynamic_table()
-        self._db.commit()
+
+        try:
+            self._db.commit()
+        except Exception, e:
+            err = ERROR_WRITE_MAIL_DB_FAILED
+            err_info = u"写入数据库失败！没有写权限\n{}".format(e)
+        return err, err_info
 
     def _create_forever_table(self):
 
@@ -864,7 +883,7 @@ class UIInterface:
         self._timer = ui_timer
 
     def event_form_load(self):
-        print("The Event form load has ocurred.")
+        print("The Event form load has arised.")
         self._path_me = chdir_myself()
 
         # 判断有无相同程序运行
@@ -872,9 +891,19 @@ class UIInterface:
             self.proc_err_same_program()
             return
 
+        # 初始化日志记录
+        err, err_info = logging_init(self._path_me + "\\" + 'send_mail.log')
+        if ERROR_SUCCESS != err:
+            err_info = u"日志记录失败！\n" + err_info
+            self.proc_err_before_load(err, err_info)
+            return
+
         # 打开MailDB判断上次情况
         self._db = MailDB(self._path_me + "\\" + 'send_mail.db')
-        self._db.init()
+        err, err_info = self._db.init()
+        if ERROR_SUCCESS != err:
+            self.proc_err_before_load(err, err_info)
+            return
         last_progress = self._db.get_sent_progress()   # 如果返回[]代表没有上次
         if last_progress:
             if last_progress[1] != 0 or last_progress[2] != 0:  # 失败或者未发送不为0
@@ -898,19 +927,27 @@ class UIInterface:
         if err != ERROR_SUCCESS:
             self._delete_mail_objects()
             self.proc_err_before_send(err, err_info)
-            return err, err_info
+            return
+        # 发送前的信息确认
+        last_success_num, last_failed_num, will_send_num = self._mail_matrix.curr_progress()
+        send_sheets_list = self._mail_matrix.read_sheets_before_init()
+        if not self.proc_confirm_before_send(last_success_num, last_failed_num, will_send_num, send_sheets_list):
+            self._delete_mail_objects()
+            return
         # 启动UI定时器
         period_time = int(3600000.0/data["EachHour"]*data["EachTime"])
-        print(u"The timer period is {} ms".format(period_time))
-        self._timer.setup(period_time, callback_function, 500)   ?????????????
-
+        print(u"Start Timer.The timer period is {} ms".format(period_time))
+        self._timer.setup(period_time, self.__ui_timer_callback, 1000)
         # 弹出进度条窗口并运行
         self.proc_exec_progress_window()
-        # 窗口退出则停止定时器，并分析退出原因
+        # 窗口退出则停止定时器
+        self._timer.stop()
+        self._delete_mail_objects()
 
-    def event_user_canel_progress(self):
-        pass
-
+    def event_user_cancel_progress(self):
+        # 窗口退出则停止定时器
+        self._timer.stop()
+        self._delete_mail_objects()
 
     # -----------------------------------------------------------------------------
 
@@ -973,9 +1010,51 @@ class UIInterface:
         self._mail_content = None
         self._mail_proc = None
 
+    def __ui_timer_callback(self):
+        fatal_err_code = (ERROR_OPEN_APPEND_FAILED, ERROR_READ_APPEND_FAILED, ERROR_CONNECT_FAILED, ERROR_LOGIN_FAILED)
+        ret = self._mail_proc.send_once()
+
+        err, err_info = ret["ErrCode"], ret["ErrLog"]
+        progress_info = unicode(time.strftime('[%Y-%m-%d %H:%M:%S]'))
+        if ERROR_SUCCESS == err:
+            progress_info += u"{}\nSend success to :\n{}".format(err_info, repr(ret["SuccessList"]))
+            self.proc_update_progress(ret["CurrProgress"], progress_info)
+        elif ERROR_FINISH == err:
+            self.proc_update_progress(ret["CurrProgress"], progress_info+u"Send Finished")
+            # 关闭定时器
+            self._timer.stop()
+            self._delete_mail_objects()
+            # 分两种情况，用户确认后关闭发送
+            success_num, failed_num, not_sent_num = ret["CurrProgress"]
+            if 0 != failed_num:
+                self.proc_finish_with_failed(success_num, failed_num, not_sent_num)
+            else:
+                self.proc_finish_all_success(success_num, failed_num, not_sent_num)
+        elif ERROR_SEND_TOO_MANY_NEED_WAIT == err:
+            self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
+            # 等待20分钟再尝试
+            self._timer.set_tmp_time(20*60*1000)
+        elif err in fatal_err_code:
+            self.proc_err_fatal_run(err, err_info)
+        elif ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
+            self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
+        elif ERROR_SOME_EMAILS_FAILED == err:
+            progress_info += err_info + u"\n"
+            progress_info += u"Success:\n{}\nFailed:\n{}".format(repr(ret["SuccessList"]), repr(ret["FailedList"]))
+            self.proc_update_progress(ret["CurrProgress"], progress_info)
+        elif ERROR_SEND_TOO_MANY == err:
+            self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
+        elif ERROR_SEND_FAILED_UNKNOWN == err:
+            self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
+        else:
+            self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
+
     # ----------------------------- GUI 要重写的接口 -------------------------------------
 
     def proc_err_same_program(self):
+        pass
+
+    def proc_err_before_load(self, err, err_info):
         pass
 
     def proc_ask_if_recover(self, last_success_num, last_failed_num, last_not_sent):
@@ -993,9 +1072,23 @@ class UIInterface:
     def proc_err_before_send(self, err, err_info):
         pass
 
+    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, send_sheets_list):
+        return True
+
     def proc_exec_progress_window(self):
         pass
 
+    def proc_update_progress(self, progress_tuple=None, progress_info=None):
+        pass
+
+    def proc_finish_with_failed(self, success_num, failed_num, not_sent_num):
+        pass
+
+    def proc_finish_all_success(self, success_num, failed_num, not_sent_num):
+        pass
+
+    def proc_err_fatal_run(self, err, err_info):
+        pass
 
 class UITimer:
     """ 抽象类 UI界面需要继承并重写这个类的   (一次性与周期性混合的定时器)"""
@@ -1311,7 +1404,7 @@ def test_has_same_program():
 
 if __name__ == "__main__":
     p = chdir_myself()
-    logging_init("SendMail.log")
+    logging_init("send_mail.log")
     test_send_mail()
     logging_fini()
 

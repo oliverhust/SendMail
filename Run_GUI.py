@@ -129,6 +129,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self._GUIProc.event_form_load()
 
     def slot_button_cancel(self):
+        # ????????????????????????????????????????????????????????????????????????????????
         r = QMessageBox.warning(self, "Warning",
                                 QString(u"是否保存进度，以便下次启动继续?"),
                                 QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel,
@@ -242,9 +243,14 @@ class GUIMain(UIInterface, MainWindow):
         UIInterface.__init__(self)
         MainWindow.__init__(self, self)
         self.event_init_ui_timer(GUITimer(self))
+        self._progress_win = None
 
     def proc_err_same_program(self):
         QMessageBox.critical(self, u"Program Error", QString(u"已经有另一个相同的程序在运行！\n请先停止该程序"))
+        self.close()
+
+    def proc_err_before_load(self, err, err_info):
+        QMessageBox.critical(self, u"Fatal Error", QString(err_info))
         self.close()
 
     def proc_ask_if_recover(self, last_success_num, last_failed_num, last_not_sent):
@@ -312,11 +318,42 @@ class GUIMain(UIInterface, MainWindow):
     def proc_err_before_send(self, err, err_info):
         QMessageBox.critical(self, u"Input Error", QString(err_info))
 
+    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, send_sheets_list):
+        info1 = u"本次将发送邮件{}封，已为您跳过邮件{}封，\n".format(will_send_num, last_success_num)
+        info2 = u"以下表格的邮箱将被发送:\n"
+        info_sheets = u"\n".join(send_sheets_list)
+        info3 = u"\n您确定要继续吗？"
+
+        button = QMessageBox.question(self, u"Confirm",
+                                      QString(info1 + info2 + info_sheets + info3),
+                                      QMessageBox.Ok | QMessageBox.Cancel,
+                                      QMessageBox.Ok)
+        if button == QMessageBox.Ok:
+            return True
+        print(u"User cancel before send.")
+        return False
+
     def proc_exec_progress_window(self):
         # 弹出进度条界面
-        new_win = ProgressWindow(self)
-        if new_win.exec_():
-           print("Exit nornal")
+        self._progress_win = ProgressWindow(self)
+        if self._progress_win.exec_():
+            print(u"Exit progress window normal")
+
+    def proc_update_progress(self, progress_tuple=None, progress_info=None):
+        # 更新进度条窗口上的所有信息
+        if progress_tuple is not None:
+            self._progress_win.set_progress_bar(progress_tuple[0], progress_tuple[1], progress_tuple[2])
+        if progress_info is not None:
+            self._progress_win.progress_log(progress_info + u"\n")
+
+    def proc_finish_with_failed(self, success_num, failed_num, not_sent_num):
+        self._progress_win.set_button_text_finish()
+
+    def proc_finish_all_success(self, success_num, failed_num, not_sent_num):
+        self._progress_win.set_button_text_finish()
+
+    def proc_err_fatal_run(self, err, err_info):
+        self._progress_win.exit_with_error(unicode(err_info))
 
 
 # ########################### 添加账户窗口 ############################
@@ -371,9 +408,31 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
 
     def slot_pause(self):
         if self._GUIProc is not None:
-            self._GUIProc.event_user_canel_progress()
-        self.accept()  # 表示用户是按暂停退出而不是直接关闭窗口
+            self._GUIProc.event_user_cancel_progress()
+        QMessageBox.information(self, u"Information",
+                                QString(u'如果想重发已失败的邮件，可以再次点击"开始"\n已发送成功的邮件不会重复发送'))
+        self.accept()  # 关闭窗口 表示用户是按暂停退出而不是直接关闭窗口
 
+    def set_progress_bar(self, success_num, failed_num, not_sent_num):
+        self.label_has_sent.setText(QString(unicode(success_num)))
+        self.label_failed_sent.setText(QString(unicode(failed_num)))
+
+        all_num = success_num + failed_num + not_sent_num
+        show_num = success_num + failed_num
+        self.progressBar.setMinimum(0)
+        self.progressBar.setMaximum(all_num)
+        self.progressBar.setValue(show_num)
+
+    def progress_log(self, content):
+        self.textEdit.append(QString(unicode(content)))
+
+    def set_button_text_finish(self):
+        self.pushButton.setText(QString(u"完成"))
+
+    def exit_with_error(self, err_info=u""):
+        if err_info != u"":
+            QMessageBox.critical(self, u"Fatal Error", QString(err_info))
+        self.accept()
 
 def test_ui_progress():
     app = QApplication(sys.argv)
@@ -399,6 +458,6 @@ def main():
 
 
 if __name__=='__main__':
-    main()
-    # test_ui_progress()
+    # main()
+    test_ui_progress()
     # test_gui_timer()

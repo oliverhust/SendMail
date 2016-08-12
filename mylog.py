@@ -31,16 +31,16 @@ def logging_info(log):
 
 def logging_init(file_path):
     global f_Logging
-    ret = 0
+    ret = 0, u""
     try:
         f_Logging = open(file_path, "a")
     except Exception, e:
         f_Logging = None
-        ret = 1
+        ret = 1, unicode(e)
     else:
         f_Logging.write("\n" * 10 + "#" * 64)
         logging("Start the program.")
-    return 1
+    return ret
 
 
 def logging_fini():

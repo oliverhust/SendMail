@@ -40,6 +40,7 @@ xls内搜索邮箱
 
 http://www.jb51.net/article/77626.htm
 http://www.linuxidc.com/Linux/2012-06/63652p2.htm
+QT中文：http://www.kuqin.com/qtdocument/qtimer.html
 
 【XLS获取邮箱】
 
