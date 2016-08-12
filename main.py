@@ -917,6 +917,13 @@ class UIInterface:
         # 回读所有的账户信息数据然后UI显示
         self._reload_db_account_data()
 
+    def event_main_exit_and_save(self):
+        pass
+
+    def event_main_exit_and_discard(self):
+        if self._db is not None:
+            self._db.clear_tmp_and_dynamic()
+
     def event_start_send(self):
         # 用户设置完所有数据后的处理
         data = self.proc_get_all_ui_data()

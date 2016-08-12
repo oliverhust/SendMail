@@ -129,21 +129,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self._GUIProc.event_form_load()
 
     def slot_button_cancel(self):
-        # ????????????????????????????????????????????????????????????????????????????????
-        r = QMessageBox.warning(self, "Warning",
-                                QString(u"是否保存进度，以便下次启动继续?"),
-                                QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel,
-                                QMessageBox.Save)
-        if r == QMessageBox.Save:
-            print("Warning button/Save")
+        box = QMessageBox(self)
+        box.setWindowTitle(u"Are you sure to exit?")
+        b_save = box.addButton(QString(u"保存"), QMessageBox.ActionRole)
+        b_discard = box.addButton(QString(u"不保存"), QMessageBox.ActionRole)
+        box.addButton(QString(u"点错了"), QMessageBox.ActionRole)
+        box.setText(QString(u"是否保存进度，以便下次启动继续?"))
+        box.exec_()
+
+        button = box.clickedButton()
+        if button == b_save:
+            print(u"Exit and save.\n")
+            self._GUIProc.event_main_exit_and_save()
             self.close()
-        elif r == QMessageBox.Discard:
-            print("Warning button/Discard")
+        elif button == b_discard:
+            print(u"Exit and discard.\n")
+            self._GUIProc.event_main_exit_and_discard()
             self.close()
-        elif r == QMessageBox.Cancel:
-            print("Warning button/Cancel")
-        else:
-            return
 
     def _set_account_list_sender_name(self, sender_name):
         # 返回一个账户结构体的列表，没有则返回[]
@@ -458,6 +460,6 @@ def main():
 
 
 if __name__=='__main__':
-    # main()
-    test_ui_progress()
+    main()
+    #test_ui_progress()
     # test_gui_timer()
