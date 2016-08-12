@@ -153,7 +153,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self._account_list[i].sender_name = sender_name
 
     def _ui_data_check(self):
-        if len(self.lineEdit_Sub.text()) == 0:
+        if len(unicode(self.lineEdit_Sub.text())) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入标题"))
             return False
         if len(self._body_path) == 0:
@@ -180,7 +180,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             QMessageBox.critical(self, u"Input Error", QString(u"请正确输入Excel表格中从表的起始及列名"))
             return False
 
-        if len(self.lineEdit_Sender_Name.text()) == 0:
+        if len(unicode(self.lineEdit_Sender_Name.text())) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入发件人"))
             return False
 
@@ -194,12 +194,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if not self._ui_data_check():
             return
 
-        self._sub = self.lineEdit_Sub.text()
+        self._sub = unicode(self.lineEdit_Sub.text())
         # xls表格位置选择
         start = int(self.lineEdit_Xls_From.text())
         end = int(self.lineEdit_Xls_To.text())
         self._xls_selected_list = range(start, end + 1)
-        self._xls_col_name = self.lineEdit_Xls_Col.text()
+        self._xls_col_name = unicode(self.lineEdit_Xls_Col.text())
         self._sender_name = unicode(self.lineEdit_Sender_Name.text())
         self._speed_each_hour = self.spinBox_Each_Hour.value()
         self._speed_each_time = self.spinBox_Each_Time.value()
@@ -320,11 +320,14 @@ class GUIMain(UIInterface, MainWindow):
     def proc_err_before_send(self, err, err_info):
         QMessageBox.critical(self, u"Input Error", QString(err_info))
 
-    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, send_sheets_list):
+    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, all_sheets, select_list):
         info1 = u"本次将发送邮件{}封，已为您跳过邮件{}封，\n".format(will_send_num, last_success_num)
         info2 = u"以下表格的邮箱将被发送:\n"
-        info_sheets = u"\n".join(send_sheets_list)
-        info3 = u"\n您确定要继续吗？"
+        selected_sheets = []
+        for i in select_list:
+            selected_sheets.append(all_sheets[i])
+        info_sheets = u"\n".join(selected_sheets)
+        info3 = u"\n\n您确定要继续吗？"
 
         button = QMessageBox.question(self, u"Confirm",
                                       QString(info1 + info2 + info_sheets + info3),

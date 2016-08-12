@@ -937,14 +937,16 @@ class UIInterface:
             return
         # 发送前的信息确认
         last_success_num, last_failed_num, will_send_num = self._mail_matrix.curr_progress()
-        send_sheets_list = self._mail_matrix.read_sheets_before_init()
-        if not self.proc_confirm_before_send(last_success_num, last_failed_num, will_send_num, send_sheets_list):
+        send_sheets_list = self._mail_matrix.get_sheet_names()
+        if not self.proc_confirm_before_send(last_success_num, last_failed_num, will_send_num,
+                                             send_sheets_list, data["SelectedList"]):
             self._delete_mail_objects()
             return
         # 启动UI定时器
         period_time = int(3600000.0/data["EachHour"]*data["EachTime"])
         print(u"Start Timer.The timer period is {} ms".format(period_time))
         self._timer.setup(period_time, self.__ui_timer_callback, 1000)
+        self._timer.start()
         # 弹出进度条窗口并运行
         self.proc_exec_progress_window()
         # 窗口退出则停止定时器
@@ -1079,7 +1081,7 @@ class UIInterface:
     def proc_err_before_send(self, err, err_info):
         pass
 
-    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, send_sheets_list):
+    def proc_confirm_before_send(self, last_success_num, last_failed_num, will_send_num, send_sheets_list, select_list):
         return True
 
     def proc_exec_progress_window(self):
@@ -1187,12 +1189,25 @@ def html_txt_elem(txt):
 
 
 def os_get_curr_dir():
-    return os.path.dirname(os.path.realpath(__file__))
+    p = os.path.dirname(os.path.realpath(sys.argv[0]))
+    p_decode = u"."
+    try:
+        p_decode = p.decode("gb18030")
+    except:
+        print("Decode path of gb18030 failed.")
+        try:
+            p_decode = p.decode("utf-8")
+        except:
+            print("Decode path of utf-8 failed.")
+    print(u"Change dir to MyPath = " + repr(p))
+
+    return p_decode
+
 
 def chdir_myself():
-    p = os.path.dirname(os.path.realpath(__file__))
-    print(u"Change dir to MyPath = " + p)
-    os.chdir(p)
+    p = os_get_curr_dir()
+    if p != u".":
+        os.chdir(p)
     return p
 
 
