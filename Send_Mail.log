@@ -1,0 +1,147 @@
+2016-08-13 09:00:00
+The form has loaded
+The Event form load has arised.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+2016-08-13 09:00:42
+The form has loaded
+The Event form load has arised.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+2016-08-13 09:01:30
+The form has loaded
+The Event form load has arised.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 208, in slot_button_run
+    print(u"sub = {}\nbody_path = {}\nappend_list = {}\npath_xls = {}".format(self._sub, self._body_path, self._append_list, self._xls_path))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-15: ordinal not in range(128)
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 208, in slot_button_run
+    print(u"sub = {}\nbody_path = {}\nappend_list = {}\npath_xls = {}".format(self._sub, self._body_path, self._append_list, self._xls_path))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-15: ordinal not in range(128)
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 208, in slot_button_run
+    print(u"sub = {}\nbody_path = {}\nappend_list = {}\npath_xls = {}".format(self._sub, self._body_path, self._append_list, self._xls_path))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-15: ordinal not in range(128)
+Exit and save.
+
+2016-08-13 09:10:37
+The form has loaded
+The Event form load has arised.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+2016-08-13 09:11:36
+The form has loaded
+The Event form load has arised.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+2016-08-13 09:56:35
+The form has loaded
+The Event form load occur.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+2016-08-13 09:57:09
+The form has loaded
+The Event form load occur.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+2016-08-13 09:58:33
+The form has loaded
+The Event form load occur.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+2016-08-13 10:01:04
+The form has loaded
+The Event form load occur.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 508, in <module>
+    main()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 498, in main
+    main_init()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 488, in main_init
+    a = 1 / 0
+ZeroDivisionError: integer division or modulo by zero
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/13 10:05:56]
+Start the program
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 508, in <module>
+    main()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 498, in main
+    main_init()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 488, in main_init
+    1/0
+ZeroDivisionError: integer division or modulo by zero
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/13 10:07:46] Start the program
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 508, in <module>
+    main()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 498, in main
+    main_init()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 488, in main_init
+    1/0
+ZeroDivisionError: integer division or modulo by zero
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/13 10:18:14] Start the program
+2016-08-13 10:18:14
+The form has loaded
+The Event form load occur.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/13 10:23:41] Start the program
+2016-08-13 10:23:42
+The form has loaded
+The Event form load occur.
+Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+

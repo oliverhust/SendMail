@@ -19,10 +19,8 @@ from email.mime.application import MIMEApplication
 
 from mylog import *
 from err_code import *
-from mail_list import *
 
 # import pdb;  pdb.set_trace()
-PROGRAM_UNIQUE_PORT = 48625
 
 
 class Account:
@@ -892,7 +890,6 @@ class UIInterface:
     def __init__(self):
         self._db = None
         self._path_me = u""
-        self._same_program_check = CheckSameProgram()
 
         self._mail_matrix = None
         self._account_manger = None
@@ -904,20 +901,8 @@ class UIInterface:
         self._timer = ui_timer
 
     def event_form_load(self):
-        print(u"The Event form load has arised.")
+        print(u"The Event form load occur.")
         self._path_me = os_get_curr_dir()
-
-        # 判断有无相同程序运行
-        if self._same_program_check.has_same():
-            self.proc_err_same_program()
-            return
-
-        # 初始化日志记录
-        # err, err_info = logging_init(self._path_me + "\\" + 'send_mail.log')
-        # if ERROR_SUCCESS != err:
-        #     err_info = u"日志记录失败！\n" + err_info
-        #     self.proc_err_before_load(err, err_info)
-        #     return
 
         # 打开MailDB判断上次情况
         self._db = MailDB(self._path_me + "\\" + 'send_mail.db')
@@ -1088,9 +1073,6 @@ class UIInterface:
 
     # ----------------------------- GUI 要重写的接口 -------------------------------------
 
-    def proc_err_same_program(self):
-        pass
-
     def proc_err_before_load(self, err, err_info):
         pass
 
@@ -1148,25 +1130,6 @@ class UITimer:
 
 
 # #####################################################################################################
-
-
-class CheckSameProgram:
-    """ 检查是否运行了另外一个相同的程序 """
-    def __init__(self):
-        self._s = None
-
-    def has_same(self):
-        ret = False
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)   #定义socket类型，网络通信，TCP
-        self._s = s
-        try:
-            s.bind(("127.0.0.1", PROGRAM_UNIQUE_PORT))   #套接字绑定的IP与端口
-        except Exception, e:
-            ret = True
-        return ret
-
-    def fini(self):
-        self._s.close()
 
 
 def is_break_error(err):

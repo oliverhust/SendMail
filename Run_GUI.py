@@ -13,6 +13,7 @@ from main import Account
 from mylog import *
 
 # import pdb; pdb.set_trace()
+PROGRAM_UNIQUE_PORT = 48625
 
 
 # ################################ GUI定时器(一次性与周期性混合) ##############################
@@ -461,6 +462,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
             QMessageBox.critical(self, u"Fatal Error", QString(err_info))
         self.accept()
 
+
 def test_ui_progress():
     app = QApplication(sys.argv)
     Window = ProgressWindow()
@@ -475,17 +477,43 @@ def test_main_win():
     app.exec_()
 
 
+def message_err_when_init(content, title=u"Fatal Error"):
+    app = QApplication(sys.argv)
+    win = QDialog()
+    QMessageBox.critical(win, title, QString(unicode(content)))
+    win.close()
+    app.exit()
+
+
+def main_init():
+    print(u"Check same program.")
+    sys.stdout.flush()
+    time.sleep(10)    #################################
+    if check_program_has_same(PROGRAM_UNIQUE_PORT):
+        message_err_when_init(u"已经有另一个相同的程序在运行！\n请先停止该程序")
+        exit(1)
+    print(u"Init the log.")
+    time.sleep(5)    #################################
+    logging_init_old("Send_Mail.log")
+
+
+def main_fini():
+    logging_fini_old()
+    check_program_has_same_fini()
+
+
 # Main Function
 def main():
+    main_init()
     QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
     app = QApplication(sys.argv)
-    Window = GUIMain(None)
-    Window.show()
+    win = GUIMain()
+    win.show()
     app.exec_()
+    main_fini()
 
 
 if __name__=='__main__':
-    logging_init("Send_mail.log")
     main()
-    #test_ui_progress()
+    # test_ui_progress()
     # test_gui_timer()
