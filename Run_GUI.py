@@ -379,6 +379,7 @@ class AccountWindow(QDialog, Ui_Dialog_Account):
         # 确定/取消按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.add_account)
         self.connect(self.pushButton_cancel, SIGNAL("clicked()"), self.cancel_account)
+        self.connect(self.lineEdit_user, SIGNAL("editingFinished()"), self._auto_set_host)
 
         # 账户数据
         self.user = u""
@@ -423,6 +424,12 @@ class AccountWindow(QDialog, Ui_Dialog_Account):
     def cancel_account(self):
         self.reject()
 
+    def _auto_set_host(self):
+        user = unicode(self.lineEdit_user.text())
+        host = Account.auto_get_host(user)
+        if host != u"":
+            self.lineEdit_host.setText(QString(host))
+
 
 # ########################### 进度条窗口 ############################
 class ProgressWindow(QDialog, Ui_Dialog_Progress):
@@ -434,7 +441,6 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         self._box = None
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
-
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)

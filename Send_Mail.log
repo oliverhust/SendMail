@@ -159,3 +159,152 @@ Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 The progress will recover
 Exit and save.
 
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/13 23:55:27] Start the program
+2016-08-13 23:55:27
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 00:02:13] Start the program
+2016-08-14 00:02:14
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 00:03:10] Start the program
+2016-08-14 00:03:11
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 政治内容分享
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37], col_name = C, sender_name = 张美凤
+Speed each hour = 400, each time = 40
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 张美凤)
+Account[1] = Account(1026815245@qq.com, seswdbhdxkmkbbgc, smtp.qq.com, 张美凤)
+
+[2016/08/14 00:11:25]
+Get 1631 mails from excel.
+[2016/08/14 00:11:29]Start Timer.The timer period is 180000 ms
+Exit progress window normal
+Exit the progress windows.
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 00:11:48] Start the program
+2016-08-14 00:11:48
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 00:12:03] Start the program
+2016-08-14 00:12:03
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 00:55:36] Start the program
+2016-08-14 00:55:37
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 01:01:33] Start the program
+2016-08-14 01:01:33
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 01:03:22] Start the program
+2016-08-14 01:03:23
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 01:05:26] Start the program
+2016-08-14 01:05:26
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/14 01:13:46] Start the program
+2016-08-14 01:13:46
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+

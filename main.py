@@ -34,17 +34,25 @@ class Account:
     def __repr__(self):
         return u"Account({}, {}, {}, {})".format(self.user, self.passwd, self.host, self.sender_name)
 
-    def check(self):
-        pass
-
-    def auto_get_host(self):
-        host_dict = {"hust.edu.cn": "mail.hust.edu.cn", "163.com": "smtp.163.com"}
-        pos = self.user.find("@")
+    @staticmethod
+    def auto_get_host(user):
+        host_dict = {"hust.edu.cn": "mail.hust.edu.cn",    "126.com": "smtp.126.com",
+                     "163.com": "smtp.163.com",            "sina.cn": "smtp.sina.cn",
+                     "sina.com": "smtp.sina.com.cn",       "sohu.com": "smtp.sohu.com",
+                     "263.net": "smtp.263.net",            "gmail.com": "smtp.gmail.com",
+                     "tom.com": "smtp.tom.com",            "yahoo.com": "smtp.mail.yahoo.com",
+                     "yahoo.com.cn": "smtp.mail.yahoo.com","21cn.com": "smtp.21cn.com",
+                     "qq.com": "smtp.qq.com",              "x263.net": "smtp.263.net",
+                     "foxmail.com": "smtp.foxmail.com",    "hotmail.com": "smtp.live.com",
+                     "hainan.net": "smtp.hainan.net",      "139.com": "smtp.139.com",}
+        pos = user.find("@")
         if -1 == pos:
-            return
-        domain = self.user[pos+1:]
+            return u""
+        domain = user[pos+1:]
         if domain in host_dict:
-            self.host = host_dict[domain]
+            host = unicode(host_dict[domain])
+            return host
+        return u""
 
 
 class AccountsMange:
@@ -477,7 +485,7 @@ class MailProc:
             s.login(user_name, passwd)
         except Exception, e:
             err = ERROR_LOGIN_FAILED
-            err_info = u"账号或密码错误\n{}".format(e)
+            err_info = u"认证失败:可能是账号或密码错误\n{}".format(e)
             return err, err_info
         return ERROR_SUCCESS, u""
 
