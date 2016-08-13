@@ -145,3 +145,17 @@ Change dir to MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 The progress will recover
 Exit and save.
 
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/13 11:19:37] Start the program
+2016-08-13 11:19:37
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+

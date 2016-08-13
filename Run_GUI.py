@@ -365,6 +365,9 @@ class GUIMain(UIInterface, MainWindow):
     def proc_err_fatal_run(self, err, err_info):
         self._progress_win.exit_with_error(unicode(err_info))
 
+    def proc_err_auto_retry(self, err, err_info):
+        self._progress_win.mention_and_auto_close(unicode(err_info))
+
 
 # ########################### 添加账户窗口 ############################
 class AccountWindow(QDialog, Ui_Dialog_Account):
@@ -427,8 +430,11 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
     def __init__(self, gui_proc=None, parent=None):
         super(ProgressWindow, self).__init__(parent)
         self._GUIProc = gui_proc
+        self._timer_close = None
+        self._box = None
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
+
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)
@@ -462,6 +468,24 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
             QMessageBox.critical(self, u"Fatal Error", QString(err_info))
         self.accept()
 
+    def mention_and_auto_close(self, err_info=u"", delay=5000):
+        if err_info != u"":
+            box = QMessageBox(self)
+            self._box = box
+            self._timer_close = QTimer(self)
+            self._timer_close.setSingleShot(True)
+            self.connect(self._timer_close, SIGNAL("timeout()"), self._close_msg_box)
+            self._timer_close.start(delay)
+
+            box.setWindowTitle(u"Error")
+            box.addButton(QString(u"自动重试"), QMessageBox.ActionRole)
+            box.setText(QString(err_info))
+            box.exec_()
+
+    def _close_msg_box(self):
+        self._box.close()
+        self._timer_close.disconnect(self._timer_close, SIGNAL("timeout()"), self._close_msg_box)
+
 
 def test_ui_progress():
     app = QApplication(sys.argv)
@@ -488,17 +512,15 @@ def message_err_when_init(content, title=u"Fatal Error"):
 def main_init():
     print(u"Check same program.")
     sys.stdout.flush()
-    time.sleep(10)    #################################
     if check_program_has_same(PROGRAM_UNIQUE_PORT):
         message_err_when_init(u"已经有另一个相同的程序在运行！\n请先停止该程序")
         exit(1)
     print(u"Init the log.")
-    time.sleep(5)    #################################
-    logging_init_old("Send_Mail.log")
+    logging_init("Send_Mail.log")
 
 
 def main_fini():
-    logging_fini_old()
+    logging_fini()
     check_program_has_same_fini()
 
 

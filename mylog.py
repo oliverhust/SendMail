@@ -207,11 +207,9 @@ def logging_fini():
 def logging_init_old(file_name):
     global f_Logging
     print(u"Start to init logging.")
-    time.sleep(5)    #################################
     d = chdir_myself()
     print(u"Change dir to {}".format(repr(d)))
     log_full = d + u"\\" + file_name
-    time.sleep(5)    #################################
     try:
         f_Logging = open(log_full, "a")
     except Exception, e:

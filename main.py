@@ -76,6 +76,9 @@ class AccountsMange:
         self._CurrAccountId = (self._CurrAccountId + 1) % len(self._AccountList)
         return account
 
+    def account_list(self):
+        return self._AccountList[:]
+
     def send_too_many_proc(self, origin_err_info):
         # 每当轮询到第一个账户失败时就一直等，除非是第一次发送第一个账号失败 需要用self._send_too_many_mark
         err_info = origin_err_info
@@ -87,10 +90,9 @@ class AccountsMange:
             err = ERROR_SEND_TOO_MANY_NEED_WAIT
             err_info = u"所有邮箱都已发送太多邮件被拒，将从第一个开始重新尝试"
         else:
-            self._CurrAccountId = (self._CurrAccountId + 1) % len(self._AccountList)
-            account_next = self._AccountList[self._CurrAccountId]
+            account_next = self._AccountList[self._CurrAccountId]  # 在每次get的时候已经切换了
             err = ERROR_SEND_TOO_MANY
-            err_info += u"\n切换到账号{}".format(account_next.user)
+            err_info += u"\n当前账号发送过多，切换到账号{}".format(account_next.user)
             # 只要进一次这里就永远被标记
             self._send_too_many_mark = True
         return err, err_info
@@ -666,6 +668,12 @@ class MailDB:
             err_info = u"写入数据库失败！没有写权限\n{}".format(e)
         return err, err_info
 
+    def save(self):
+        self._db.commit()
+        # self._db.close()
+        # self._db = sqlite3.connect(self._path)
+        # self._c = self._db.cursor()
+
     def _create_forever_table(self):
 
         # 账户信息：用户名 密码 host 姓名
@@ -727,7 +735,7 @@ class MailDB:
         self._c.execute("DELETE FROM account")
         sql_arg = [(x.user, x.passwd, x.host, x.sender_name) for x in account_list]
         self._c.executemany("INSERT INTO account VALUES (?,?,?,?)", sql_arg)
-        self._db.commit()
+        self.save()
 
     def get_accounts(self):
         # 返回由Account对象组成的列表
@@ -738,7 +746,7 @@ class MailDB:
     def del_all_accounts(self):
         # 删除所有账户
         self._c.execute("DELETE FROM account")
-        self._db.commit()
+        self.save()
 
     # ---------------------------------------------------------------------------
     def save_mail_content(self, sub, body, append_path_list):
@@ -747,7 +755,7 @@ class MailDB:
         append_str = "\n\n".join(append_path_list)   # 用两个换行符分开不同的附件路径
         sql_arg = (0, sub, body, append_str)
         self._c.execute("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
-        self._db.commit()
+        self.save()
 
     def get_mail_content(self):
         # 返回邮件内容：[ 标题, 正文, 附件路径列表 ] id永远为0
@@ -761,7 +769,7 @@ class MailDB:
 
     def del_mail_content(self):
         self._c.execute("DELETE FROM mail_content")
-        self._db.commit()
+        self.save()
 
     # ---------------------------------------------------------------------------
     def save_receiver_data(self, xls_path, selected_list, col_name):
@@ -771,7 +779,7 @@ class MailDB:
         str_selected = ",".join(str_list)
         sql_arg = (0, xls_path, str_selected, col_name)
         self._c.execute("INSERT INTO receiver VALUES (?,?,?,?)", sql_arg)
-        self._db.commit()
+        self.save()
 
     def get_receiver_data(self):
         # 返回收件人来源的信息 [xls表路径，选择的表(数字组成的列表), 列名] id永远为0
@@ -786,7 +794,7 @@ class MailDB:
 
     def del_receiver_data(self):
         self._c.execute("DELETE FROM receiver")
-        self._db.commit()
+        self.save()
 
     # ---------------------------------------------------------------------------
     def save_speed_info(self, num_each_account_hour, each_time_send):
@@ -794,7 +802,7 @@ class MailDB:
         self._c.execute("DELETE FROM speed_info")
         sql_arg = (0, num_each_account_hour, each_time_send)
         self._c.execute("INSERT INTO speed_info VALUES (?,?,?)", sql_arg)
-        self._db.commit()
+        self.save()
 
     def get_speed_info(self):
         # 速度控制信息列表 [每账户每小时发送数量，每次发送数量]  id永远为0
@@ -807,7 +815,7 @@ class MailDB:
 
     def del_speed_info(self):
         self._c.execute("DELETE FROM speed_info")
-        self._db.commit()
+        self.save()
 
     # ---------------------------------------------------------------------------
     def save_sent_progress(self, success_sent, failed_sent, not_sent):
@@ -815,7 +823,7 @@ class MailDB:
         self._c.execute("DELETE FROM sent_progress")
         sql_arg = (0, success_sent, failed_sent, not_sent)
         self._c.execute("INSERT INTO sent_progress VALUES (?,?,?,?)", sql_arg)
-        self._db.commit()
+        self.save()
 
     def get_sent_progress(self):
         # 发送进度 (已发送成功的数量, 已发送失败的数量, 未发送的数量) id永远为0
@@ -828,7 +836,7 @@ class MailDB:
 
     def del_sent_progress(self):
         self._c.execute("DELETE FROM sent_progress")
-        self._db.commit()
+        self.save()
 
     # ---------------------------------------------------------------------------
     def add_success_sent(self, list_success):
@@ -836,18 +844,18 @@ class MailDB:
             return
         sql_arg = [(x,) for x in list_success ]
         self._c.executemany("INSERT INTO success_sent VALUES (?)", sql_arg)
-        self._db.commit()
+        self.save()
 
     def del_success_sent(self, list_to_del):
         if not list_to_del:
             return
         sql_arg = [(x,) for x in list_to_del ]
         self._c.executemany("DELETE FROM success_sent WHERE mail=?", sql_arg)
-        self._db.commit()
+        self.save()
 
     def del_all_success_sent(self):
         self._c.execute("DELETE FROM success_sent")
-        self._db.commit()
+        self.save()
 
     def get_success_sent(self):
         self._c.execute("SELECT * FROM success_sent")
@@ -860,18 +868,18 @@ class MailDB:
             return
         sql_arg = [(x,) for x in list_failed ]
         self._c.executemany("INSERT INTO failed_sent VALUES (?)", sql_arg)
-        self._db.commit()
+        self.save()
 
     def del_failed_sent(self, list_to_del):
         if not list_to_del:
             return
         sql_arg = [(x,) for x in list_to_del ]
         self._c.executemany("DELETE FROM failed_sent WHERE mail=?", sql_arg)
-        self._db.commit()
+        self.save()
 
     def del_all_failed_sent(self):
         self._c.execute("DELETE FROM failed_sent")
-        self._db.commit()
+        self.save()
 
     def get_failed_sent(self):
         self._c.execute("SELECT * FROM failed_sent")
@@ -910,8 +918,9 @@ class UIInterface:
         if ERROR_SUCCESS != err:
             self.proc_err_before_load(err, err_info)
             return
-        last_progress = self._db.get_sent_progress()   # 如果返回[]代表没有上次
-        if last_progress:
+        last_progress = self._db.get_sent_progress()   # 判断用户上次有没有清除内容
+        last_content = self._db.get_mail_content()
+        if last_content:
             is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
             if is_recover:
                 # 回读所有的界面上的tmp数据然后UI显示
@@ -948,7 +957,8 @@ class UIInterface:
             self._delete_mail_objects()
             return
         # 启动UI定时器
-        period_time = int(3600000.0/data["EachHour"]*data["EachTime"])
+        account_num = len(self._account_manger.account_list())
+        period_time = int(3600000.0/data["EachHour"]*data["EachTime"]/account_num)
         print(u"[{}]Start Timer.The timer period is {} ms".format(get_time_str(), period_time))
         self._timer.setup(period_time, self.__ui_timer_callback, 2000)
         self._timer.start()
@@ -1031,7 +1041,8 @@ class UIInterface:
 
     def __ui_timer_callback(self):
         print(u"[{}]Timer call back.".format(get_time_str()))
-        fatal_err_code = (ERROR_OPEN_APPEND_FAILED, ERROR_READ_APPEND_FAILED, ERROR_CONNECT_FAILED, ERROR_LOGIN_FAILED)
+        fatal_err_code = (ERROR_OPEN_APPEND_FAILED, ERROR_READ_APPEND_FAILED)
+        err_auto_retry = (ERROR_CONNECT_FAILED, ERROR_LOGIN_FAILED)
 
         ret = self._mail_proc.send_once()
 
@@ -1057,7 +1068,11 @@ class UIInterface:
             self._timer.set_tmp_time(20*60*1000)
         elif err in fatal_err_code:
             self._timer.stop()       # 关闭定时器
+            self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
             self.proc_err_fatal_run(err, err_info)
+        elif err in err_auto_retry:
+            self.proc_err_auto_retry(err, err_info)
+            self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
         elif ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
             self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
         elif ERROR_SOME_EMAILS_FAILED == err:
@@ -1107,6 +1122,9 @@ class UIInterface:
         pass
 
     def proc_err_fatal_run(self, err, err_info):
+        pass
+
+    def proc_err_auto_retry(self, err, err_info):
         pass
 
 
