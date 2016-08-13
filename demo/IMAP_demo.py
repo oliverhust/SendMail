@@ -42,7 +42,7 @@ def send_email(account, mail_list, sub, content_html, append_list):
     msg_text = MIMEText(content_html, 'html', ENCODE)
     msg.attach(msg_text)
 
-    logging("Read Appends")
+    print_t("Read Appends")
     for each_append in append_list:
         f = open(each_append, 'rb')
         f_basename = os.path.basename(each_append).encode(ENCODE)

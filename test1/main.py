@@ -65,7 +65,7 @@ class MailContent:
         if data_tmp:
             # 再进一步检查防止出错
             if data_tmp[0] != mail_address:
-                logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
+                print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
             return self.text_replace(self._Sub, data_tmp)
         return self._Sub
 
@@ -79,7 +79,7 @@ class MailContent:
         if data_tmp:
             # 再进一步检查防止出错
             if data_tmp[0] != mail_address:
-                logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
+                print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
             return self.text_replace(self._Body, data_tmp)
         return self._Body
 
@@ -111,7 +111,7 @@ class MailContent:
             f_basename = os.path.basename(each_append).encode(MailProc.ENCODE)
             msg_append.add_header('Content-Disposition', 'attachment', filename=f_basename)
             self._msg_append_list.append(msg_append)
-        logging(ret[1])
+        print_t(ret[1])
         return ret
 
     @staticmethod
@@ -251,7 +251,7 @@ class MailProc:
         for each_append in msg_append_list:
             msg.attach(each_append)
 
-        logging("Start to send a group.")
+        print_t("Start to send a group.")
         s = smtplib.SMTP()
         try:
             s.connect(account.host)
@@ -289,7 +289,7 @@ class MailProc:
                 err = ERROR_SOME_EMAILS_FAILED
                 err_info = u"部分邮件发送失败"
         s.close()
-        logging("Send to " + repr(mail_list) + " | " + err_info + " | " + repr(fail_mail))
+        print_t("Send to " + repr(mail_list) + " | " + err_info + " | " + repr(fail_mail))
 
         return err, err_info, fail_mail
 

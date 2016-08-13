@@ -65,7 +65,7 @@ class MailContent:
         if data_tmp:
             # 再进一步检查防止出错
             if data_tmp[0] != mail_address:
-                logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
+                print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
             return self.text_replace(self._Sub, data_tmp)
         return self._Sub
 
@@ -79,7 +79,7 @@ class MailContent:
         if data_tmp:
             # 再进一步检查防止出错
             if data_tmp[0] != mail_address:
-                logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
+                print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
             return self.text_replace(self._Body, data_tmp)
         return self._Body
 

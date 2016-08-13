@@ -72,7 +72,7 @@ def send_mail(mail_list, sub, content_html, append_list):
     msg_text = MIMEText(content_html, 'html', ENCODE)
     msg.attach(msg_text)
 
-    logging("Read Appends")
+    print_t("Read Appends")
     for each_append in append_list:
         f = open(each_append, 'rb')
         f_basename = os.path.basename(each_append).encode(ENCODE)
@@ -80,13 +80,13 @@ def send_mail(mail_list, sub, content_html, append_list):
         msg_append.add_header('Content-Disposition', 'attachment', filename=f_basename)
         msg.attach(msg_append)
 
-    logging("Start to connect.")
+    print_t("Start to connect.")
     s = smtplib.SMTP()
     s.connect(MAIL_HOST)   #没网, 或DNS
-    logging("Connetc success")
+    print_t("Connetc success")
     s.login(MAIL_USER, MAIL_PASS) #用户名密码错误
 
-    logging("Before Send Email, there are {} receivers.".format(len(mail_list)))
+    print_t("Before Send Email, there are {} receivers.".format(len(mail_list)))
     try:
         err_mail = s.sendmail(me, mail_list, msg.as_string())
     except smtplib.SMTPRecipientsRefused, e:
@@ -94,7 +94,7 @@ def send_mail(mail_list, sub, content_html, append_list):
         print(e)
         print("-------")
         print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    logging("After Send Email.")
+    print_t("After Send Email.")
     s.close()
     print ("Send email success to " + repr(mail_list))
 
@@ -171,7 +171,7 @@ def main():
     #test_xls()
     #test_send_email()
     test_xls2()
-    logging("Exit the program.")
+    print_t("Exit the program.")
     logging_fini()
     
     

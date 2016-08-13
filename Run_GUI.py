@@ -10,6 +10,7 @@ from ui_add_account import Ui_Dialog_Account
 from ui_progress import Ui_Dialog_Progress
 from main import UIInterface, UITimer
 from main import Account
+from mylog import *
 
 # import pdb; pdb.set_trace()
 
@@ -484,6 +485,7 @@ def main():
 
 
 if __name__=='__main__':
+    logging_init("Send_mail.log")
     main()
     #test_ui_progress()
     # test_gui_timer()

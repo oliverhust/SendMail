@@ -145,7 +145,7 @@ class MailContent:
         # 获取实际位置然后调用替换
         data_tmp = mail_matrix.get_data_by_name(mail_address)
         if data_tmp:
-            logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
+            print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
             return self.text_replace(self._Sub, data_tmp)
         return self._Sub
 
@@ -157,7 +157,7 @@ class MailContent:
         if data_tmp:
             # 再进一步检查防止出错
             if data_tmp[0] != mail_address:
-                logging_warn(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
+                print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
             return self.text_replace(self._Body, data_tmp)
         return self._Body
 
@@ -189,7 +189,7 @@ class MailContent:
             f_basename = os.path.basename(each_append).encode(MailProc.ENCODE)
             msg_append.add_header('Content-Disposition', 'attachment', filename=f_basename)
             self._msg_append_list.append(msg_append)
-        logging(ret[1])
+        print_t(ret[1])
         return ret
 
     @staticmethod
@@ -347,7 +347,7 @@ class XlsMatrix:
             for each_ceil in sheet.col_values(self._MailColNo):    # sheet.col_values(列号) 获取sheet内一列
                 if "" != str_find_mailbox(each_ceil):
                     mails_read.append(each_ceil)
-        logging("Get {} mails from excel.".format(len(mails_read)))
+        print_t("Get {} mails from excel.".format(len(mails_read)))
         return err, err_info, mails_read
 
     @staticmethod
@@ -498,7 +498,7 @@ class MailProc:
         for each_append in msg_append_list:
             msg.attach(each_append)
 
-        logging("Start to send a group.")
+        print_t("Start to send a group.")
         s = smtplib.SMTP()
         try:
             s.connect(account.host)
@@ -506,7 +506,7 @@ class MailProc:
             err = ERROR_CONNECT_FAILED
             err_info = u"连接{}失败，请检查网络是否通畅\n错误信息: {}".format(account.host, e)
             return err, err_info, fail_mail
-        logging_info("Connect {} Success.".format(account.host))
+        print(u"Connect {} Success.".format(account.host))
 
         try:
             s.login(account.user, account.passwd)
@@ -514,7 +514,7 @@ class MailProc:
             err = ERROR_LOGIN_FAILED
             err_info = u"{}登录失败，账号或密码错误\n{}".format(account.user, e)
             return err, err_info, fail_mail
-        logging_info(u"Account {} login Success.".format(account.user))
+        print(u"Account {} login Success.".format(account.user))
 
         try:
             fail_mail = s.sendmail(account.user, mail_list, msg.as_string())
@@ -536,7 +536,7 @@ class MailProc:
                 err = ERROR_SOME_EMAILS_FAILED
                 err_info = u"部分邮件发送失败"
         s.close()
-        logging("Send to " + repr(mail_list) + " | " + err_info + " | " + repr(fail_mail))
+        print_t("Send to " + repr(mail_list) + " | " + err_info + " | " + repr(fail_mail))
 
         return err, err_info, fail_mail
 
@@ -904,8 +904,8 @@ class UIInterface:
         self._timer = ui_timer
 
     def event_form_load(self):
-        print("The Event form load has arised.")
-        self._path_me = chdir_myself()
+        print(u"The Event form load has arised.")
+        self._path_me = os_get_curr_dir()
 
         # 判断有无相同程序运行
         if self._same_program_check.has_same():
@@ -913,11 +913,11 @@ class UIInterface:
             return
 
         # 初始化日志记录
-        err, err_info = logging_init(self._path_me + "\\" + 'send_mail.log')
-        if ERROR_SUCCESS != err:
-            err_info = u"日志记录失败！\n" + err_info
-            self.proc_err_before_load(err, err_info)
-            return
+        # err, err_info = logging_init(self._path_me + "\\" + 'send_mail.log')
+        # if ERROR_SUCCESS != err:
+        #     err_info = u"日志记录失败！\n" + err_info
+        #     self.proc_err_before_load(err, err_info)
+        #     return
 
         # 打开MailDB判断上次情况
         self._db = MailDB(self._path_me + "\\" + 'send_mail.db')
@@ -1223,28 +1223,6 @@ def html_txt_elem(txt):
     return "<pre>" + ret + "</pre>"
 
 
-def os_get_curr_dir():
-    p = os.path.dirname(os.path.realpath(sys.argv[0]))
-    p_decode = u"."
-    try:
-        p_decode = p.decode("gb18030")
-    except:
-        print("Decode path of gb18030 failed.")
-        try:
-            p_decode = p.decode("utf-8")
-        except:
-            print("Decode path of utf-8 failed.")
-    print(u"Change dir to MyPath = " + repr(p))
-
-    return p_decode
-
-
-def chdir_myself():
-    p = os_get_curr_dir()
-    if p != u".":
-        os.chdir(p)
-    return p
-
 
 # ############################################################################################
 # #######################################   测试   ############################################
@@ -1460,9 +1438,6 @@ def test_has_same_program():
 
 
 if __name__ == "__main__":
-    p = chdir_myself()
-    logging_init("send_mail.log")
     test_send_mail()
-    logging_fini()
 
 
