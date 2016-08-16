@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>群发邮件</string>
   </property>
+  <property name="toolTip">
+   <string>欢迎使用本软件，遇到问题或有建议请联系Oliver 1026815245@qq.com</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_OK">
     <property name="geometry">
@@ -30,7 +33,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>开始发送</string>
+     <string>开始发送，将弹出确认信息窗口</string>
     </property>
     <property name="text">
      <string>开始</string>
@@ -50,6 +53,9 @@
       <family>Arial</family>
       <pointsize>16</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>退出</string>
     </property>
     <property name="text">
      <string>退出</string>
@@ -71,7 +77,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>请打开一个包含邮件正文的txt文件</string>
+     <string>请选择一个包含邮件正文的txt文本文件，如果没有则新建一个把内容复制到里面并保存</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
@@ -99,7 +105,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>请打开要发送的附件（可多选）</string>
+     <string>请打开要发送的附件（可多选，按住Ctrl键然后选定多个）</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
@@ -127,7 +133,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>请打存放开收件人Excel表格</string>
+     <string>把收件人名单放在Excel表格的某一列</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
@@ -459,7 +465,7 @@
      <rect>
       <x>260</x>
       <y>10</y>
-      <width>331</width>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
@@ -470,7 +476,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>Made by D539 Oliver, 1026815245@qq.com</string>
+     <string>Made by D539 Oliver, 1026815245@qq.com ^_^ 有BUG欢迎反馈</string>
     </property>
     <property name="text">
      <string>群发邮件</string>
@@ -486,7 +492,7 @@
      </rect>
     </property>
     <property name="toolTip">
-     <string>多账户将自动切换发送</string>
+     <string>点击&quot;添加&quot;来添加账户，多账户将自动切换发送，降低被封号的风险</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_account_add">
@@ -547,7 +553,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>多账户将自动切换发送</string>
+     <string>点击&quot;添加&quot;来添加账户，多账户将自动切换发送，降低被封号的风险</string>
     </property>
     <property name="text">
      <string>发送账户</string>
@@ -569,7 +575,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string/>
+     <string>收件人收到的邮件会看到这个名字</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_13">
@@ -605,6 +611,9 @@
       <family>Malgun Gothic Semilight</family>
       <pointsize>16</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>发送速度请谨慎调控，设置不当有被封号的可能</string>
     </property>
     <property name="text">
      <string>发送速度</string>
@@ -654,13 +663,16 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>每个账号每小时的发送数量</string>
+     <string>每个账号每小时的发送数量，多个账号则实际总速度更大</string>
     </property>
     <property name="minimum">
      <number>1</number>
     </property>
     <property name="maximum">
      <number>2000</number>
+    </property>
+    <property name="singleStep">
+     <number>100</number>
     </property>
     <property name="value">
      <number>400</number>
@@ -688,13 +700,16 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>每一次发送的最大发送数量</string>
+     <string>每一次发送的最大发送数量，不建议设置过小导致过于频繁得发送</string>
     </property>
     <property name="minimum">
      <number>1</number>
     </property>
     <property name="maximum">
      <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>5</number>
     </property>
     <property name="value">
      <number>40</number>
