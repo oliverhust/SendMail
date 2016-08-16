@@ -797,7 +797,7 @@ class MailDB:
             return []
         ret = ret[0]
         str_list = ret[2].split(",")
-        selected_list = [int(x) for x in str_list]
+        selected_list = [int(x) for x in str_list if len(x) > 0]
         return [ret[1], selected_list, ret[3]]
 
     def del_receiver_data(self):
@@ -921,26 +921,32 @@ class UIInterface:
         self._path_me = os_get_curr_dir()
 
         # 打开MailDB判断上次情况
-        self._db = MailDB(self._path_me + "\\" + 'send_mail.db')
+        self._db = MailDB(os.path.join(self._path_me, 'send_mail.db'))
         err, err_info = self._db.init()
         if ERROR_SUCCESS != err:
             self.proc_err_before_load(err, err_info)
             return
+
+        # 询问用户是否恢复上次的数据
+        is_recover = False
         last_progress = self._db.get_sent_progress()   # 判断用户上次有没有清除内容
         last_content = self._db.get_mail_content()
-        if last_content:
+        if last_progress:
             is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
-            if is_recover:
-                # 回读所有的界面上的tmp数据然后UI显示
-                self._reload_db_tmp_data()
-            else:
-                # 如果不恢复则清除db中的tmp和dynamic数据
-                self._db.clear_tmp_and_dynamic()
+        elif last_content:                             # 单纯的恢复发送内容
+            is_recover = self.proc_ask_if_reload_ui(last_content[0])
+        if is_recover:
+            self._reload_db_tmp_data()             # 回读所有的界面上的tmp数据然后UI显示
+        else:
+            self._db.clear_tmp_and_dynamic()       # 如果不恢复则清除db中的tmp和dynamic数据
+
         # 回读所有的账户信息数据然后UI显示
         self._reload_db_account_data()
 
     def event_main_exit_and_save(self):
-        pass
+        # 退出时用户点了"保存"
+        data = self.proc_get_all_ui_data()
+        self._save_ui_data_to_db(data)
 
     def event_main_exit_and_discard(self):
         if self._db is not None:
@@ -1100,6 +1106,9 @@ class UIInterface:
         pass
 
     def proc_ask_if_recover(self, last_success_num, last_failed_num, last_not_sent):
+        return False
+
+    def proc_ask_if_reload_ui(self, mail_sub):
         return False
 
     def proc_reload_tmp_data_to_ui(self, data):

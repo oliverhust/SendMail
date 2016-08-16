@@ -321,3 +321,617 @@ The Event form load occur.
 Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 Exit and discard.
 
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 11:16:38] Start the program
+2016-08-16 11:16:39
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 11:16:55] Start the program
+2016-08-16 11:16:55
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 131, in slot_form_load
+    self._GUIProc.event_form_load()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 932, in event_form_load
+    is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
+IndexError: list index out of range
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 11:55:40] Start the program
+2016-08-16 11:55:40
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 131, in slot_form_load
+    self._GUIProc.event_form_load()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 939, in event_form_load
+    self._reload_db_tmp_data()             # 回读所有的界面上的tmp数据然后UI显示
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1005, in _reload_db_tmp_data
+    tmp = self._db.get_receiver_data()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 800, in get_receiver_data
+    selected_list = [int(x) for x in str_list]
+ValueError: invalid literal for int() with base 10: ''
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:04:42] Start the program
+2016-08-16 12:04:42
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:04:54] Start the program
+2016-08-16 12:04:54
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:05:04] Start the program
+2016-08-16 12:05:05
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 131, in slot_form_load
+    self._GUIProc.event_form_load()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 939, in event_form_load
+    self._reload_db_tmp_data()             # 回读所有的界面上的tmp数据然后UI显示
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1018, in _reload_db_tmp_data
+    self.proc_reload_tmp_data_to_ui(data)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 318, in proc_reload_tmp_data_to_ui
+    sec_min = self._xls_selected_list[0]
+IndexError: list index out of range
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:07:13] Start the program
+2016-08-16 12:07:14
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:07:28] Start the program
+2016-08-16 12:07:28
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:07:51] Start the program
+2016-08-16 12:07:51
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:08:00] Start the program
+2016-08-16 12:08:00
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:08:10] Start the program
+2016-08-16 12:08:11
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:08:28] Start the program
+2016-08-16 12:08:28
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:09:14] Start the program
+2016-08-16 12:09:15
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:09:19] Start the program
+2016-08-16 12:09:19
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:09:35] Start the program
+2016-08-16 12:09:35
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:09:45] Start the program
+2016-08-16 12:09:45
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:09:49] Start the program
+2016-08-16 12:09:49
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:10:00] Start the program
+2016-08-16 12:10:00
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:10:07] Start the program
+2016-08-16 12:10:08
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:23:51] Start the program
+2016-08-16 12:23:52
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 146, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 948, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 344, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 201, in get_ui_data_to_memory
+    end = int(self.lineEdit_Xls_To.text())
+ValueError: invalid literal for int() with base 10: ''
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 146, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 948, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 344, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 201, in get_ui_data_to_memory
+    end = int(self.lineEdit_Xls_To.text())
+ValueError: invalid literal for int() with base 10: ''
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:26:44] Start the program
+2016-08-16 12:26:44
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = dsafsafasfsad
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 张美凤
+Speed each hour = 400, each time = 40
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 张美凤)
+Account[1] = Account(1026815245@qq.com, seswdbhdxkmkbbgc, smtp.qq.com, 张美凤)
+Account[2] = Account(fadsfsf@fasdffa, fsdafas, mail.hust.edu.cn, 张美凤)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:26:51] Start the program
+2016-08-16 12:26:52
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = dsafsafasfsad
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [1, 2, 3], col_name = C, sender_name = 张美凤
+Speed each hour = 400, each time = 40
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 张美凤)
+Account[1] = Account(1026815245@qq.com, seswdbhdxkmkbbgc, smtp.qq.com, 张美凤)
+Account[2] = Account(fadsfsf@fasdffa, fsdafas, mail.hust.edu.cn, 张美凤)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:27:08] Start the program
+2016-08-16 12:27:08
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = , sender_name = 
+Speed each hour = 400, each time = 40
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:27:32] Start the program
+2016-08-16 12:27:32
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 最近不错
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u65b0\u4eba\u57f9\u8bad\u8d44\u6599.rar']
+path_xls = C:/Users/Oliver/Desktop/点石邮箱16-7-2修改.xls
+selected = [2], col_name = C, sender_name = 你好的 的
+Speed each hour = 400, each time = 40
+Account[0] = Account(dasdsf@fasdf, asdfasfa, mail.hust.edu.cn, 你好的 的)
+Account[1] = Account(fsafs@dhjhgfdd, dddddddddd, mail.hust.edu.cn, 你好的 的)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:29:02] Start the program
+2016-08-16 12:29:02
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 最近不错
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u65b0\u4eba\u57f9\u8bad\u8d44\u6599.rar']
+path_xls = C:/Users/Oliver/Desktop/点石邮箱16-7-2修改.xls
+selected = [2], col_name = C, sender_name = 你好的 的
+Speed each hour = 400, each time = 40
+Account[0] = Account(dasdsf@fasdf, asdfasfa, mail.hust.edu.cn, 你好的 的)
+Account[1] = Account(fsafs@dhjhgfdd, dddddddddd, mail.hust.edu.cn, 你好的 的)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:30:17] Start the program
+2016-08-16 12:30:17
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 146, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 948, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 349, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 202, in get_ui_data_to_memory
+    if txt_from.isdight() and txt_to.isdigit():
+AttributeError: 'QString' object has no attribute 'isdight'
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 146, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 948, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 349, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 202, in get_ui_data_to_memory
+    if txt_from.isdight() and txt_to.isdigit():
+AttributeError: 'QString' object has no attribute 'isdight'
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:31:32] Start the program
+2016-08-16 12:31:32
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 最近不错
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u65b0\u4eba\u57f9\u8bad\u8d44\u6599.rar']
+path_xls = C:/Users/Oliver/Desktop/点石邮箱16-7-2修改.xls
+selected = [], col_name = C, sender_name = 你好的 的
+Speed each hour = 400, each time = 40
+Account[0] = Account(dasdsf@fasdf, asdfasfa, mail.hust.edu.cn, 你好的 的)
+Account[1] = Account(fsafs@dhjhgfdd, dddddddddd, mail.hust.edu.cn, 你好的 的)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:31:48] Start the program
+2016-08-16 12:31:48
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:33:01] Start the program
+2016-08-16 12:33:02
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 你好的 的
+Speed each hour = 400, each time = 40
+Account[0] = Account(dasdsf@fasdf, asdfasfa, mail.hust.edu.cn, 你好的 的)
+Account[1] = Account(fsafs@dhjhgfdd, dddddddddd, mail.hust.edu.cn, 你好的 的)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 12:33:09] Start the program
+2016-08-16 12:33:10
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 13:06:02] Start the program
+2016-08-16 13:06:02
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 你好的 的
+Speed each hour = 400, each time = 40
+Account[0] = Account(dasdsf@fasdf, asdfasfa, mail.hust.edu.cn, 你好的 的)
+Account[1] = Account(fsafs@dhjhgfdd, dddddddddd, mail.hust.edu.cn, 你好的 的)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 13:06:11] Start the program
+2016-08-16 13:06:12
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 13:06:34] Start the program
+2016-08-16 13:06:34
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 你好的 的
+Speed each hour = 400, each time = 40
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 13:07:07] Start the program
+2016-08-16 13:07:07
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/16 13:07:23] Start the program
+2016-08-16 13:07:23
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+

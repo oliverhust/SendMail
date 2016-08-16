@@ -142,11 +142,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         button = box.clickedButton()
         if button == b_save:
             print(u"Exit and save.\n")
-            self._GUIProc.event_main_exit_and_save()
+            if self._GUIProc is not None:
+                self._GUIProc.event_main_exit_and_save()
             self.close()
         elif button == b_discard:
             print(u"Exit and discard.\n")
-            self._GUIProc.event_main_exit_and_discard()
+            if self._GUIProc is not None:
+                self._GUIProc.event_main_exit_and_discard()
             self.close()
 
     def _set_account_list_sender_name(self, sender_name):
@@ -192,25 +194,32 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         return True
 
-    def slot_button_run(self):
-        if not self._ui_data_check():
-            return
-
+    def get_ui_data_to_memory(self):
         self._sub = unicode(self.lineEdit_Sub.text())
         # xls表格位置选择
-        start = int(self.lineEdit_Xls_From.text())
-        end = int(self.lineEdit_Xls_To.text())
-        self._xls_selected_list = range(start, end + 1)
+        txt_from = unicode(self.lineEdit_Xls_From.text())
+        txt_to = unicode(self.lineEdit_Xls_To.text())
+        if txt_from.isdigit() and txt_to.isdigit():
+            start = int(txt_from)
+            end = int(txt_to)
+            self._xls_selected_list = range(start, end + 1)
+        else:
+            self._xls_selected_list = []
         self._xls_col_name = unicode(self.lineEdit_Xls_Col.text())
         self._sender_name = unicode(self.lineEdit_Sender_Name.text())
         self._speed_each_hour = self.spinBox_Each_Hour.value()
         self._speed_each_time = self.spinBox_Each_Time.value()
         self._set_account_list_sender_name(self._sender_name)
+
         print(u"sub = {}\nbody_path = {}\nappend_list = {}\npath_xls = {}".format(self._sub, self._body_path, self._append_list, self._xls_path))
         print(u"selected = {}, col_name = {}, sender_name = {}".format(self._xls_selected_list, self._xls_col_name, self._sender_name))
         print(u"Speed each hour = {}, each time = {}".format(self._speed_each_hour, self._speed_each_time))
         for i, account in enumerate(self._account_list):
             print(u"Account[{}] = {}".format(i, account))
+
+    def slot_button_run(self):
+        if not self._ui_data_check():
+            return
 
         if self._GUIProc is not None:
             # 【【【【调用GUI的事件处理函数: 开始发送】】】】
@@ -278,6 +287,26 @@ class GUIMain(UIInterface, MainWindow):
             print(u"User cancel recover")
         return ret
 
+    def proc_ask_if_reload_ui(self, mail_sub):
+        ret = False
+        box = QMessageBox(self)
+        box.setWindowTitle(u"Reload or not")
+        b_recover = box.addButton(QString(u"恢复上次"), QMessageBox.ActionRole)
+        box.addButton(QString(u"开始新任务"), QMessageBox.ActionRole)
+
+        box.setText(QString(u"检测到上次保存了邮件内容\n"
+                            u"标题：{}\n"
+                            u"要载入上次的邮件内容吗？".format(mail_sub)))
+        box.exec_()
+
+        button = box.clickedButton()
+        if button == b_recover:
+            ret = True
+            print(u"The progress will reload")
+        else:
+            print(u"User cancel reload")
+        return ret
+
     def proc_reload_tmp_data_to_ui(self, data):
         self._sub = data["Sub"]
         self.lineEdit_Sub.setText(QString(self._sub))
@@ -295,8 +324,12 @@ class GUIMain(UIInterface, MainWindow):
         self.lineEdit_Xls_Col.setText(QString(self._xls_col_name))
 
         self._xls_selected_list = data["SelectedList"][:]
-        sec_min = self._xls_selected_list[0]
-        sec_max = self._xls_selected_list[-1]
+        if self._xls_selected_list:
+            sec_min = self._xls_selected_list[0]
+            sec_max = self._xls_selected_list[-1]
+        else:
+            sec_min = u""
+            sec_max = u""
         self.lineEdit_Xls_From.setText(QString(unicode(sec_min)))
         self.lineEdit_Xls_To.setText(QString(unicode(sec_max)))
 
@@ -313,12 +346,11 @@ class GUIMain(UIInterface, MainWindow):
             self.lineEdit_Sender_Name.setText(QString(account_list[0].sender_name))
 
     def proc_get_all_ui_data(self):
-        data = {}
-        data["Sub"], data["Body"], data["AppendList"] = self._sub, self._body_path, self._append_list[:]
-        data["XlsPath"], data["ColName"] = self._xls_path, self._xls_col_name
-        data["SelectedList"] = self._xls_selected_list[:]
-        data["EachHour"], data["EachTime"] = self._speed_each_hour, self._speed_each_time
-        data["AccountList"] = self._account_list[:]
+        self.get_ui_data_to_memory()
+        data = {"Sub": self._sub, "Body": self._body_path, "AppendList": self._append_list[:],
+                "XlsPath": self._xls_path, "ColName": self._xls_col_name, "SelectedList": self._xls_selected_list[:],
+                "EachHour": self._speed_each_hour, "EachTime": self._speed_each_time,
+                "AccountList": self._account_list[:]}
         return data
 
     def proc_err_before_send(self, err, err_info):
