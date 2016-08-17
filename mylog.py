@@ -194,7 +194,7 @@ def logging_init(file_name):
     print(u"Start to init logging.")
     d = chdir_myself()
     print(u"Change dir to {}".format(repr(d)))
-    log_full = d + u"\\" + file_name
+    log_full = os.path.join(d, file_name)
     print(u"Redirect print to {}".format(repr(log_full)))
     mylog_set(log_full)
     mylog_file(u"\n\n\n\n"+"_"*80+u"\n\n[{}] Start the program".format(get_time_str()))
@@ -209,7 +209,7 @@ def logging_init_old(file_name):
     print(u"Start to init logging.")
     d = chdir_myself()
     print(u"Change dir to {}".format(repr(d)))
-    log_full = d + u"\\" + file_name
+    log_full = os.path.join(d, file_name)
     try:
         f_Logging = open(log_full, "a")
     except Exception, e:
