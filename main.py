@@ -1351,7 +1351,7 @@ def test_send_mail():
     #mails =[["mmyzoliver@163.com"]]
     mails = [#["hustoliver@hainan.net"],
              ["mmyzoliver@163.com", "1026815245@qq.com"],
-             MAIL_LIST_ALL[1320:1800],
+             # MAIL_LIST_ALL[1320:1800],
              ["M201571736@hust.edu.cn"],
              ["1307408482@qq.com"],
              ]
@@ -1427,7 +1427,7 @@ def test_send_mail():
 
 
 def test_has_same_program():
-    p = CheckSameProgram()
+    p = check_program_has_same(42412)
     if p.has_same():
         print("Has same program runing!")
     else:
