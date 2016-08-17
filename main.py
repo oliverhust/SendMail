@@ -6,11 +6,13 @@ import sys
 import re
 import time
 import random
+import datetime
 import copy
 import xlrd
 import smtplib
+import imaplib
+import imaper
 import sqlite3
-import socket
 from email.header import Header
 from email.utils import parseaddr, formataddr
 from email.mime.text import MIMEText
@@ -289,6 +291,47 @@ class SimpleMatrix:
         return self._success_num, self._failed_num, self._not_send_num
 
 
+class Excel:
+    """ Excel表格的读取等 """
+    def __init__(self, xls_path):
+        self._Path = xls_path
+        self._xls = None
+
+    def _open_excel_if_need(self):
+        err, err_info = ERROR_SUCCESS, u""
+        if self._xls is None:
+            try:
+                self._xls = xlrd.open_workbook(self._Path)
+            except Exception, e:
+                err = ERROR_OPEN_XLS_FAILED
+                err_info = u"打开Excel表格失败\n{}".format(e)
+                self._xls = None
+        return err, err_info
+
+    def get_sheet_names(self):
+        err, err_info = self._open_excel_if_need()
+        return err, err_info, self._xls.sheet_names()
+
+    def get_mails(self, selected_sheets, mail_which_col):
+        err, err_info = self._open_excel_if_need()
+        # 从xls中获取收件人数据 [有序]
+        mails_read = []
+        sheet_list = self._xls.sheets()
+        for i in selected_sheets:
+            if i < 0 or i >= len(sheet_list):
+                err = ERROR_XLS_SELECT_EXCEED
+                err_info = u"该Excel最多只有{}张表，而你选择了{}".format(len(sheet_list), i + 1)
+                break
+            sheet = sheet_list[i]                # 取第几张sheet
+            if mail_which_col >= sheet.ncols:                   # 如果这张表没有该列则跳过
+                continue
+            for each_ceil in sheet.col_values(mail_which_col):    # sheet.col_values(列号) 获取sheet内一列
+                if "" != str_find_mailbox(each_ceil):
+                    mails_read.append(each_ceil)
+        print_t("Get {} mails from excel.".format(len(mails_read)))
+        return err, err_info, mails_read
+
+
 class XlsMatrix:
     """ 由xls表格实现的邮件矩阵          从xls表格导入收件人信息存为矩阵(三维)
     1. 为MailProc发送时提供发件人列表   (策略:各域名邮箱均匀分布)
@@ -297,30 +340,17 @@ class XlsMatrix:
     """
     def __init__(self, max_send_a_loop, xls_path, mail_db):
         self._MaxSendALoop = max_send_a_loop
-        self._Path = xls_path
         self._MailColNo = 0
         self._SelectedSheets = []
         self._MailDB = mail_db
 
-        self._xls = None
+        self._excel = Excel(xls_path)
         self._mails_not_sent = []   # 待发送的
         self._mails_has_sent = []
         self._mails_sent_failed = []
 
-    def read_sheets_before_init(self):     # 可能会出异常 打开失败，调用者注意
-        err, err_info = ERROR_SUCCESS, u""
-        try:
-            self._xls = xlrd.open_workbook(self._Path)
-        except Exception, e:
-            err = ERROR_OPEN_XLS_FAILED
-            err_info = u"打开Excel表格失败\n{}".format(e)
-            return err, err_info, []
-        return err, err_info, self._xls.sheet_names()
-
-    def get_sheet_names(self):
-        if self._xls is not None:
-            return self._xls.sheet_names()
-        return []
+    def get_sheet_names(self):     # 可能会出异常 打开失败，调用者注意
+        return self._excel.get_sheet_names()
 
     # 注意selected_sheets从1开始，与用户看到的一致，与表格模块不一致 列名： 'A' 'B' ..
     # 暂不检查是否有重复的邮箱
@@ -338,25 +368,6 @@ class XlsMatrix:
         self._SelectedSheets = user_selected_sheets[:]
         for i in range(len(self._SelectedSheets)):
             self._SelectedSheets[i] -= 1
-
-    def _get_xls_mails(self):
-        # 从xls中获取收件人数据 [有序]
-        mails_read = []
-        sheet_list = self._xls.sheets()
-        err, err_info = ERROR_SUCCESS, u""
-        for i in self._SelectedSheets:
-            if i < 0 or i >= len(sheet_list):
-                err = ERROR_XLS_SELECT_EXCEED
-                err_info = u"该Excel最多只有{}张表，而你选择了{}".format(len(sheet_list), i + 1)
-                break
-            sheet = sheet_list[i]                # 取第几张sheet
-            if self._MailColNo >= sheet.ncols:                   #如果这张表没有该列则跳过
-                continue
-            for each_ceil in sheet.col_values(self._MailColNo):    # sheet.col_values(列号) 获取sheet内一列
-                if "" != str_find_mailbox(each_ceil):
-                    mails_read.append(each_ceil)
-        print_t("Get {} mails from excel.".format(len(mails_read)))
-        return err, err_info, mails_read
 
     @staticmethod
     def _random_sort_mails(mails_input):
@@ -376,7 +387,7 @@ class XlsMatrix:
 
     def _create_not_sent_list(self):
         # 根据db的已发送和当前读取的生成待发送列表
-        err, err_info, mails_read = self._get_xls_mails()
+        err, err_info, mails_read = self._excel.get_mails(self._SelectedSheets, self._MailColNo)
         if err != ERROR_SUCCESS:
             return err, err_info
 
@@ -965,7 +976,7 @@ class UIInterface:
             return
         # 发送前的信息确认
         last_success_num, last_failed_num, will_send_num = self._mail_matrix.curr_progress()
-        all_sheets_list = self._mail_matrix.get_sheet_names()
+        err, err_info, all_sheets_list = self._mail_matrix.get_sheet_names()
         if not self.proc_confirm_before_send(last_success_num, last_failed_num, will_send_num,
                                              all_sheets_list, data["SelectedList"]):
             self._delete_mail_objects()
@@ -1030,7 +1041,7 @@ class UIInterface:
 
     def _create_mail_objects(self, data):
         self._mail_matrix = XlsMatrix(data["EachTime"], data["XlsPath"], self._db)
-        err, err_info, sheets = self._mail_matrix.read_sheets_before_init()
+        err, err_info, sheets = self._mail_matrix.get_sheet_names()
         if err != ERROR_SUCCESS:
             return err, err_info
         err, err_info = self._mail_matrix.init(data["SelectedList"], data["ColName"])
@@ -1161,6 +1172,58 @@ class UITimer:
         pass
 
     def stop(self):
+        pass
+
+
+class RecvImap:
+    DECODING = 'gb18030'
+
+    def __init__(self, host, user, passwd):
+        self._Host = host
+        self._User = user
+        self._Passwd = passwd
+
+        self._m = None
+
+    def login(self):
+        err, err_info = ERROR_SUCCESS, u""
+        try:
+            self._m = imaplib.IMAP4(self._Host)
+        except Exception, e:
+            err = ERROR_IMAP_CONNECT_FAILED
+            err_info = u"连接服务器{}失败: {}".format(self._Host, e)
+            return err, err_info
+        try:
+            self._m.login(self._User, self._Passwd)
+        except Exception, e:
+            err = ERROR_IMAP_LOGGIN_FAILED
+            err_info = u"账号{}登录失败: {}".format(self._User, e)
+        return err, err_info
+
+    def search_from_since(self, from_who, since_datetime):
+        str_date = since_datetime.strftime(u"%d-%b-%Y")
+        typ, all_data = self._m.search(None, 'FROM', from_who, 'SINCE', str_date)
+        if typ == 'OK':
+            nums = all_data[0].split()
+            if nums:
+                for num in nums:
+                    typ, dat = self._m.fetch(num, '(RFC822)')
+                    if typ != 'OK':
+                        continue
+                    else:
+                        content = imaper.parse_email(dat[0][1])
+                        if content.has_key('date') and content.has_key('body'):
+                            dt = datetime.datetime.strptime(content['date'][:-6], "%a, %d %b %Y %H:%M:%S")
+                            body_text = u"".join(content['body']['plain']).decode(RecvImap.DECODING)
+                            yield {'datetime': dt, 'body_text': body_text}
+
+
+class FailedDelivery:
+
+    def __init__(self, start_datetime, account_list):
+        pass
+
+    def get_failed_delivery(self):
         pass
 
 
@@ -1360,7 +1423,7 @@ def test_send_mail():
     mail_db.init()
     # mail_matrix = SimpleMatrix(2, mails)             # 一次循环最大发送数量
     mail_matrix = XlsMatrix(20, ur'E:\点 石测试Haha\2014点石 你好.xls', mail_db)
-    err, err_info, l = mail_matrix.read_sheets_before_init()
+    err, err_info, l = mail_matrix.get_sheet_names()
     if err != ERROR_SUCCESS:
         print(err_info)
         return
@@ -1435,7 +1498,12 @@ def test_has_same_program():
         time.sleep(10)
 
 
+def test_recv_email():
+    pass
+
+
 if __name__ == "__main__":
-    test_send_mail()
+    # test_send_mail()
+    test_recv_email()
 
 

@@ -3,11 +3,17 @@ M = imaplib.IMAP4('mail.hust.edu.cn');M.login('U201313778', 'dian201313778');M.s
 typ, data = M.search(None, 'FROM', 'postmaster@hust.edu.cn', "SINCE", "10-Aug-2016")
 num=data[0].split()[0];typ, dat = M.fetch(num, '(RFC822)')
 
-content=imaper.parser.parse_email(dat[0][1])
+c=imaper.parser.parse_email(dat[0][1]) # 判断有无date
+c['date'][:-6]
+try:
+dt=datetime.datetime.strptime(c['date'][:-6], "%a, %d %b %Y %H:%M:%S")
 
-print(imaper.parser.parse_email(dat[0][1])["body"]['plain'][0])
+body="".join(c['body']['plain'])
 
 
+
+
+# print(imaper.parser.parse_email(dat[0][1])["body"]['plain'][0])
 
 
 for num in data[0].split():

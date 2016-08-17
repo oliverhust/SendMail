@@ -935,3 +935,18 @@ The Event form load occur.
 Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 Exit and discard.
 
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/17 21:48:31] Start the program
+2016-08-17 21:48:31
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
