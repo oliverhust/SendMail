@@ -12,6 +12,7 @@ import xlrd
 import smtplib
 import imaplib
 import imaper
+import email
 import sqlite3
 from email.header import Header
 from email.utils import parseaddr, formataddr
@@ -1176,6 +1177,7 @@ class UITimer:
 
 
 class RecvImap:
+    """ 接受IMAP邮件 """
     DECODING = 'gb18030'
     DECODING2 = 'utf-8'
 
@@ -1217,7 +1219,63 @@ class RecvImap:
                 ret = repr(body)
         return ret
 
+    @staticmethod
+    def _parse_email(dat):
+        msg = email.message_from_string(dat)
+        if 'Date' in msg:
+            msg_date = msg['Date']
+        else:
+            return u"", u"", u""
+        mail_content = None
+        suffix = None
+        for part in msg.walk():
+            if not part.is_multipart():
+                content_type = part.get_content_type()
+                filename = part.get_filename()
+                charset = part.get_charset()
+                # 是否有附件
+                if not filename:
+                    if content_type in ['text/plain']:
+                        suffix = '.txt'
+                    if content_type in ['text/html']:
+                        suffix = '.htm'
+                    if charset is None:
+                        mail_content = part.get_payload(decode=True)
+                    else:
+                        mail_content = part.get_payload(decode=True).decode(charset)
+                    break
+        return msg_date, mail_content, suffix
+
     def search_from_since(self, from_who, datetime_since):
+        self._m.select()
+        str_date = datetime_since.strftime(u"%d-%b-%Y")
+        typ, all_data = self._m.search(None, 'FROM', from_who, 'SINCE', str_date)
+        if typ == 'OK':
+            nums = all_data[0].split()
+            if nums:
+                for num in nums:
+                    typ, dat = self._m.fetch(num, '(RFC822)')
+                    if typ != 'OK':
+                        continue
+                    else:
+                        try:
+                            str_date, body, suffix = self._parse_email(dat[0][1])
+                        except Exception, e:
+                            print("Parse an email failed, num = {}".format(num))
+                        else:
+                            if len(str_date) > 0:
+                                time_str = re.findall(r'\d+ \w+ \d{4} \d+:\d+:\d+', str_date)
+                                if time_str:
+                                    dt = datetime.datetime.strptime(time_str[0], "%d %b %Y %H:%M:%S")
+                                    if dt > datetime_since:
+                                        body_text = self._try_decode(body)
+                                        yield (dt, body_text)
+                                else:
+                                    print("A letter does not has time str, num = {}".format(num))
+                            else:
+                                print("A letter has no date({}) or body, num = {}".format(str_date, num))
+
+    def _search_from_since_old(self, from_who, datetime_since):
         self._m.select()
         str_date = datetime_since.strftime(u"%d-%b-%Y")
         typ, all_data = self._m.search(None, 'FROM', from_who, 'SINCE', str_date)
@@ -1232,14 +1290,55 @@ class RecvImap:
                         try:
                             content = imaper.parse_email(dat[0][1])
                         except Exception, e:
-                            pass
-                        if content.has_key('date') and content.has_key('body'):
-                            time_str = re.findall(r'\d+ \w+ \d{4} \d+:\d+:\d+', content['date'])
-                            if time_str:
-                                dt = datetime.datetime.strptime(time_str[0], "%d %b %Y %H:%M:%S")
-                                if dt > datetime_since:
-                                    body_text = self._try_decode("".join(content['body']['plain']))
-                                    yield (dt, body_text)
+                            print("Parse an email failed, num = {}".format(num))
+                        else:
+                            if 'date' in content and 'body' in content:
+                                time_str = re.findall(r'\d+ \w+ \d{4} \d+:\d+:\d+', content['date'])
+                                if time_str:
+                                    dt = datetime.datetime.strptime(time_str[0], "%d %b %Y %H:%M:%S")
+                                    if dt > datetime_since:
+                                        body_text = self._try_decode("".join(content['body']['plain']))
+                                        yield (dt, body_text)
+                                else:
+                                    print("A letter does not has time str, num = {}".format(num))
+                            else:
+                                print("A letter has no date or body, num = {}".format(num))
+
+
+class FailedMailContent:
+    """ 邮箱退信内容识别：纯粹的文本处理  """
+    HUST_PATT = r'Your message to (\S+) .*?The error.*?was:\s+"\s*([^"]+)"'
+
+    def __init__(self, account_user=""):
+        self._user = account_user
+        self._re = None
+        patt = self._get_pattern()
+        if patt is not None:
+            self._re = re.compile(patt)
+
+    def _get_pattern(self):
+        patterns = {"hust.edu.cn": FailedMailContent.HUST_PATT}
+        pos = self._user.find("@")
+        if -1 != pos and pos + 1 < len(self._user):
+            domain = self._user[pos+1:]
+            if domain in patterns:
+                return patterns[domain]
+        return None
+
+    def get_fail_mail(self, body_text):
+        if self._re is None:
+            return None, None
+        ret = self._re.findall(body_text)
+        if ret:
+            return ret[0]
+        return u"", u""
+
+    @staticmethod
+    def hust_failed_mail(body_text):
+        ret = re.findall(FailedMailContent.HUST_PATT, body_text)
+        if ret:
+            return ret[0]
+        return u"", u""
 
 
 class FailedDelivery:
@@ -1535,16 +1634,18 @@ def test_recv_imap():
 
 
 def test_recv_imap2():
-    m = RecvImap("mail.hust.edu.cn", "U201313778@hust.edu.cn", "dian201313778")
+    user = "U201313778@hust.edu.cn"
+    m = RecvImap("mail.hust.edu.cn", user, "dian201313778")
     err, err_info = m.login()
     if err != ERROR_SUCCESS:
         print(err_info)
         return
     since_time = datetime.datetime(2013,8,14,19,38,02)
+    fail_content = FailedMailContent(user)
     for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
-        print("\n\n\n--------------------------{}--------------------------------".format(recv_time))
-        print(body)
-
+        print("\n--------------------------{}--------------------------------".format(recv_time))
+        print(fail_content.get_fail_mail(body))
+    m.logout()
 
 if __name__ == "__main__":
     # test_send_mail()
