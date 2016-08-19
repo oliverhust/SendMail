@@ -27,7 +27,6 @@ from err_code import *
 
 class Account:
     def __init__(self, mail_user, mail_passwd, mail_host, sender_name):
-        # mail_host 不知道就填空，用auto_get_host获取
         self.user = mail_user
         self.passwd = mail_passwd
         self.host = mail_host
@@ -1275,8 +1274,8 @@ class RecvImap:
                                 print("A letter has no date({}) or body, num = {}".format(str_date, num))
 
 
-class FailedMailContent:
-    """ 邮箱退信内容识别，并提供建议 ：纯粹的文本处理  建议的识别有优先顺序"""
+class NdrContent:
+    """ 邮箱退信(Ndr)内容识别，并提供建议 ：纯粹的文本处理  建议的识别有优先顺序"""
     HUST_PATT = r'(Your message to (\S+) .*?The error.*?was:\s+"\s*([^"]+)")'
     SUGGEST = [(r'DNS query error', u'收件人有误：域名错误'),
                (r'user not exist|User not found|mailbox unavailable|Mailbox not found|Invalid recipient', u'收件人不存在'),
@@ -1290,7 +1289,7 @@ class FailedMailContent:
             self._re = re.compile(patt)
 
     def _get_pattern(self):
-        patterns = {"hust.edu.cn": FailedMailContent.HUST_PATT}
+        patterns = {"hust.edu.cn": NdrContent.HUST_PATT}
         pos = self._user.find("@")
         if -1 != pos and pos + 1 < len(self._user):
             domain = self._user[pos+1:]
@@ -1306,7 +1305,7 @@ class FailedMailContent:
         if ret:
             full_info, mail, err_info = ret[0][0], ret[0][1], ret[0][2]
             suggest = u'无'
-            for patt, suggest_tmp in FailedMailContent.SUGGEST:
+            for patt, suggest_tmp in NdrContent.SUGGEST:
                 if re.search(r'(?i)'+patt, full_info) is not None:
                     suggest = suggest_tmp
                     break
@@ -1315,14 +1314,14 @@ class FailedMailContent:
 
     @staticmethod
     def hust_failed_mail(body_text):
-        ret = re.findall(FailedMailContent.HUST_PATT, body_text)
+        ret = re.findall(NdrContent.HUST_PATT, body_text)
         if ret:
             return ret[0]
         return u"", u""
 
 
-class FailedDelivery:
-
+class NdrProc:
+    """  退信处理 """
     def __init__(self, start_datetime, account_list):
         pass
 
@@ -1621,7 +1620,7 @@ def test_recv_imap2():
         print(err_info)
         return
     since_time = datetime.datetime(2013,8,14,19,38,02)
-    fail_content = FailedMailContent(user)
+    fail_content = NdrContent(user)
     for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
         print("\n--------------------------{}--------------------------------".format(recv_time))
         fail_ = fail_content.get_fail_mail(body)
