@@ -378,8 +378,14 @@ class GUIMain(UIInterface, MainWindow):
         # 弹出进度条界面
         self._progress_win = ProgressWindow(self)
         self._progress_win.set_progress_bar(init_progress[0], init_progress[1], init_progress[2])
-        if self._progress_win.exec_():
-            print(u"Exit progress window normal")
+        ret = self._progress_win.exec_()
+        if ret:
+            print(u"Exit progress window normal, ret = {}".format(ret))
+            ret = True
+        else:
+            print(u"Exit progress window pause or abnormal, ret = {}".format(ret))
+            ret = False
+        return ret
 
     def proc_update_progress(self, progress_tuple=None, progress_info=None):
         # 更新进度条窗口上的所有信息
@@ -399,6 +405,19 @@ class GUIMain(UIInterface, MainWindow):
 
     def proc_err_auto_retry(self, err, err_info):
         self._progress_win.mention_and_auto_close(unicode(err_info))
+
+    def proc_ask_if_ndr(self):
+        info = u"是否接收系统退信？以便进一步分析邮件退信的原因，同时你也可以再次尝试退信的邮件"
+        button = QMessageBox.question(self, u"Receive bounce E-mail ?",
+                                      QString(info),
+                                      QMessageBox.Ok | QMessageBox.Cancel,
+                                      QMessageBox.Ok)
+        if button == QMessageBox.Ok:
+            return True
+        return False
+
+    def proc_exec_ndr_win(self):
+        pass
 
 
 # ########################### 添加账户窗口 ############################
@@ -471,6 +490,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         self._GUIProc = gui_proc
         self._timer_close = None
         self._box = None
+        self._button_is_finish = False  # 发送完成按钮会变成finish
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
 
@@ -480,10 +500,13 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
     def slot_pause(self):
         if self._GUIProc is not None:
             self._GUIProc.event_user_cancel_progress()
-        QMessageBox.information(self, u"Information",
-                                QString(u'如果想重发已失败的邮件，增加邮件或者修改内容，\n'
-                                        u'可以再次点击"开始"，已发送成功的邮件不会重复发送'))
-        self.accept()  # 关闭窗口 表示用户是按暂停退出而不是直接关闭窗口
+        if not self._button_is_finish:
+            QMessageBox.information(self, u"Information",
+                                    QString(u'如果想重发已失败的邮件，增加邮件或者修改内容，\n'
+                                            u'可以再次点击"开始"，已发送成功的邮件不会重复发送'))
+            self.reject()           # 用户暂停
+        else:
+            self.accept()  # 发送完成
 
     def set_progress_bar(self, success_num, failed_num, not_sent_num):
         self.label_has_sent.setText(QString(unicode(success_num)))
@@ -499,6 +522,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         self.textEdit.append(QString(unicode(content)))
 
     def set_button_text_finish(self):
+        self._button_is_finish = True
         self.pushButton.setText(QString(u"完成"))
 
     def exit_with_error(self, err_info=u""):
@@ -530,6 +554,16 @@ def test_ui_progress():
     Window = ProgressWindow()
     Window.show()
     app.exec_()
+
+
+def test_ui_progress_return():
+    app = QApplication(sys.argv)
+    Window = ProgressWindow()
+    ret = Window.exec_()
+    if ret:
+        print(u"Exit progress window normal, ret = {}".format(ret))
+    else:
+        print(u"Exit progress window abnormal, ret = {}".format(ret))
 
 
 def test_main_win():
@@ -574,6 +608,7 @@ def main():
 
 
 if __name__=='__main__':
-    main()
+    # main()
     # test_ui_progress()
+    test_ui_progress_return()
     # test_gui_timer()

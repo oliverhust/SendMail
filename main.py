@@ -5,6 +5,7 @@ import os
 import sys
 import re
 import time
+import threading
 import random
 import datetime
 import copy
@@ -686,6 +687,17 @@ class MailDB:
             err_info = u"写入数据库失败！没有写权限\n{}".format(e)
         return err, err_info
 
+    def clear_tmp_and_dynamic(self):
+        # 清除临时数据和实时数据
+        self.del_mail_content()
+        self.del_receiver_data()
+        self.del_speed_info()
+        self.del_sent_progress()
+        self.del_all_success_sent()
+        self.del_all_failed_sent()
+        self.del_start_time()
+        self.del_all_used_accounts()
+
     def save(self):
         self._db.commit()
         # self._db.close()
@@ -698,7 +710,7 @@ class MailDB:
         self._c.execute("CREATE TABLE IF NOT EXISTS account ("
                         "username TEXT PRIMARY KEY NOT NULL, "
                         "passwd TEXT NOT NULL, "
-                        "host TEXT, "
+                        "host TEXT NOT NULL, "
                         "sender_name TEXT)")
 
     def _create_tmp_table(self):
@@ -738,14 +750,17 @@ class MailDB:
         # 发送失败的表
         self._c.execute("CREATE TABLE IF NOT EXISTS failed_sent (mail TEXT NOT NULL)")
 
-    def clear_tmp_and_dynamic(self):
-        # 清除临时数据和实时数据
-        self.del_mail_content()
-        self.del_receiver_data()
-        self.del_speed_info()
-        self.del_sent_progress()
-        self.del_all_success_sent()
-        self.del_all_failed_sent()
+        # 退信处理的表：开始时间
+        self._c.execute("CREATE TABLE IF NOT EXISTS start_time ("
+                        "id INTEGER PRIMARY KEY NOT NULL, "
+                        "start_time TEXT NOT NULL)")
+
+        # 退信处理的表：曾使用过的账户
+        self._c.execute("CREATE TABLE IF NOT EXISTS used_account ("
+                        "username TEXT PRIMARY KEY NOT NULL, "
+                        "passwd TEXT NOT NULL, "
+                        "host TEXT NOT NULL, "
+                        "sender_name TEXT)")
 
     # ---------------------------------------------------------------------------
     def save_accounts(self, account_list):
@@ -905,6 +920,49 @@ class MailDB:
         return [ret[i][0] for i in range(len(ret))]
 
     # ---------------------------------------------------------------------------
+    def save_start_time(self, datetime_start):
+        # 开始发送时间记录 id永远为0 datetime_start为datetime类型
+        time_str = datetime_start.strftime(u"%Y/%m/%d %H:%M:%S")
+        self._c.execute("DELETE FROM start_time")
+        sql_arg = (0, time_str)
+        self._c.execute("INSERT INTO start_time VALUES (?,?)", sql_arg)
+        self.save()
+
+    def get_start_time(self):
+        # 开始发送时间记录 id永远为0 datetime_start为datetime类型
+        self._c.execute("SELECT * FROM start_time")
+        ret = self._c.fetchall()
+        if not ret:
+            return []
+        time_str = ret[0][1]
+        datetime_start = datetime.datetime.strptime(time_str, u"%Y/%m/%d %H:%M:%S")
+        return datetime_start
+
+    def del_start_time(self):
+        self._c.execute("DELETE FROM start_time")
+        self.save()
+
+    # ---------------------------------------------------------------------------
+    def save_used_accounts(self, used_account_list):
+        # "曾用账户"  used_account_list:由Account对象组成的列表 每次保存都先删除原有信息 (用户名 密码 姓名)
+        self._c.execute("DELETE FROM used_account")
+        sql_arg = [(x.user, x.passwd, x.host, x.sender_name) for x in used_account_list]
+        self._c.executemany("INSERT INTO used_account VALUES (?,?,?,?)", sql_arg)
+        self.save()
+
+    def get_used_accounts(self):
+        # "曾用账户" 返回由Account对象组成的列表
+        self._c.execute("SELECT * FROM used_account")
+        ret = self._c.fetchall()
+        return [Account(ret[i][0], ret[i][1], ret[i][2], ret[i][3]) for i in range(len(ret))]
+
+    def del_all_used_accounts(self):
+        # 删除所有曾用账户
+        self._c.execute("DELETE FROM used_account")
+        self.save()
+
+    # ---------------------------------------------------------------------------
+
 
 # #############################################################################################################
 # ############################################### UI 界面的接口 #################################################
@@ -921,6 +979,7 @@ class UIInterface:
         self._account_manger = None
         self._mail_content = None
         self._mail_proc = None
+        self._ndr_proc = None
         self._timer = None
 
     def event_init_ui_timer(self, ui_timer):
@@ -984,19 +1043,33 @@ class UIInterface:
         account_num = len(self._account_manger.account_list())
         period_time = int(3600000.0/data["EachHour"]*data["EachTime"]/account_num)
         print(u"[{}]Start Timer.The timer period is {} ms".format(get_time_str(), period_time))
-        self._timer.setup(period_time, self.__ui_timer_callback, 2000)
+        self._timer.setup(period_time, self.__send_timer_callback, 2000)
         self._timer.start()
         # 弹出进度条窗口并运行
-        self.proc_exec_progress_window(self._mail_matrix.curr_progress())
+        ret = self.proc_exec_progress_window(self._mail_matrix.curr_progress())
         print(u"Exit the progress windows.")
         # 窗口退出则停止定时器
         self._timer.stop()
         self._delete_mail_objects()
+        # 退信识别     系统支持?-->询问用户?-->启动退信线程-->定时获取线程结果
+        if not (ret and self._ndr_proc.is_support()):
+            return
+        if not self.proc_ask_if_ndr():
+            return
+        self._ndr_proc.start_thread()
+        self._timer.setup(2000, self.__ndr_timer_callback)
+        self._timer.start()
+        self.proc_exec_ndr_win()
+        self._ndr_proc.stop_proc()
+        self._timer.stop()
 
     def event_user_cancel_progress(self):
         # 窗口退出则停止定时器
         self._timer.stop()
         self._delete_mail_objects()
+
+    def event_user_cancel_ndr(self):
+        pass
 
     @staticmethod
     def check_account_login(user_name, passwd, host):
@@ -1055,6 +1128,10 @@ class UIInterface:
             return err, err_info
 
         self._mail_proc = MailProc(self._mail_matrix, self._account_manger, self._mail_content)
+
+        self._ndr_proc = NdrProc(data["AccountList"])
+        self._ndr_proc.event_start_send()
+
         return err, err_info
 
     def _delete_mail_objects(self):
@@ -1063,7 +1140,7 @@ class UIInterface:
         self._mail_content = None
         self._mail_proc = None
 
-    def __ui_timer_callback(self):
+    def __send_timer_callback(self):
         print(u"[{}]Timer call back.".format(get_time_str()))
         fatal_err_code = (ERROR_OPEN_APPEND_FAILED, ERROR_READ_APPEND_FAILED)
         err_auto_retry = (ERROR_CONNECT_FAILED, ERROR_LOGIN_FAILED)
@@ -1110,6 +1187,16 @@ class UIInterface:
         else:
             self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
 
+    def __ndr_timer_callback(self):
+        err_info, is_completed, ndr_data_list = self._ndr_proc.get_data()
+        if len(err_info) != 0:
+            self.proc_ndr_add_err_info(err_info)
+        if len(ndr_data_list) != 0:
+            self.proc_ndr_add_data(ndr_data_list)
+        if is_completed:
+            self._timer.stop()
+            self.proc_ndr_complete()
+
     # ----------------------------- GUI 要重写的接口 -------------------------------------
 
     def proc_err_before_load(self, err, err_info):
@@ -1137,7 +1224,7 @@ class UIInterface:
         return True
 
     def proc_exec_progress_window(self, init_progress):
-        pass
+        return True
 
     def proc_update_progress(self, progress_tuple=None, progress_info=None):
         pass
@@ -1153,6 +1240,22 @@ class UIInterface:
 
     def proc_err_auto_retry(self, err, err_info):
         pass
+
+    def proc_ask_if_ndr(self):
+        return True
+
+    def proc_exec_ndr_win(self):
+        pass
+
+    def proc_ndr_add_err_info(self, err_info):
+        pass
+
+    def proc_ndr_add_data(self, ndr_data_list):
+        pass
+
+    def proc_ndr_complete(self):
+        pass
+
 
 
 class UITimer:
@@ -1277,9 +1380,10 @@ class RecvImap:
 class NdrContent:
     """ 邮箱退信(Ndr)内容识别，并提供建议 ：纯粹的文本处理  建议的识别有优先顺序"""
     HUST_PATT = r'(Your message to (\S+) .*?The error.*?was:\s+"\s*([^"]+)")'
+    NDR_DICT = {"hust.edu.cn": (HUST_PATT, "postmaster@hust.edu.cn")}
     SUGGEST = [(r'DNS query error', u'收件人有误：域名错误'),
                (r'user not exist|User not found|mailbox unavailable|Mailbox not found|Invalid recipient', u'收件人不存在'),
-               (r'Quota exceeded', u'对方邮箱已满或禁用'),]
+               (r'Quota exceeded', u'对方邮箱已满或禁用'), ]
 
     def __init__(self, account_user=""):
         self._user = account_user
@@ -1287,15 +1391,6 @@ class NdrContent:
         patt = self._get_pattern()
         if patt is not None:
             self._re = re.compile(patt)
-
-    def _get_pattern(self):
-        patterns = {"hust.edu.cn": NdrContent.HUST_PATT}
-        pos = self._user.find("@")
-        if -1 != pos and pos + 1 < len(self._user):
-            domain = self._user[pos+1:]
-            if domain in patterns:
-                return patterns[domain]
-        return None
 
     def get_fail_mail(self, body_text):
         # 返回：退回的邮箱， 出错信息， 建议
@@ -1312,21 +1407,145 @@ class NdrContent:
             return mail, err_info, suggest
         return u"", u"", u""
 
+    def ndr_manger_mail(self):
+        ndr = NdrContent.NDR_DICT
+        domain = str_get_domain(self._user)
+        if domain in ndr:
+            return ndr[domain][1]
+        return ""
+
     @staticmethod
-    def hust_failed_mail(body_text):
-        ret = re.findall(NdrContent.HUST_PATT, body_text)
-        if ret:
-            return ret[0]
-        return u"", u""
+    def is_support(user_name):
+        ndr = NdrContent.NDR_DICT
+        domain = str_get_domain(user_name)
+        if domain in ndr:
+            return True
+        return False
+
+    def _get_pattern(self):
+        ndr = NdrContent.NDR_DICT
+        domain = str_get_domain(self._user)
+        if domain in ndr:
+            return ndr[domain][0]
+        return None
 
 
-class NdrProc:
+class NdrProc(threading.Thread):
     """  退信处理 """
-    def __init__(self, start_datetime, account_list):
-        pass
+    def __init__(self, account_list, mail_db):
+        threading.Thread.__init__(self)
+        self._AccountList = account_list[:]
+        self._start_time = None
+        self._db = mail_db
 
-    def get_failed_delivery(self):
-        pass
+        # 线程共享数据
+        self._lock = threading.Lock()
+        self._err_info = u""
+        self._unread_data_num = 0
+        self._is_completed = False
+        self._user_pause = False
+        self._ndr_data = []      # [(退回的邮箱， 出错信息， 建议)...]
+
+    def event_start_send(self):
+        self._start_time = datetime.datetime.now()
+        self._proc_with_db()
+
+    def is_support(self):
+        # 系统是否支持该账户的退信处理 (有一个支持就算支持)
+        ret = False
+        for account in self._AccountList:
+            if NdrContent.is_support(account.user):
+                ret = True
+                break
+        return ret
+
+    def start_thread(self):
+        self.start()
+
+    def get_data(self):
+        # 供外部定时调用
+        self._lock.acquire()
+        if self._unread_data_num > 0:
+            ret = self._err_info, self._is_completed, self._ndr_data[-self._unread_data_num:]
+        else:
+            ret = self._err_info, self._is_completed, []
+        self._lock.release()
+        return ret
+
+    def stop_proc(self):
+        # 尝试停止和等待子线程
+        self._lock.acquire()
+        self._user_pause = True
+        self._lock.release()
+        self.join()
+
+    # -------------------------------------------------------------------------
+    def _proc_with_db(self):
+        # 查询数据库有无记录，有的话比较合并[曾用账号]，开始时间不变；没有的话就直接写入
+        dt_old = self._db.get_start_time()
+        if dt_old:
+            account_list_old = self._db.get_used_accounts()
+            users_old = [x.user for x in account_list_old]
+            save_account_list = account_list_old[:]
+            for each_account in self._AccountList:    # 如果现在的账户有新的就添加到"曾用账户"
+                if each_account.user not in users_old:   # 通过用户名来判断
+                    print(u"Add a new used-account {}".format(each_account))
+                    save_account_list.append(each_account)
+            self._db.save_used_accounts(save_account_list)
+            # 更新本地数据
+            self._start_time = dt_old
+            self._AccountList = save_account_list
+        else:
+            self._db.save_start_time(self._start_time)
+            self._db.save_used_accounts(self._AccountList)
+
+    def run(self):
+        # 线程运行的任务  出错则下一个账号
+        print_t("Ndr thread starts")
+        for account in self._AccountList:
+            if NdrContent.is_support(account.user):
+                m = RecvImap(account.host, account.user, account.passwd)
+                err, err_info = m.login()
+                if err == ERROR_SUCCESS:
+                    ndr_content = NdrContent(account.user)
+                    for recv_time, body in m.search_from_since(ndr_content.ndr_manger_mail(), self._start_time):
+                        fail_entry = ndr_content.get_fail_mail(body)
+                        self._add_fail_entry(fail_entry)
+                        if self._get_is_user_paused():  # 用户终止操作,不可恢复
+                            m.logout()
+                            self._ndr_completed()
+                            self._write_err_info(u'用户终止接收退信操作')
+                            return
+                else:
+                    self._write_err_info(err_info)
+                    print(err_info)
+                m.logout()
+        self._ndr_completed()
+
+    def _write_err_info(self, err_info):
+        self._lock.acquire()
+        print(err_info)
+        self._err_info += u"\n" + err_info
+        self._lock.release()
+
+    def _add_fail_entry(self, fail_entry):
+        self._lock.acquire()
+        self._unread_data_num += 1
+        self._ndr_data.append(fail_entry)
+        self._lock.release()
+
+    def _ndr_completed(self):
+        self._lock.acquire()
+        self._is_completed = True
+        # 删除数据库中已成功的：
+        # ????????????????????????????????????????????????????
+        self._lock.release()
+
+    def _get_is_user_paused(self):
+        self._lock.acquire()
+        ret = self._user_pause
+        self._lock.release()
+        return ret
 
 
 # #####################################################################################################
@@ -1349,6 +1568,14 @@ def str_find_mailbox(mail_box):
     r = re.findall(r'\S+@\S+', mail_box)
     if r:
         return r[0]
+    return ""
+
+
+def str_get_domain(user_name):
+    pos = user_name.find("@")
+    if -1 != pos and pos + 1 < len(user_name):
+        domain = user_name[pos+1:]
+        return domain
     return ""
 
 
@@ -1394,9 +1621,12 @@ def html_txt_elem(txt):
 
 
 def test_sql_db():
-    db_path = ur'E:\点 石测试Haha\sendmail_test.db'
+    db_path = ur'E:\X 发行资料\sendmail_test.db'
     db = MailDB(db_path)
-    db.init()
+    err, err_info = db.init()
+    if ERROR_SUCCESS != err:
+        print(err_info)
+        return
 
     # ------------------------------------------
     print("\nSave account_list:")
@@ -1494,6 +1724,39 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
     print("Delete all")
     db.del_all_failed_sent()
     print(db.get_failed_sent())
+
+    # ------------------------------------------
+    print("\nUsed Account Test")
+    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉成")
+    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"")
+    account3 = Account("M201571856@hust.edu.cn", "M201571856", "", u"李嘉成")
+    account4 = Account("liangjinchao.happy@163.com", "ioqitwq!QAZ@WSX", "smtp.163.com", u"李嘉成")
+    account5 = Account("dian@hust.edu.cn", "diangroup1", "mail.hust.edu.cn", u"李市民")
+    account_list = [account1, account2, account3, account4, account5]
+    db.save_used_accounts(account_list)
+    ret = db.get_used_accounts()
+    for acc in ret:
+        print(u"{} {} {} {}".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+    print("Delete all accounts.")
+    db.del_all_used_accounts()
+    ret = db.get_used_accounts()
+    for acc in ret:
+        print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+
+    # ------------------------------------------
+    print("\nStart Time Test")
+    dt = datetime.datetime.now()
+    print("Current datetime: {}".format(dt))
+    db.save_start_time(dt)
+    dt_get = db.get_start_time()
+    print("Get start time: {}".format(dt_get))
+    db.del_start_time()
+    print("Delete start time")
+    dt_get = db.get_start_time()
+    if dt_get:
+        print("Failed!Get start time: {}".format(dt_get))
+    else:
+        print("Delete start times success")
 
 
 def test_send_mail():
@@ -1629,6 +1892,7 @@ def test_recv_imap2():
 
 if __name__ == "__main__":
     # test_send_mail()
-    test_recv_imap2()
+    # test_recv_imap2()
+    test_sql_db()
 
 
