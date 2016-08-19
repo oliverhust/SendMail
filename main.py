@@ -11,7 +11,6 @@ import copy
 import xlrd
 import smtplib
 import imaplib
-import imaper
 import email
 import sqlite3
 from email.header import Header
@@ -1275,39 +1274,13 @@ class RecvImap:
                             else:
                                 print("A letter has no date({}) or body, num = {}".format(str_date, num))
 
-    def _search_from_since_old(self, from_who, datetime_since):
-        self._m.select()
-        str_date = datetime_since.strftime(u"%d-%b-%Y")
-        typ, all_data = self._m.search(None, 'FROM', from_who, 'SINCE', str_date)
-        if typ == 'OK':
-            nums = all_data[0].split()
-            if nums:
-                for num in nums:
-                    typ, dat = self._m.fetch(num, '(RFC822)')
-                    if typ != 'OK':
-                        continue
-                    else:
-                        try:
-                            content = imaper.parse_email(dat[0][1])
-                        except Exception, e:
-                            print("Parse an email failed, num = {}".format(num))
-                        else:
-                            if 'date' in content and 'body' in content:
-                                time_str = re.findall(r'\d+ \w+ \d{4} \d+:\d+:\d+', content['date'])
-                                if time_str:
-                                    dt = datetime.datetime.strptime(time_str[0], "%d %b %Y %H:%M:%S")
-                                    if dt > datetime_since:
-                                        body_text = self._try_decode("".join(content['body']['plain']))
-                                        yield (dt, body_text)
-                                else:
-                                    print("A letter does not has time str, num = {}".format(num))
-                            else:
-                                print("A letter has no date or body, num = {}".format(num))
-
 
 class FailedMailContent:
-    """ 邮箱退信内容识别：纯粹的文本处理  """
-    HUST_PATT = r'Your message to (\S+) .*?The error.*?was:\s+"\s*([^"]+)"'
+    """ 邮箱退信内容识别，并提供建议 ：纯粹的文本处理  建议的识别有优先顺序"""
+    HUST_PATT = r'(Your message to (\S+) .*?The error.*?was:\s+"\s*([^"]+)")'
+    SUGGEST = [(r'DNS query error', u'收件人有误：域名错误'),
+               (r'user not exist|User not found|mailbox unavailable|Mailbox not found|Invalid recipient', u'收件人不存在'),
+               (r'Quota exceeded', u'对方邮箱已满或禁用'),]
 
     def __init__(self, account_user=""):
         self._user = account_user
@@ -1326,12 +1299,19 @@ class FailedMailContent:
         return None
 
     def get_fail_mail(self, body_text):
+        # 返回：退回的邮箱， 出错信息， 建议
         if self._re is None:
-            return None, None
+            return None, None, None
         ret = self._re.findall(body_text)
         if ret:
-            return ret[0]
-        return u"", u""
+            full_info, mail, err_info = ret[0][0], ret[0][1], ret[0][2]
+            suggest = u'无'
+            for patt, suggest_tmp in FailedMailContent.SUGGEST:
+                if re.search(r'(?i)'+patt, full_info) is not None:
+                    suggest = suggest_tmp
+                    break
+            return mail, err_info, suggest
+        return u"", u"", u""
 
     @staticmethod
     def hust_failed_mail(body_text):
@@ -1644,7 +1624,8 @@ def test_recv_imap2():
     fail_content = FailedMailContent(user)
     for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
         print("\n--------------------------{}--------------------------------".format(recv_time))
-        print(fail_content.get_fail_mail(body))
+        fail_ = fail_content.get_fail_mail(body)
+        print(u"{}, {}, {}".format(fail_[0], fail_[1], fail_[2]))
     m.logout()
 
 if __name__ == "__main__":
