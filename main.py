@@ -1188,12 +1188,12 @@ class UIInterface:
             self.proc_update_progress(ret["CurrProgress"], progress_info+err_info)
 
     def __ndr_timer_callback(self):
-        err_info, is_completed, ndr_data_list = self._ndr_proc.get_data()
+        err_info, ndr_data_list = self._ndr_proc.get_data()
         if len(err_info) != 0:
             self.proc_ndr_add_err_info(err_info)
         if len(ndr_data_list) != 0:
             self.proc_ndr_add_data(ndr_data_list)
-        if is_completed:
+        #???????????????????????????????????????????????????????????????????????????????????????????????????
             self._timer.stop()
             self.proc_ndr_complete()
 
@@ -1347,34 +1347,80 @@ class RecvImap:
                     break
         return msg_date, mail_content, suffix
 
-    def search_from_since(self, from_who, datetime_since):
+    def search_from_since(self, from_who, datetime_since):   # 时间相等也算
         self._m.select()
         str_date = datetime_since.strftime(u"%d-%b-%Y")
         typ, all_data = self._m.search(None, 'FROM', from_who, 'SINCE', str_date)
         if typ == 'OK':
-            nums = all_data[0].split()
-            if nums:
-                for num in nums:
-                    typ, dat = self._m.fetch(num, '(RFC822)')
-                    if typ != 'OK':
-                        continue
-                    else:
-                        try:
-                            str_date, body, suffix = self._parse_email(dat[0][1])
-                        except Exception, e:
-                            print("Parse an email failed, num = {}".format(num))
-                        else:
-                            if len(str_date) > 0:
-                                time_str = re.findall(r'\d+ \w+ \d{4} \d+:\d+:\d+', str_date)
-                                if time_str:
-                                    dt = datetime.datetime.strptime(time_str[0], "%d %b %Y %H:%M:%S")
-                                    if dt > datetime_since:
-                                        body_text = self._try_decode(body)
-                                        yield (dt, body_text)
-                                else:
-                                    print("A letter does not has time str, num = {}".format(num))
-                            else:
-                                print("A letter has no date({}) or body, num = {}".format(str_date, num))
+            nums_all = all_data[0].split()
+            if nums_all:
+                num_list = self._get_since_num_list(nums_all, datetime_since) # 二分查找
+                for num in num_list:
+                    dt, body_text = self._get_num_body(num, datetime_since)
+                    if dt is not None:
+                        yield (dt, body_text)
+
+    def _get_since_num_list(self, nums_all, datetime_since):
+        # 二分查找找到第一封刚好大于datetime_since的邮件的num的位置  失败返回位置0
+        start_pos = 0
+        num_list = nums_all[:]
+        x, y = 0, len(num_list) - 1   # 初始区间
+        dt = None
+        while True:
+            mid = int((x + y) / 2)
+            dt, body = self._get_num_body(num_list[mid], None)
+            if dt is None:   # 无法获取到时间的从num_list删除
+                del(num_list[mid])
+                if num_list:
+                    y -= 1       # 重新计算区间
+                else:
+                    break
+            elif dt < datetime_since:
+                if mid + 1 < len(num_list):
+                    x = mid + 1
+                else:
+                    break
+            else:           # 大于或等于 (等于的情况下取第一个相等的)
+                y = mid
+                if x == y:
+                    start_pos = mid
+                    break
+        print(u"Get imap start num = {}, datetime = {}".format(num_list[start_pos], dt))
+        return nums_all[nums_all.index(num_list[start_pos]):]           # 不用num_list是用户可能删邮件
+
+    def _get_num_body(self, num, must_datetime_since=None):
+        # 获取指定序号(字符串)邮件的时间和内容 无法获取或时间不符则返回None 如果大于datetime_since将已获取的保存到Cache
+        num = str(num)
+        try:
+            typ, dat = self._m.fetch(num, '(RFC822)')
+        except:
+            return None, None
+        if typ != 'OK':
+            return None, None
+
+        try:
+            str_date, body, suffix = self._parse_email(dat[0][1])
+        except Exception, e:
+            print("Parse an email failed, num = {}".format(num))
+            return None, None
+
+        if len(str_date) <= 0:
+            print("A letter has no date({}) or body, num = {}".format(str_date, num))
+            return None, None
+
+        time_str = re.findall(r'\d+ \w+ \d{4} \d+:\d+:\d+', str_date)
+        if not time_str:
+            print("A letter does not has time str, num = {}".format(num))
+            return None, None
+        dt = datetime.datetime.strptime(time_str[0], "%d %b %Y %H:%M:%S")
+        body_text = self._try_decode(body)
+
+        # 此时已得到 dt, body_text
+        if must_datetime_since is not None:
+            if dt < must_datetime_since:
+                return None, None
+
+        return dt, body_text
 
 
 class NdrContent:
@@ -1437,14 +1483,14 @@ class NdrProc(threading.Thread):
         self._AccountList = account_list[:]
         self._start_time = None
         self._db = mail_db
+        self._accounts_last_time = {}
 
         # 线程共享数据
         self._lock = threading.Lock()
         self._err_info = u""
         self._unread_data_num = 0
-        self._is_completed = False
         self._user_pause = False
-        self._ndr_data = []      # [(退回的邮箱， 出错信息， 建议)...]
+        self._ndr_data = []      # [[时间，退回的邮箱， 出错信息， 建议]...]
 
     def event_start_send(self):
         self._start_time = datetime.datetime.now()
@@ -1466,9 +1512,9 @@ class NdrProc(threading.Thread):
         # 供外部定时调用
         self._lock.acquire()
         if self._unread_data_num > 0:
-            ret = self._err_info, self._is_completed, self._ndr_data[-self._unread_data_num:]
+            ret = self._err_info, self._ndr_data[-self._unread_data_num:]
         else:
-            ret = self._err_info, self._is_completed, []
+            ret = self._err_info, []
         self._lock.release()
         return ret
 
@@ -1501,26 +1547,33 @@ class NdrProc(threading.Thread):
 
     def run(self):
         # 线程运行的任务  出错则下一个账号
-        print_t("Ndr thread starts")
-        for account in self._AccountList:
-            if NdrContent.is_support(account.user):
-                m = RecvImap(account.host, account.user, account.passwd)
-                err, err_info = m.login()
-                if err == ERROR_SUCCESS:
-                    ndr_content = NdrContent(account.user)
-                    for recv_time, body in m.search_from_since(ndr_content.ndr_manger_mail(), self._start_time):
-                        fail_entry = ndr_content.get_fail_mail(body)
-                        self._add_fail_entry(fail_entry)
-                        if self._get_is_user_paused():  # 用户终止操作,不可恢复
-                            m.logout()
-                            self._ndr_completed()
-                            self._write_err_info(u'用户终止接收退信操作')
-                            return
-                else:
-                    self._write_err_info(err_info)
-                    print(err_info)
-                m.logout()
-        self._ndr_completed()
+        print_t("Ndr thread starts.")
+        while not self._get_is_user_paused():
+            for account in self._AccountList:
+                since_time = self._account_last_time_get(account.user, self._start_time)  # 每轮结束每个账号的时间自动向后推
+                if NdrContent.is_support(account.user):
+                    m = RecvImap(account.host, account.user, account.passwd)
+                    err, err_info = m.login()
+                    if err == ERROR_SUCCESS:
+                        ndr_content = NdrContent(account.user)
+                        for recv_time, body in m.search_from_since(ndr_content.ndr_manger_mail(), since_time):
+                            fail_entry = ndr_content.get_fail_mail(body)
+                            self._add_fail_entry([recv_time] + list(fail_entry))  # 如果已存在不会重复添加
+                            self._account_last_time_save(account.user, recv_time)
+                            if self._get_is_user_paused():  # 用户终止操作,不可恢复
+                                break
+                    else:
+                        self._write_err_info(err_info)
+                        print(err_info)
+                    m.logout()
+                if self._get_is_user_paused():
+                    break
+            if self._test_pause_and_sleep(20):
+                break
+
+        self._ndr_finish()
+        self._write_err_info(u'终止接收退信操作')
+        print_t("Ndr thread stopped.")
 
     def _write_err_info(self, err_info):
         self._lock.acquire()
@@ -1528,15 +1581,19 @@ class NdrProc(threading.Thread):
         self._err_info += u"\n" + err_info
         self._lock.release()
 
-    def _add_fail_entry(self, fail_entry):
+    def _add_fail_entry(self, fail_entry):   # [时间，退回的邮箱， 出错信息， 建议]
         self._lock.acquire()
+        curr_mail = fail_entry[1]
+        for each_entry in self._ndr_data:
+            if each_entry[1] == curr_mail:
+                self._lock.release()
+                return
         self._unread_data_num += 1
         self._ndr_data.append(fail_entry)
         self._lock.release()
 
-    def _ndr_completed(self):
+    def _ndr_finish(self):
         self._lock.acquire()
-        self._is_completed = True
         # 删除数据库中已成功的：
         # ????????????????????????????????????????????????????
         self._lock.release()
@@ -1547,6 +1604,30 @@ class NdrProc(threading.Thread):
         self._lock.release()
         return ret
 
+    def _account_last_time_save(self, username, dt):
+        # 和原有的最新时间比较，保存最新的邮件的时间，以便下次发送的时间从该时间开始
+        if username not in self._accounts_last_time:
+            self._accounts_last_time[username] = dt
+        else:
+            old_dt = self._accounts_last_time[username]
+            if dt > old_dt:
+                self._accounts_last_time[username] = dt
+
+    def _account_last_time_get(self, username, since_time=None):
+        # 获取当前账号的已分析邮件的最新时间，如果该账户不存在则返回since_time
+        if username in self._accounts_last_time:
+            return self._accounts_last_time[username]
+        else:
+            return since_time
+
+    def _test_pause_and_sleep(self, sleep_seconds):
+        ret = False
+        for i in range(sleep_seconds):
+            if self._get_is_user_paused():
+                ret = True
+                break
+            time.sleep(1)
+        return ret
 
 # #####################################################################################################
 
@@ -1882,7 +1963,7 @@ def test_recv_imap2():
     if err != ERROR_SUCCESS:
         print(err_info)
         return
-    since_time = datetime.datetime(2013,8,14,19,38,02)
+    since_time = datetime.datetime(2016,8,14,19,38,02)
     fail_content = NdrContent(user)
     for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
         print("\n--------------------------{}--------------------------------".format(recv_time))
@@ -1892,7 +1973,7 @@ def test_recv_imap2():
 
 if __name__ == "__main__":
     # test_send_mail()
-    # test_recv_imap2()
-    test_sql_db()
+    test_recv_imap2()
+    # test_sql_db()
 
 

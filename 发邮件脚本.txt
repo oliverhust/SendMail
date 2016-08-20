@@ -92,4 +92,15 @@ mmyzoliver@hainan.net (mail.hainan.net)
 mmyzoliver@hainan.com
 
 
+退信识别
+美化界面
+Mac版
+
+持续工作 等用户暂停
+退信结束清除DB成功
+用户取消操作处理
+退信接收时间长短控制？
+
+
+
 
