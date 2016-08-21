@@ -8,6 +8,8 @@ from PyQt4.QtGui import *
 from ui_send1 import Ui_MainWindow
 from ui_add_account import Ui_Dialog_Account
 from ui_progress import Ui_Dialog_Progress
+from ui_recv_host import Ui_Dialog_RecvHost
+from ui_ndr import Ui_Dialog_Ndr
 from main import UIInterface, UITimer
 from main import Account
 from mylog import *
@@ -257,6 +259,7 @@ class GUIMain(UIInterface, MainWindow):
         MainWindow.__init__(self, self)
         self.event_init_ui_timer(GUITimer(self))
         self._progress_win = None
+        self._ndr_win = None
 
     def proc_err_same_program(self):
         QMessageBox.critical(self, u"Program Error", QString(u"已经有另一个相同的程序在运行！\n请先停止该程序"))
@@ -407,7 +410,9 @@ class GUIMain(UIInterface, MainWindow):
         self._progress_win.mention_and_auto_close(unicode(err_info))
 
     def proc_ask_if_ndr(self):
-        info = u"是否接收系统退信？以便进一步分析邮件退信的原因，同时你也可以再次尝试退信的邮件"
+        info = u"发送成功的邮件可能会被对方退回来，是否接收系统退信？" \
+               u"以便进一步分析邮件退信的原因，同时你也可以再次尝试发送退信的邮件\n" \
+               u"注意退信窗口不会自动关闭，建议时间15分钟(视邮件多少而定)，您也可以提前关闭"
         button = QMessageBox.question(self, u"Receive bounce E-mail ?",
                                       QString(info),
                                       QMessageBox.Ok | QMessageBox.Cancel,
@@ -416,8 +421,28 @@ class GUIMain(UIInterface, MainWindow):
             return True
         return False
 
-    def proc_exec_ndr_win(self):
-        pass
+    def proc_input_recv_host(self, user_list):
+        # 返回字典{user:host}  host对于不支持的账户填u""，与发送服务器一致则填None 用Account.get_recv_host辅助
+        dict_ret = {}
+        for user in user_list:
+            win = RecvHostWindow(user)
+            win.exec_()
+            dict_ret[win.user] = win.host
+        return dict_ret
+
+    def proc_exec_ndr_win(self, send_finish_datetime):
+        delta_seconds = (datetime.datetime.now() - send_finish_datetime).seconds
+        minute = delta_seconds / 60
+        second = delta_seconds % 60
+        self._ndr_win = NdrWindow(self, minute, second)
+        self._ndr_win.exec_()
+
+    def proc_ndr_refresh_data(self, err_info, ndr_data_list, ndr_all_count, has_finish_a_loop):
+        # ndr_data_list:[[时间，退回的邮箱， 出错信息， 建议]...]
+        if len(err_info) > 0:
+            self._ndr_win.append_text(err_info)
+        for ndr_data in ndr_data_list:
+            self._ndr_win.add_one_row(ndr_data[1], ndr_data[3], ndr_data[2])
 
 
 # ########################### 添加账户窗口 ############################
@@ -477,7 +502,7 @@ class AccountWindow(QDialog, Ui_Dialog_Account):
 
     def _auto_set_host(self):
         user = unicode(self.lineEdit_user.text())
-        host = Account.auto_get_host(user)
+        host = Account.get_send_host(user)
         if host != u"":
             self.lineEdit_host.setText(QString(host))
 
@@ -488,7 +513,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
     def __init__(self, gui_proc=None, parent=None):
         super(ProgressWindow, self).__init__(parent)
         self._GUIProc = gui_proc
-        self._timer_close = None
+        self._timer_close = None  # 定时自动关闭MsgBox
         self._box = None
         self._button_is_finish = False  # 发送完成按钮会变成finish
         self.setAttribute(Qt.WA_DeleteOnClose)
@@ -499,6 +524,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
 
     def slot_pause(self):
         if self._GUIProc is not None:
+            # 【【【【调用GUI的事件处理函数: 用户暂停发送进度】】】】
             self._GUIProc.event_user_cancel_progress()
         if not self._button_is_finish:
             QMessageBox.information(self, u"Information",
@@ -530,7 +556,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
             QMessageBox.critical(self, u"Fatal Error", QString(err_info))
         self.accept()
 
-    def mention_and_auto_close(self, err_info=u"", delay=5000):
+    def mention_and_auto_close(self, err_info=u"", delay=10000):
         if err_info != u"":
             box = QMessageBox(self)
             self._box = box
@@ -542,24 +568,168 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
             box.setWindowTitle(u"Error")
             box.addButton(QString(u"自动重试"), QMessageBox.ActionRole)
             box.setText(QString(err_info))
-            box.exec_()
+            box.show()
 
     def _close_msg_box(self):
         self._box.close()
         self._timer_close.disconnect(self._timer_close, SIGNAL("timeout()"), self._close_msg_box)
 
 
+# ########################### 设置IMAP服务器窗口 ############################
+class RecvHostWindow(QDialog, Ui_Dialog_RecvHost):
+
+    def __init__(self, account_user, parent=None):
+        super(RecvHostWindow, self).__init__(parent)
+        self.user = account_user
+        self.host = u""
+        self._host_list = []
+        self.setAttribute(Qt.WA_DeleteOnClose)
+        self.setupUi(self)
+
+        self.label_user.setText(QString(unicode(account_user)))
+        self._init_combobox()
+
+        self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_set_host)
+
+    def _init_combobox(self):
+        # 把支持的host加入combobox
+        host_list = [each_host for domain, each_host in Account.RECV_HOSTS.iteritems()]
+        self._host_list = host_list
+        for each_host in host_list:
+            self.comboBox.addItem(QString(each_host))
+        self.comboBox.addItem(QString(u"与发送服务器一样"))
+        self.comboBox.addItem(QString(u"其他 （不支持接收退信）"))
+
+        host = Account.get_recv_host(self.user)
+        if host == "":
+            self.comboBox.setCurrentIndex(len(host_list)+1)
+        else:
+            self.comboBox.setCurrentIndex(host_list.index(host))
+
+    def slot_set_host(self):
+        index = self.comboBox.currentIndex()
+        len_host_list = len(self._host_list)
+        if index < len_host_list:
+            self.host = self._host_list[index]
+        elif index == len_host_list:
+            self.host = None   # 代表和发送服务器一样
+        else:
+            self.host = u""    # 代表不支持
+        print(u"User select {} recv host {}".format(self.user, repr(self.host)))
+        self.accept()
+
+
+# ########################### 退信窗口 ############################
+class NdrWindow(QDialog, Ui_Dialog_Ndr):
+
+    def __init__(self, gui_proc=None, lcd_minute=0, lcd_second=0, parent=None):
+        super(NdrWindow, self).__init__(parent)
+        self._GUIProc = gui_proc
+        self._has_press_pause = False       # 按两次暂停才退出窗口，用来标记
+        self._lcd_minute = lcd_minute
+        self._lcd_second = lcd_second
+        self.setAttribute(Qt.WA_DeleteOnClose)
+        self.setupUi(self)
+        self.set_lcd_time(lcd_minute, lcd_second)
+        self._init_table()
+        self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_stop_ndr)
+
+        # 定时刷新时间
+        self._timer_refresh_lcd = QTimer()
+        self.connect(self._timer_refresh_lcd, SIGNAL("timeout()"), self.slot_refresh_lcd)
+        self._timer_refresh_lcd.start(1000)
+
+    def _init_table(self):
+        # self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setRowCount(0)
+        self.tableWidget.setColumnWidth(0, 250)
+        self.tableWidget.setColumnWidth(1, 300)
+        self.tableWidget.setColumnWidth(2, 380)
+
+        header = [QString(u"被退信的邮箱"), QString(u"原因/建议"), QString(u"详细信息")]
+        self.tableWidget.setHorizontalHeaderLabels(header)
+
+    def slot_stop_ndr(self):
+        if not self._has_press_pause:
+            self._has_press_pause = True
+            self.pushButton.setText(QString(u"完成"))
+            self._timer_refresh_lcd.stop()
+            # 【【【【调用GUI的事件处理函数: 终止接收退信】】】】
+            if self._GUIProc is not None:
+                self._GUIProc.event_user_cancel_ndr()
+            self.append_text(u"用户终止接收退信\n\n")
+        else:
+            info = u"如果你想重试退信的邮件，可以修改发送信息然后再次开始"
+            QMessageBox.information(self, u"Information", QString(info))
+            self.accept()
+
+    def add_one_row(self, mail, suggest, more_info):
+        old_row_count = self.tableWidget.rowCount()
+        self.tableWidget.setRowCount(old_row_count + 1)
+        self.tableWidget.setItem(old_row_count, 0, QTableWidgetItem(QString(mail)))
+        self.tableWidget.setItem(old_row_count, 1, QTableWidgetItem(QString(suggest)))
+        self.tableWidget.setItem(old_row_count, 2, QTableWidgetItem(QString(more_info)))
+        self.label_NdrNum.setText(QString(unicode(old_row_count + 1)))
+
+    def append_text(self, text):
+        # self.textEdit.insertPlainText(QString(unicode(text)))
+        if len(text) > 0 and text[-1] == '\n':
+            text_append = text[:-1]
+        else:
+            text_append = text
+        self.textEdit.append(QString(text_append))
+
+    @staticmethod
+    def _time_convert(minute, second):
+        m = minute
+        s = second
+        if s >= 60:
+            s %= 60
+            m += s / 60
+        if m > 99:
+            m = 99
+            s = 99
+        return m, s
+
+    def set_lcd_time(self, minute, second):
+        m, s = self._time_convert(minute, second)
+        self.lcdNumber.display(QString(u"%02d:%02d" % (m, s)))
+
+    def slot_refresh_lcd(self):
+        self._lcd_minute, self._lcd_second = self._time_convert(self._lcd_minute, self._lcd_second + 1)
+        self.lcdNumber.display(QString(u"%02d:%02d" % (self._lcd_minute, self._lcd_second)))
+
+
+def test_ndr_win():
+    app = QApplication(sys.argv)
+    win = NdrWindow()
+    win.show()
+    app.exec_()
+
+
+def test_recv_win():
+    app = QApplication(sys.argv)
+    dict_ret = {}
+    user_list = ["liangjinchao@163.com", "abcdefg@hust.edu.cn", "sys@d3p.com"]
+    for user in user_list:
+        win = RecvHostWindow(user)
+        win.exec_()
+        dict_ret[win.user] = win.host
+    print(dict_ret)
+
+
 def test_ui_progress():
     app = QApplication(sys.argv)
-    Window = ProgressWindow()
-    Window.show()
+    win = ProgressWindow()
+    win.show()
     app.exec_()
 
 
 def test_ui_progress_return():
     app = QApplication(sys.argv)
-    Window = ProgressWindow()
-    ret = Window.exec_()
+    win = ProgressWindow()
+    ret = win.exec_()
     if ret:
         print(u"Exit progress window normal, ret = {}".format(ret))
     else:
@@ -568,8 +738,8 @@ def test_ui_progress_return():
 
 def test_main_win():
     app = QApplication(sys.argv)
-    Window = MainWindow(None)
-    Window.show()
+    win = MainWindow(None)
+    win.show()
     app.exec_()
 
 
@@ -608,7 +778,9 @@ def main():
 
 
 if __name__=='__main__':
-    # main()
-    # test_ui_progress()
-    test_ui_progress_return()
-    # test_gui_timer()
+    main()
+    #test_ui_progress()
+    #test_ui_progress_return()
+    #test_gui_timer()
+    #test_ndr_win()
+    #test_recv_win()

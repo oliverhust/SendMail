@@ -963,3 +963,1789 @@ The Event form load occur.
 Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 Exit and discard.
 
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 01:55:43] Start the program
+2016-08-21 01:55:44
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 01:56:23] Start the program
+2016-08-21 01:56:23
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 10:40:16] Start the program
+2016-08-21 10:40:16
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 11:06:01] Start the program
+2016-08-21 11:06:01
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 11:09:25] Start the program
+2016-08-21 11:09:25
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 17:48:33] Start the program
+2016-08-21 17:48:33
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+[2016/08/21 17:48:57]
+Get 3 mails from excel.
+User cancel before send.
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 17:51:49] Start the program
+2016-08-21 17:51:49
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+[2016/08/21 17:52:00]
+Get 3 mails from excel.
+[2016/08/21 17:52:06]Start Timer.The timer period is 20000 ms
+[2016/08/21 17:52:08]Timer call back.
+
+[2016/08/21 17:52:08]
+读取附件成功
+
+[2016/08/21 17:52:08]
+Start to send a group.
+Connect smtp.hainan.net Success.
+Account hustoliver@hainan.net login Success.
+
+[2016/08/21 17:52:12]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Server not connected\n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7oliver@dian.com', 'ErrCode': 5, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 17:52:28]Timer call back.
+
+[2016/08/21 17:52:28]
+Start to send a group.
+
+[2016/08/21 17:52:49]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 17:52:49]Timer call back.
+
+[2016/08/21 17:52:49]
+Start to send a group.
+Connect mail.hust.edu.cn Success.
+Account U201313778@hust.edu.cn login Success.
+
+[2016/08/21 17:52:50]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com', u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 17:53:09]Timer call back.
+
+[2016/08/21 17:53:09]
+Start to send a group.
+Connect smtp.hainan.net Success.
+Account hustoliver@hainan.net login Success.
+
+[2016/08/21 17:53:12]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Server not connected\n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7oliver@dian.com', 'ErrCode': 5, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 17:53:29]Timer call back.
+
+[2016/08/21 17:53:29]
+Start to send a group.
+
+[2016/08/21 17:53:50]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 17:53:50]Timer call back.
+
+[2016/08/21 17:53:50]
+Start to send a group.
+Connect mail.hust.edu.cn Success.
+Account U201313778@hust.edu.cn login Success.
+
+[2016/08/21 17:53:51]
+{'FailedList': [], 'SuccessList': [u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (48, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[18:00:21] 开始接收退信
+[18:00:21] 当前账号: hustoliver@hainan.net
+[18:00:21] 当前账号: oliver@dian.com
+[18:00:21] 当前账号: dian@hust.edu.cn
+[18:00:21] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 418, datetime = 2016-08-21 17:06:26
+[18:00:24] 接收到邮箱piwhaek@qq.com的退信
+[18:00:25] 接收到邮箱uhhokfs@126.com的退信
+[18:00:26] 接收到邮箱yralgwm@163.com的退信
+[18:00:28] 完成一轮接收,等待30秒后继续...
+[18:00:58] 开始接收退信
+[18:00:58] 当前账号: hustoliver@hainan.net
+[18:00:58] 当前账号: oliver@dian.com
+[18:00:58] 当前账号: dian@hust.edu.cn
+[18:00:58] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:01:02] 完成一轮接收,等待30秒后继续...
+[18:01:32] 开始接收退信
+[18:01:32] 当前账号: hustoliver@hainan.net
+[18:01:32] 当前账号: oliver@dian.com
+[18:01:32] 当前账号: dian@hust.edu.cn
+[18:01:32] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:01:36] 完成一轮接收,等待30秒后继续...
+[18:02:06] 开始接收退信
+[18:02:06] 当前账号: hustoliver@hainan.net
+[18:02:06] 当前账号: oliver@dian.com
+[18:02:06] 当前账号: dian@hust.edu.cn
+[18:02:06] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:02:10] 完成一轮接收,等待30秒后继续...
+[18:02:41] 开始接收退信
+[18:02:41] 当前账号: hustoliver@hainan.net
+[18:02:41] 当前账号: oliver@dian.com
+[18:02:41] 当前账号: dian@hust.edu.cn
+[18:02:41] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:02:45] 完成一轮接收,等待30秒后继续...
+[18:03:15] 开始接收退信
+[18:03:15] 当前账号: hustoliver@hainan.net
+[18:03:15] 当前账号: oliver@dian.com
+[18:03:15] 当前账号: dian@hust.edu.cn
+[18:03:16] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:03:20] 完成一轮接收,等待30秒后继续...
+[18:03:50] 开始接收退信
+[18:03:50] 当前账号: hustoliver@hainan.net
+[18:03:50] 当前账号: oliver@dian.com
+[18:03:50] 当前账号: dian@hust.edu.cn
+[18:03:50] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:03:54] 完成一轮接收,等待30秒后继续...
+[18:04:24] 开始接收退信
+[18:04:24] 当前账号: hustoliver@hainan.net
+[18:04:24] 当前账号: oliver@dian.com
+[18:04:24] 当前账号: dian@hust.edu.cn
+[18:04:24] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:04:28] 完成一轮接收,等待30秒后继续...
+[18:04:58] 开始接收退信
+[18:04:58] 当前账号: hustoliver@hainan.net
+[18:04:58] 当前账号: oliver@dian.com
+[18:04:58] 当前账号: dian@hust.edu.cn
+[18:04:58] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:05:02] 完成一轮接收,等待30秒后继续...
+[18:05:32] 开始接收退信
+[18:05:32] 当前账号: hustoliver@hainan.net
+[18:05:32] 当前账号: oliver@dian.com
+[18:05:32] 当前账号: dian@hust.edu.cn
+[18:05:32] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:05:36] 完成一轮接收,等待30秒后继续...
+[18:06:06] 开始接收退信
+[18:06:06] 当前账号: hustoliver@hainan.net
+[18:06:06] 当前账号: oliver@dian.com
+[18:06:06] 当前账号: dian@hust.edu.cn
+[18:06:06] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:06:10] 完成一轮接收,等待30秒后继续...
+[18:06:40] 开始接收退信
+[18:06:40] 当前账号: hustoliver@hainan.net
+[18:06:40] 当前账号: oliver@dian.com
+[18:06:40] 当前账号: dian@hust.edu.cn
+[18:06:40] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:06:44] 完成一轮接收,等待30秒后继续...
+[18:07:14] 开始接收退信
+[18:07:14] 当前账号: hustoliver@hainan.net
+[18:07:14] 当前账号: oliver@dian.com
+[18:07:14] 当前账号: dian@hust.edu.cn
+[18:07:14] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 423, datetime = 2016-08-21 17:55:36
+[18:07:18] 完成一轮接收,等待30秒后继续...
+[18:07:19] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 18:18:58] Start the program
+2016-08-21 18:18:58
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+[2016/08/21 18:19:12]
+Get 3 mails from excel.
+[2016/08/21 18:19:15]Start Timer.The timer period is 20000 ms
+[2016/08/21 18:19:17]Timer call back.
+
+[2016/08/21 18:19:17]
+读取附件成功
+
+[2016/08/21 18:19:17]
+Start to send a group.
+Connect smtp.hainan.net Success.
+Account hustoliver@hainan.net login Success.
+
+[2016/08/21 18:19:20]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Server not connected\n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7oliver@dian.com', 'ErrCode': 5, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 18:19:37]Timer call back.
+
+[2016/08/21 18:19:37]
+Start to send a group.
+
+[2016/08/21 18:19:58]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 18:19:58]Timer call back.
+
+[2016/08/21 18:19:58]
+Start to send a group.
+Connect mail.hust.edu.cn Success.
+Account U201313778@hust.edu.cn login Success.
+
+[2016/08/21 18:19:59]
+{'FailedList': [], 'SuccessList': [u'yralgwm@163.com', u'piwhaek@qq.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 18:20:18]Timer call back.
+
+[2016/08/21 18:20:18]
+Start to send a group.
+Connect smtp.hainan.net Success.
+Account hustoliver@hainan.net login Success.
+
+[2016/08/21 18:20:21]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Server not connected\n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7oliver@dian.com', 'ErrCode': 5, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 18:20:38]Timer call back.
+
+[2016/08/21 18:20:38]
+Start to send a group.
+
+[2016/08/21 18:20:59]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 18:20:59]Timer call back.
+
+[2016/08/21 18:20:59]
+Start to send a group.
+Connect mail.hust.edu.cn Success.
+Account U201313778@hust.edu.cn login Success.
+
+[2016/08/21 18:21:00]
+{'FailedList': [], 'SuccessList': [u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (48, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[18:47:32] 开始接收退信
+[18:47:32] 当前账号: hustoliver@hainan.net
+[18:47:32] 当前账号: oliver@dian.com
+[18:47:32] 当前账号: dian@hust.edu.cn
+[18:47:32] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 418, datetime = 2016-08-21 17:06:26
+[18:47:38] 接收到邮箱piwhaek@qq.com的退信
+[18:47:40] 接收到邮箱uhhokfs@126.com的退信
+[18:47:41] 接收到邮箱yralgwm@163.com的退信
+[18:47:49] 完成一轮接收,等待30秒后继续...
+[18:48:19] 开始接收退信
+[18:48:19] 当前账号: hustoliver@hainan.net
+[18:48:19] 当前账号: oliver@dian.com
+[18:48:19] 当前账号: dian@hust.edu.cn
+[18:48:19] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 426, datetime = 2016-08-21 18:22:46
+[18:48:26] 完成一轮接收,等待30秒后继续...
+[18:48:56] 开始接收退信
+[18:48:56] 当前账号: hustoliver@hainan.net
+[18:48:56] 当前账号: oliver@dian.com
+[18:48:56] 当前账号: dian@hust.edu.cn
+[18:48:56] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 426, datetime = 2016-08-21 18:22:46
+[18:49:03] 完成一轮接收,等待30秒后继续...
+[18:49:08] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 18:52:13] Start the program
+2016-08-21 18:52:13
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 18:53:22] Start the program
+2016-08-21 18:53:23
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+[2016/08/21 18:53:26]
+Get 3 mails from excel.
+User cancel before send.
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 19:01:18] Start the program
+2016-08-21 19:01:18
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+[2016/08/21 19:01:22]
+Get 3 mails from excel.
+[2016/08/21 19:01:23]Start Timer.The timer period is 20000 ms
+[2016/08/21 19:01:25]Timer call back.
+
+[2016/08/21 19:01:25]
+读取附件成功
+
+[2016/08/21 19:01:25]
+Start to send a group.
+Connect smtp.hainan.net Success.
+Account hustoliver@hainan.net login Success.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 19:04:42] Start the program
+2016-08-21 19:04:43
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+[2016/08/21 19:04:53]
+Get 3 mails from excel.
+[2016/08/21 19:04:55]Start Timer.The timer period is 20000 ms
+[2016/08/21 19:05:01]Timer call back.
+
+[2016/08/21 19:05:01]
+读取附件成功
+
+[2016/08/21 19:05:01]
+Start to send a group.
+Connect smtp.hainan.net Success.
+Account hustoliver@hainan.net login Success.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 19:11:24] Start the program
+2016-08-21 19:11:24
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 19:11:31]
+Get 3 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 19:11:39]
+Get 3 mails from excel.
+[2016/08/21 19:11:40]Start Timer.The timer period is 30000 ms
+[2016/08/21 19:11:42]Timer call back.
+[2016/08/21 19:11:42]
+读取附件成功
+[2016/08/21 19:11:42]
+Start to send a group.
+Connect to host 192.168.56.88 ..
+[2016/08/21 19:12:03]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 19:12:12]Timer call back.
+[2016/08/21 19:12:12]
+Start to send a group.
+Connect to host mail.hust.edu.cn ..
+Login account U201313778@hust.edu.cn ..
+Start to send email...
+[2016/08/21 19:12:13]
+The email has sent.
+[2016/08/21 19:12:13]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com', u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 19:12:42]Timer call back.
+[2016/08/21 19:12:42]
+Start to send a group.
+Connect to host 192.168.56.88 ..
+[2016/08/21 19:13:03]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 19:13:12]Timer call back.
+[2016/08/21 19:13:12]
+Start to send a group.
+Connect to host mail.hust.edu.cn ..
+Login account U201313778@hust.edu.cn ..
+Start to send email...
+[2016/08/21 19:13:13]
+The email has sent.
+[2016/08/21 19:13:13]
+{'FailedList': [], 'SuccessList': [u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (48, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[19:14:28] 开始接收退信
+[19:14:28] 当前账号: hustoliver@hainan.net
+[19:14:28] 当前账号: oliver@dian.com
+[19:14:28] 当前账号: dian@hust.edu.cn
+[19:14:28] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 418, datetime = 2016-08-21 17:06:26
+[19:14:31] 接收到邮箱piwhaek@qq.com的退信
+[19:14:32] 接收到邮箱uhhokfs@126.com的退信
+[19:14:33] 接收到邮箱yralgwm@163.com的退信
+[19:14:39] 完成一轮接收,等待30秒后继续...
+[19:15:09] 开始接收退信
+[19:15:09] 当前账号: hustoliver@hainan.net
+[19:15:09] 当前账号: oliver@dian.com
+[19:15:09] 当前账号: dian@hust.edu.cn
+[19:15:10] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 429, datetime = 2016-08-21 19:14:58
+[19:15:14] 完成一轮接收,等待30秒后继续...
+[19:15:44] 开始接收退信
+[19:15:44] 当前账号: hustoliver@hainan.net
+[19:15:44] 当前账号: oliver@dian.com
+[19:15:44] 当前账号: dian@hust.edu.cn
+[19:15:44] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 429, datetime = 2016-08-21 19:14:58
+[19:15:48] 完成一轮接收,等待30秒后继续...
+[19:16:18] 开始接收退信
+[19:16:18] 当前账号: hustoliver@hainan.net
+[19:16:18] 当前账号: oliver@dian.com
+[19:16:18] 当前账号: dian@hust.edu.cn
+[19:16:18] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 429, datetime = 2016-08-21 19:14:58
+[19:16:22] 完成一轮接收,等待30秒后继续...
+[19:16:52] 开始接收退信
+[19:16:52] 当前账号: hustoliver@hainan.net
+[19:16:52] 当前账号: oliver@dian.com
+[19:16:52] 当前账号: dian@hust.edu.cn
+[19:16:52] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 429, datetime = 2016-08-21 19:14:58
+[19:16:56] 完成一轮接收,等待30秒后继续...
+[19:17:22] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 19:18:27] Start the program
+2016-08-21 19:18:27
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 19:20:00]
+Get 3 mails from excel.
+User cancel before send.
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 19:25:18] Start the program
+2016-08-21 19:25:18
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 19:25:21]
+Get 3 mails from excel.
+[2016/08/21 19:25:22]Start Timer.The timer period is 30000 ms
+[2016/08/21 19:25:24]Timer call back.
+[2016/08/21 19:25:24]
+读取附件成功
+[2016/08/21 19:25:24]
+Start to send a group.
+Connecting to host 192.168.56.88 .
+[2016/08/21 19:25:45]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 19:25:54]Timer call back.
+[2016/08/21 19:25:54]
+Start to send a group.
+Connecting to host mail.hust.edu.cn .
+Logining account U201313778@hust.edu.cn .
+Start to send email...
+[2016/08/21 19:25:55]
+The email has sent.
+[2016/08/21 19:25:55]
+{'FailedList': [], 'SuccessList': [u'yralgwm@163.com', u'piwhaek@qq.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 19:26:24]Timer call back.
+[2016/08/21 19:26:24]
+Start to send a group.
+Connecting to host 192.168.56.88 .
+[2016/08/21 19:26:45]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 19:26:54]Timer call back.
+[2016/08/21 19:26:54]
+Start to send a group.
+Connecting to host mail.hust.edu.cn .
+Logining account U201313778@hust.edu.cn .
+Start to send email...
+[2016/08/21 19:26:55]
+The email has sent.
+[2016/08/21 19:26:55]
+{'FailedList': [], 'SuccessList': [u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (48, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[19:27:36] 开始接收退信
+[19:27:36] 当前账号: hustoliver@hainan.net
+[19:27:36] 当前账号: oliver@dian.com
+[19:27:36] 当前账号: dian@hust.edu.cn
+[19:27:36] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 418, datetime = 2016-08-21 17:06:26
+[19:27:40] 接收到邮箱piwhaek@qq.com的退信
+[19:27:40] 接收到邮箱uhhokfs@126.com的退信
+[19:27:41] 接收到邮箱yralgwm@163.com的退信
+[19:27:48] 完成一轮接收,等待30秒后继续...
+[19:28:18] 开始接收退信
+[19:28:18] 当前账号: hustoliver@hainan.net
+[19:28:18] 当前账号: oliver@dian.com
+[19:28:18] 当前账号: dian@hust.edu.cn
+[19:28:18] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:28:22] 完成一轮接收,等待30秒后继续...
+[19:28:52] 开始接收退信
+[19:28:52] 当前账号: hustoliver@hainan.net
+[19:28:52] 当前账号: oliver@dian.com
+[19:28:52] 当前账号: dian@hust.edu.cn
+[19:28:52] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:28:57] 完成一轮接收,等待30秒后继续...
+[19:29:27] 开始接收退信
+[19:29:27] 当前账号: hustoliver@hainan.net
+[19:29:27] 当前账号: oliver@dian.com
+[19:29:27] 当前账号: dian@hust.edu.cn
+[19:29:27] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:29:31] 完成一轮接收,等待30秒后继续...
+[19:30:01] 开始接收退信
+[19:30:01] 当前账号: hustoliver@hainan.net
+[19:30:01] 当前账号: oliver@dian.com
+[19:30:01] 当前账号: dian@hust.edu.cn
+[19:30:01] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:30:05] 完成一轮接收,等待30秒后继续...
+[19:30:35] 开始接收退信
+[19:30:35] 当前账号: hustoliver@hainan.net
+[19:30:35] 当前账号: oliver@dian.com
+[19:30:35] 当前账号: dian@hust.edu.cn
+[19:30:35] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:30:40] 完成一轮接收,等待30秒后继续...
+[19:31:10] 开始接收退信
+[19:31:10] 当前账号: hustoliver@hainan.net
+[19:31:10] 当前账号: oliver@dian.com
+[19:31:10] 当前账号: dian@hust.edu.cn
+[19:31:10] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:31:14] 完成一轮接收,等待30秒后继续...
+[19:31:44] 开始接收退信
+[19:31:44] 当前账号: hustoliver@hainan.net
+[19:31:44] 当前账号: oliver@dian.com
+[19:31:44] 当前账号: dian@hust.edu.cn
+[19:31:44] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:31:49] 完成一轮接收,等待30秒后继续...
+[19:32:19] 开始接收退信
+[19:32:19] 当前账号: hustoliver@hainan.net
+[19:32:19] 当前账号: oliver@dian.com
+[19:32:19] 当前账号: dian@hust.edu.cn
+[19:32:19] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:32:23] 完成一轮接收,等待30秒后继续...
+[19:32:53] 开始接收退信
+[19:32:53] 当前账号: hustoliver@hainan.net
+[19:32:53] 当前账号: oliver@dian.com
+[19:32:53] 当前账号: dian@hust.edu.cn
+[19:32:54] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:32:58] 完成一轮接收,等待30秒后继续...
+[19:33:28] 开始接收退信
+[19:33:28] 当前账号: hustoliver@hainan.net
+[19:33:28] 当前账号: oliver@dian.com
+[19:33:28] 当前账号: dian@hust.edu.cn
+[19:33:28] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:33:33] 完成一轮接收,等待30秒后继续...
+[19:34:03] 开始接收退信
+[19:34:03] 当前账号: hustoliver@hainan.net
+[19:34:03] 当前账号: oliver@dian.com
+[19:34:03] 当前账号: dian@hust.edu.cn
+[19:34:03] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:34:07] 完成一轮接收,等待30秒后继续...
+[19:34:37] 开始接收退信
+[19:34:37] 当前账号: hustoliver@hainan.net
+[19:34:37] 当前账号: oliver@dian.com
+[19:34:37] 当前账号: dian@hust.edu.cn
+[19:34:37] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:34:42] 完成一轮接收,等待30秒后继续...
+[19:35:12] 开始接收退信
+[19:35:12] 当前账号: hustoliver@hainan.net
+[19:35:12] 当前账号: oliver@dian.com
+[19:35:12] 当前账号: dian@hust.edu.cn
+[19:35:12] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:35:16] 完成一轮接收,等待30秒后继续...
+[19:35:46] 开始接收退信
+[19:35:46] 当前账号: hustoliver@hainan.net
+[19:35:46] 当前账号: oliver@dian.com
+[19:35:46] 当前账号: dian@hust.edu.cn
+[19:35:46] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:35:51] 完成一轮接收,等待30秒后继续...
+[19:36:21] 开始接收退信
+[19:36:21] 当前账号: hustoliver@hainan.net
+[19:36:21] 当前账号: oliver@dian.com
+[19:36:21] 当前账号: dian@hust.edu.cn
+[19:36:21] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:36:26] 完成一轮接收,等待30秒后继续...
+[19:36:56] 开始接收退信
+[19:36:56] 当前账号: hustoliver@hainan.net
+[19:36:56] 当前账号: oliver@dian.com
+[19:36:56] 当前账号: dian@hust.edu.cn
+[19:36:56] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:37:00] 完成一轮接收,等待30秒后继续...
+[19:37:30] 开始接收退信
+[19:37:30] 当前账号: hustoliver@hainan.net
+[19:37:30] 当前账号: oliver@dian.com
+[19:37:30] 当前账号: dian@hust.edu.cn
+[19:37:30] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:37:34] 完成一轮接收,等待30秒后继续...
+[19:38:04] 开始接收退信
+[19:38:04] 当前账号: hustoliver@hainan.net
+[19:38:04] 当前账号: oliver@dian.com
+[19:38:04] 当前账号: dian@hust.edu.cn
+[19:38:04] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:38:09] 完成一轮接收,等待30秒后继续...
+[19:38:39] 开始接收退信
+[19:38:39] 当前账号: hustoliver@hainan.net
+[19:38:39] 当前账号: oliver@dian.com
+[19:38:39] 当前账号: dian@hust.edu.cn
+[19:38:39] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:38:43] 完成一轮接收,等待30秒后继续...
+[19:39:13] 开始接收退信
+[19:39:13] 当前账号: hustoliver@hainan.net
+[19:39:13] 当前账号: oliver@dian.com
+[19:39:13] 当前账号: dian@hust.edu.cn
+[19:39:13] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:39:18] 完成一轮接收,等待30秒后继续...
+[19:39:48] 开始接收退信
+[19:39:48] 当前账号: hustoliver@hainan.net
+[19:39:48] 当前账号: oliver@dian.com
+[19:39:48] 当前账号: dian@hust.edu.cn
+[19:39:48] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:39:52] 完成一轮接收,等待30秒后继续...
+[19:40:22] 开始接收退信
+[19:40:22] 当前账号: hustoliver@hainan.net
+[19:40:22] 当前账号: oliver@dian.com
+[19:40:22] 当前账号: dian@hust.edu.cn
+[19:40:22] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:40:27] 完成一轮接收,等待30秒后继续...
+[19:40:57] 开始接收退信
+[19:40:57] 当前账号: hustoliver@hainan.net
+[19:40:57] 当前账号: oliver@dian.com
+[19:40:57] 当前账号: dian@hust.edu.cn
+[19:40:57] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:41:01] 完成一轮接收,等待30秒后继续...
+[19:41:31] 开始接收退信
+[19:41:31] 当前账号: hustoliver@hainan.net
+[19:41:31] 当前账号: oliver@dian.com
+[19:41:31] 当前账号: dian@hust.edu.cn
+[19:41:32] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:41:36] 完成一轮接收,等待30秒后继续...
+[19:42:06] 开始接收退信
+[19:42:06] 当前账号: hustoliver@hainan.net
+[19:42:06] 当前账号: oliver@dian.com
+[19:42:06] 当前账号: dian@hust.edu.cn
+[19:42:06] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:42:10] 完成一轮接收,等待30秒后继续...
+[19:42:40] 开始接收退信
+[19:42:40] 当前账号: hustoliver@hainan.net
+[19:42:40] 当前账号: oliver@dian.com
+[19:42:40] 当前账号: dian@hust.edu.cn
+[19:42:40] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:42:45] 完成一轮接收,等待30秒后继续...
+[19:43:15] 开始接收退信
+[19:43:15] 当前账号: hustoliver@hainan.net
+[19:43:15] 当前账号: oliver@dian.com
+[19:43:15] 当前账号: dian@hust.edu.cn
+[19:43:15] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:43:19] 完成一轮接收,等待30秒后继续...
+[19:43:49] 开始接收退信
+[19:43:49] 当前账号: hustoliver@hainan.net
+[19:43:49] 当前账号: oliver@dian.com
+[19:43:49] 当前账号: dian@hust.edu.cn
+[19:43:49] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:43:53] 完成一轮接收,等待30秒后继续...
+[19:44:24] 开始接收退信
+[19:44:24] 当前账号: hustoliver@hainan.net
+[19:44:24] 当前账号: oliver@dian.com
+[19:44:24] 当前账号: dian@hust.edu.cn
+[19:44:24] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:44:28] 完成一轮接收,等待30秒后继续...
+[19:44:58] 开始接收退信
+[19:44:58] 当前账号: hustoliver@hainan.net
+[19:44:58] 当前账号: oliver@dian.com
+[19:44:58] 当前账号: dian@hust.edu.cn
+[19:44:58] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:45:02] 完成一轮接收,等待30秒后继续...
+[19:45:32] 开始接收退信
+[19:45:32] 当前账号: hustoliver@hainan.net
+[19:45:32] 当前账号: oliver@dian.com
+[19:45:32] 当前账号: dian@hust.edu.cn
+[19:45:32] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:45:37] 完成一轮接收,等待30秒后继续...
+[19:46:07] 开始接收退信
+[19:46:07] 当前账号: hustoliver@hainan.net
+[19:46:07] 当前账号: oliver@dian.com
+[19:46:07] 当前账号: dian@hust.edu.cn
+[19:46:07] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:46:11] 完成一轮接收,等待30秒后继续...
+[19:46:41] 开始接收退信
+[19:46:41] 当前账号: hustoliver@hainan.net
+[19:46:41] 当前账号: oliver@dian.com
+[19:46:41] 当前账号: dian@hust.edu.cn
+[19:46:41] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:46:46] 完成一轮接收,等待30秒后继续...
+[19:47:16] 开始接收退信
+[19:47:16] 当前账号: hustoliver@hainan.net
+[19:47:16] 当前账号: oliver@dian.com
+[19:47:16] 当前账号: dian@hust.edu.cn
+[19:47:16] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:47:20] 完成一轮接收,等待30秒后继续...
+[19:47:50] 开始接收退信
+[19:47:50] 当前账号: hustoliver@hainan.net
+[19:47:50] 当前账号: oliver@dian.com
+[19:47:50] 当前账号: dian@hust.edu.cn
+[19:47:51] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:47:55] 完成一轮接收,等待30秒后继续...
+[19:48:25] 开始接收退信
+[19:48:25] 当前账号: hustoliver@hainan.net
+[19:48:25] 当前账号: oliver@dian.com
+[19:48:25] 当前账号: dian@hust.edu.cn
+[19:48:25] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:48:29] 完成一轮接收,等待30秒后继续...
+[19:48:59] 开始接收退信
+[19:48:59] 当前账号: hustoliver@hainan.net
+[19:48:59] 当前账号: oliver@dian.com
+[19:48:59] 当前账号: dian@hust.edu.cn
+[19:49:00] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:49:04] 完成一轮接收,等待30秒后继续...
+[19:49:34] 开始接收退信
+[19:49:34] 当前账号: hustoliver@hainan.net
+[19:49:34] 当前账号: oliver@dian.com
+[19:49:34] 当前账号: dian@hust.edu.cn
+[19:49:34] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:49:39] 完成一轮接收,等待30秒后继续...
+[19:50:09] 开始接收退信
+[19:50:09] 当前账号: hustoliver@hainan.net
+[19:50:09] 当前账号: oliver@dian.com
+[19:50:09] 当前账号: dian@hust.edu.cn
+[19:50:09] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:50:13] 完成一轮接收,等待30秒后继续...
+[19:50:43] 开始接收退信
+[19:50:43] 当前账号: hustoliver@hainan.net
+[19:50:43] 当前账号: oliver@dian.com
+[19:50:43] 当前账号: dian@hust.edu.cn
+[19:50:43] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:50:48] 完成一轮接收,等待30秒后继续...
+[19:51:18] 开始接收退信
+[19:51:18] 当前账号: hustoliver@hainan.net
+[19:51:18] 当前账号: oliver@dian.com
+[19:51:18] 当前账号: dian@hust.edu.cn
+[19:51:18] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:51:22] 完成一轮接收,等待30秒后继续...
+[19:51:52] 开始接收退信
+[19:51:52] 当前账号: hustoliver@hainan.net
+[19:51:52] 当前账号: oliver@dian.com
+[19:51:52] 当前账号: dian@hust.edu.cn
+[19:51:52] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:51:57] 完成一轮接收,等待30秒后继续...
+[19:52:27] 开始接收退信
+[19:52:27] 当前账号: hustoliver@hainan.net
+[19:52:27] 当前账号: oliver@dian.com
+[19:52:27] 当前账号: dian@hust.edu.cn
+[19:52:27] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:52:31] 完成一轮接收,等待30秒后继续...
+[19:53:01] 开始接收退信
+[19:53:01] 当前账号: hustoliver@hainan.net
+[19:53:01] 当前账号: oliver@dian.com
+[19:53:01] 当前账号: dian@hust.edu.cn
+[19:53:01] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:53:06] 完成一轮接收,等待30秒后继续...
+[19:53:36] 开始接收退信
+[19:53:36] 当前账号: hustoliver@hainan.net
+[19:53:36] 当前账号: oliver@dian.com
+[19:53:36] 当前账号: dian@hust.edu.cn
+[19:53:36] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:53:40] 完成一轮接收,等待30秒后继续...
+[19:54:10] 开始接收退信
+[19:54:10] 当前账号: hustoliver@hainan.net
+[19:54:10] 当前账号: oliver@dian.com
+[19:54:10] 当前账号: dian@hust.edu.cn
+[19:54:10] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:54:15] 完成一轮接收,等待30秒后继续...
+[19:54:45] 开始接收退信
+[19:54:45] 当前账号: hustoliver@hainan.net
+[19:54:45] 当前账号: oliver@dian.com
+[19:54:45] 当前账号: dian@hust.edu.cn
+[19:54:45] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:54:49] 完成一轮接收,等待30秒后继续...
+[19:55:19] 开始接收退信
+[19:55:19] 当前账号: hustoliver@hainan.net
+[19:55:19] 当前账号: oliver@dian.com
+[19:55:19] 当前账号: dian@hust.edu.cn
+[19:55:19] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:55:24] 完成一轮接收,等待30秒后继续...
+[19:55:54] 开始接收退信
+[19:55:54] 当前账号: hustoliver@hainan.net
+[19:55:54] 当前账号: oliver@dian.com
+[19:55:54] 当前账号: dian@hust.edu.cn
+[19:55:54] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:55:58] 完成一轮接收,等待30秒后继续...
+[19:56:28] 开始接收退信
+[19:56:28] 当前账号: hustoliver@hainan.net
+[19:56:28] 当前账号: oliver@dian.com
+[19:56:28] 当前账号: dian@hust.edu.cn
+[19:56:29] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:56:33] 完成一轮接收,等待30秒后继续...
+[19:57:03] 开始接收退信
+[19:57:03] 当前账号: hustoliver@hainan.net
+[19:57:03] 当前账号: oliver@dian.com
+[19:57:03] 当前账号: dian@hust.edu.cn
+[19:57:03] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:57:08] 完成一轮接收,等待30秒后继续...
+[19:57:38] 开始接收退信
+[19:57:38] 当前账号: hustoliver@hainan.net
+[19:57:38] 当前账号: oliver@dian.com
+[19:57:38] 当前账号: dian@hust.edu.cn
+[19:57:38] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:57:42] 完成一轮接收,等待30秒后继续...
+[19:58:13] 开始接收退信
+[19:58:13] 当前账号: hustoliver@hainan.net
+[19:58:13] 当前账号: oliver@dian.com
+[19:58:13] 当前账号: dian@hust.edu.cn
+[19:58:13] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:58:17] 完成一轮接收,等待30秒后继续...
+[19:58:47] 开始接收退信
+[19:58:47] 当前账号: hustoliver@hainan.net
+[19:58:47] 当前账号: oliver@dian.com
+[19:58:47] 当前账号: dian@hust.edu.cn
+[19:58:47] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:58:51] 完成一轮接收,等待30秒后继续...
+[19:59:21] 开始接收退信
+[19:59:21] 当前账号: hustoliver@hainan.net
+[19:59:21] 当前账号: oliver@dian.com
+[19:59:21] 当前账号: dian@hust.edu.cn
+[19:59:21] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[19:59:26] 完成一轮接收,等待30秒后继续...
+[19:59:56] 开始接收退信
+[19:59:56] 当前账号: hustoliver@hainan.net
+[19:59:56] 当前账号: oliver@dian.com
+[19:59:56] 当前账号: dian@hust.edu.cn
+[19:59:56] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:00:00] 完成一轮接收,等待30秒后继续...
+[20:00:30] 开始接收退信
+[20:00:30] 当前账号: hustoliver@hainan.net
+[20:00:30] 当前账号: oliver@dian.com
+[20:00:30] 当前账号: dian@hust.edu.cn
+[20:00:31] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:00:35] 完成一轮接收,等待30秒后继续...
+[20:01:05] 开始接收退信
+[20:01:05] 当前账号: hustoliver@hainan.net
+[20:01:05] 当前账号: oliver@dian.com
+[20:01:05] 当前账号: dian@hust.edu.cn
+[20:01:05] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:01:10] 完成一轮接收,等待30秒后继续...
+[20:01:40] 开始接收退信
+[20:01:40] 当前账号: hustoliver@hainan.net
+[20:01:40] 当前账号: oliver@dian.com
+[20:01:40] 当前账号: dian@hust.edu.cn
+[20:01:40] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:01:44] 完成一轮接收,等待30秒后继续...
+[20:02:14] 开始接收退信
+[20:02:14] 当前账号: hustoliver@hainan.net
+[20:02:14] 当前账号: oliver@dian.com
+[20:02:14] 当前账号: dian@hust.edu.cn
+[20:02:14] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:02:19] 完成一轮接收,等待30秒后继续...
+[20:02:49] 开始接收退信
+[20:02:49] 当前账号: hustoliver@hainan.net
+[20:02:49] 当前账号: oliver@dian.com
+[20:02:49] 当前账号: dian@hust.edu.cn
+[20:02:49] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:02:53] 完成一轮接收,等待30秒后继续...
+[20:03:23] 开始接收退信
+[20:03:23] 当前账号: hustoliver@hainan.net
+[20:03:23] 当前账号: oliver@dian.com
+[20:03:23] 当前账号: dian@hust.edu.cn
+[20:03:23] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:03:28] 完成一轮接收,等待30秒后继续...
+[20:03:58] 开始接收退信
+[20:03:58] 当前账号: hustoliver@hainan.net
+[20:03:58] 当前账号: oliver@dian.com
+[20:03:58] 当前账号: dian@hust.edu.cn
+[20:03:58] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:04:02] 完成一轮接收,等待30秒后继续...
+[20:04:32] 开始接收退信
+[20:04:32] 当前账号: hustoliver@hainan.net
+[20:04:32] 当前账号: oliver@dian.com
+[20:04:32] 当前账号: dian@hust.edu.cn
+[20:04:32] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:04:37] 完成一轮接收,等待30秒后继续...
+[20:05:07] 开始接收退信
+[20:05:07] 当前账号: hustoliver@hainan.net
+[20:05:07] 当前账号: oliver@dian.com
+[20:05:07] 当前账号: dian@hust.edu.cn
+[20:05:07] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:05:11] 完成一轮接收,等待30秒后继续...
+[20:05:41] 开始接收退信
+[20:05:41] 当前账号: hustoliver@hainan.net
+[20:05:41] 当前账号: oliver@dian.com
+[20:05:41] 当前账号: dian@hust.edu.cn
+[20:05:41] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:05:46] 完成一轮接收,等待30秒后继续...
+[20:06:16] 开始接收退信
+[20:06:16] 当前账号: hustoliver@hainan.net
+[20:06:16] 当前账号: oliver@dian.com
+[20:06:16] 当前账号: dian@hust.edu.cn
+[20:06:16] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:06:20] 完成一轮接收,等待30秒后继续...
+[20:06:50] 开始接收退信
+[20:06:50] 当前账号: hustoliver@hainan.net
+[20:06:50] 当前账号: oliver@dian.com
+[20:06:50] 当前账号: dian@hust.edu.cn
+[20:06:50] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:06:55] 完成一轮接收,等待30秒后继续...
+[20:07:25] 开始接收退信
+[20:07:25] 当前账号: hustoliver@hainan.net
+[20:07:25] 当前账号: oliver@dian.com
+[20:07:25] 当前账号: dian@hust.edu.cn
+[20:07:25] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:07:29] 完成一轮接收,等待30秒后继续...
+[20:07:59] 开始接收退信
+[20:07:59] 当前账号: hustoliver@hainan.net
+[20:07:59] 当前账号: oliver@dian.com
+[20:07:59] 当前账号: dian@hust.edu.cn
+[20:07:59] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:08:04] 完成一轮接收,等待30秒后继续...
+[20:08:34] 开始接收退信
+[20:08:34] 当前账号: hustoliver@hainan.net
+[20:08:34] 当前账号: oliver@dian.com
+[20:08:34] 当前账号: dian@hust.edu.cn
+[20:08:34] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:08:38] 完成一轮接收,等待30秒后继续...
+[20:09:08] 开始接收退信
+[20:09:08] 当前账号: hustoliver@hainan.net
+[20:09:08] 当前账号: oliver@dian.com
+[20:09:08] 当前账号: dian@hust.edu.cn
+[20:09:08] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:09:13] 完成一轮接收,等待30秒后继续...
+[20:09:43] 开始接收退信
+[20:09:43] 当前账号: hustoliver@hainan.net
+[20:09:43] 当前账号: oliver@dian.com
+[20:09:43] 当前账号: dian@hust.edu.cn
+[20:09:43] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:09:47] 完成一轮接收,等待30秒后继续...
+[20:10:17] 开始接收退信
+[20:10:17] 当前账号: hustoliver@hainan.net
+[20:10:17] 当前账号: oliver@dian.com
+[20:10:17] 当前账号: dian@hust.edu.cn
+[20:10:17] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:10:22] 完成一轮接收,等待30秒后继续...
+[20:10:52] 开始接收退信
+[20:10:52] 当前账号: hustoliver@hainan.net
+[20:10:52] 当前账号: oliver@dian.com
+[20:10:52] 当前账号: dian@hust.edu.cn
+[20:10:52] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:10:56] 完成一轮接收,等待30秒后继续...
+[20:11:26] 开始接收退信
+[20:11:26] 当前账号: hustoliver@hainan.net
+[20:11:26] 当前账号: oliver@dian.com
+[20:11:26] 当前账号: dian@hust.edu.cn
+[20:11:27] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:11:31] 完成一轮接收,等待30秒后继续...
+[20:12:01] 开始接收退信
+[20:12:01] 当前账号: hustoliver@hainan.net
+[20:12:01] 当前账号: oliver@dian.com
+[20:12:01] 当前账号: dian@hust.edu.cn
+[20:12:01] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:12:06] 完成一轮接收,等待30秒后继续...
+[20:12:36] 开始接收退信
+[20:12:36] 当前账号: hustoliver@hainan.net
+[20:12:36] 当前账号: oliver@dian.com
+[20:12:36] 当前账号: dian@hust.edu.cn
+[20:12:36] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:12:40] 完成一轮接收,等待30秒后继续...
+[20:13:10] 开始接收退信
+[20:13:10] 当前账号: hustoliver@hainan.net
+[20:13:10] 当前账号: oliver@dian.com
+[20:13:10] 当前账号: dian@hust.edu.cn
+[20:13:11] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:13:15] 完成一轮接收,等待30秒后继续...
+[20:13:45] 开始接收退信
+[20:13:45] 当前账号: hustoliver@hainan.net
+[20:13:45] 当前账号: oliver@dian.com
+[20:13:45] 当前账号: dian@hust.edu.cn
+[20:13:45] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:13:49] 完成一轮接收,等待30秒后继续...
+[20:14:19] 开始接收退信
+[20:14:19] 当前账号: hustoliver@hainan.net
+[20:14:19] 当前账号: oliver@dian.com
+[20:14:19] 当前账号: dian@hust.edu.cn
+[20:14:19] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:14:24] 完成一轮接收,等待30秒后继续...
+[20:14:54] 开始接收退信
+[20:14:54] 当前账号: hustoliver@hainan.net
+[20:14:54] 当前账号: oliver@dian.com
+[20:14:54] 当前账号: dian@hust.edu.cn
+[20:14:54] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:14:58] 完成一轮接收,等待30秒后继续...
+[20:15:29] 开始接收退信
+[20:15:29] 当前账号: hustoliver@hainan.net
+[20:15:29] 当前账号: oliver@dian.com
+[20:15:29] 当前账号: dian@hust.edu.cn
+[20:15:29] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:15:33] 完成一轮接收,等待30秒后继续...
+[20:16:03] 开始接收退信
+[20:16:03] 当前账号: hustoliver@hainan.net
+[20:16:03] 当前账号: oliver@dian.com
+[20:16:03] 当前账号: dian@hust.edu.cn
+[20:16:03] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:16:07] 完成一轮接收,等待30秒后继续...
+[20:16:37] 开始接收退信
+[20:16:37] 当前账号: hustoliver@hainan.net
+[20:16:37] 当前账号: oliver@dian.com
+[20:16:37] 当前账号: dian@hust.edu.cn
+[20:16:37] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:16:42] 完成一轮接收,等待30秒后继续...
+[20:17:12] 开始接收退信
+[20:17:12] 当前账号: hustoliver@hainan.net
+[20:17:12] 当前账号: oliver@dian.com
+[20:17:12] 当前账号: dian@hust.edu.cn
+[20:17:12] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:17:16] 完成一轮接收,等待30秒后继续...
+[20:17:46] 开始接收退信
+[20:17:46] 当前账号: hustoliver@hainan.net
+[20:17:46] 当前账号: oliver@dian.com
+[20:17:46] 当前账号: dian@hust.edu.cn
+[20:17:46] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:17:51] 完成一轮接收,等待30秒后继续...
+[20:18:21] 开始接收退信
+[20:18:21] 当前账号: hustoliver@hainan.net
+[20:18:21] 当前账号: oliver@dian.com
+[20:18:21] 当前账号: dian@hust.edu.cn
+[20:18:21] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:18:25] 完成一轮接收,等待30秒后继续...
+[20:18:56] 开始接收退信
+[20:18:56] 当前账号: hustoliver@hainan.net
+[20:18:56] 当前账号: oliver@dian.com
+[20:18:56] 当前账号: dian@hust.edu.cn
+[20:18:56] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:19:00] 完成一轮接收,等待30秒后继续...
+[20:19:30] 开始接收退信
+[20:19:30] 当前账号: hustoliver@hainan.net
+[20:19:30] 当前账号: oliver@dian.com
+[20:19:30] 当前账号: dian@hust.edu.cn
+[20:19:30] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:19:34] 完成一轮接收,等待30秒后继续...
+[20:20:04] 开始接收退信
+[20:20:04] 当前账号: hustoliver@hainan.net
+[20:20:04] 当前账号: oliver@dian.com
+[20:20:04] 当前账号: dian@hust.edu.cn
+[20:20:05] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:20:09] 完成一轮接收,等待30秒后继续...
+[20:20:39] 开始接收退信
+[20:20:39] 当前账号: hustoliver@hainan.net
+[20:20:39] 当前账号: oliver@dian.com
+[20:20:39] 当前账号: dian@hust.edu.cn
+[20:20:39] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:20:44] 完成一轮接收,等待30秒后继续...
+[20:21:14] 开始接收退信
+[20:21:14] 当前账号: hustoliver@hainan.net
+[20:21:14] 当前账号: oliver@dian.com
+[20:21:14] 当前账号: dian@hust.edu.cn
+[20:21:14] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:21:18] 完成一轮接收,等待30秒后继续...
+[20:21:48] 开始接收退信
+[20:21:48] 当前账号: hustoliver@hainan.net
+[20:21:48] 当前账号: oliver@dian.com
+[20:21:48] 当前账号: dian@hust.edu.cn
+[20:21:48] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:21:53] 完成一轮接收,等待30秒后继续...
+[20:22:23] 开始接收退信
+[20:22:23] 当前账号: hustoliver@hainan.net
+[20:22:23] 当前账号: oliver@dian.com
+[20:22:23] 当前账号: dian@hust.edu.cn
+[20:22:23] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:22:28] 完成一轮接收,等待30秒后继续...
+[20:22:58] 开始接收退信
+[20:22:58] 当前账号: hustoliver@hainan.net
+[20:22:58] 当前账号: oliver@dian.com
+[20:22:58] 当前账号: dian@hust.edu.cn
+[20:22:58] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:23:03] 完成一轮接收,等待30秒后继续...
+[20:23:33] 开始接收退信
+[20:23:33] 当前账号: hustoliver@hainan.net
+[20:23:33] 当前账号: oliver@dian.com
+[20:23:33] 当前账号: dian@hust.edu.cn
+[20:23:33] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:23:38] 完成一轮接收,等待30秒后继续...
+[20:24:08] 开始接收退信
+[20:24:08] 当前账号: hustoliver@hainan.net
+[20:24:08] 当前账号: oliver@dian.com
+[20:24:08] 当前账号: dian@hust.edu.cn
+[20:24:08] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 432, datetime = 2016-08-21 19:28:40
+[20:24:12] 完成一轮接收,等待30秒后继续...
+[20:24:35] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:03:04] Start the program
+2016-08-21 21:03:04
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:04:20]
+Get 3 mails from excel.
+[2016/08/21 21:04:21]Start Timer.The timer period is 30000 ms
+[2016/08/21 21:04:23]Timer call back.
+[2016/08/21 21:04:24]
+读取附件成功
+[2016/08/21 21:04:24]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:04:45]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 21:04:53]Timer call back.
+[2016/08/21 21:04:53]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:04:54]
+The email has sent.
+[2016/08/21 21:04:54]
+{'FailedList': [], 'SuccessList': [u'yralgwm@163.com', u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 1)}
+Exit progress window pause or abnormal, ret = 0
+Exit the progress windows.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:05:26]
+Get 3 mails from excel.
+[2016/08/21 21:05:28]Start Timer.The timer period is 30000 ms
+[2016/08/21 21:05:30]Timer call back.
+[2016/08/21 21:05:30]
+读取附件成功
+[2016/08/21 21:05:30]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:05:51]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 21:06:00]Timer call back.
+[2016/08/21 21:06:00]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:06:00]
+The email has sent.
+[2016/08/21 21:06:00]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (48, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:06:15] 开始接收退信
+[21:06:15] 当前账号: hustoliver@hainan.net
+[21:06:15] 当前账号: oliver@dian.com
+[21:06:15] 当前账号: dian@hust.edu.cn
+[21:06:15] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 418, datetime = 2016-08-21 17:06:26
+[21:06:19] 接收到邮箱piwhaek@qq.com的退信
+[21:06:20] 接收到邮箱uhhokfs@126.com的退信
+[21:06:21] 接收到邮箱yralgwm@163.com的退信
+[21:06:29] 完成一轮接收,等待30秒后继续...
+[21:06:34] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 120, each time = 2
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:06:55] Start the program
+2016-08-21 21:06:56
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 180, each time = 1
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:07:31]
+Get 3 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 360, each time = 1
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:07:43]
+Get 3 mails from excel.
+[2016/08/21 21:07:46]Start Timer.The timer period is 5000 ms
+[2016/08/21 21:07:48]Timer call back.
+[2016/08/21 21:07:48]
+读取附件成功
+[2016/08/21 21:07:48]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:08:09]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 21:08:09]Timer call back.
+[2016/08/21 21:08:09]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:08:09]
+The email has sent.
+[2016/08/21 21:08:10]
+{'FailedList': [], 'SuccessList': [u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (46, 0, 2)}
+[2016/08/21 21:08:14]Timer call back.
+[2016/08/21 21:08:14]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:08:35]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (46, 0, 2)}
+[2016/08/21 21:08:35]Timer call back.
+[2016/08/21 21:08:35]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:08:35]
+The email has sent.
+[2016/08/21 21:08:36]
+{'FailedList': [], 'SuccessList': [u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 21:08:40]Timer call back.
+[2016/08/21 21:08:40]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:09:01]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 21:09:01]Timer call back.
+[2016/08/21 21:09:01]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:09:02]
+The email has sent.
+[2016/08/21 21:09:02]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (48, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:09:25] 开始接收退信
+[21:09:25] 当前账号: hustoliver@hainan.net
+[21:09:25] 当前账号: oliver@dian.com
+[21:09:25] 当前账号: dian@hust.edu.cn
+[21:09:26] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 418, datetime = 2016-08-21 17:06:26
+[21:09:30] 接收到邮箱piwhaek@qq.com的退信
+[21:09:31] 接收到邮箱uhhokfs@126.com的退信
+[21:09:31] 接收到邮箱yralgwm@163.com的退信
+[21:09:41] 完成一轮接收,等待30秒后继续...
+[21:09:45] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 360, each time = 1
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:11:53] Start the program
+2016-08-21 21:11:54
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 360, each time = 1
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:11:58]
+Get 3 mails from excel.
+[2016/08/21 21:11:59]Start Timer.The timer period is 5000 ms
+[2016/08/21 21:12:01]Timer call back.
+[2016/08/21 21:12:01]
+读取附件成功
+[2016/08/21 21:12:01]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:12:22]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (45, 0, 3)}
+[2016/08/21 21:12:23]Timer call back.
+[2016/08/21 21:12:23]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:12:23]
+The email has sent.
+[2016/08/21 21:12:23]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (46, 0, 2)}
+[2016/08/21 21:12:28]Timer call back.
+[2016/08/21 21:12:28]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:12:49]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (46, 0, 2)}
+[2016/08/21 21:12:49]Timer call back.
+[2016/08/21 21:12:49]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:12:49]
+The email has sent.
+[2016/08/21 21:12:49]
+{'FailedList': [], 'SuccessList': [u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 21:12:54]Timer call back.
+[2016/08/21 21:12:54]
+Start to send a group
+Connecting to host 192.168.56.88
+[2016/08/21 21:13:15]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u8fde\u63a5192.168.56.88\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u662f\u5426\u901a\u7545\n\u9519\u8bef\u4fe1\u606f: [Errno 10060] ', 'ErrCode': 7, 'CurrProgress': (47, 0, 1)}
+[2016/08/21 21:13:15]Timer call back.
+[2016/08/21 21:13:15]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/21 21:13:15]
+The email has sent.
+[2016/08/21 21:13:15]
+{'FailedList': [], 'SuccessList': [u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (48, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:14:27] 开始接收退信
+[21:14:27] 当前账号: hustoliver@hainan.net
+[21:14:27] 当前账号: oliver@dian.com
+[21:14:27] 当前账号: dian@hust.edu.cn
+[21:14:27] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 418, datetime = 2016-08-21 17:06:26
+[21:14:32] 接收到邮箱piwhaek@qq.com的退信
+[21:14:32] 接收到邮箱uhhokfs@126.com的退信
+[21:14:33] 接收到邮箱yralgwm@163.com的退信
+[21:14:45] 完成一轮接收,等待30秒后继续...
+[21:15:15] 开始接收退信
+[21:15:15] 当前账号: hustoliver@hainan.net
+[21:15:15] 当前账号: oliver@dian.com
+[21:15:15] 当前账号: dian@hust.edu.cn
+[21:15:15] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[21:15:19] 完成一轮接收,等待30秒后继续...
+[21:15:49] 开始接收退信
+[21:15:49] 当前账号: hustoliver@hainan.net
+[21:15:49] 当前账号: oliver@dian.com
+[21:15:49] 当前账号: dian@hust.edu.cn
+[21:15:49] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[21:15:54] 完成一轮接收,等待30秒后继续...
+[21:15:56] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 360, each time = 1
+Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)

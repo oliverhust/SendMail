@@ -175,7 +175,7 @@ def get_time_str():
 
 def print_t(log):
     time_str = get_time_str()
-    content = u"\n[{}]\n{}".format(time_str, log)
+    content = u"[{}]\n{}".format(time_str, log)
     print(content)
 
 
