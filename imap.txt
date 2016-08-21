@@ -1,5 +1,6 @@
 import imaplib; import imaper;import email
-M = imaplib.IMAP4('mail.hust.edu.cn');M.login('U201313778', 'dian201313778');M.select()
+M = imaplib.IMAP4('mail.hust.edu.cn');M.login('dian@hust.edu.cn', 'diangroup1')
+M.select()
 typ, data = M.search(None, 'FROM', 'postmaster@hust.edu.cn', "SINCE", "10-Aug-2016")
 num=data[0].split()[0];typ, dat = M.fetch(num, '(RFC822)')
 

@@ -1,0 +1,20 @@
+#####SMTP error, OPEN: 550 5.7.1 Service unavailable; Client host [202.114.0.240] blocked using Trend Micro RBL+. Please see http://www.mail-abuse.com/cgi-bin/lookup?ip_address=202.114.0.240; Mail from 202.114.0.240 blocked using Trend Micro Email Reputation database. Please see <http://www.mail-abuse.com/cgi-bin/lookup?202.114.0.240>
+
+#############SMTP error, RCPT TO: 554 Service unavailable; Client host [mail.hust.edu.cn] blocked using Barracuda Reputation; http://www.barracudanetworks.com/reputation/?r=1&ip=202.114.0.240
+
+###########SMTP error, DOT: 550 Sender frequency limited. http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=20022&&no=1000723
+
+###########SMTP error, RCPT TO: 551 5.1.1 recipient is not exist
+############SMTP error, RCPT TO: 550 no such user
+
+###########SMTP error, RCPT TO: 550 Local User [webmaster@tianya.cn]'s MailBox full. ″s
+
+############SMTP error, RCPT TO: 550 5.7.1 Recipient not authorized, your IP has been found on a block list
+
+SMTP error, DOT: 550 Requested mail action not taken: Invalid IP<59.172.234.168>
+SMTP error, DOT: 550 Requested mail action not taken: Invalid IP<59.172.234.168>
+
+SMTP error, DATA: 554 Rejected due to the sending MTA's poor reputation. Please refer http://mail.sina.com.cn/help2/rwmail.html. Please refer to http://chengxin.mail.sina.com.cn/info/qa.php?p=ca1-554 113.57.228.201 
+
+SMTP error, RCPT TO: 451 please try another server http://hosting.nic.ru/support/mail_errors.shtml#p451_1
+

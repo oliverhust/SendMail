@@ -46,7 +46,7 @@ class Account:
         self.sender_name = sender_name
 
     def __repr__(self):
-        return u"Account({}, {}, {}, {})".format(self.user, self.passwd, self.host, self.sender_name)
+        return u"Account({}, {}, {})".format(self.user, self.host, self.sender_name)
 
     @staticmethod
     def get_send_host(user):
@@ -1221,7 +1221,7 @@ class UIInterface:
         self._ndr.update_recv_host(user_host_dict)
 
         self._ndr.start_thread()
-        self._timer.setup(2000, self.__ndr_timer_callback)
+        self._timer.setup(1000, self.__ndr_timer_callback)
         self._timer.start()
         self.proc_exec_ndr_win(self._send_finish_time)
         self._timer.stop()
@@ -1378,8 +1378,22 @@ class RecvImap:
                     break
         return msg_date, mail_content, suffix
 
-    def search_from_since(self, from_who, datetime_since):   # 时间相等也算
-        self._m.select()
+    def _for_each_directory(self):
+        black_list = ["/Drafts", "/Sent Items", "/Trash", "/Junk E-mail", "/Virus Items"]
+        d = self._m.list()
+        if d[0] == 'OK':
+            all_dir_list = ["".join(x.split('"')[1::2]) for x in d[1]]    # 字符转换，变成各个文件夹
+            valid_dir_list = list(set(all_dir_list) - set(black_list))
+            for each_dir in valid_dir_list:
+                print(u"IMAP select dir {}".format(each_dir))
+                try:
+                    self._m.select(each_dir, True)
+                except Exception, e:
+                    print(u"Select dir {} failed: {}".format(each_dir, e))
+                    continue
+                yield each_dir
+
+    def _search_from_since_in_dir(self, from_who, datetime_since):   # 时间相等也算
         str_date = datetime_since.strftime(u"%d-%b-%Y")
         typ, all_data = self._m.search(None, 'FROM', from_who, 'SINCE', str_date)
         if typ == 'OK':
@@ -1391,9 +1405,16 @@ class RecvImap:
                     if dt is not None:
                         yield (dt, body_text)
 
+    def search_from_since(self, from_who, datetime_since):   # 时间相等也算
+        for each_dir in self._for_each_directory():
+            for dt, body_text in self._search_from_since_in_dir(from_who, datetime_since):
+                yield dt, body_text
+
     def _get_since_num_list(self, nums_all, datetime_since):
         # 二分查找找到第一封刚好大于datetime_since的邮件的num的位置  失败返回位置0
-        start_pos = 0
+        start_pos = None
+        if not nums_all:
+            return []
         num_list = nums_all[:]
         x, y = 0, len(num_list) - 1   # 初始区间
         dt = None
@@ -1416,8 +1437,13 @@ class RecvImap:
                 if x == y:
                     start_pos = mid
                     break
-        print(u"Get imap start num = {}, datetime = {}".format(num_list[start_pos], dt))
-        return nums_all[nums_all.index(num_list[start_pos]):]           # 不用num_list是用户可能删邮件
+
+        if start_pos is None:
+            print(u"Can not find start num situable.")
+            return []
+        else:
+            print(u"Get imap start num = {}, datetime = {}".format(num_list[start_pos], dt))
+            return nums_all[nums_all.index(num_list[start_pos]):]           # 不用num_list是用户可能删邮件
 
     def _get_num_body(self, num, must_datetime_since=None):
         # 获取指定序号(字符串)邮件的时间和内容 无法获取或时间不符则返回None 如果大于datetime_since将已获取的保存到Cache
@@ -1455,12 +1481,26 @@ class RecvImap:
 
 
 class NdrContent:
-    """ 邮箱退信(Ndr)内容识别，并提供建议 ：纯粹的文本处理  建议的识别有优先顺序"""
+    """ 邮箱退信(Ndr)内容识别，并提供建议 ：纯粹的文本处理  建议的识别有优先顺序
+        添加一个域名的支持还要在Account.RECV_HOSTS里面添加接收服务器地址 """
     HUST_PATT = r'(Your message to (\S+) .*?The error.*?was:\s+"\s*([^"]+)")'
     NDR_DICT = {"hust.edu.cn": (HUST_PATT, "postmaster@hust.edu.cn")}
     SUGGEST = [(r'DNS query error', u'收件人有误：域名错误'),
-               (r'user not exist|User not found|mailbox unavailable|Mailbox not found|Invalid recipient', u'收件人不存在'),
-               (r'Quota exceeded', u'对方邮箱已满或禁用'), ]
+               (r'try another server', u"对方原服务器不存在"),
+               (r'((user|mailbox|account|recipient).* (not exist|not found|disabled|unavailable|unknown))|'
+                r'Invalid recipient|no such user', u'收件人不存在'),
+               (r'Quota exceeded|size exceed|mailbox.* full|exceed.* limit', u'对方邮箱已满或禁用'),
+               (r'user locked', u"收件人账户被锁定"),
+               (r'too many recipient', u"单封邮件收件人过多"),
+               (r'MX query return retry', u'MX解析错误，尝试重发'),
+               (r'Connection frequency|frequency limited', u"发信服务器被拒:连接频繁"),
+               (r'Can not connect|Connection timed out|Connection.* fail', u"无法连接该邮箱域名"),
+               (r'Service unavailable .* Client host .* blocked', u'发信服务器被加入黑名单'),
+               (r'IP .* block list|Invalid IP', u'发信服务器IP地址被封'),
+               (r'Address rejected', u"发信服务器被拒"),
+               (r'sending MTA\'s poor reputation', u"被对方认为垃圾邮件"),
+               (r'domain is notwelcome|Connection refused|Relaying denied|spam|spammers', u'被对方服务器拒收'),
+               ]
 
     def __init__(self, account_user=""):
         self._user = account_user
@@ -1593,10 +1633,12 @@ class NdrProc(threading.Thread):
         # 从DB中删除已成功的，并把它添加到失败的，更新DB中的进度
         self._db_new_thread.del_success_sent(list_to_del)
         self._db_new_thread.add_failed_sent(list_to_del)
-        success, failed, not_sent = self._db_new_thread.get_sent_progress()
-        success -= len(list_to_del)
-        failed += len(list_to_del)
-        self._db_new_thread.save_sent_progress(success, failed, not_sent)
+        progress = self._db_new_thread.get_sent_progress()
+        if progress:
+            success, failed, not_sent = progress
+            success -= len(list_to_del)
+            failed += len(list_to_del)
+            self._db_new_thread.save_sent_progress(success, failed, not_sent)
 
     def _thread_db_close(self):
         del(self._db_new_thread)
@@ -2064,6 +2106,7 @@ def test_ndr_proc():
                     u"abcdefg@qq.com", u"hello_world@qqqc.com", u"uuasddpoa@163.com"]
     db.del_all_success_sent()
     db.clear_tmp_and_dynamic()
+    # db.save_sent_progress(100, 20, 30)
     db.add_success_sent(success_list)
 
     account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"李嘉成")

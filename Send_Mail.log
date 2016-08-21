@@ -2749,3 +2749,2715 @@ selected = [6], col_name = D, sender_name = 陈美丽
 Speed each hour = 360, each time = 1
 Account[0] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
 Account[1] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:33:13] Start the program
+2016-08-21 21:33:13
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:33:40] Start the program
+2016-08-21 21:33:40
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [5, 6, 7, 8, 9], col_name = C, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:33:45]
+Get 78 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:33:56]
+Get 0 mails from excel.
+[2016/08/21 21:33:58]Start Timer.The timer period is 20000 ms
+[2016/08/21 21:34:00]Timer call back.
+[2016/08/21 21:34:00]
+读取附件成功
+[2016/08/21 21:34:00]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:34:11] 开始接收退信
+[21:34:11] 当前账号: hustoliver@hainan.net
+[21:34:11] 当前账号: oliver@dian.com
+[21:34:11] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "C:\Python27\lib\threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1624, in run
+    for recv_time, body in m.search_from_since(ndr_content.ndr_manger_mail(), since_time):
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1388, in search_from_since
+    num_list = self._get_since_num_list(nums_all, datetime_since) # 二分查找
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1419, in _get_since_num_list
+    print(u"Get imap start num = {}, datetime = {}".format(num_list[start_pos], dt))
+IndexError: list index out of range
+
+Exception sqlite3.ProgrammingError: 'SQLite objects created in a thread can only be used in that same thread.The object was created in thread id 7060 and this is thread id 13628' in <bound method MailDB.__del__ of <main.MailDB instance at 0x000000000B5C41C8>> ignored
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:36:30] Start the program
+2016-08-21 21:36:31
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:36:34]
+Get 0 mails from excel.
+[2016/08/21 21:36:35]Start Timer.The timer period is 20000 ms
+[2016/08/21 21:36:37]Timer call back.
+[2016/08/21 21:36:37]
+读取附件成功
+[2016/08/21 21:36:37]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:36:42] 开始接收退信
+[21:36:42] 当前账号: hustoliver@hainan.net
+[21:36:42] 当前账号: oliver@dian.com
+[21:36:42] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "C:\Python27\lib\threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "E:/MyDocuments/Python/SendMail\main.py", line 1624, in run
+    for recv_time, body in m.search_from_since(ndr_content.ndr_manger_mail(), since_time):
+  File "E:/MyDocuments/Python/SendMail\main.py", line 1388, in search_from_since
+    num_list = self._get_since_num_list(nums_all, datetime_since) # 二分查找
+  File "E:/MyDocuments/Python/SendMail\main.py", line 1419, in _get_since_num_list
+    print(u"Get imap start num = {}, datetime = {}".format(num_list[start_pos], dt))
+IndexError: list index out of range
+
+Exception sqlite3.ProgrammingError: 'SQLite objects created in a thread can only be used in that same thread.The object was created in thread id 8812 and this is thread id 2360' in <bound method MailDB.__del__ of <main.MailDB instance at 0x000000000578FB48>> ignored
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:37:10] Start the program
+2016-08-21 21:37:11
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:37:14]
+Get 0 mails from excel.
+[2016/08/21 21:37:16]Start Timer.The timer period is 20000 ms
+[2016/08/21 21:37:18]Timer call back.
+[2016/08/21 21:37:18]
+读取附件成功
+[2016/08/21 21:37:18]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:37:22] 开始接收退信
+[21:37:22] 当前账号: hustoliver@hainan.net
+[21:37:22] 当前账号: oliver@dian.com
+[21:37:22] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:53:28] Start the program
+2016-08-21 21:53:28
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:53:31]
+Get 0 mails from excel.
+[2016/08/21 21:53:33]Start Timer.The timer period is 20000 ms
+[2016/08/21 21:53:35]Timer call back.
+[2016/08/21 21:53:35]
+读取附件成功
+[2016/08/21 21:53:35]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:53:37] 开始接收退信
+[21:53:37] 当前账号: hustoliver@hainan.net
+[21:53:37] 当前账号: oliver@dian.com
+[21:53:37] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[21:53:38] 完成一轮接收,等待30秒后继续...
+[21:53:56] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 21:54:19] Start the program
+2016-08-21 21:54:20
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 21:54:53]
+Get 0 mails from excel.
+Add a new used-account U201313778@hust.edu.cn
+[2016/08/21 21:54:55]Start Timer.The timer period is 15000 ms
+[2016/08/21 21:54:57]Timer call back.
+[2016/08/21 21:54:57]
+读取附件成功
+[2016/08/21 21:54:57]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[21:55:01] 开始接收退信
+[21:55:01] 当前账号: hustoliver@hainan.net
+[21:55:01] 当前账号: oliver@dian.com
+[21:55:01] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[21:55:01] 当前账号: U201313778@hust.edu.cn
+A letter has no date() or body, num = 1
+Get imap start num = 58, datetime = 2014-01-21 14:47:00
+[21:55:03] 接收到邮箱2486148831@qq.com的退信
+[21:55:03] 接收到邮箱18062458952@163.com的退信
+[21:55:03] 接收到邮箱missmhwgo@gmail.com的退信
+[21:55:03] 接收到邮箱1026815245@qq.com的退信
+[21:55:04] 接收到邮箱hustoliver@hainan.com的退信
+[21:55:04] 接收到邮箱albertmiao168@yahoo.com.cn的退信
+[21:55:04] 接收到邮箱yanhx0308@sina.com的退信
+[21:55:05] 接收到邮箱fkb@sjzdaily.com.cn的退信
+[21:55:05] 接收到邮箱rbljc@sohu.com的退信
+[21:55:05] 接收到邮箱cqlys@263.net的退信
+[21:55:05] 接收到邮箱bdrbfkb@yahoo.com.cn的退信
+[21:55:05] 接收到邮箱qinly1919@sohu.com的退信
+[21:55:06] 接收到邮箱cuiyi@staff.sina.com.cn的退信
+[21:55:06] 接收到邮箱zzc6106@vip.sina.com的退信
+[21:55:06] 接收到邮箱baitai_yzwb@sina.com的退信
+[21:55:06] 接收到邮箱alianliu8@hotmail.com的退信
+[21:55:06] 接收到邮箱jianghy@njnews.cn的退信
+[21:55:07] 接收到邮箱shenian168@163.com的退信
+[21:55:07] 接收到邮箱aafox8@sina.com.cn的退信
+[21:55:07] 接收到邮箱wangjun@china.teacher.com.cn的退信
+[21:55:07] 接收到邮箱zawenbao4@yahoo.com.cn的退信
+[21:55:07] 接收到邮箱zawenbao3@yahoo.com.cn的退信
+[21:55:08] 接收到邮箱cuiliqiu@163.net的退信
+[21:55:08] 接收到邮箱xiezuogaoshou@sina.com的退信
+[21:55:08] 接收到邮箱yanli8482@sina.com的退信
+[21:55:08] 接收到邮箱zawenbao2@yahoo.com.cn的退信
+[21:55:08] 接收到邮箱hxy7109@sina.com的退信
+[21:55:09] 接收到邮箱sk@russ.ru的退信
+[21:55:09] 接收到邮箱wangzhaoyang@chinaacc.c的退信
+[21:55:09] 接收到邮箱a9888@263.net的退信
+[21:55:10] 接收到邮箱cmmail.comvbcrlfseutech@21cn.comvbcrlfhttp的退信
+[21:55:10] 接收到邮箱9888@263.net的退信
+[21:55:10] 接收到邮箱3313653vbcrlfjsseu@cmmail.comvbcrlfseutech的退信
+[21:55:10] 接收到邮箱adai0524@yahoo.cn的退信
+[21:55:11] 接收到邮箱ww@dadao.net的退信
+[21:55:11] 接收到邮箱lawyerkai@hotmail.com的退信
+[21:55:11] 接收到邮箱cicphk@sina.com的退信
+[21:55:11] 接收到邮箱xzbjbhf@sina.com的退信
+[21:55:12] 接收到邮箱dihuazhang@yahoo.com.cn的退信
+[21:55:12] 接收到邮箱gjwhcb@yahoo.com.hk的退信
+[21:55:13] 接收到邮箱fa@fhj99.com的退信
+[21:55:13] 接收到邮箱ulango@cmmail.com的退信
+[21:55:13] 接收到邮箱uuasddpoa@163.com的退信
+[21:55:14] 接收到邮箱hello_world@qqqc.com的退信
+[21:55:14] 接收到邮箱piwhaek@qq.com的退信
+[21:55:15] 接收到邮箱uhhokfs@126.com的退信
+[21:55:16] 接收到邮箱yralgwm@163.com的退信
+[21:55:27] 完成一轮接收,等待30秒后继续...
+[21:55:43] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 22:23:38] Start the program
+2016-08-21 22:23:39
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 22:23:41]
+Get 0 mails from excel.
+[2016/08/21 22:23:42]Start Timer.The timer period is 15000 ms
+[2016/08/21 22:23:44]Timer call back.
+[2016/08/21 22:23:45]
+读取附件成功
+[2016/08/21 22:23:45]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[22:24:16] 开始接收退信
+[22:24:16] 当前账号: hustoliver@hainan.net
+[22:24:16] 当前账号: oliver@dian.com
+[22:24:16] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[22:24:16] 当前账号: U201313778@hust.edu.cn
+A letter has no date() or body, num = 1
+Get imap start num = 58, datetime = 2014-01-21 14:47:00
+[22:24:18] 接收到邮箱2486148831@qq.com的退信
+[22:24:18] 接收到邮箱18062458952@163.com的退信
+[22:24:18] 接收到邮箱missmhwgo@gmail.com的退信
+[22:24:18] 接收到邮箱1026815245@qq.com的退信
+[22:24:18] 接收到邮箱hustoliver@hainan.com的退信
+[22:24:19] 接收到邮箱albertmiao168@yahoo.com.cn的退信
+[22:24:19] 接收到邮箱yanhx0308@sina.com的退信
+[22:24:19] 接收到邮箱fkb@sjzdaily.com.cn的退信
+[22:24:19] 接收到邮箱rbljc@sohu.com的退信
+[22:24:20] 接收到邮箱cqlys@263.net的退信
+[22:24:20] 接收到邮箱bdrbfkb@yahoo.com.cn的退信
+[22:24:20] 接收到邮箱qinly1919@sohu.com的退信
+[22:24:20] 接收到邮箱cuiyi@staff.sina.com.cn的退信
+[22:24:20] 接收到邮箱zzc6106@vip.sina.com的退信
+[22:24:21] 接收到邮箱baitai_yzwb@sina.com的退信
+[22:24:21] 接收到邮箱alianliu8@hotmail.com的退信
+[22:24:21] 接收到邮箱jianghy@njnews.cn的退信
+[22:24:21] 接收到邮箱shenian168@163.com的退信
+[22:24:21] 接收到邮箱aafox8@sina.com.cn的退信
+[22:24:22] 接收到邮箱wangjun@china.teacher.com.cn的退信
+[22:24:22] 接收到邮箱zawenbao4@yahoo.com.cn的退信
+[22:24:22] 接收到邮箱zawenbao3@yahoo.com.cn的退信
+[22:24:22] 接收到邮箱cuiliqiu@163.net的退信
+[22:24:22] 接收到邮箱xiezuogaoshou@sina.com的退信
+[22:24:23] 接收到邮箱yanli8482@sina.com的退信
+[22:24:23] 接收到邮箱zawenbao2@yahoo.com.cn的退信
+[22:24:23] 接收到邮箱hxy7109@sina.com的退信
+[22:24:23] 接收到邮箱sk@russ.ru的退信
+[22:24:24] 接收到邮箱wangzhaoyang@chinaacc.c的退信
+[22:24:24] 接收到邮箱a9888@263.net的退信
+[22:24:24] 接收到邮箱cmmail.comvbcrlfseutech@21cn.comvbcrlfhttp的退信
+[22:24:24] 接收到邮箱9888@263.net的退信
+[22:24:25] 接收到邮箱3313653vbcrlfjsseu@cmmail.comvbcrlfseutech的退信
+[22:24:25] 接收到邮箱adai0524@yahoo.cn的退信
+[22:24:25] 接收到邮箱ww@dadao.net的退信
+[22:24:25] 接收到邮箱lawyerkai@hotmail.com的退信
+[22:24:26] 接收到邮箱cicphk@sina.com的退信
+[22:24:26] 接收到邮箱xzbjbhf@sina.com的退信
+[22:24:27] 接收到邮箱dihuazhang@yahoo.com.cn的退信
+[22:24:27] 接收到邮箱gjwhcb@yahoo.com.hk的退信
+[22:24:28] 接收到邮箱fa@fhj99.com的退信
+[22:24:28] 接收到邮箱ulango@cmmail.com的退信
+[22:24:28] 接收到邮箱uuasddpoa@163.com的退信
+[22:24:28] 接收到邮箱hello_world@qqqc.com的退信
+[22:24:29] 接收到邮箱piwhaek@qq.com的退信
+[22:24:30] 接收到邮箱uhhokfs@126.com的退信
+[22:24:31] 接收到邮箱yralgwm@163.com的退信
+[22:24:42] 完成一轮接收,等待30秒后继续...
+[22:24:48] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 22:37:25] Start the program
+2016-08-21 22:37:25
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 22:37:28]
+Get 0 mails from excel.
+[2016/08/21 22:37:30]Start Timer.The timer period is 15000 ms
+[2016/08/21 22:37:32]Timer call back.
+[2016/08/21 22:37:32]
+读取附件成功
+[2016/08/21 22:37:32]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[22:37:35] 开始接收退信
+[22:37:35] 当前账号: hustoliver@hainan.net
+[22:37:35] 当前账号: oliver@dian.com
+[22:37:35] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[22:37:35] 当前账号: U201313778@hust.edu.cn
+A letter has no date() or body, num = 1
+Get imap start num = 58, datetime = 2014-01-21 14:47:00
+[22:37:36] 接收到邮箱2486148831@qq.com的退信
+[22:37:36] 接收到邮箱18062458952@163.com的退信
+[22:37:37] 接收到邮箱missmhwgo@gmail.com的退信
+[22:37:37] 接收到邮箱1026815245@qq.com的退信
+[22:37:37] 接收到邮箱hustoliver@hainan.com的退信
+[22:37:37] 接收到邮箱albertmiao168@yahoo.com.cn的退信
+[22:37:38] 接收到邮箱yanhx0308@sina.com的退信
+[22:37:38] 接收到邮箱fkb@sjzdaily.com.cn的退信
+[22:37:38] 接收到邮箱rbljc@sohu.com的退信
+[22:37:38] 接收到邮箱cqlys@263.net的退信
+[22:37:38] 接收到邮箱bdrbfkb@yahoo.com.cn的退信
+[22:37:39] 接收到邮箱qinly1919@sohu.com的退信
+[22:37:39] 接收到邮箱cuiyi@staff.sina.com.cn的退信
+[22:37:39] 接收到邮箱zzc6106@vip.sina.com的退信
+[22:37:39] 接收到邮箱baitai_yzwb@sina.com的退信
+[22:37:39] 接收到邮箱alianliu8@hotmail.com的退信
+[22:37:40] 接收到邮箱jianghy@njnews.cn的退信
+[22:37:40] 接收到邮箱shenian168@163.com的退信
+[22:37:40] 接收到邮箱aafox8@sina.com.cn的退信
+[22:37:40] 接收到邮箱wangjun@china.teacher.com.cn的退信
+[22:37:40] 接收到邮箱zawenbao4@yahoo.com.cn的退信
+[22:37:41] 接收到邮箱zawenbao3@yahoo.com.cn的退信
+[22:37:41] 接收到邮箱cuiliqiu@163.net的退信
+[22:37:41] 接收到邮箱xiezuogaoshou@sina.com的退信
+[22:37:41] 接收到邮箱yanli8482@sina.com的退信
+[22:37:41] 接收到邮箱zawenbao2@yahoo.com.cn的退信
+[22:37:42] 接收到邮箱hxy7109@sina.com的退信
+[22:37:42] 接收到邮箱sk@russ.ru的退信
+[22:37:42] 接收到邮箱wangzhaoyang@chinaacc.c的退信
+[22:37:42] 接收到邮箱a9888@263.net的退信
+[22:37:43] 接收到邮箱cmmail.comvbcrlfseutech@21cn.comvbcrlfhttp的退信
+[22:37:43] 接收到邮箱9888@263.net的退信
+[22:37:43] 接收到邮箱3313653vbcrlfjsseu@cmmail.comvbcrlfseutech的退信
+[22:37:43] 接收到邮箱adai0524@yahoo.cn的退信
+[22:37:44] 接收到邮箱ww@dadao.net的退信
+[22:37:44] 接收到邮箱lawyerkai@hotmail.com的退信
+[22:37:44] 接收到邮箱cicphk@sina.com的退信
+[22:37:45] 接收到邮箱xzbjbhf@sina.com的退信
+[22:37:45] 接收到邮箱dihuazhang@yahoo.com.cn的退信
+[22:37:45] 接收到邮箱gjwhcb@yahoo.com.hk的退信
+[22:37:46] 接收到邮箱fa@fhj99.com的退信
+[22:37:46] 接收到邮箱ulango@cmmail.com的退信
+[22:37:47] 接收到邮箱uuasddpoa@163.com的退信
+[22:37:47] 接收到邮箱hello_world@qqqc.com的退信
+[22:37:48] 接收到邮箱piwhaek@qq.com的退信
+[22:37:48] 接收到邮箱uhhokfs@126.com的退信
+[22:37:49] 接收到邮箱yralgwm@163.com的退信
+[22:38:00] 完成一轮接收,等待30秒后继续...
+[22:38:10] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/21 22:44:18] Start the program
+2016-08-21 22:44:18
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 22:44:21]
+Get 0 mails from excel.
+[2016/08/21 22:44:23]Start Timer.The timer period is 15000 ms
+[2016/08/21 22:44:25]Timer call back.
+[2016/08/21 22:44:25]
+读取附件成功
+[2016/08/21 22:44:25]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[22:44:28] 开始接收退信
+[22:44:28] 当前账号: hustoliver@hainan.net
+[22:44:28] 当前账号: oliver@dian.com
+[22:44:28] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[22:44:28] 当前账号: U201313778@hust.edu.cn
+A letter has no date() or body, num = 1
+Get imap start num = 58, datetime = 2014-01-21 14:47:00
+[22:44:30] 终止接收退信操作
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/21 22:44:33]
+Get 0 mails from excel.
+[2016/08/21 22:44:34]Start Timer.The timer period is 15000 ms
+[2016/08/21 22:44:36]Timer call back.
+[2016/08/21 22:44:36]
+读取附件成功
+[2016/08/21 22:44:36]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[22:44:42] 开始接收退信
+[22:44:42] 当前账号: hustoliver@hainan.net
+[22:44:42] 当前账号: oliver@dian.com
+[22:44:42] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[22:44:42] 当前账号: U201313778@hust.edu.cn
+A letter has no date() or body, num = 1
+Get imap start num = 58, datetime = 2014-01-21 14:47:00
+[22:44:44] 接收到邮箱2486148831@qq.com的退信
+[22:44:44] 接收到邮箱18062458952@163.com的退信
+[22:44:44] 接收到邮箱missmhwgo@gmail.com的退信
+[22:44:45] 接收到邮箱1026815245@qq.com的退信
+[22:44:45] 接收到邮箱hustoliver@hainan.com的退信
+[22:44:45] 接收到邮箱albertmiao168@yahoo.com.cn的退信
+[22:44:45] 接收到邮箱yanhx0308@sina.com的退信
+[22:44:46] 接收到邮箱fkb@sjzdaily.com.cn的退信
+[22:44:46] 接收到邮箱rbljc@sohu.com的退信
+[22:44:46] 接收到邮箱cqlys@263.net的退信
+[22:44:46] 接收到邮箱bdrbfkb@yahoo.com.cn的退信
+[22:44:46] 接收到邮箱qinly1919@sohu.com的退信
+[22:44:47] 接收到邮箱cuiyi@staff.sina.com.cn的退信
+[22:44:47] 接收到邮箱zzc6106@vip.sina.com的退信
+[22:44:47] 接收到邮箱baitai_yzwb@sina.com的退信
+[22:44:47] 接收到邮箱alianliu8@hotmail.com的退信
+[22:44:47] 接收到邮箱jianghy@njnews.cn的退信
+[22:44:48] 接收到邮箱shenian168@163.com的退信
+[22:44:48] 接收到邮箱aafox8@sina.com.cn的退信
+[22:44:48] 接收到邮箱wangjun@china.teacher.com.cn的退信
+[22:44:48] 接收到邮箱zawenbao4@yahoo.com.cn的退信
+[22:44:48] 接收到邮箱zawenbao3@yahoo.com.cn的退信
+[22:44:49] 接收到邮箱cuiliqiu@163.net的退信
+[22:44:49] 接收到邮箱xiezuogaoshou@sina.com的退信
+[22:44:49] 接收到邮箱yanli8482@sina.com的退信
+[22:44:49] 接收到邮箱zawenbao2@yahoo.com.cn的退信
+[22:44:49] 接收到邮箱hxy7109@sina.com的退信
+[22:44:50] 接收到邮箱sk@russ.ru的退信
+[22:44:50] 接收到邮箱wangzhaoyang@chinaacc.c的退信
+[22:44:50] 接收到邮箱a9888@263.net的退信
+[22:44:50] 接收到邮箱cmmail.comvbcrlfseutech@21cn.comvbcrlfhttp的退信
+[22:44:51] 接收到邮箱9888@263.net的退信
+[22:44:51] 接收到邮箱3313653vbcrlfjsseu@cmmail.comvbcrlfseutech的退信
+[22:44:51] 接收到邮箱adai0524@yahoo.cn的退信
+[22:44:51] 接收到邮箱ww@dadao.net的退信
+[22:44:52] 接收到邮箱lawyerkai@hotmail.com的退信
+[22:44:52] 接收到邮箱cicphk@sina.com的退信
+[22:44:52] 接收到邮箱xzbjbhf@sina.com的退信
+[22:44:53] 接收到邮箱dihuazhang@yahoo.com.cn的退信
+[22:44:53] 接收到邮箱gjwhcb@yahoo.com.hk的退信
+[22:44:54] 接收到邮箱fa@fhj99.com的退信
+[22:44:54] 接收到邮箱ulango@cmmail.com的退信
+[22:44:54] 接收到邮箱uuasddpoa@163.com的退信
+[22:44:55] 接收到邮箱hello_world@qqqc.com的退信
+[22:44:55] 接收到邮箱piwhaek@qq.com的退信
+[22:44:56] 接收到邮箱uhhokfs@126.com的退信
+[22:44:57] 接收到邮箱yralgwm@163.com的退信
+[22:45:08] 完成一轮接收,等待30秒后继续...
+[22:45:38] 开始接收退信
+[22:45:38] 当前账号: hustoliver@hainan.net
+[22:45:38] 当前账号: oliver@dian.com
+[22:45:38] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[22:45:38] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[22:45:43] 完成一轮接收,等待30秒后继续...
+[22:46:13] 开始接收退信
+[22:46:13] 当前账号: hustoliver@hainan.net
+[22:46:13] 当前账号: oliver@dian.com
+[22:46:13] 当前账号: dian@hust.edu.cn
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+[22:46:13] 当前账号: U201313778@hust.edu.cn
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[22:46:18] 完成一轮接收,等待30秒后继续...
+[22:46:37] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 00:21:43] Start the program
+2016-08-22 00:21:43
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 00:22:07] Start the program
+2016-08-22 00:22:07
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [5, 6, 7, 8, 9], col_name = C, sender_name = 陈美丽
+Speed each hour = 300, each time = 5
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 00:22:10]
+Get 78 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 00:23:23]
+Get 0 mails from excel.
+Add a new used-account U201313778@hust.edu.cn
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 00:23:30]
+Get 0 mails from excel.
+[2016/08/22 00:23:34]Start Timer.The timer period is 20000 ms
+[2016/08/22 00:23:36]Timer call back.
+[2016/08/22 00:23:36]
+读取附件成功
+[2016/08/22 00:23:36]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[00:23:48] 开始接收退信
+[00:23:48] 当前账号: hustoliver@hainan.net
+[00:23:48] 当前账号: oliver@dian.com
+[00:23:48] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[00:24:25] 接收到邮箱binhu@binhurp.com的退信
+[00:24:27] 接收到邮箱htker@139.com的退信
+[00:24:28] 接收到邮箱pengyong@whbi.com.cn的退信
+[00:24:29] 接收到邮箱yanhui.cheng@fminutes.com的退信
+[00:24:29] 接收到邮箱zghg123@sina.com的退信
+[00:24:30] 接收到邮箱eerschen@mail.njust.edu.cn的退信
+[00:24:31] 接收到邮箱gma@wust.edu.cn的退信
+[00:24:32] 接收到邮箱hua.qian@wico.sh的退信
+[00:24:33] 接收到邮箱jing.xu@wico.sh的退信
+[00:24:34] 接收到邮箱xiumei.yang@wico.sh的退信
+[00:24:35] 接收到邮箱oriental@xinhuanet.com的退信
+[00:24:36] 接收到邮箱yanglun@cug.edu.cn的退信
+[00:24:37] 接收到邮箱yanjia@cug.edu.cn的退信
+[00:24:38] 接收到邮箱bill@cloudminds.net的退信
+[00:24:38] 接收到邮箱yunfan@wachuang.com.cn的退信
+[00:24:39] 接收到邮箱zhaochunhua@ctgu.edu.cn的退信
+[00:24:40] 接收到邮箱zhbz40@hotmail.com的退信
+[00:24:41] 接收到邮箱zhaodean@xbmu.edu.cn的退信
+[00:24:42] 接收到邮箱tlshi@public.wh.hb.cn的退信
+[00:24:43] 接收到邮箱graduate@csmu.edu.tw的退信
+[00:24:44] 接收到邮箱anho@lipple.co的退信
+[00:24:45] 接收到邮箱aval_c@hotmail.com的退信
+[00:24:46] 接收到邮箱gateskiller@sina.com的退信
+[00:24:47] 接收到邮箱guofang@mindray.com的退信
+[00:24:48] 接收到邮箱shengdl@tup.tsinghua.edu.cn的退信
+[00:24:49] 接收到邮箱zengsh@tup.tsinghua.edu.cn的退信
+[00:24:50] 接收到邮箱lichanglin_1982@yahoo.com.cn的退信
+[00:24:51] 接收到邮箱liuxiangyu@huawei.com的退信
+[00:24:52] 接收到邮箱wuhongyan008@hotmail.com的退信
+[00:24:53] 接收到邮箱yule@dian.org.cn的退信
+[00:24:54] 接收到邮箱zhoushuang@mindray.com的退信
+[00:24:55] 接收到邮箱cywang@chinaequity.net的退信
+[00:24:55] 接收到邮箱eric.tong@prospartners.com的退信
+[00:24:56] 接收到邮箱grace@batorange.com的退信
+[00:24:57] 接收到邮箱guan@miago.net的退信
+[00:24:58] 接收到邮箱jason@decentcapital.com的退信
+[00:24:59] 接收到邮箱joe@mfund.com的退信
+[00:25:00] 接收到邮箱jun.wang@decentcapital.com的退信
+[00:25:01] 接收到邮箱jzhao@cgfcapital.com.cn的退信
+[00:25:02] 接收到邮箱karry@zvca.org的退信
+[00:25:02] 接收到邮箱ld@doudinghui.com的退信
+[00:25:03] 接收到邮箱liang_chang@idgvc.com.cn的退信
+[00:25:04] 接收到邮箱liujing@hustvc.com.cn的退信
+[00:25:05] 接收到邮箱louiszhu07@gmail.com的退信
+[00:25:06] 接收到邮箱luqun@yunyiinvestment.com的退信
+[00:25:07] 接收到邮箱maye@hgtech.com.cn的退信
+[00:25:08] 接收到邮箱qifei@roundvc.com的退信
+[00:25:09] 接收到邮箱sam.chen@cifm.com的退信
+[00:25:09] 接收到邮箱victor@decentcapital.com的退信
+[00:25:10] 接收到邮箱wangmin@hgtech.com.cn的退信
+[00:25:11] 接收到邮箱weiqin@chinaequity.net的退信
+[00:25:12] 接收到邮箱wj@intebridge.com的退信
+[00:25:13] 接收到邮箱wx@chinaequity.net的退信
+[00:25:14] 接收到邮箱xuxiaohu@wiio.org.cn的退信
+[00:25:15] 接收到邮箱yuan@zhenfund.com的退信
+[00:25:16] 接收到邮箱yuanangen@tenyall.com的退信
+[00:25:16] 接收到邮箱yuwenfeng@hgtech.com.cn的退信
+[00:25:17] 接收到邮箱db@xinwubao.com的退信
+[00:25:18] 接收到邮箱chenye@huapartners.com的退信
+[00:25:19] 接收到邮箱luclan@pe.vc的退信
+[00:25:20] 接收到邮箱chrischan@shangshibang.com的退信
+[00:25:21] 接收到邮箱zhanglijun@yigoucapital.com的退信
+[00:25:22] 接收到邮箱ethen@chuang.ba的退信
+[00:25:23] 接收到邮箱wangdandan@wxo-park.com的退信
+[00:25:24] 接收到邮箱alicewang@shangshibang.com的退信
+[00:25:25] 接收到邮箱wangchangda@hgtech.com.cn的退信
+[00:25:26] 接收到邮箱bibo@esescn.com的退信
+[00:25:26] 接收到邮箱wang.tingjun@71fi.com的退信
+[00:25:27] 接收到邮箱rogers.ji@71fi.com的退信
+[00:25:28] 接收到邮箱yinpeng@angelplus.cn的退信
+[00:25:29] 接收到邮箱zijian.liu@zhulu.vc的退信
+[00:25:30] 接收到邮箱tianye@zamazc.com的退信
+[00:25:31] 接收到邮箱liruxiong@vip.sina.com的退信
+[00:25:32] 接收到邮箱afei@feimalv.com的退信
+[00:25:33] 接收到邮箱jzchen@cyvic.com.cn的退信
+[00:25:33] 接收到邮箱wanxiong@faxianvc.com的退信
+[00:25:34] 接收到邮箱liyangbing@hgtech.com.cn的退信
+[00:25:35] 接收到邮箱yufan@itbour.com的退信
+[00:25:36] 接收到邮箱tjzhao@cyvic.com.cn的退信
+[00:25:37] 接收到邮箱vincentzhuo@zhulu.vc的退信
+[00:25:38] 接收到邮箱bin.jiang@zhulu.vc的退信
+[00:25:39] 接收到邮箱wangw@qhee-ma.com的退信
+[00:25:40] 接收到邮箱tao@zhizhuogroup.com的退信
+[00:25:41] 接收到邮箱yujiao.deng@chinaequity.net的退信
+[00:25:42] 接收到邮箱louiszheng@newmargin.cn的退信
+[00:25:42] 接收到邮箱greece-guo@icloud.com的退信
+[00:25:43] 接收到邮箱lixin@capital-jh.com的退信
+[00:25:44] 接收到邮箱chris@decentcapital.com的退信
+[00:25:45] 接收到邮箱gary@skysaga.com.cn的退信
+[00:25:46] 接收到邮箱hangzs@sihc.com.cn的退信
+[00:25:47] 接收到邮箱raotianlin@dealcapital.cn的退信
+[00:25:48] 接收到邮箱linan@huisfund.com的退信
+[00:25:49] 接收到邮箱zhangfan@huisfund.com的退信
+[00:25:50] 接收到邮箱wzf@doudinghui.com的退信
+[00:25:51] 接收到邮箱zipei.zt@alibaba-inc.com的退信
+[00:25:52] 接收到邮箱zhubo@innovalley.com.cn的退信
+[00:25:52] 接收到邮箱zhongshenghui@cmstop.com的退信
+[00:25:53] 接收到邮箱zhefu.liu@ray-can.com的退信
+[00:25:54] 接收到邮箱zhaojianzhang@skyworth.com的退信
+[00:25:55] 接收到邮箱zhaochun@ycb51.com的退信
+[00:25:56] 接收到邮箱zhangxiaoxiao-hr@360.cn的退信
+[00:25:57] 接收到邮箱zhangli@skyworth.com的退信
+[00:25:58] 接收到邮箱zhangjie@wiio.org.cn的退信
+[00:25:59] 接收到邮箱zhanggong@ggjrw.com的退信
+[00:26:00] 接收到邮箱zhangb@wu-mart.com的退信
+[00:26:00] 接收到邮箱yuyao@youworkshop.cn的退信
+[00:26:01] 接收到邮箱yugu_lee@starpainters.cn的退信
+[00:26:02] 接收到邮箱yubo@innovalley.com.cn的退信
+[00:26:03] 接收到邮箱yt@szyatai.com.cn的退信
+[00:26:04] 接收到邮箱yijiaxin@digis.cn的退信
+[00:26:05] 接收到邮箱yangzhushan@lemao.cc的退信
+[00:26:06] 接收到邮箱yang_minghui@whcwgk.com的退信
+[00:26:07] 接收到邮箱yan.wen@husor.com.cn的退信
+[00:26:08] 接收到邮箱xx@zhihu.com的退信
+[00:26:09] 接收到邮箱xutw@isip.org.cn的退信
+[00:26:10] 接收到邮箱xieyi@520cai.com的退信
+[00:26:10] 接收到邮箱xiaoxu@innovalley.com.cn的退信
+[00:26:11] 接收到邮箱xiaoge.yu@yijiatuo.com的退信
+[00:26:12] 接收到邮箱xianlinbo@wxyztech.com的退信
+[00:26:13] 接收到邮箱xiang.jiying@zte.com的退信
+[00:26:14] 接收到邮箱wuchong@adream.org的退信
+[00:26:15] 接收到邮箱wenyuling@adream.org的退信
+[00:26:16] 接收到邮箱weixiaodong@5ke.com的退信
+[00:26:17] 接收到邮箱wanghao@skyworth.com的退信
+[00:26:18] 接收到邮箱wanghaiyu@hanxinbank.com的退信
+[00:26:19] 接收到邮箱wang.s@ireadygo.com的退信
+[00:26:19] 接收到邮箱vivian@decentcapital.com的退信
+[00:26:20] 接收到邮箱31304992@qq.com的退信
+[00:26:22] 接收到邮箱jingguo.wu@husor.com.cn的退信
+[00:26:24] 接收到邮箱huan.chen@husor.com.cn的退信
+[00:26:24] 接收到邮箱shaofei.gao@fminutes.com的退信
+[00:26:25] 接收到邮箱ruanpeixian@skyworth.com的退信
+[00:26:26] 接收到邮箱qiaomu@skyworth.com的退信
+[00:26:27] 接收到邮箱pengyulong@keepc.com的退信
+[00:26:28] 接收到邮箱pengye@puvsa.org的退信
+[00:26:29] 接收到邮箱pengtao@breadtrip.com的退信
+[00:26:30] 接收到邮箱bill.chenshuzhi@hotmail.com的退信
+[00:26:31] 接收到邮箱kimi.kang@innovalley.com.cn的退信
+[00:26:32] 接收到邮箱jun.ge@intel.com的退信
+[00:26:32] 接收到邮箱joan_wang@trendmicro.com.cn的退信
+[00:26:33] 接收到邮箱jinglongzhou@gwc.net的退信
+[00:26:34] 接收到邮箱jinglin@skyworth.com的退信
+[00:26:35] 接收到邮箱jing.huang@renren-inc.com的退信
+[00:26:36] 接收到邮箱jason.jiang@transn.com的退信
+[00:26:37] 接收到邮箱jackyang@shitouyouxi.com的退信
+[00:26:38] 接收到邮箱gracexu@chuangxin.com的退信
+[00:26:39] 接收到邮箱faray@hahanongchang.com的退信
+[00:26:40] 接收到邮箱fangwei@whbi.com.cn的退信
+[00:26:41] 接收到邮箱miranda@yunshipei.com的退信
+[00:26:42] 接收到邮箱minnie@lvdora.com的退信
+[00:26:42] 接收到邮箱mily.jiang@mslgroup.com的退信
+[00:26:43] 接收到邮箱ljc@fangdd.com的退信
+[00:26:44] 接收到邮箱liuchao@ifensi.com的退信
+[00:26:45] 接收到邮箱maoxin@wiio.org.cn的退信
+[00:26:46] 接收到邮箱hzy@lvban365.com的退信
+[00:26:47] 接收到邮箱hyuan@kamudatech.com的退信
+[00:26:48] 接收到邮箱huolilong@medsci-tech.com的退信
+[00:26:49] 接收到邮箱hubin@adream.org的退信
+[00:26:50] 接收到邮箱hp@e-works.net.cn的退信
+[00:26:50] 接收到邮箱huanghe@leiyoo.com的退信
+[00:26:51] 接收到邮箱gudikang@umeng.com的退信
+[00:26:52] 接收到邮箱haichuan_qian@trendmicro.com.cn的退信
+[00:26:53] 接收到邮箱viola.lh@chinaequity.net的退信
+[00:26:54] 接收到邮箱topaz.hj@chasingtimes.com的退信
+[00:26:55] 接收到邮箱tangbao@profeta.cn的退信
+[00:26:57] 接收到邮箱t@jihua.fm的退信
+[00:26:58] 接收到邮箱sunny_zhang@trendmicro.com.cn的退信
+[00:26:58] 接收到邮箱sun@mail.ccnu.edu.cn的退信
+[00:26:59] 接收到邮箱stone@j7game.com的退信
+[00:27:00] 接收到邮箱shirley@adream.org的退信
+[00:27:00] 接收到邮箱jjzhuang@nju.edu.cn的退信
+[00:27:01] 接收到邮箱tangmin@youcheng.org的退信
+[00:27:01] 接收到邮箱zhagnjian@nash.work的退信
+[00:27:01] 接收到邮箱wangbo@nash.work的退信
+[00:27:01] 接收到邮箱steve@fgventure.com的退信
+[00:27:02] 接收到邮箱lpy@leadingcapital.com.cn的退信
+[00:27:02] 接收到邮箱wxq@cynda.cn的退信
+[00:27:02] 接收到邮箱dragonfu@didiapp.com的退信
+[00:27:03] 接收到邮箱wei.huang@welian.com的退信
+[00:27:03] 接收到邮箱henry.peng@sktplatform.org的退信
+[00:27:03] 接收到邮箱pm@ielyn.com的退信
+[00:27:03] 接收到邮箱victor@feimalv.com的退信
+[00:27:03] 接收到邮箱wangatie@coscico.com的退信
+[00:27:03] 接收到邮箱zhangmading@kags.com的退信
+[00:27:03] 接收到邮箱fanfengkai@fluoimaging.cn的退信
+[00:27:04] 接收到邮箱yehan@yeshorizon.org的退信
+[00:27:04] 接收到邮箱cruise@aoetech.cn的退信
+[00:27:04] 接收到邮箱guowei_gw2005@hotmail.com的退信
+[00:27:04] 接收到邮箱terryyao@capitaltoday.com的退信
+[00:27:04] 接收到邮箱dengpei@djsgyy.com的退信
+[00:27:04] 接收到邮箱caixueyong@chuangxin.com的退信
+[00:27:05] 接收到邮箱daigeng@netfinworks.com的退信
+[00:27:05] 接收到邮箱cathy.ju@epichust.com的退信
+[00:27:05] 接收到邮箱chenji@sino-wedo.com的退信
+[00:27:05] 接收到邮箱chenjin@hiyo.ren的退信
+[00:27:05] 接收到邮箱cherry.song@utstarcom.cn的退信
+[00:27:05] 接收到邮箱charco@tusdk.com的退信
+[00:27:06] 接收到邮箱caizongchi@tsingyuanvc.com的退信
+[00:27:06] 接收到邮箱chenfei01@skyworth.com的退信
+[00:27:06] 接收到邮箱zhangjing@xtu.edu.cn的退信
+[00:27:06] 接收到邮箱luolb@ige-live.com的退信
+[00:27:06] 接收到邮箱liuzexuan@imxiaomai.com的退信
+[00:27:06] 接收到邮箱cdpeng@hundsun.com的退信
+[00:27:06] 接收到邮箱xxwang@uniquedu.com的退信
+[00:27:07] 接收到邮箱xiaocai@juanpi.com的退信
+[00:27:07] 接收到邮箱cathyli@tengchu.com的退信
+[00:27:07] 接收到邮箱767827819@163.com的退信
+[00:27:07] 接收到邮箱zhuzhenshi@sina.com的退信
+[00:27:07] 接收到邮箱chuzhs@edumail.com.cn的退信
+[00:27:07] 接收到邮箱wangying@mail.maipu.com的退信
+[00:27:08] 接收到邮箱shujun@ssreader.com的退信
+[00:27:08] 接收到邮箱jp.xue@makercas.com的退信
+[00:27:08] 接收到邮箱james@thinkingcloud.cn的退信
+[00:27:08] 接收到邮箱guangyang.li@6chuang.com的退信
+[00:27:08] 接收到邮箱ytwang@gaoxiaobang.com的退信
+[00:27:08] 接收到邮箱lgh@mizhai.com的退信
+[00:27:08] 接收到邮箱xwyue@uniquedu.com的退信
+[00:27:09] 接收到邮箱mzeng@uniquedu.com的退信
+[00:27:09] 接收到邮箱daiht@qhee-ma.com的退信
+[00:27:09] 接收到邮箱gracewang@winnergame.com的退信
+[00:27:09] 接收到邮箱pengxiaojuan@tianyinculture.com的退信
+[00:27:09] 接收到邮箱zhangchao@sdhhxx.com的退信
+[00:27:09] 接收到邮箱joe@winnergame.com的退信
+[00:27:09] 接收到邮箱xiangxueke@wanxiangsmart.com的退信
+[00:27:10] 接收到邮箱catherine@educool.cn的退信
+[00:27:10] 接收到邮箱chenxu@ifanr.com的退信
+[00:27:10] 接收到邮箱fp@hopefound.cn的退信
+[00:27:10] 接收到邮箱ganyx@hep.com.cn的退信
+[00:27:10] 接收到邮箱huangyaohua@eqingyu.com的退信
+[00:27:10] 接收到邮箱helen@wanguk.com的退信
+[00:27:11] 接收到邮箱houzhany@hotmail.com的退信
+[00:27:11] 接收到邮箱shuang@bochk.com的退信
+[00:27:11] 接收到邮箱wangchuangliang@imxiaomai.com的退信
+[00:27:11] 接收到邮箱x-huang@northwestern.edu的退信
+[00:27:11] 接收到邮箱yuweihua@hwvc.net的退信
+[00:27:11] 接收到邮箱luckyadam@sicun.org的退信
+[00:27:11] 接收到邮箱amtdlx@vip.qq.com的退信
+[00:27:12] 接收到邮箱henryc@cynovogroup.com的退信
+[00:27:12] 接收到邮箱fyzb@2008.sina.com的退信
+[00:27:12] 接收到邮箱bailiang@bingyan.net的退信
+[00:27:12] 接收到邮箱miaoling82@sina.com的退信
+[00:27:12] 接收到邮箱dongjianxu@wisewater.com.cn的退信
+[00:27:12] 接收到邮箱star_sun82@hotmail.com的退信
+[00:27:12] 接收到邮箱helen.hll@hotmail.com的退信
+[00:27:13] 接收到邮箱jasonwillams979@hotmail.com的退信
+[00:27:13] 接收到邮箱j.huo@ed.ac.uk的退信
+[00:27:13] 接收到邮箱raymond.ng@idt.com的退信
+[00:27:13] 接收到邮箱18062410786@189.cn的退信
+[00:27:13] 接收到邮箱michaelm@licap.cn的退信
+[00:27:13] 接收到邮箱zhouluxilucy@bingyan.net的退信
+[00:27:14] 接收到邮箱lijunyao@sicun.org的退信
+[00:27:14] 接收到邮箱px@bingyan.net的退信
+[00:27:14] 接收到邮箱liuziyang@bingyan.net的退信
+[00:27:14] 接收到邮箱www@bingyan.net的退信
+[00:27:14] 接收到邮箱yaojg@liuhecapical.com的退信
+[00:27:14] 接收到邮箱nn@zxgdc.com的退信
+[00:27:14] 接收到邮箱shenll@newjinpartners.com的退信
+[00:27:15] 接收到邮箱bob@chuangancap.com的退信
+[00:27:15] 接收到邮箱weiqin@chinaquity.net的退信
+[00:27:15] 接收到邮箱yufeizheng@tecent.com的退信
+[00:27:15] 接收到邮箱derekzhu@tecent.com的退信
+[00:27:15] 接收到邮箱dandywang@hp-telecom.com的退信
+[00:27:15] 接收到邮箱cyl_liucl@ujn.edu.cn的退信
+[00:27:16] 接收到邮箱allen@clostyle.com的退信
+[00:27:16] 接收到邮箱andy@demoplusplus.com的退信
+[00:27:16] 接收到邮箱haiyang.xie@clostyle.com的退信
+[00:27:16] 接收到邮箱yima@tecent.com的退信
+[00:27:16] 接收到邮箱ruoyu.wang@vc.com的退信
+[00:27:16] 接收到邮箱niuyan@hp-telecom.com的退信
+[00:27:16] 接收到邮箱hhuang@shyp.gov.vn的退信
+[00:27:17] 接收到邮箱oul@gsta.com的退信
+[00:27:17] 接收到邮箱yan_bai@lycos.com的退信
+[00:27:17] 接收到邮箱chho@drc.gov.cn的退信
+[00:27:17] 接收到邮箱fengyun@fyinstr.com的退信
+[00:27:17] 接收到邮箱guyuan@ahaer.net的退信
+[00:27:17] 接收到邮箱dainenci@public.wh.hb.cn的退信
+[00:27:18] 接收到邮箱chenjunhua1968@yahoo.com.cn的退信
+[00:27:18] 接收到邮箱csliu@mail.neu.edu.cn的退信
+[00:27:18] 接收到邮箱dly0119@sxu.edu.cn的退信
+[00:27:19] 接收到邮箱dwb@xtu.edu.cn的退信
+[00:27:19] 接收到邮箱feng_1128@sohu.com的退信
+[00:27:19] 接收到邮箱guoyaqiong@educool.cn的退信
+[00:27:20] 接收到邮箱lixn@mail.ccnu.edu.cn的退信
+[00:27:20] 接收到邮箱liyu@yinhong.org.cn的退信
+[00:27:21] 接收到邮箱lizhongqiu@jgskl.com的退信
+[00:27:21] 接收到邮箱zhangnju@nju.edu.cn的退信
+[00:28:15] 接收到邮箱zhanghetian@tianherh.com的退信
+[00:28:22] 接收到邮箱y@vctmt.com的退信
+[00:28:23] 接收到邮箱panyuchen@tianherh.com的退信
+[00:28:39] 接收到邮箱xia.dai@alcatel-lucent.com的退信
+[00:28:49] 接收到邮箱mamx@lngfund.com的退信
+[00:29:12] 接收到邮箱yuchen.jiang@husor.com的退信
+[00:29:12] 接收到邮箱liuweiguo@wzhouhui.com的退信
+[00:29:13] 接收到邮箱xiuping.wang@husor.com的退信
+[00:29:14] 接收到邮箱lichen@ggjrw.com的退信
+[00:29:15] 接收到邮箱liye@qixiuu.com的退信
+[00:29:16] 接收到邮箱chaixiaoliang@ggjrw.com的退信
+[00:29:16] 接收到邮箱lujianwei@stargeek.cn的退信
+[00:30:15] 接收到邮箱2486148831@qq.com的退信
+[00:30:15] 接收到邮箱missmhwgo@gmail.com的退信
+[00:30:15] 接收到邮箱18062458952@163.com的退信
+[00:30:16] 接收到邮箱850974686@qq.com的退信
+[00:30:18] 接收到邮箱1255106765@qq.com的退信
+[00:30:19] 接收到邮箱13308629018@163.com的退信
+[00:30:19] 接收到邮箱13651446000@139.com的退信
+[00:30:20] 接收到邮箱13910892606@139.com的退信
+[00:30:21] 接收到邮箱billyao@outlook.com的退信
+[00:30:21] 接收到邮箱sg7388@126.com的退信
+[00:30:22] 接收到邮箱song@rose-hulman.edu的退信
+[00:30:23] 接收到邮箱wangjp@hojy.com的退信
+[00:30:23] 接收到邮箱xiaguangrun@sina.com.cn的退信
+[00:30:24] 接收到邮箱zhangzhifs@gmail.com的退信
+[00:30:25] 接收到邮箱zhengf@kkeye.com的退信
+[00:30:25] 接收到邮箱caoxy@h3c.com的退信
+[00:30:26] 接收到邮箱info@stepok.net的退信
+[00:30:26] 接收到邮箱unique.tao.jiang@gmail.com的退信
+[00:30:27] 接收到邮箱pandy.song@dspg.com的退信
+[00:30:29] 接收到邮箱hejunchen08@126.com的退信
+[00:30:30] 接收到邮箱14660513@qq.com的退信
+[00:30:31] 接收到邮箱15071456980@163.com的退信
+[00:30:32] 接收到邮箱duany@hustp.com的退信
+[00:30:32] 接收到邮箱goldonly@163.com的退信
+[00:30:33] 接收到邮箱lees983512@163.com的退信
+[00:30:34] 接收到邮箱lu_xiy@126.com的退信
+[00:30:34] 接收到邮箱lzy180@126.com的退信
+[00:30:35] 接收到邮箱office-bi@hxdwh.com的退信
+[00:30:36] 接收到邮箱shitouluo@163.com的退信
+[00:30:36] 接收到邮箱wld@hustp.com的退信
+[00:30:37] 接收到邮箱xia_xd@126.com的退信
+[00:30:37] 接收到邮箱wnn19821222@163.com的退信
+[00:30:38] 接收到邮箱1027253432@qq.com的退信
+[00:30:39] 接收到邮箱1164273528@qq.com的退信
+[00:30:39] 接收到邮箱13715356500@139.com的退信
+[00:30:40] 接收到邮箱149029120@qq.com的退信
+[00:30:41] 接收到邮箱15082544@qq.com的退信
+[00:30:41] 接收到邮箱15863176080@163.com的退信
+[00:30:42] 接收到邮箱18986113879@qq.com的退信
+[00:30:43] 接收到邮箱23847076@qq.com的退信
+[00:30:43] 接收到邮箱26838903@qq.com的退信
+[00:30:44] 接收到邮箱328017483@qq.com的退信
+[00:30:44] 接收到邮箱470014462@qq.com的退信
+[00:30:45] 接收到邮箱532219308@qq.com的退信
+[00:30:46] 接收到邮箱604137429@qq.com的退信
+[00:30:46] 接收到邮箱846642825@qq.com的退信
+[00:30:47] 接收到邮箱8679321@qq.com的退信
+[00:30:47] 接收到邮箱97356146@qq.com的退信
+[00:30:48] 接收到邮箱aaronlshen@gmail.com的退信
+[00:30:49] 接收到邮箱aloder@126.com的退信
+[00:30:49] 接收到邮箱anewczs@gmail.com的退信
+[00:30:50] 接收到邮箱antdlx@vip.qq.com的退信
+[00:30:51] 接收到邮箱beauccheng@gmail.com的退信
+[00:30:51] 接收到邮箱boli@cise.ufl.edu的退信
+[00:30:52] 接收到邮箱cypnew@163.com的退信
+[00:30:52] 接收到邮箱chuanboc@163.com的退信
+[00:30:53] 接收到邮箱daniel.sgen@studyabroadfoundation.org的退信
+[00:30:53] 接收到邮箱daosheng9@163.com的退信
+[00:30:54] 接收到邮箱dengjc@126.com的退信
+[00:30:55] 接收到邮箱dreamer_7@mail.siom.ac.cn的退信
+[00:30:55] 接收到邮箱dzb_art@163.com的退信
+[00:30:56] 接收到邮箱fen_66@163.com的退信
+[00:30:57] 接收到邮箱fishbj2009@163.com的退信
+[00:30:57] 接收到邮箱greg.lu@huawei.com的退信
+[00:30:58] 接收到邮箱370249126@qq.com的退信
+[00:30:59] 接收到邮箱68wentong@163.com的退信
+[00:30:59] 接收到邮箱xulu@bwstor.com.cn的退信
+[00:31:00] 接收到邮箱yangjilin-wh@263.net的退信
+[00:31:01] 接收到邮箱71024743@qq.com的退信
+[00:31:01] 接收到邮箱xuminlogic@126.com的退信
+[00:31:02] 接收到邮箱h-junjia@vip.sina.com的退信
+[00:31:02] 接收到邮箱751131908@qq.com的退信
+[00:31:03] 接收到邮箱ydshust@263.net的退信
+[00:31:04] 接收到邮箱xuwanxiao@sina.com的退信
+[00:31:04] 接收到邮箱hustwzh@sina.com的退信
+[00:31:05] 接收到邮箱zhangjg@nrchpc.ac.cn的退信
+[00:31:06] 接收到邮箱lili2431@163.com的退信
+[00:31:06] 接收到邮箱jzxiao@126.com的退信
+[00:31:07] 接收到邮箱ykunwang@gmail.com的退信
+[00:31:07] 接收到邮箱zhangsh@sdu.edu.cn的退信
+[00:31:08] 接收到邮箱zs2971@gmail.com的退信
+[00:31:09] 接收到邮箱kexunyu@163.com的退信
+[00:31:09] 接收到邮箱yutaro@sina.com的退信
+[00:31:10] 接收到邮箱zkhust@163.com的退信
+[00:31:10] 接收到邮箱szhust8886@163.com的退信
+[00:31:11] 接收到邮箱szhust9911@163.com的退信
+[00:31:12] 接收到邮箱whlwj@vip.sina.com的退信
+[00:31:12] 接收到邮箱sbchust@126.com的退信
+[00:31:13] 接收到邮箱wutao106@163.com的退信
+[00:31:14] 接收到邮箱yjiakuan@126.com的退信
+[00:31:14] 接收到邮箱yjjlar@sina.com的退信
+[00:31:15] 接收到邮箱zhangkun1962@163.com的退信
+[00:31:15] 接收到邮箱103007522@seu.edu.cn的退信
+[00:31:16] 接收到邮箱1053669081@qq.com的退信
+[00:31:17] 接收到邮箱1076006487@qq.com的退信
+[00:31:17] 接收到邮箱1178537091@qq.com的退信
+[00:31:18] 接收到邮箱122626009@qq.com的退信
+[00:31:18] 接收到邮箱1270845224@qq.com的退信
+[00:31:19] 接收到邮箱13807318987@139.com的退信
+[00:31:20] 接收到邮箱1522822945@qq.com的退信
+[00:31:20] 接收到邮箱16010916@qq.com的退信
+[00:31:21] 接收到邮箱273181195@qq.com的退信
+[00:31:21] 接收到邮箱3033523@qq.com的退信
+[00:31:22] 接收到邮箱378307613@qq.com的退信
+[00:31:22] 接收到邮箱411094859@qq.com的退信
+[00:31:23] 接收到邮箱474034152@qq.com的退信
+[00:31:24] 接收到邮箱476962975@qq.com的退信
+[00:31:24] 接收到邮箱514174673@qq.com的退信
+[00:31:25] 接收到邮箱542687044@qq.com的退信
+[00:31:25] 接收到邮箱63434571@qq.com的退信
+[00:31:26] 接收到邮箱760707873@qq.com的退信
+[00:31:27] 接收到邮箱8335470@qq.com的退信
+[00:31:27] 接收到邮箱84540305@qq.com的退信
+[00:31:28] 接收到邮箱864477525@qq.com的退信
+[00:31:28] 接收到邮箱992035382@qq.com的退信
+[00:31:29] 接收到邮箱aiqunli@seu.edu.cn的退信
+[00:31:30] 接收到邮箱bcychiu@cityu.edu.hk的退信
+[00:31:30] 接收到邮箱binli@ustc.edu.cn的退信
+[00:31:31] 接收到邮箱binyang@tsinghua.edu.cn的退信
+[00:31:31] 接收到邮箱bruseren@nanoctr.cn的退信
+[00:31:32] 接收到邮箱buyang@siom.ac.cn的退信
+[00:31:33] 接收到邮箱caofangzi@126.com的退信
+[00:31:33] 接收到邮箱chengxu@mprc.pku.edu.cn的退信
+[00:31:34] 接收到邮箱chenjunhua1968@aliyun.com的退信
+[00:31:34] 接收到邮箱chenyaogen352038@163.com的退信
+[00:31:35] 接收到邮箱chenyc64@126.com的退信
+[00:31:36] 接收到邮箱chictr@scu.edu.cn的退信
+[00:31:36] 接收到邮箱cj@ime.ac.cn的退信
+[00:31:37] 接收到邮箱conan_wuhao@nwsuaf.edu.cn的退信
+[00:31:37] 接收到邮箱cpzhu5126081@163.com的退信
+[00:31:38] 接收到邮箱cychi@ee.nthu.edu.tw的退信
+[00:31:39] 接收到邮箱cyfanyingrui@126.com的退信
+[00:31:39] 接收到邮箱lyt0712@qq.com的退信
+[00:31:40] 接收到邮箱missximon_7@163.com的退信
+[00:31:40] 接收到邮箱maoxiaofeng@huawei.com的退信
+[00:31:41] 接收到邮箱mtzhen@qq.com的退信
+[00:31:42] 接收到邮箱muzi7128@sina.com的退信
+[00:31:42] 接收到邮箱penglingpeng@126.com的退信
+[00:31:43] 接收到邮箱pengjingwen@126.com的退信
+[00:31:44] 接收到邮箱qw.hust@gmail.com的退信
+[00:31:45] 接收到邮箱shiyusheng@263.net的退信
+[00:31:46] 接收到邮箱songj@tjh.tjmu.edu.cn的退信
+[00:31:46] 接收到邮箱tan_gangyi@163.com的退信
+[00:31:47] 接收到邮箱tmike1653@163.com的退信
+[00:31:48] 接收到邮箱topall@sina.com的退信
+[00:31:49] 接收到邮箱vividfree@gmail.com的退信
+[00:31:49] 接收到邮箱wangzd872@126.com的退信
+[00:31:50] 接收到邮箱wcmilan@gmail.com的退信
+[00:31:51] 接收到邮箱whhudaoli@163.com的退信
+[00:31:51] 接收到邮箱wqs_xn@163.com的退信
+[00:31:52] 接收到邮箱wulibao2004@126.com的退信
+[00:31:53] 接收到邮箱xiaomangd@163.com的退信
+[00:31:53] 接收到邮箱xkx@zjut.edu.cn的退信
+[00:31:54] 接收到邮箱joyyuanxm@gmail.com的退信
+[00:31:55] 接收到邮箱zhli68@263.net的退信
+[00:31:55] 接收到邮箱123356075@qq.com的退信
+[00:31:56] 接收到邮箱1287627678@qq.com的退信
+[00:31:57] 接收到邮箱13311269988@vip.163.com的退信
+[00:31:57] 接收到邮箱13823731818@139.com的退信
+[00:31:58] 接收到邮箱1329719555@qq.com的退信
+[00:31:58] 接收到邮箱16451226@qq.com的退信
+[00:31:59] 接收到邮箱1875202689@qq.com的退信
+[00:32:00] 接收到邮箱271000692@qq.com的退信
+[00:32:00] 接收到邮箱3.142.14@gmail.com的退信
+[00:32:01] 接收到邮箱48807395@qq.com的退信
+[00:32:01] 接收到邮箱86913762@qq.com的退信
+[00:32:02] 接收到邮箱993160290@qq.com的退信
+[00:32:03] 接收到邮箱alexli1967@gmail.com的退信
+[00:32:03] 接收到邮箱bli@waldenintl.com的退信
+[00:32:04] 接收到邮箱bob@changancap.com的退信
+[00:32:04] 接收到邮箱brianlinyao@163.com的退信
+[00:32:05] 接收到邮箱caorihui@gmail.com的退信
+[00:32:06] 接收到邮箱cenlei@etransfar.com的退信
+[00:32:06] 接收到邮箱chancewin@qq.com的退信
+[00:32:07] 接收到邮箱chen@plugandplaytechcenter.com的退信
+[00:32:07] 接收到邮箱chenchen@chenhaicapital.com的退信
+[00:32:08] 接收到邮箱chenfg55@gmail.com的退信
+[00:32:09] 接收到邮箱christine@chuangxin.com的退信
+[00:32:09] 接收到邮箱daxueyu@gmail.com的退信
+[00:32:10] 接收到邮箱chenhao@legendcapital.com.cn的退信
+[00:32:11] 接收到邮箱dengkui@vip.sina.com的退信
+[00:32:11] 接收到邮箱ddq388@163.com的退信
+[00:32:12] 接收到邮箱dongna@huaraylaser.com的退信
+[00:32:13] 接收到邮箱dwj0625@126.com的退信
+[00:32:13] 接收到邮箱dwzy1023@gmail.com的退信
+[00:32:14] 接收到邮箱fzhong@kpcb.com的退信
+[00:32:14] 接收到邮箱fzhong@srivercapital.com的退信
+[00:32:15] 接收到邮箱gkunghk@hotmail.com的退信
+[00:32:16] 接收到邮箱gluckzhang@tencent.com的退信
+[00:32:17] 接收到邮箱guofeng.tan@gmail.com的退信
+[00:32:18] 接收到邮箱gzsunpeng@qq.com的退信
+[00:32:20] 接收到邮箱23887238@qq.com的退信
+[00:32:21] 接收到邮箱lusia.lu@foxmail.com的退信
+[00:32:22] 接收到邮箱xiongrenxia@c-bons.com.cn的退信
+[00:32:22] 接收到邮箱maxin@ovuni.com的退信
+[00:32:23] 接收到邮箱zixia@pre-angel.com的退信
+[00:32:24] 接收到邮箱382413132@qq.com的退信
+[00:32:24] 接收到邮箱xuxiao@piratecap.com的退信
+[00:32:25] 接收到邮箱18907107397@163.com的退信
+[00:32:26] 接收到邮箱ruanweijia@piratecap.com的退信
+[00:32:29] 接收到邮箱muma886@163.com的退信
+[00:32:30] 接收到邮箱173538@qq.com的退信
+[00:32:32] 接收到邮箱xiezq@cgpinvestment.com的退信
+[00:32:33] 接收到邮箱allen@gsrventures.cn的退信
+[00:32:33] 接收到邮箱liyg@pdhti.com的退信
+[00:32:34] 接收到邮箱chengxw@newgenpartners.com的退信
+[00:32:35] 接收到邮箱lzh@shvca.org的退信
+[00:32:35] 接收到邮箱manage@ray-land.cn的退信
+[00:32:36] 接收到邮箱wzp@zhthinkjoy.com的退信
+[00:32:37] 接收到邮箱389149849@qq.com的退信
+[00:32:38] 接收到邮箱rucia.han@tr88.com.cn的退信
+[00:32:38] 接收到邮箱ian.yu@tr88.com.cn的退信
+[00:32:39] 接收到邮箱gzk0001@163.com的退信
+[00:32:40] 接收到邮箱ruilingguo@vcspark.com的退信
+[00:33:13] 接收到邮箱shaozhibin98@hotmail.com的退信
+[00:33:14] 接收到邮箱shunyou.ji@csm-inv.com的退信
+[00:33:14] 接收到邮箱song@c-bons.com.cn的退信
+[00:33:15] 接收到邮箱songm@qti.qualcomm.com的退信
+[00:33:16] 接收到邮箱stephen881128@gmail.com的退信
+[00:33:17] 接收到邮箱summer.ge@jmcapital.com.cn的退信
+[00:33:18] 接收到邮箱vincentm@mashington.com的退信
+[00:33:18] 接收到邮箱wangjfa@legendcapital.com.cn的退信
+[00:33:19] 接收到邮箱wangqi@c-bons.com.cn的退信
+[00:33:20] 接收到邮箱wangyanfeng@daton.com.cn的退信
+[00:33:21] 接收到邮箱wf.68@163.com的退信
+[00:33:22] 接收到邮箱wilsonwang2012@163.com的退信
+[00:33:24] 接收到邮箱wzhzy@sina.com的退信
+[00:33:24] 接收到邮箱xiang_gao@banyanvc.com的退信
+[00:33:25] 接收到邮箱xiangjunqu@gmail.com的退信
+[00:33:25] 接收到邮箱xiaofang@c-bons.com.cn的退信
+[00:33:26] 接收到邮箱xuanjie@vip.163.com的退信
+[00:33:27] 接收到邮箱xiongyi@163.com的退信
+[00:33:27] 接收到邮箱xiongkelan@c-bons.com.cn的退信
+[00:33:28] 接收到邮箱yangtao@mnano.org的退信
+[00:33:28] 接收到邮箱yangyong@c-bons.com.cn的退信
+[00:33:30] 接收到邮箱yanyichen1020@163.com的退信
+[00:33:31] 接收到邮箱yaohb369@vip.163.com的退信
+[00:33:31] 接收到邮箱zhangl@dlcapitals.com的退信
+[00:33:32] 接收到邮箱yvonne.ouyang@jmcapital.com.cn的退信
+[00:33:32] 接收到邮箱zhaohui@chuangxin.com的退信
+[00:33:33] 接收到邮箱zhaoweigong@c-bons.com.cn的退信
+[00:33:34] 接收到邮箱zhou@sequoiacap.com的退信
+[00:33:50] 接收到邮箱xiaoxt@gdut.edu.cn的退信
+[00:33:50] 接收到邮箱qmj68@hubu.edu.cn的退信
+[00:33:50] 接收到邮箱smluo@gdut.edu.cn的退信
+[00:33:50] 接收到邮箱jwms04@jyu.edu.cn的退信
+[00:33:51] 接收到邮箱jxyj@jyu.edu.cn的退信
+[00:33:58] 接收到邮箱huangxl@cuc.edu.cn的退信
+[00:34:14] 接收到邮箱stephen.lee@druckeracademy.com的退信
+[00:34:24] 接收到邮箱raobinqi@cjlu.edu.cn的退信
+[00:34:25] 接收到邮箱twh@cjlu.edu.cn的退信
+[00:34:29] 接收到邮箱nhj@cjlu.edu.cn的退信
+[00:34:29] 接收到邮箱panlan@cjlu.edu.cn的退信
+[00:34:30] 接收到邮箱smsqm@cjlu.edu.cn的退信
+[00:34:31] 接收到邮箱whsun@cjlu.edu.cn的退信
+[00:34:32] 接收到邮箱rong@wpi.edu的退信
+[00:34:33] 接收到邮箱1026815245@qq.com的退信
+[00:34:33] 接收到邮箱webmaster@tianya.cn的退信
+[00:34:34] 接收到邮箱no@no.com的退信
+[00:34:35] 接收到邮箱xsgl2010@yahoo.com.cn的退信
+[00:34:36] 接收到邮箱lianyou@13566170918.com的退信
+[00:34:37] 接收到邮箱root@xsp2.com的退信
+[00:34:38] 接收到邮箱kids@mail.cctv.com的退信
+[00:34:38] 接收到邮箱hangtian@ahhtmt.com的退信
+[00:34:39] 接收到邮箱hustoliver@hainan.com的退信
+[00:34:40] 接收到邮箱a9888@263.net的退信
+[00:34:41] 接收到邮箱cmmail.comvbcrlfseutech@21cn.comvbcrlfhttp的退信
+[00:34:42] 接收到邮箱wangzhaoyang@chinaacc.c的退信
+[00:34:42] 接收到邮箱9888@263.net的退信
+[00:34:43] 接收到邮箱3313653vbcrlfjsseu@cmmail.comvbcrlfseutech的退信
+[00:34:48] 接收到邮箱fa@fhj99.com的退信
+[00:34:49] 接收到邮箱ulango@cmmail.com的退信
+[00:34:51] 接收到邮箱dookchina@yahoo.com.cn的退信
+[00:34:52] 接收到邮箱lygdzgj@sohu.com的退信
+[00:34:53] 接收到邮箱dihuazhang@yahoo.com.cn的退信
+[00:34:54] 接收到邮箱weidan1269768@yahoo.com.cn的退信
+[00:34:54] 接收到邮箱ceditor@blogchina.com的退信
+[00:34:55] 接收到邮箱adai0524@yahoo.cn的退信
+[00:34:56] 接收到邮箱htyj999@yahoo.com.cn的退信
+[00:34:57] 接收到邮箱ongdancao67@126.com的退信
+[00:34:58] 接收到邮箱www@dadao.net的退信
+[00:34:58] 接收到邮箱smzz888@sohu.com的退信
+[00:34:59] 接收到邮箱wangz@furielec.com的退信
+[00:35:00] 接收到邮箱renminwxfxb@263.net的退信
+[00:35:01] 接收到邮箱jzssysjzzyxgs@3158.com的退信
+[00:35:03] 接收到邮箱diantuandui@163.com的退信
+[00:35:09] 接收到邮箱jsjy@snnu.edu.cn的退信
+[00:35:37] 接收到邮箱hz@firestonecap.cn的退信
+[00:35:40] 接收到邮箱sun@chuangxin.com的退信
+[00:36:01] 接收到邮箱ybwang.web@mc2.com.cn的退信
+[00:36:08] 接收到邮箱sunyelin7008@sina.com的退信
+[00:36:10] 接收到邮箱sss1122@sina.com的退信
+[00:36:11] 接收到邮箱shiyun0188@sina.com的退信
+[00:36:12] 接收到邮箱gpzhang@phy.ccnu.edu.cn的退信
+[00:36:15] 接收到邮箱lushan@mc2.cn的退信
+[00:36:15] 接收到邮箱liuy@chinanetcenter.com的退信
+[00:36:17] 接收到邮箱kevinl@gemdale.com的退信
+[00:36:21] 接收到邮箱pli@fiberhome.com.cn的退信
+[00:36:24] 接收到邮箱geraldhu@tencent.com的退信
+[00:36:24] 接收到邮箱gangguan@tencent.com的退信
+[00:36:25] 接收到邮箱fs_zhang@21cn.com的退信
+[00:36:35] 接收到邮箱davefan@tencent.com的退信
+[00:36:39] 接收到邮箱chanelxu@tencent.com的退信
+[00:36:45] 接收到邮箱hucy@cjsc.com的退信
+[00:36:47] 接收到邮箱cocoke@shinyway.com.cn的退信
+[00:36:52] 接收到邮箱tangbinsen@elex-tech.com的退信
+[00:36:58] 接收到邮箱caoyq@tcl.com的退信
+[00:37:00] 接收到邮箱dengwei@cjsc.com.cn的退信
+[00:37:00] 接收到邮箱wenfan@cmbc.com.cn的退信
+[00:37:03] 接收到邮箱vicky@rtcc.com.cn的退信
+[00:37:12] 接收到邮箱qiaoyang0708@sina.com.cn的退信
+[00:37:14] 接收到邮箱skylei@tencent.com的退信
+[00:37:23] 接收到邮箱sammipang@shgslaw.com的退信
+[00:37:24] 接收到邮箱yuanp@bankcomm.com的退信
+[00:37:25] 接收到邮箱zhangliwen@noahwm.com的退信
+[00:37:26] 接收到邮箱zhouhong0609@sina.cn的退信
+[00:37:26] 接收到邮箱dengqiang@cindasc.com的退信
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+A letter has no date() or body, num = 1
+A letter has no date() or body, num = 3
+Can not find start num situable.
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:37:29] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+A letter has no date() or body, num = 1
+Get imap start num = 58, datetime = 2014-01-21 14:47:00
+[00:37:30] 接收到邮箱albertmiao168@yahoo.com.cn的退信
+[00:37:31] 接收到邮箱yanhx0308@sina.com的退信
+[00:37:31] 接收到邮箱fkb@sjzdaily.com.cn的退信
+[00:37:31] 接收到邮箱rbljc@sohu.com的退信
+[00:37:31] 接收到邮箱cqlys@263.net的退信
+[00:37:31] 接收到邮箱bdrbfkb@yahoo.com.cn的退信
+[00:37:32] 接收到邮箱qinly1919@sohu.com的退信
+[00:37:32] 接收到邮箱cuiyi@staff.sina.com.cn的退信
+[00:37:32] 接收到邮箱zzc6106@vip.sina.com的退信
+[00:37:32] 接收到邮箱baitai_yzwb@sina.com的退信
+[00:37:32] 接收到邮箱alianliu8@hotmail.com的退信
+[00:37:33] 接收到邮箱jianghy@njnews.cn的退信
+[00:37:33] 接收到邮箱shenian168@163.com的退信
+[00:37:33] 接收到邮箱aafox8@sina.com.cn的退信
+[00:37:33] 接收到邮箱wangjun@china.teacher.com.cn的退信
+[00:37:33] 接收到邮箱zawenbao4@yahoo.com.cn的退信
+[00:37:34] 接收到邮箱zawenbao3@yahoo.com.cn的退信
+[00:37:34] 接收到邮箱cuiliqiu@163.net的退信
+[00:37:34] 接收到邮箱xiezuogaoshou@sina.com的退信
+[00:37:34] 接收到邮箱yanli8482@sina.com的退信
+[00:37:34] 接收到邮箱zawenbao2@yahoo.com.cn的退信
+[00:37:35] 接收到邮箱hxy7109@sina.com的退信
+[00:37:35] 接收到邮箱sk@russ.ru的退信
+[00:37:36] 接收到邮箱ww@dadao.net的退信
+[00:37:36] 接收到邮箱lawyerkai@hotmail.com的退信
+[00:37:37] 接收到邮箱cicphk@sina.com的退信
+[00:37:37] 接收到邮箱xzbjbhf@sina.com的退信
+[00:37:37] 接收到邮箱gjwhcb@yahoo.com.hk的退信
+[00:37:38] 接收到邮箱uuasddpoa@163.com的退信
+[00:37:39] 接收到邮箱hello_world@qqqc.com的退信
+[00:37:39] 接收到邮箱piwhaek@qq.com的退信
+[00:37:40] 接收到邮箱uhhokfs@126.com的退信
+[00:37:41] 接收到邮箱yralgwm@163.com的退信
+[00:37:52] 完成一轮接收,等待30秒后继续...
+[00:38:22] 开始接收退信
+[00:38:22] 当前账号: hustoliver@hainan.net
+[00:38:22] 当前账号: oliver@dian.com
+[00:38:22] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:38:31] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:38:35] 完成一轮接收,等待30秒后继续...
+[00:39:05] 开始接收退信
+[00:39:05] 当前账号: hustoliver@hainan.net
+[00:39:05] 当前账号: oliver@dian.com
+[00:39:05] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:39:14] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:39:18] 完成一轮接收,等待30秒后继续...
+[00:39:48] 开始接收退信
+[00:39:48] 当前账号: hustoliver@hainan.net
+[00:39:48] 当前账号: oliver@dian.com
+[00:39:48] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:39:57] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:40:02] 完成一轮接收,等待30秒后继续...
+[00:40:32] 开始接收退信
+[00:40:32] 当前账号: hustoliver@hainan.net
+[00:40:32] 当前账号: oliver@dian.com
+[00:40:32] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:40:41] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:40:46] 完成一轮接收,等待30秒后继续...
+[00:41:16] 开始接收退信
+[00:41:16] 当前账号: hustoliver@hainan.net
+[00:41:16] 当前账号: oliver@dian.com
+[00:41:16] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:41:25] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:41:29] 完成一轮接收,等待30秒后继续...
+[00:41:59] 开始接收退信
+[00:41:59] 当前账号: hustoliver@hainan.net
+[00:41:59] 当前账号: oliver@dian.com
+[00:41:59] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:42:08] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:42:13] 完成一轮接收,等待30秒后继续...
+[00:42:43] 开始接收退信
+[00:42:43] 当前账号: hustoliver@hainan.net
+[00:42:43] 当前账号: oliver@dian.com
+[00:42:43] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:42:51] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:42:56] 完成一轮接收,等待30秒后继续...
+[00:43:26] 开始接收退信
+[00:43:26] 当前账号: hustoliver@hainan.net
+[00:43:26] 当前账号: oliver@dian.com
+[00:43:26] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:43:34] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:43:38] 完成一轮接收,等待30秒后继续...
+[00:44:09] 开始接收退信
+[00:44:09] 当前账号: hustoliver@hainan.net
+[00:44:09] 当前账号: oliver@dian.com
+[00:44:09] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:44:17] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:44:22] 完成一轮接收,等待30秒后继续...
+[00:44:52] 开始接收退信
+[00:44:52] 当前账号: hustoliver@hainan.net
+[00:44:52] 当前账号: oliver@dian.com
+[00:44:52] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+IMAP select dir /&kc2JgZCuTvY-
+IMAP select dir /INBOX
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+IMAP select dir /&cLl385AAi6I-
+[00:45:00] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Get imap start num = 441, datetime = 2016-08-21 21:15:01
+[00:45:04] 完成一轮接收,等待30秒后继续...
+[00:45:34] 开始接收退信
+[00:45:34] 当前账号: hustoliver@hainan.net
+[00:45:34] 当前账号: oliver@dian.com
+[00:45:34] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1614, datetime = 2016-08-16 23:54:39
+[00:45:42] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, qwertyui, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 123456, 192.168.56.88, 陈美丽)
+Account[2] = Account(dian@hust.edu.cn, diangroup1, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(U201313778@hust.edu.cn, dian201313778, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 00:50:15] Start the program
+2016-08-22 00:50:15
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 00:50:21]
+Get 0 mails from excel.
+[2016/08/22 00:50:22]Start Timer.The timer period is 26666 ms
+[2016/08/22 00:50:24]Timer call back.
+[2016/08/22 00:50:24]
+读取附件成功
+[2016/08/22 00:50:24]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (44, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[00:50:30] 开始接收退信
+[00:50:30] 当前账号: hustoliver@hainan.net
+[00:50:30] 当前账号: oliver@dian.com
+[00:50:30] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[00:50:40] 接收到邮箱binhu@binhurp.com的退信
+[00:50:42] 接收到邮箱htker@139.com的退信
+[00:50:43] 接收到邮箱pengyong@whbi.com.cn的退信
+[00:50:44] 接收到邮箱yanhui.cheng@fminutes.com的退信
+[00:50:44] 接收到邮箱zghg123@sina.com的退信
+[00:50:45] 接收到邮箱eerschen@mail.njust.edu.cn的退信
+[00:50:46] 接收到邮箱gma@wust.edu.cn的退信
+[00:50:47] 接收到邮箱hua.qian@wico.sh的退信
+[00:50:48] 接收到邮箱jing.xu@wico.sh的退信
+[00:50:49] 接收到邮箱xiumei.yang@wico.sh的退信
+[00:50:50] 接收到邮箱oriental@xinhuanet.com的退信
+[00:50:50] 接收到邮箱yanglun@cug.edu.cn的退信
+[00:50:51] 接收到邮箱yanjia@cug.edu.cn的退信
+[00:50:52] 接收到邮箱bill@cloudminds.net的退信
+[00:50:53] 接收到邮箱yunfan@wachuang.com.cn的退信
+[00:50:54] 接收到邮箱zhaochunhua@ctgu.edu.cn的退信
+[00:50:55] 接收到邮箱zhbz40@hotmail.com的退信
+[00:50:56] 接收到邮箱zhaodean@xbmu.edu.cn的退信
+[00:50:56] 接收到邮箱tlshi@public.wh.hb.cn的退信
+[00:50:57] 接收到邮箱graduate@csmu.edu.tw的退信
+[00:50:58] 接收到邮箱anho@lipple.co的退信
+[00:50:59] 接收到邮箱aval_c@hotmail.com的退信
+[00:51:00] 接收到邮箱gateskiller@sina.com的退信
+[00:51:01] 接收到邮箱guofang@mindray.com的退信
+[00:51:02] 接收到邮箱shengdl@tup.tsinghua.edu.cn的退信
+[00:51:02] 接收到邮箱zengsh@tup.tsinghua.edu.cn的退信
+[00:51:03] 接收到邮箱lichanglin_1982@yahoo.com.cn的退信
+[00:51:04] 接收到邮箱liuxiangyu@huawei.com的退信
+[00:51:05] 接收到邮箱wuhongyan008@hotmail.com的退信
+[00:51:06] 接收到邮箱yule@dian.org.cn的退信
+[00:51:07] 接收到邮箱zhoushuang@mindray.com的退信
+[00:51:07] 接收到邮箱cywang@chinaequity.net的退信
+[00:51:08] 接收到邮箱eric.tong@prospartners.com的退信
+[00:51:09] 接收到邮箱grace@batorange.com的退信
+[00:51:10] 接收到邮箱guan@miago.net的退信
+[00:51:11] 接收到邮箱jason@decentcapital.com的退信
+[00:51:12] 接收到邮箱joe@mfund.com的退信
+[00:51:13] 接收到邮箱jun.wang@decentcapital.com的退信
+[00:51:13] 接收到邮箱jzhao@cgfcapital.com.cn的退信
+[00:51:14] 接收到邮箱karry@zvca.org的退信
+[00:51:15] 接收到邮箱ld@doudinghui.com的退信
+[00:51:16] 接收到邮箱liang_chang@idgvc.com.cn的退信
+[00:51:17] 接收到邮箱liujing@hustvc.com.cn的退信
+[00:51:18] 接收到邮箱louiszhu07@gmail.com的退信
+[00:51:19] 接收到邮箱luqun@yunyiinvestment.com的退信
+[00:51:19] 接收到邮箱maye@hgtech.com.cn的退信
+[00:51:20] 接收到邮箱qifei@roundvc.com的退信
+[00:51:21] 接收到邮箱sam.chen@cifm.com的退信
+[00:51:22] 接收到邮箱victor@decentcapital.com的退信
+[00:51:23] 接收到邮箱wangmin@hgtech.com.cn的退信
+[00:51:24] 接收到邮箱weiqin@chinaequity.net的退信
+[00:51:25] 接收到邮箱wj@intebridge.com的退信
+[00:51:26] 接收到邮箱wx@chinaequity.net的退信
+[00:51:26] 接收到邮箱xuxiaohu@wiio.org.cn的退信
+[00:51:27] 接收到邮箱yuan@zhenfund.com的退信
+[00:51:28] 接收到邮箱yuanangen@tenyall.com的退信
+[00:51:29] 接收到邮箱yuwenfeng@hgtech.com.cn的退信
+[00:51:30] 接收到邮箱db@xinwubao.com的退信
+[00:51:31] 接收到邮箱chenye@huapartners.com的退信
+[00:51:31] 接收到邮箱luclan@pe.vc的退信
+[00:51:32] 接收到邮箱chrischan@shangshibang.com的退信
+[00:51:33] 接收到邮箱zhanglijun@yigoucapital.com的退信
+[00:51:34] 接收到邮箱ethen@chuang.ba的退信
+[00:51:34] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 00:52:07] Start the program
+2016-08-22 00:52:07
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 00:52:14]
+Get 0 mails from excel.
+[2016/08/22 00:52:16]Start Timer.The timer period is 26666 ms
+[2016/08/22 00:52:18]Timer call back.
+[2016/08/22 00:52:18]
+读取附件成功
+[2016/08/22 00:52:18]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (44, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[00:52:25] 开始接收退信
+[00:52:25] 当前账号: hustoliver@hainan.net
+[00:52:25] 当前账号: oliver@dian.com
+[00:52:25] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[00:52:34] 接收到邮箱binhu@binhurp.com的退信
+[00:52:36] 接收到邮箱htker@139.com的退信
+[00:52:37] 接收到邮箱pengyong@whbi.com.cn的退信
+[00:52:37] 接收到邮箱yanhui.cheng@fminutes.com的退信
+[00:52:38] 接收到邮箱zghg123@sina.com的退信
+[00:52:39] 接收到邮箱eerschen@mail.njust.edu.cn的退信
+[00:52:40] 接收到邮箱gma@wust.edu.cn的退信
+[00:52:41] 接收到邮箱hua.qian@wico.sh的退信
+[00:52:42] 接收到邮箱jing.xu@wico.sh的退信
+[00:52:43] 接收到邮箱xiumei.yang@wico.sh的退信
+[00:52:43] 接收到邮箱oriental@xinhuanet.com的退信
+[00:52:44] 接收到邮箱yanglun@cug.edu.cn的退信
+[00:52:45] 接收到邮箱yanjia@cug.edu.cn的退信
+[00:52:46] 接收到邮箱bill@cloudminds.net的退信
+[00:52:47] 接收到邮箱yunfan@wachuang.com.cn的退信
+[00:52:48] 接收到邮箱zhaochunhua@ctgu.edu.cn的退信
+[00:52:48] 接收到邮箱zhbz40@hotmail.com的退信
+[00:52:49] 接收到邮箱zhaodean@xbmu.edu.cn的退信
+[00:52:50] 接收到邮箱tlshi@public.wh.hb.cn的退信
+[00:52:51] 接收到邮箱graduate@csmu.edu.tw的退信
+[00:52:52] 接收到邮箱anho@lipple.co的退信
+[00:52:53] 接收到邮箱aval_c@hotmail.com的退信
+[00:52:53] 接收到邮箱gateskiller@sina.com的退信
+[00:52:54] 接收到邮箱guofang@mindray.com的退信
+[00:52:55] 接收到邮箱shengdl@tup.tsinghua.edu.cn的退信
+[00:52:56] 接收到邮箱zengsh@tup.tsinghua.edu.cn的退信
+[00:52:57] 接收到邮箱lichanglin_1982@yahoo.com.cn的退信
+[00:52:58] 接收到邮箱liuxiangyu@huawei.com的退信
+[00:52:59] 接收到邮箱wuhongyan008@hotmail.com的退信
+[00:52:59] 接收到邮箱yule@dian.org.cn的退信
+[00:53:00] 接收到邮箱zhoushuang@mindray.com的退信
+[00:53:01] 接收到邮箱cywang@chinaequity.net的退信
+[00:53:02] 接收到邮箱eric.tong@prospartners.com的退信
+[00:53:03] 接收到邮箱grace@batorange.com的退信
+[00:53:04] 接收到邮箱guan@miago.net的退信
+[00:53:04] 接收到邮箱jason@decentcapital.com的退信
+[00:53:05] 接收到邮箱joe@mfund.com的退信
+[00:53:06] 接收到邮箱jun.wang@decentcapital.com的退信
+[00:53:07] 接收到邮箱jzhao@cgfcapital.com.cn的退信
+[00:53:08] 接收到邮箱karry@zvca.org的退信
+[00:53:09] 接收到邮箱ld@doudinghui.com的退信
+[00:53:09] 接收到邮箱liang_chang@idgvc.com.cn的退信
+[00:53:10] 接收到邮箱liujing@hustvc.com.cn的退信
+[00:53:11] 接收到邮箱louiszhu07@gmail.com的退信
+[00:53:12] 接收到邮箱luqun@yunyiinvestment.com的退信
+[00:53:13] 接收到邮箱maye@hgtech.com.cn的退信
+[00:53:14] 接收到邮箱qifei@roundvc.com的退信
+[00:53:14] 接收到邮箱sam.chen@cifm.com的退信
+[00:53:15] 接收到邮箱victor@decentcapital.com的退信
+[00:53:16] 接收到邮箱wangmin@hgtech.com.cn的退信
+[00:53:17] 接收到邮箱weiqin@chinaequity.net的退信
+[00:53:18] 接收到邮箱wj@intebridge.com的退信
+[00:53:19] 接收到邮箱wx@chinaequity.net的退信
+[00:53:19] 接收到邮箱xuxiaohu@wiio.org.cn的退信
+[00:53:20] 接收到邮箱yuan@zhenfund.com的退信
+[00:53:21] 接收到邮箱yuanangen@tenyall.com的退信
+[00:53:22] 接收到邮箱yuwenfeng@hgtech.com.cn的退信
+[00:53:23] 接收到邮箱db@xinwubao.com的退信
+[00:53:24] 接收到邮箱chenye@huapartners.com的退信
+[00:53:25] 接收到邮箱luclan@pe.vc的退信
+[00:53:25] 接收到邮箱chrischan@shangshibang.com的退信
+[00:53:26] 接收到邮箱zhanglijun@yigoucapital.com的退信
+[00:53:26] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 00:55:45] Start the program
+2016-08-22 00:55:45
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 00:55:51]
+Get 0 mails from excel.
+[2016/08/22 00:55:53]Start Timer.The timer period is 26666 ms
+[2016/08/22 00:55:55]Timer call back.
+[2016/08/22 00:55:55]
+读取附件成功
+[2016/08/22 00:55:55]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (44, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[00:56:02] 开始接收退信
+[00:56:02] 当前账号: hustoliver@hainan.net
+[00:56:02] 当前账号: oliver@dian.com
+[00:56:02] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+00:08
+00:09
+00:10
+00:11
+00:12
+00:13
+00:14
+00:15
+00:16
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[00:56:12] 接收到邮箱binhu@binhurp.com的退信
+00:17
+00:18
+[00:56:13] 接收到邮箱htker@139.com的退信
+00:19
+[00:56:14] 接收到邮箱pengyong@whbi.com.cn的退信
+00:20
+[00:56:15] 接收到邮箱yanhui.cheng@fminutes.com的退信
+[00:56:16] 接收到邮箱zghg123@sina.com的退信
+00:21
+[00:56:17] 接收到邮箱eerschen@mail.njust.edu.cn的退信
+00:22
+[00:56:18] 接收到邮箱gma@wust.edu.cn的退信
+00:23
+[00:56:18] 接收到邮箱hua.qian@wico.sh的退信
+00:24
+[00:56:19] 接收到邮箱jing.xu@wico.sh的退信
+00:25
+[00:56:20] 接收到邮箱xiumei.yang@wico.sh的退信
+00:26
+[00:56:21] 接收到邮箱oriental@xinhuanet.com的退信
+[00:56:22] 接收到邮箱yanglun@cug.edu.cn的退信
+00:27
+[00:56:23] 接收到邮箱yanjia@cug.edu.cn的退信
+00:28
+[00:56:23] 接收到邮箱bill@cloudminds.net的退信
+00:29
+[00:56:24] 接收到邮箱yunfan@wachuang.com.cn的退信
+00:30
+[00:56:25] 接收到邮箱zhaochunhua@ctgu.edu.cn的退信
+00:31
+[00:56:26] 接收到邮箱zhbz40@hotmail.com的退信
+[00:56:27] 接收到邮箱zhaodean@xbmu.edu.cn的退信
+00:32
+[00:56:28] 接收到邮箱tlshi@public.wh.hb.cn的退信
+00:33
+[00:56:28] 接收到邮箱graduate@csmu.edu.tw的退信
+00:34
+[00:56:29] 接收到邮箱anho@lipple.co的退信
+00:35
+[00:56:30] 接收到邮箱aval_c@hotmail.com的退信
+00:36
+[00:56:31] 接收到邮箱gateskiller@sina.com的退信
+[00:56:32] 接收到邮箱guofang@mindray.com的退信
+00:37
+[00:56:33] 接收到邮箱shengdl@tup.tsinghua.edu.cn的退信
+00:38
+[00:56:34] 接收到邮箱zengsh@tup.tsinghua.edu.cn的退信
+00:39
+[00:56:34] 接收到邮箱lichanglin_1982@yahoo.com.cn的退信
+00:40
+[00:56:35] 接收到邮箱liuxiangyu@huawei.com的退信
+00:41
+[00:56:36] 接收到邮箱wuhongyan008@hotmail.com的退信
+[00:56:37] 接收到邮箱yule@dian.org.cn的退信
+00:42
+[00:56:38] 接收到邮箱zhoushuang@mindray.com的退信
+00:43
+[00:56:39] 接收到邮箱cywang@chinaequity.net的退信
+00:44
+[00:56:39] 接收到邮箱eric.tong@prospartners.com的退信
+00:45
+[00:56:40] 接收到邮箱grace@batorange.com的退信
+00:46
+[00:56:41] 接收到邮箱guan@miago.net的退信
+00:47
+[00:56:42] 接收到邮箱jason@decentcapital.com的退信
+[00:56:43] 接收到邮箱joe@mfund.com的退信
+00:48
+[00:56:44] 接收到邮箱jun.wang@decentcapital.com的退信
+00:49
+[00:56:44] 接收到邮箱jzhao@cgfcapital.com.cn的退信
+00:50
+[00:56:45] 接收到邮箱karry@zvca.org的退信
+00:51
+[00:56:46] 接收到邮箱ld@doudinghui.com的退信
+00:52
+[00:56:47] 接收到邮箱liang_chang@idgvc.com.cn的退信
+[00:56:48] 接收到邮箱liujing@hustvc.com.cn的退信
+00:53
+[00:56:49] 接收到邮箱louiszhu07@gmail.com的退信
+00:54
+[00:56:49] 接收到邮箱luqun@yunyiinvestment.com的退信
+00:55
+[00:56:50] 接收到邮箱maye@hgtech.com.cn的退信
+00:56
+[00:56:51] 接收到邮箱qifei@roundvc.com的退信
+00:57
+[00:56:52] 接收到邮箱sam.chen@cifm.com的退信
+[00:56:53] 接收到邮箱victor@decentcapital.com的退信
+00:58
+[00:56:54] 接收到邮箱wangmin@hgtech.com.cn的退信
+00:59
+[00:56:54] 接收到邮箱weiqin@chinaequity.net的退信
+00:00
+[00:56:55] 接收到邮箱wj@intebridge.com的退信
+00:01
+[00:56:56] 接收到邮箱wx@chinaequity.net的退信
+00:02
+[00:56:57] 接收到邮箱xuxiaohu@wiio.org.cn的退信
+[00:56:58] 接收到邮箱yuan@zhenfund.com的退信
+00:03
+[00:56:59] 接收到邮箱yuanangen@tenyall.com的退信
+00:04
+[00:56:59] 接收到邮箱yuwenfeng@hgtech.com.cn的退信
+00:05
+[00:57:00] 接收到邮箱db@xinwubao.com的退信
+00:06
+[00:57:01] 接收到邮箱chenye@huapartners.com的退信
+[00:57:02] 接收到邮箱luclan@pe.vc的退信
+[00:57:02] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 01:16:53] Start the program
+2016-08-22 01:16:53
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 01:16:59]
+Get 0 mails from excel.
+[2016/08/22 01:17:00]Start Timer.The timer period is 26666 ms
+[2016/08/22 01:17:02]Timer call back.
+[2016/08/22 01:17:02]
+读取附件成功
+[2016/08/22 01:17:02]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (44, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[01:17:07] 开始接收退信
+[01:17:07] 当前账号: hustoliver@hainan.net
+[01:17:07] 当前账号: oliver@dian.com
+[01:17:07] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[01:17:17] 接收到邮箱binhu@binhurp.com的退信
+[01:17:19] 接收到邮箱htker@139.com的退信
+[01:17:20] 接收到邮箱pengyong@whbi.com.cn的退信
+[01:17:21] 接收到邮箱yanhui.cheng@fminutes.com的退信
+[01:17:21] 接收到邮箱zghg123@sina.com的退信
+[01:17:22] 接收到邮箱eerschen@mail.njust.edu.cn的退信
+[01:17:23] 接收到邮箱gma@wust.edu.cn的退信
+[01:17:24] 接收到邮箱hua.qian@wico.sh的退信
+[01:17:25] 接收到邮箱jing.xu@wico.sh的退信
+[01:17:26] 接收到邮箱xiumei.yang@wico.sh的退信
+[01:17:26] 接收到邮箱oriental@xinhuanet.com的退信
+[01:17:27] 接收到邮箱yanglun@cug.edu.cn的退信
+[01:17:28] 接收到邮箱yanjia@cug.edu.cn的退信
+[01:17:29] 接收到邮箱bill@cloudminds.net的退信
+[01:17:30] 接收到邮箱yunfan@wachuang.com.cn的退信
+[01:17:31] 接收到邮箱zhaochunhua@ctgu.edu.cn的退信
+[01:17:31] 接收到邮箱zhbz40@hotmail.com的退信
+[01:17:32] 接收到邮箱zhaodean@xbmu.edu.cn的退信
+[01:17:33] 接收到邮箱tlshi@public.wh.hb.cn的退信
+[01:17:34] 接收到邮箱graduate@csmu.edu.tw的退信
+[01:17:35] 接收到邮箱anho@lipple.co的退信
+[01:17:36] 接收到邮箱aval_c@hotmail.com的退信
+[01:17:36] 接收到邮箱gateskiller@sina.com的退信
+[01:17:37] 接收到邮箱guofang@mindray.com的退信
+[01:17:38] 接收到邮箱shengdl@tup.tsinghua.edu.cn的退信
+[01:17:39] 接收到邮箱zengsh@tup.tsinghua.edu.cn的退信
+[01:17:40] 接收到邮箱lichanglin_1982@yahoo.com.cn的退信
+[01:17:41] 接收到邮箱liuxiangyu@huawei.com的退信
+[01:17:41] 接收到邮箱wuhongyan008@hotmail.com的退信
+[01:17:42] 接收到邮箱yule@dian.org.cn的退信
+[01:17:43] 接收到邮箱zhoushuang@mindray.com的退信
+[01:17:44] 接收到邮箱cywang@chinaequity.net的退信
+[01:17:45] 接收到邮箱eric.tong@prospartners.com的退信
+[01:17:46] 接收到邮箱grace@batorange.com的退信
+[01:17:46] 接收到邮箱guan@miago.net的退信
+[01:17:47] 接收到邮箱jason@decentcapital.com的退信
+[01:17:48] 接收到邮箱joe@mfund.com的退信
+[01:17:49] 接收到邮箱jun.wang@decentcapital.com的退信
+[01:17:50] 接收到邮箱jzhao@cgfcapital.com.cn的退信
+[01:17:51] 接收到邮箱karry@zvca.org的退信
+[01:17:52] 接收到邮箱ld@doudinghui.com的退信
+[01:17:52] 接收到邮箱liang_chang@idgvc.com.cn的退信
+[01:17:53] 接收到邮箱liujing@hustvc.com.cn的退信
+[01:17:54] 接收到邮箱louiszhu07@gmail.com的退信
+[01:17:55] 接收到邮箱luqun@yunyiinvestment.com的退信
+[01:17:56] 接收到邮箱maye@hgtech.com.cn的退信
+[01:17:57] 接收到邮箱qifei@roundvc.com的退信
+[01:17:57] 接收到邮箱sam.chen@cifm.com的退信
+[01:17:58] 接收到邮箱victor@decentcapital.com的退信
+[01:17:59] 接收到邮箱wangmin@hgtech.com.cn的退信
+[01:18:00] 接收到邮箱weiqin@chinaequity.net的退信
+[01:18:01] 接收到邮箱wj@intebridge.com的退信
+[01:18:02] 接收到邮箱wx@chinaequity.net的退信
+[01:18:02] 接收到邮箱xuxiaohu@wiio.org.cn的退信
+[01:18:03] 接收到邮箱yuan@zhenfund.com的退信
+[01:18:04] 接收到邮箱yuanangen@tenyall.com的退信
+[01:18:05] 接收到邮箱yuwenfeng@hgtech.com.cn的退信
+[01:18:06] 接收到邮箱db@xinwubao.com的退信
+[01:18:07] 接收到邮箱chenye@huapartners.com的退信
+[01:18:07] 接收到邮箱luclan@pe.vc的退信
+[01:18:08] 接收到邮箱chrischan@shangshibang.com的退信
+[01:18:09] 接收到邮箱zhanglijun@yigoucapital.com的退信
+[01:18:10] 接收到邮箱ethen@chuang.ba的退信
+[01:18:11] 接收到邮箱wangdandan@wxo-park.com的退信
+[01:18:12] 接收到邮箱alicewang@shangshibang.com的退信
+[01:18:13] 接收到邮箱wangchangda@hgtech.com.cn的退信
+[01:18:13] 接收到邮箱bibo@esescn.com的退信
+[01:18:14] 接收到邮箱wang.tingjun@71fi.com的退信
+[01:18:15] 接收到邮箱rogers.ji@71fi.com的退信
+[01:18:16] 接收到邮箱yinpeng@angelplus.cn的退信
+[01:18:17] 接收到邮箱zijian.liu@zhulu.vc的退信
+[01:18:18] 接收到邮箱tianye@zamazc.com的退信
+[01:18:18] 接收到邮箱liruxiong@vip.sina.com的退信
+[01:18:19] 接收到邮箱afei@feimalv.com的退信
+[01:18:20] 接收到邮箱jzchen@cyvic.com.cn的退信
+[01:18:21] 接收到邮箱wanxiong@faxianvc.com的退信
+[01:18:22] 接收到邮箱liyangbing@hgtech.com.cn的退信
+[01:18:23] 接收到邮箱yufan@itbour.com的退信
+[01:18:24] 接收到邮箱tjzhao@cyvic.com.cn的退信
+[01:18:24] 接收到邮箱vincentzhuo@zhulu.vc的退信
+[01:18:25] 接收到邮箱bin.jiang@zhulu.vc的退信
+[01:18:26] 接收到邮箱wangw@qhee-ma.com的退信
+[01:18:27] 接收到邮箱tao@zhizhuogroup.com的退信
+[01:18:28] 接收到邮箱yujiao.deng@chinaequity.net的退信
+[01:18:29] 接收到邮箱louiszheng@newmargin.cn的退信
+[01:18:30] 接收到邮箱greece-guo@icloud.com的退信
+[01:18:30] 接收到邮箱lixin@capital-jh.com的退信
+[01:18:31] 接收到邮箱chris@decentcapital.com的退信
+[01:18:32] 接收到邮箱gary@skysaga.com.cn的退信
+[01:18:34] 接收到邮箱hangzs@sihc.com.cn的退信
+[01:18:35] 接收到邮箱raotianlin@dealcapital.cn的退信
+[01:18:35] 接收到邮箱linan@huisfund.com的退信
+[01:18:36] 接收到邮箱zhangfan@huisfund.com的退信
+[01:18:37] 接收到邮箱wzf@doudinghui.com的退信
+[01:18:38] 接收到邮箱zipei.zt@alibaba-inc.com的退信
+[01:18:39] 接收到邮箱zhubo@innovalley.com.cn的退信
+[01:18:40] 接收到邮箱zhongshenghui@cmstop.com的退信
+[01:18:41] 接收到邮箱zhefu.liu@ray-can.com的退信
+[01:18:43] 接收到邮箱zhaojianzhang@skyworth.com的退信
+[01:18:44] 接收到邮箱zhaochun@ycb51.com的退信
+[01:18:45] 接收到邮箱zhangxiaoxiao-hr@360.cn的退信
+[01:18:46] 接收到邮箱zhangli@skyworth.com的退信
+[01:18:47] 接收到邮箱zhangjie@wiio.org.cn的退信
+[01:18:48] 接收到邮箱zhanggong@ggjrw.com的退信
+[01:18:49] 接收到邮箱zhangb@wu-mart.com的退信
+[01:18:50] 接收到邮箱yuyao@youworkshop.cn的退信
+[01:18:51] 接收到邮箱yugu_lee@starpainters.cn的退信
+[01:18:53] 接收到邮箱yubo@innovalley.com.cn的退信
+[01:18:54] 接收到邮箱yt@szyatai.com.cn的退信
+[01:18:55] 接收到邮箱yijiaxin@digis.cn的退信
+[01:18:56] 接收到邮箱yangzhushan@lemao.cc的退信
+[01:18:57] 接收到邮箱yang_minghui@whcwgk.com的退信
+[01:18:58] 接收到邮箱yan.wen@husor.com.cn的退信
+[01:18:59] 接收到邮箱xx@zhihu.com的退信
+[01:19:00] 接收到邮箱xutw@isip.org.cn的退信
+[01:19:01] 接收到邮箱xieyi@520cai.com的退信
+[01:19:02] 接收到邮箱xiaoxu@innovalley.com.cn的退信
+[01:19:03] 接收到邮箱xiaoge.yu@yijiatuo.com的退信
+[01:19:03] 接收到邮箱xianlinbo@wxyztech.com的退信
+[01:19:04] 接收到邮箱xiang.jiying@zte.com的退信
+[01:19:05] 接收到邮箱wuchong@adream.org的退信
+[01:19:06] 接收到邮箱wenyuling@adream.org的退信
+[01:19:07] 接收到邮箱weixiaodong@5ke.com的退信
+[01:19:08] 接收到邮箱wanghao@skyworth.com的退信
+[01:19:09] 接收到邮箱wanghaiyu@hanxinbank.com的退信
+[01:19:10] 接收到邮箱wang.s@ireadygo.com的退信
+[01:19:10] 接收到邮箱vivian@decentcapital.com的退信
+[01:19:11] 接收到邮箱31304992@qq.com的退信
+[01:19:12] 接收到邮箱jingguo.wu@husor.com.cn的退信
+[01:19:13] 接收到邮箱huan.chen@husor.com.cn的退信
+[01:19:15] 接收到邮箱shaofei.gao@fminutes.com的退信
+[01:19:16] 接收到邮箱ruanpeixian@skyworth.com的退信
+[01:19:17] 接收到邮箱qiaomu@skyworth.com的退信
+[01:19:18] 接收到邮箱pengyulong@keepc.com的退信
+[01:19:19] 接收到邮箱pengye@puvsa.org的退信
+[01:19:19] 接收到邮箱pengtao@breadtrip.com的退信
+[01:19:20] 接收到邮箱bill.chenshuzhi@hotmail.com的退信
+[01:19:21] 接收到邮箱kimi.kang@innovalley.com.cn的退信
+[01:19:22] 接收到邮箱jun.ge@intel.com的退信
+[01:19:23] 接收到邮箱joan_wang@trendmicro.com.cn的退信
+[01:19:24] 接收到邮箱jinglongzhou@gwc.net的退信
+[01:19:24] 接收到邮箱jinglin@skyworth.com的退信
+[01:19:25] 接收到邮箱jing.huang@renren-inc.com的退信
+[01:19:26] 接收到邮箱jason.jiang@transn.com的退信
+[01:19:27] 接收到邮箱jackyang@shitouyouxi.com的退信
+[01:19:28] 接收到邮箱gracexu@chuangxin.com的退信
+[01:19:29] 接收到邮箱faray@hahanongchang.com的退信
+[01:19:31] 接收到邮箱fangwei@whbi.com.cn的退信
+[01:19:31] 接收到邮箱miranda@yunshipei.com的退信
+[01:19:32] 接收到邮箱minnie@lvdora.com的退信
+[01:19:33] 接收到邮箱mily.jiang@mslgroup.com的退信
+[01:19:34] 接收到邮箱ljc@fangdd.com的退信
+[01:19:35] 接收到邮箱liuchao@ifensi.com的退信
+[01:19:36] 接收到邮箱maoxin@wiio.org.cn的退信
+[01:19:37] 接收到邮箱hzy@lvban365.com的退信
+[01:19:37] 接收到邮箱hyuan@kamudatech.com的退信
+[01:19:38] 接收到邮箱huolilong@medsci-tech.com的退信
+[01:19:39] 接收到邮箱hubin@adream.org的退信
+[01:19:40] 接收到邮箱hp@e-works.net.cn的退信
+[01:19:41] 接收到邮箱huanghe@leiyoo.com的退信
+[01:19:42] 接收到邮箱gudikang@umeng.com的退信
+[01:19:43] 接收到邮箱haichuan_qian@trendmicro.com.cn的退信
+[01:19:44] 接收到邮箱viola.lh@chinaequity.net的退信
+[01:19:44] 接收到邮箱topaz.hj@chasingtimes.com的退信
+[01:19:45] 接收到邮箱tangbao@profeta.cn的退信
+[01:19:46] 接收到邮箱t@jihua.fm的退信
+[01:19:47] 接收到邮箱sunny_zhang@trendmicro.com.cn的退信
+[01:19:48] 接收到邮箱sun@mail.ccnu.edu.cn的退信
+[01:19:49] 接收到邮箱stone@j7game.com的退信
+[01:19:50] 接收到邮箱shirley@adream.org的退信
+[01:19:50] 接收到邮箱jjzhuang@nju.edu.cn的退信
+[01:19:50] 接收到邮箱tangmin@youcheng.org的退信
+[01:19:50] 接收到邮箱zhagnjian@nash.work的退信
+[01:19:50] 接收到邮箱wangbo@nash.work的退信
+[01:19:51] 接收到邮箱steve@fgventure.com的退信
+[01:19:51] 接收到邮箱lpy@leadingcapital.com.cn的退信
+[01:19:51] 接收到邮箱wxq@cynda.cn的退信
+[01:19:52] 接收到邮箱dragonfu@didiapp.com的退信
+[01:19:52] 接收到邮箱wei.huang@welian.com的退信
+[01:19:52] 接收到邮箱henry.peng@sktplatform.org的退信
+[01:19:52] 接收到邮箱pm@ielyn.com的退信
+[01:19:52] 接收到邮箱victor@feimalv.com的退信
+[01:19:52] 接收到邮箱wangatie@coscico.com的退信
+[01:19:53] 接收到邮箱zhangmading@kags.com的退信
+[01:19:53] 接收到邮箱fanfengkai@fluoimaging.cn的退信
+[01:19:53] 接收到邮箱yehan@yeshorizon.org的退信
+[01:19:53] 接收到邮箱cruise@aoetech.cn的退信
+[01:19:53] 接收到邮箱guowei_gw2005@hotmail.com的退信
+[01:19:53] 接收到邮箱terryyao@capitaltoday.com的退信
+[01:19:54] 接收到邮箱dengpei@djsgyy.com的退信
+[01:19:54] 接收到邮箱caixueyong@chuangxin.com的退信
+[01:19:54] 接收到邮箱daigeng@netfinworks.com的退信
+[01:19:54] 接收到邮箱cathy.ju@epichust.com的退信
+[01:19:54] 接收到邮箱chenji@sino-wedo.com的退信
+[01:19:54] 接收到邮箱chenjin@hiyo.ren的退信
+[01:19:54] 接收到邮箱cherry.song@utstarcom.cn的退信
+[01:19:55] 接收到邮箱charco@tusdk.com的退信
+[01:19:55] 接收到邮箱caizongchi@tsingyuanvc.com的退信
+[01:19:55] 接收到邮箱chenfei01@skyworth.com的退信
+[01:19:55] 接收到邮箱zhangjing@xtu.edu.cn的退信
+[01:19:55] 接收到邮箱luolb@ige-live.com的退信
+[01:19:55] 接收到邮箱liuzexuan@imxiaomai.com的退信
+[01:19:56] 接收到邮箱cdpeng@hundsun.com的退信
+[01:19:56] 接收到邮箱xxwang@uniquedu.com的退信
+[01:19:56] 接收到邮箱xiaocai@juanpi.com的退信
+[01:19:56] 接收到邮箱cathyli@tengchu.com的退信
+[01:19:56] 接收到邮箱767827819@163.com的退信
+[01:19:56] 接收到邮箱zhuzhenshi@sina.com的退信
+[01:19:56] 接收到邮箱chuzhs@edumail.com.cn的退信
+[01:19:57] 接收到邮箱wangying@mail.maipu.com的退信
+[01:19:57] 接收到邮箱shujun@ssreader.com的退信
+[01:19:57] 接收到邮箱jp.xue@makercas.com的退信
+[01:19:57] 接收到邮箱james@thinkingcloud.cn的退信
+[01:19:57] 接收到邮箱guangyang.li@6chuang.com的退信
+[01:19:57] 接收到邮箱ytwang@gaoxiaobang.com的退信
+[01:19:58] 接收到邮箱lgh@mizhai.com的退信
+[01:19:58] 接收到邮箱xwyue@uniquedu.com的退信
+[01:19:58] 接收到邮箱mzeng@uniquedu.com的退信
+[01:19:58] 接收到邮箱daiht@qhee-ma.com的退信
+[01:19:58] 接收到邮箱gracewang@winnergame.com的退信
+[01:19:58] 接收到邮箱pengxiaojuan@tianyinculture.com的退信
+[01:19:58] 接收到邮箱zhangchao@sdhhxx.com的退信
+[01:19:59] 接收到邮箱joe@winnergame.com的退信
+[01:19:59] 接收到邮箱xiangxueke@wanxiangsmart.com的退信
+[01:19:59] 接收到邮箱catherine@educool.cn的退信
+[01:19:59] 接收到邮箱chenxu@ifanr.com的退信
+[01:19:59] 接收到邮箱fp@hopefound.cn的退信
+[01:19:59] 接收到邮箱ganyx@hep.com.cn的退信
+[01:20:00] 接收到邮箱huangyaohua@eqingyu.com的退信
+[01:20:00] 接收到邮箱helen@wanguk.com的退信
+[01:20:00] 接收到邮箱houzhany@hotmail.com的退信
+[01:20:00] 接收到邮箱shuang@bochk.com的退信
+[01:20:00] 接收到邮箱wangchuangliang@imxiaomai.com的退信
+[01:20:00] 接收到邮箱x-huang@northwestern.edu的退信
+[01:20:00] 接收到邮箱yuweihua@hwvc.net的退信
+[01:20:01] 接收到邮箱luckyadam@sicun.org的退信
+[01:20:01] 接收到邮箱amtdlx@vip.qq.com的退信
+[01:20:01] 接收到邮箱henryc@cynovogroup.com的退信
+[01:20:01] 接收到邮箱fyzb@2008.sina.com的退信
+[01:20:01] 接收到邮箱bailiang@bingyan.net的退信
+[01:20:01] 接收到邮箱miaoling82@sina.com的退信
+[01:20:01] 接收到邮箱dongjianxu@wisewater.com.cn的退信
+[01:20:02] 接收到邮箱star_sun82@hotmail.com的退信
+[01:20:02] 接收到邮箱helen.hll@hotmail.com的退信
+[01:20:02] 接收到邮箱jasonwillams979@hotmail.com的退信
+[01:20:02] 接收到邮箱j.huo@ed.ac.uk的退信
+[01:20:02] 接收到邮箱raymond.ng@idt.com的退信
+[01:20:02] 接收到邮箱18062410786@189.cn的退信
+[01:20:02] 接收到邮箱michaelm@licap.cn的退信
+[01:20:03] 接收到邮箱zhouluxilucy@bingyan.net的退信
+[01:20:03] 接收到邮箱lijunyao@sicun.org的退信
+[01:20:03] 接收到邮箱px@bingyan.net的退信
+[01:20:03] 接收到邮箱liuziyang@bingyan.net的退信
+[01:20:03] 接收到邮箱www@bingyan.net的退信
+[01:20:03] 接收到邮箱yaojg@liuhecapical.com的退信
+[01:20:04] 接收到邮箱nn@zxgdc.com的退信
+[01:20:04] 接收到邮箱shenll@newjinpartners.com的退信
+[01:20:04] 接收到邮箱bob@chuangancap.com的退信
+[01:20:04] 接收到邮箱weiqin@chinaquity.net的退信
+[01:20:04] 接收到邮箱yufeizheng@tecent.com的退信
+[01:20:04] 接收到邮箱derekzhu@tecent.com的退信
+[01:20:04] 接收到邮箱dandywang@hp-telecom.com的退信
+[01:20:05] 接收到邮箱cyl_liucl@ujn.edu.cn的退信
+[01:20:05] 接收到邮箱allen@clostyle.com的退信
+[01:20:05] 接收到邮箱andy@demoplusplus.com的退信
+[01:20:05] 接收到邮箱haiyang.xie@clostyle.com的退信
+[01:20:05] 接收到邮箱yima@tecent.com的退信
+[01:20:05] 接收到邮箱ruoyu.wang@vc.com的退信
+[01:20:05] 接收到邮箱niuyan@hp-telecom.com的退信
+[01:20:06] 接收到邮箱hhuang@shyp.gov.vn的退信
+[01:20:06] 接收到邮箱oul@gsta.com的退信
+[01:20:06] 接收到邮箱yan_bai@lycos.com的退信
+[01:20:06] 接收到邮箱chho@drc.gov.cn的退信
+[01:20:06] 接收到邮箱fengyun@fyinstr.com的退信
+[01:20:06] 接收到邮箱guyuan@ahaer.net的退信
+[01:20:06] 接收到邮箱dainenci@public.wh.hb.cn的退信
+[01:20:07] 接收到邮箱chenjunhua1968@yahoo.com.cn的退信
+[01:20:07] 接收到邮箱csliu@mail.neu.edu.cn的退信
+[01:20:08] 接收到邮箱dly0119@sxu.edu.cn的退信
+[01:20:08] 接收到邮箱dwb@xtu.edu.cn的退信
+[01:20:09] 接收到邮箱feng_1128@sohu.com的退信
+[01:20:09] 接收到邮箱guoyaqiong@educool.cn的退信
+[01:20:09] 接收到邮箱lixn@mail.ccnu.edu.cn的退信
+[01:20:10] 接收到邮箱liyu@yinhong.org.cn的退信
+[01:20:10] 接收到邮箱lizhongqiu@jgskl.com的退信
+[01:20:10] 接收到邮箱zhangnju@nju.edu.cn的退信
+[01:21:03] 接收到邮箱zhanghetian@tianherh.com的退信
+[01:21:11] 接收到邮箱y@vctmt.com的退信
+[01:21:12] 接收到邮箱panyuchen@tianherh.com的退信
+[01:21:30] 接收到邮箱xia.dai@alcatel-lucent.com的退信
+[01:21:41] 接收到邮箱mamx@lngfund.com的退信
+[01:22:02] 接收到邮箱yuchen.jiang@husor.com的退信
+[01:22:02] 接收到邮箱liuweiguo@wzhouhui.com的退信
+[01:22:02] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 01:22:33] Start the program
+2016-08-22 01:22:34
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 01:22:37]
+Get 0 mails from excel.
+[2016/08/22 01:22:42]Start Timer.The timer period is 26666 ms
+[2016/08/22 01:22:44]Timer call back.
+[2016/08/22 01:22:44]
+读取附件成功
+[2016/08/22 01:22:44]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (44, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[01:22:47] 开始接收退信
+[01:22:47] 当前账号: hustoliver@hainan.net
+[01:22:47] 当前账号: oliver@dian.com
+[01:22:47] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[01:22:58] 接收到邮箱binhu@binhurp.com的退信
+[01:22:59] 接收到邮箱htker@139.com的退信
+[01:23:00] 接收到邮箱pengyong@whbi.com.cn的退信
+[01:23:01] 接收到邮箱yanhui.cheng@fminutes.com的退信
+[01:23:02] 接收到邮箱zghg123@sina.com的退信
+[01:23:03] 接收到邮箱eerschen@mail.njust.edu.cn的退信
+[01:23:04] 接收到邮箱gma@wust.edu.cn的退信
+[01:23:04] 接收到邮箱hua.qian@wico.sh的退信
+[01:23:05] 接收到邮箱jing.xu@wico.sh的退信
+[01:23:06] 接收到邮箱xiumei.yang@wico.sh的退信
+[01:23:07] 接收到邮箱oriental@xinhuanet.com的退信
+[01:23:08] 接收到邮箱yanglun@cug.edu.cn的退信
+[01:23:09] 接收到邮箱yanjia@cug.edu.cn的退信
+[01:23:09] 接收到邮箱bill@cloudminds.net的退信
+[01:23:10] 接收到邮箱yunfan@wachuang.com.cn的退信
+[01:23:11] 接收到邮箱zhaochunhua@ctgu.edu.cn的退信
+[01:23:12] 接收到邮箱zhbz40@hotmail.com的退信
+[01:23:13] 接收到邮箱zhaodean@xbmu.edu.cn的退信
+[01:23:14] 接收到邮箱tlshi@public.wh.hb.cn的退信
+[01:23:14] 接收到邮箱graduate@csmu.edu.tw的退信
+[01:23:15] 接收到邮箱anho@lipple.co的退信
+[01:23:16] 接收到邮箱aval_c@hotmail.com的退信
+[01:23:17] 接收到邮箱gateskiller@sina.com的退信
+[01:23:18] 接收到邮箱guofang@mindray.com的退信
+[01:23:19] 接收到邮箱shengdl@tup.tsinghua.edu.cn的退信
+[01:23:19] 接收到邮箱zengsh@tup.tsinghua.edu.cn的退信
+[01:23:20] 接收到邮箱lichanglin_1982@yahoo.com.cn的退信
+[01:23:21] 接收到邮箱liuxiangyu@huawei.com的退信
+[01:23:22] 接收到邮箱wuhongyan008@hotmail.com的退信
+[01:23:23] 接收到邮箱yule@dian.org.cn的退信
+[01:23:24] 接收到邮箱zhoushuang@mindray.com的退信
+[01:23:25] 接收到邮箱cywang@chinaequity.net的退信
+[01:23:25] 接收到邮箱eric.tong@prospartners.com的退信
+[01:23:26] 接收到邮箱grace@batorange.com的退信
+[01:23:27] 接收到邮箱guan@miago.net的退信
+[01:23:28] 接收到邮箱jason@decentcapital.com的退信
+[01:23:29] 接收到邮箱joe@mfund.com的退信
+[01:23:30] 接收到邮箱jun.wang@decentcapital.com的退信
+[01:23:31] 接收到邮箱jzhao@cgfcapital.com.cn的退信
+[01:23:31] 接收到邮箱karry@zvca.org的退信
+[01:23:32] 接收到邮箱ld@doudinghui.com的退信
+[01:23:33] 接收到邮箱liang_chang@idgvc.com.cn的退信
+[01:23:34] 接收到邮箱liujing@hustvc.com.cn的退信
+[01:23:35] 接收到邮箱louiszhu07@gmail.com的退信
+[01:23:36] 接收到邮箱luqun@yunyiinvestment.com的退信
+[01:23:37] 接收到邮箱maye@hgtech.com.cn的退信
+[01:23:37] 接收到邮箱qifei@roundvc.com的退信
+[01:23:38] 接收到邮箱sam.chen@cifm.com的退信
+[01:23:39] 接收到邮箱victor@decentcapital.com的退信
+[01:23:40] 接收到邮箱wangmin@hgtech.com.cn的退信
+[01:23:41] 接收到邮箱weiqin@chinaequity.net的退信
+[01:23:42] 接收到邮箱wj@intebridge.com的退信
+[01:23:42] 接收到邮箱wx@chinaequity.net的退信
+[01:23:43] 接收到邮箱xuxiaohu@wiio.org.cn的退信
+[01:23:44] 接收到邮箱yuan@zhenfund.com的退信
+[01:23:45] 接收到邮箱yuanangen@tenyall.com的退信
+[01:23:46] 接收到邮箱yuwenfeng@hgtech.com.cn的退信
+[01:23:47] 接收到邮箱db@xinwubao.com的退信
+[01:23:48] 接收到邮箱chenye@huapartners.com的退信
+[01:23:49] 接收到邮箱luclan@pe.vc的退信
+[01:23:49] 接收到邮箱chrischan@shangshibang.com的退信
+[01:23:50] 接收到邮箱zhanglijun@yigoucapital.com的退信
+[01:23:51] 接收到邮箱ethen@chuang.ba的退信
+[01:23:52] 接收到邮箱wangdandan@wxo-park.com的退信
+[01:23:53] 接收到邮箱alicewang@shangshibang.com的退信
+[01:23:54] 接收到邮箱wangchangda@hgtech.com.cn的退信
+[01:23:55] 接收到邮箱bibo@esescn.com的退信
+[01:23:55] 接收到邮箱wang.tingjun@71fi.com的退信
+[01:23:56] 接收到邮箱rogers.ji@71fi.com的退信
+[01:23:57] 接收到邮箱yinpeng@angelplus.cn的退信
+[01:23:58] 接收到邮箱zijian.liu@zhulu.vc的退信
+[01:23:59] 接收到邮箱tianye@zamazc.com的退信
+[01:24:00] 接收到邮箱liruxiong@vip.sina.com的退信
+[01:24:01] 接收到邮箱afei@feimalv.com的退信
+[01:24:01] 接收到邮箱jzchen@cyvic.com.cn的退信
+[01:24:02] 接收到邮箱wanxiong@faxianvc.com的退信
+[01:24:03] 接收到邮箱liyangbing@hgtech.com.cn的退信
+[01:24:04] 接收到邮箱yufan@itbour.com的退信
+[01:24:05] 接收到邮箱tjzhao@cyvic.com.cn的退信
+[01:24:06] 接收到邮箱vincentzhuo@zhulu.vc的退信
+[01:24:07] 接收到邮箱bin.jiang@zhulu.vc的退信
+[01:24:07] 接收到邮箱wangw@qhee-ma.com的退信
+[01:24:08] 接收到邮箱tao@zhizhuogroup.com的退信
+[01:24:09] 接收到邮箱yujiao.deng@chinaequity.net的退信
+[01:24:10] 接收到邮箱louiszheng@newmargin.cn的退信
+[01:24:11] 接收到邮箱greece-guo@icloud.com的退信
+[01:24:12] 接收到邮箱lixin@capital-jh.com的退信
+[01:24:13] 接收到邮箱chris@decentcapital.com的退信
+[01:24:13] 接收到邮箱gary@skysaga.com.cn的退信
+[01:24:14] 接收到邮箱hangzs@sihc.com.cn的退信
+[01:24:15] 接收到邮箱raotianlin@dealcapital.cn的退信
+[01:24:16] 接收到邮箱linan@huisfund.com的退信
+[01:24:17] 接收到邮箱zhangfan@huisfund.com的退信
+[01:24:18] 接收到邮箱wzf@doudinghui.com的退信
+[01:24:18] 接收到邮箱zipei.zt@alibaba-inc.com的退信
+[01:24:19] 接收到邮箱zhubo@innovalley.com.cn的退信
+[01:24:20] 接收到邮箱zhongshenghui@cmstop.com的退信
+[01:24:21] 接收到邮箱zhefu.liu@ray-can.com的退信
+[01:24:22] 接收到邮箱zhaojianzhang@skyworth.com的退信
+[01:24:23] 接收到邮箱zhaochun@ycb51.com的退信
+[01:24:24] 接收到邮箱zhangxiaoxiao-hr@360.cn的退信
+[01:24:24] 接收到邮箱zhangli@skyworth.com的退信
+[01:24:25] 接收到邮箱zhangjie@wiio.org.cn的退信
+[01:24:26] 接收到邮箱zhanggong@ggjrw.com的退信
+[01:24:27] 接收到邮箱zhangb@wu-mart.com的退信
+[01:24:28] 接收到邮箱yuyao@youworkshop.cn的退信
+[01:24:29] 接收到邮箱yugu_lee@starpainters.cn的退信
+[01:24:30] 接收到邮箱yubo@innovalley.com.cn的退信
+[01:24:30] 接收到邮箱yt@szyatai.com.cn的退信
+[01:24:31] 接收到邮箱yijiaxin@digis.cn的退信
+[01:24:32] 接收到邮箱yangzhushan@lemao.cc的退信
+[01:24:33] 接收到邮箱yang_minghui@whcwgk.com的退信
+[01:24:34] 接收到邮箱yan.wen@husor.com.cn的退信
+[01:24:35] 接收到邮箱xx@zhihu.com的退信
+[01:24:36] 接收到邮箱xutw@isip.org.cn的退信
+[01:24:36] 接收到邮箱xieyi@520cai.com的退信
+[01:24:37] 接收到邮箱xiaoxu@innovalley.com.cn的退信
+[01:24:38] 接收到邮箱xiaoge.yu@yijiatuo.com的退信
+[01:24:39] 接收到邮箱xianlinbo@wxyztech.com的退信
+[01:24:40] 接收到邮箱xiang.jiying@zte.com的退信
+[01:24:41] 接收到邮箱wuchong@adream.org的退信
+[01:24:42] 接收到邮箱wenyuling@adream.org的退信
+[01:24:42] 接收到邮箱weixiaodong@5ke.com的退信
+[01:24:43] 接收到邮箱wanghao@skyworth.com的退信
+[01:24:44] 接收到邮箱wanghaiyu@hanxinbank.com的退信
+[01:24:45] 接收到邮箱wang.s@ireadygo.com的退信
+[01:24:46] 接收到邮箱vivian@decentcapital.com的退信
+[01:24:47] 接收到邮箱31304992@qq.com的退信
+[01:24:48] 接收到邮箱jingguo.wu@husor.com.cn的退信
+[01:24:48] 接收到邮箱huan.chen@husor.com.cn的退信
+[01:24:49] 接收到邮箱shaofei.gao@fminutes.com的退信
+[01:24:50] 接收到邮箱ruanpeixian@skyworth.com的退信
+[01:24:51] 接收到邮箱qiaomu@skyworth.com的退信
+[01:24:52] 接收到邮箱pengyulong@keepc.com的退信
+[01:24:53] 接收到邮箱pengye@puvsa.org的退信
+[01:24:53] 接收到邮箱pengtao@breadtrip.com的退信
+[01:24:53] 终止接收退信操作
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 01:25:39] Start the program
+2016-08-22 01:25:39
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 01:25:41]
+Get 0 mails from excel.
+[2016/08/22 01:25:42]Start Timer.The timer period is 26666 ms
+[2016/08/22 01:25:44]Timer call back.
+[2016/08/22 01:25:44]
+读取附件成功
+[2016/08/22 01:25:44]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (44, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[01:28:07] 开始接收退信
+[01:28:07] 当前账号: hustoliver@hainan.net
+[01:28:07] 当前账号: oliver@dian.com
+[01:28:07] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[01:28:17] 接收到邮箱binhu@binhurp.com的退信
+[01:28:17] 终止接收退信操作
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/22 01:28:32] Start the program
+2016-08-22 01:28:32
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [7], col_name = D, sender_name = 陈美丽
+Speed each hour = 45, each time = 1
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/22 01:28:36]
+Get 0 mails from excel.
+[2016/08/22 01:28:37]Start Timer.The timer period is 26666 ms
+[2016/08/22 01:28:39]Timer call back.
+[2016/08/22 01:28:39]
+读取附件成功
+[2016/08/22 01:28:39]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (44, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[01:28:43] 开始接收退信
+[01:28:43] 当前账号: hustoliver@hainan.net
+[01:28:43] 当前账号: oliver@dian.com
+[01:28:43] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+IMAP select dir /&e4BipZAAi6KQrk72-
+IMAP select dir /&fPt+35AAT+E-
+Get imap start num = 1, datetime = 2016-06-01 10:16:15
+[01:28:53] 接收到邮箱binhu@binhurp.com的退信
+[01:28:55] 接收到邮箱htker@139.com的退信
+[01:28:55] 接收到邮箱pengyong@whbi.com.cn的退信
+[01:28:56] 接收到邮箱yanhui.cheng@fminutes.com的退信
+[01:28:57] 接收到邮箱zghg123@sina.com的退信
+[01:28:58] 接收到邮箱eerschen@mail.njust.edu.cn的退信
+[01:28:59] 接收到邮箱gma@wust.edu.cn的退信
+[01:29:00] 接收到邮箱hua.qian@wico.sh的退信
+[01:29:00] 接收到邮箱jing.xu@wico.sh的退信
+[01:29:01] 接收到邮箱xiumei.yang@wico.sh的退信
+[01:29:02] 接收到邮箱oriental@xinhuanet.com的退信
+[01:29:03] 接收到邮箱yanglun@cug.edu.cn的退信
+[01:29:04] 接收到邮箱yanjia@cug.edu.cn的退信
+[01:29:05] 接收到邮箱bill@cloudminds.net的退信
+[01:29:06] 接收到邮箱yunfan@wachuang.com.cn的退信
+[01:29:06] 接收到邮箱zhaochunhua@ctgu.edu.cn的退信
+[01:29:07] 接收到邮箱zhbz40@hotmail.com的退信
+[01:29:08] 接收到邮箱zhaodean@xbmu.edu.cn的退信
+[01:29:09] 接收到邮箱tlshi@public.wh.hb.cn的退信
+[01:29:10] 接收到邮箱graduate@csmu.edu.tw的退信
+[01:29:11] 接收到邮箱anho@lipple.co的退信
+[01:29:11] 接收到邮箱aval_c@hotmail.com的退信
+[01:29:12] 接收到邮箱gateskiller@sina.com的退信
+[01:29:13] 接收到邮箱guofang@mindray.com的退信
+[01:29:14] 接收到邮箱shengdl@tup.tsinghua.edu.cn的退信
+[01:29:15] 接收到邮箱zengsh@tup.tsinghua.edu.cn的退信
+[01:29:16] 接收到邮箱lichanglin_1982@yahoo.com.cn的退信
+[01:29:17] 接收到邮箱liuxiangyu@huawei.com的退信
+[01:29:18] 接收到邮箱wuhongyan008@hotmail.com的退信
+[01:29:19] 接收到邮箱yule@dian.org.cn的退信
+[01:29:20] 接收到邮箱zhoushuang@mindray.com的退信
+[01:29:21] 接收到邮箱cywang@chinaequity.net的退信
+[01:29:22] 接收到邮箱eric.tong@prospartners.com的退信
+[01:29:23] 接收到邮箱grace@batorange.com的退信
+[01:29:24] 接收到邮箱guan@miago.net的退信
+[01:29:25] 接收到邮箱jason@decentcapital.com的退信
+[01:29:26] 接收到邮箱joe@mfund.com的退信
+[01:29:26] 接收到邮箱jun.wang@decentcapital.com的退信
+[01:29:27] 接收到邮箱jzhao@cgfcapital.com.cn的退信
+[01:29:28] 接收到邮箱karry@zvca.org的退信
+[01:29:29] 接收到邮箱ld@doudinghui.com的退信
+[01:29:30] 接收到邮箱liang_chang@idgvc.com.cn的退信
+[01:29:31] 接收到邮箱liujing@hustvc.com.cn的退信
+[01:29:31] 终止接收退信操作

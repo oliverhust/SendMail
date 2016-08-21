@@ -685,8 +685,8 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr):
         m = minute
         s = second
         if s >= 60:
+            m += int(s / 60)
             s %= 60
-            m += s / 60
         if m > 99:
             m = 99
             s = 99
