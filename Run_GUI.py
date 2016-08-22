@@ -633,6 +633,7 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr):
         self.set_lcd_time(lcd_minute, lcd_second)
         self._init_table()
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_stop_ndr)
+        self.connect(self.pushButton_Save, SIGNAL("clicked()"), self.slot_save_excel)
 
         # 定时刷新时间
         self._timer_refresh_lcd = QTimer()
@@ -663,6 +664,17 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr):
             info = u"如果你想重试退信的邮件，可以修改发送信息然后再次开始"
             QMessageBox.information(self, u"Information", QString(info))
             self.accept()
+
+    def slot_save_excel(self):
+        if not self._has_press_pause:
+            info = u"保存表格之前请先停止接收退信"
+            QMessageBox.warning(self, u"Information", QString(info))
+        else:
+            # 【【【【调用GUI的事件处理函数: 保存退信】】】】
+            if self._GUIProc is not None:
+                err, err_info = self._GUIProc.event_save_ndr_to_excel()
+                if err != 0:
+                    QMessageBox.warning(self, u"Error", QString(err_info))
 
     def add_one_row(self, mail, suggest, more_info):
         old_row_count = self.tableWidget.rowCount()

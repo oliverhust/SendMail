@@ -51,7 +51,7 @@
    <property name="geometry">
     <rect>
      <x>450</x>
-     <y>20</y>
+     <y>30</y>
      <width>541</width>
      <height>171</height>
     </rect>
@@ -65,12 +65,15 @@
    <property name="toolTip">
     <string>建议&quot;已等待退信时间&quot;大于15分钟后停止接收退信</string>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>30</y>
+     <x>180</x>
+     <y>20</y>
      <width>151</width>
      <height>61</height>
     </rect>
@@ -110,8 +113,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>30</y>
+     <x>360</x>
+     <y>20</y>
      <width>51</width>
      <height>61</height>
     </rect>
@@ -129,8 +132,8 @@
   <widget class="QLabel" name="label_NdrNum">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>30</y>
+     <x>270</x>
+     <y>20</y>
      <width>71</width>
      <height>61</height>
     </rect>
@@ -151,8 +154,8 @@
   <widget class="QLCDNumber" name="lcdNumber">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>110</y>
+     <x>180</x>
+     <y>120</y>
      <width>251</width>
      <height>81</height>
     </rect>
@@ -167,10 +170,10 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>120</y>
+     <x>180</x>
+     <y>80</y>
      <width>141</width>
-     <height>61</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -183,7 +186,32 @@
     <string>建议该时间大于15分钟后停止接收退信</string>
    </property>
    <property name="text">
-    <string>已等待退信时间</string>
+    <string>已等待退信时间：</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Save">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>130</y>
+     <width>111</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Malgun Gothic Semilight</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>停止之后才能保存表格</string>
+   </property>
+   <property name="text">
+    <string>保存表格</string>
    </property>
   </widget>
  </widget>

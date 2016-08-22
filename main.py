@@ -10,6 +10,7 @@ import random
 import datetime
 import copy
 import xlrd
+import xlwt
 import smtplib
 import imaplib
 import email
@@ -308,7 +309,7 @@ class SimpleMatrix:
         return self._success_num, self._failed_num, self._not_send_num
 
 
-class Excel:
+class ExcelRead:
     """ Excel表格的读取等 """
     def __init__(self, xls_path):
         self._Path = xls_path
@@ -361,7 +362,7 @@ class XlsMatrix:
         self._SelectedSheets = []
         self._MailDB = mail_db
 
-        self._excel = Excel(xls_path)
+        self._excel = ExcelRead(xls_path)
         self._mails_not_sent = []   # 待发送的
         self._mails_has_sent = []
         self._mails_sent_failed = []
@@ -1090,8 +1091,16 @@ class UIInterface:
         self._delete_mail_objects()
 
     def event_user_cancel_ndr(self):
+        # 用户停止接收退信
         self._timer.stop()
         self._ndr.stop_proc()
+        self._ndr_refresh_table()
+
+    def event_save_ndr_to_excel(self):
+        # 保存退信到表格   保存表格之前请先停止接收退信
+        excel = ExcelWrite()
+        ndr_data_list = self._ndr.get_all_ndr_data()
+        return excel.save_ndr_data(ndr_data_list)
 
     @staticmethod
     def check_account_login(user_name, passwd, host):
@@ -1227,10 +1236,13 @@ class UIInterface:
         self._timer.stop()
         self._ndr.stop_proc()
 
-    def __ndr_timer_callback(self):
-        # 定时器的回调函数里面不要出现阻塞性任务，在阻塞过程中可能超时又再次回调，或者被别的定时器抢占
+    def _ndr_refresh_table(self):
         err_info, ndr_data_list, ndr_all_count, has_finish_a_loop = self._ndr.get_data()
         self.proc_ndr_refresh_data(err_info, ndr_data_list, ndr_all_count, has_finish_a_loop)
+
+    def __ndr_timer_callback(self):
+        # 定时器的回调函数里面不要出现阻塞性任务，在阻塞过程中可能超时又再次回调，或者被别的定时器抢占
+        self._ndr_refresh_table()
 
     # ----------------------------- GUI 要重写的接口 -------------------------------------
     def proc_err_before_load(self, err, err_info):
@@ -1335,7 +1347,7 @@ class RecvImap:
         try:
             self._m.login(self._User, self._Passwd)
         except Exception, e:
-            err = ERROR_IMAP_LOGGIN_FAILED
+            err = ERROR_IMAP_LOGIN_FAILED
             err_info = u"账号{}登录失败: {}".format(self._User, e)
         return err, err_info
 
@@ -1487,18 +1499,19 @@ class NdrContent:
     NDR_DICT = {"hust.edu.cn": (HUST_PATT, "postmaster@hust.edu.cn")}
     SUGGEST = [(r'DNS query error', u'收件人有误：域名错误'),
                (r'try another server', u"对方原服务器不存在"),
-               (r'((user|mailbox|account|recipient).* (not exist|not found|disabled|unavailable|unknown))|'
+               (r"can't receive outdomain", u"对方无法接收外域邮件"),
+               (r'((user|mailbox|account|recipient).*(not exist|not found|disabled|unavailable|unknown|suspended))|'
                 r'Invalid recipient|no such user', u'收件人不存在'),
-               (r'Quota exceeded|size exceed|mailbox.* full|exceed.* limit', u'对方邮箱已满或禁用'),
+               (r'Quota exceeded|size exceed|mailbox.* full|exceed.* limit|over quota', u'对方邮箱已满或禁用'),
                (r'user locked', u"收件人账户被锁定"),
                (r'too many recipient', u"单封邮件收件人过多"),
                (r'MX query return retry', u'MX解析错误，尝试重发'),
                (r'Connection frequency|frequency limited', u"发信服务器被拒:连接频繁"),
                (r'Can not connect|Connection timed out|Connection.* fail', u"无法连接该邮箱域名"),
-               (r'Service unavailable .* Client host .* blocked', u'发信服务器被加入黑名单'),
-               (r'IP .* block list|Invalid IP', u'发信服务器IP地址被封'),
+               (r'Service unavailable.*Client Host.*blocked', u'发信服务器被加入黑名单'),
+               (r'IP .* block list|Invalid IP|addr.* blacklist|black ip', u'发信服务器IP地址被封'),
                (r'Address rejected', u"发信服务器被拒"),
-               (r'sending MTA\'s poor reputation', u"被对方认为垃圾邮件"),
+               (r"sending MTA's poor reputation", u"被对方认为垃圾邮件"),
                (r'domain is notwelcome|Connection refused|Relaying denied|spam|spammers', u'被对方服务器拒收'),
                ]
 
@@ -1596,6 +1609,9 @@ class NdrProc(threading.Thread):
         self._err_info = u""
         self._lock.release()
         return ret
+
+    def get_all_ndr_data(self):
+        return self._ndr_data
 
     def stop_proc(self):
         # 尝试停止和等待子线程
@@ -1742,6 +1758,96 @@ class NdrProc(threading.Thread):
                     break
         return ret
 
+
+class ExcelWrite:
+    """ 写Excel表格  """
+    def __init__(self, xls_path=None):
+        self._Path = xls_path
+
+        self._wb = None
+        self._sheet = None
+
+        # 字体样式
+        self._s_head = None
+        self._s_data = None
+
+    def save_ndr_data(self, ndr_data_list):
+        self._ndr_init()
+        self._ndr_write(ndr_data_list)
+        err, err_info = self._ndr_save()
+        if ERROR_SUCCESS != err:
+            return err, err_info
+        err, err_info = self._ndr_open_xls()
+        return err, err_info
+
+    # ------------------------------------------------------------------
+    @staticmethod
+    def _style(front_name, height, bold=False):
+        style = xlwt.XFStyle()           # 初始化样式
+        font = xlwt.Font()               # 为样式创建字体
+        font.name = front_name           # 'Times New Roman'
+        font.bold = bold
+        font.color_index = 4
+        font.height = height
+        style.font = font
+        return style
+
+    def _ndr_set_path(self):
+        if self._Path is None:
+            now = datetime.datetime.now()
+            time_str = now.strftime(u"%Y%m%d_%H%M%S")
+            dir_name = os_get_curr_dir()
+            file_name = u"退信邮箱_{}.xls".format(time_str)
+            self._Path = os.path.join(dir_name, file_name)
+        return self._Path
+
+    def _ndr_init(self):
+        self._s_head = self._style('Malgun Gothic Semilight', 270, True)
+        self._s_data = self._style('Malgun Gothic Semilight', 270)
+
+        self._wb = xlwt.Workbook()
+        self._sheet = self._wb.add_sheet(u"退信列表")
+
+        self._sheet.col(0).width = 40 * 256
+        self._sheet.col(1).width = 60 * 256
+        self._sheet.col(2).width = 30 * 256
+        self._sheet.col(3).width = 100 * 256
+
+        self._sheet.write(0, 0, u"邮箱", self._s_head)
+        self._sheet.write(0, 1, u"退信原因/建议", self._s_head)
+        self._sheet.write(0, 2, u"时间", self._s_head)
+        self._sheet.write(0, 3, u"详细信息", self._s_head)
+
+    def _ndr_write(self, ndr_data_list):
+        # ndr_data_list: [[时间，退回的邮箱， 出错信息， 建议]...]
+        for i, each_ndr in enumerate(ndr_data_list):
+            r = i + 1
+            time_str = each_ndr[0].strftime(u"%Y/%m/%d %H:%M:%S")
+            self._sheet.write(r, 0, each_ndr[1], self._s_data)
+            self._sheet.write(r, 1, each_ndr[3], self._s_data)
+            self._sheet.write(r, 2, time_str,    self._s_data)
+            self._sheet.write(r, 3, each_ndr[2], self._s_data)
+
+    def _ndr_save(self):
+        err, err_info = ERROR_SUCCESS, u""
+        path = self._ndr_set_path()
+        try:
+            self._wb.save(path)
+        except Exception, e:
+            err = ERROR_WRITE_XLS_FAILED
+            err_info = u"写Excel到{}失败:{}".format(path, e)
+        return err, err_info
+
+    def _ndr_open_xls(self):
+        err, err_info = ERROR_SUCCESS, u""
+        try:
+            os.startfile(self._Path)
+        except Exception, e:
+            err = ERROR_START_XLS_FAILED
+            err_info = u"尝试用本地程序打开表格{}失败:{}".format(self._Path, e)
+        return err, err_info
+
+
 # #####################################################################################################
 
 
@@ -1817,7 +1923,6 @@ def html_add_head(elems):
 def html_txt_elem(txt):
     ret = txt.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     return "<pre>" + ret + "</pre>"
-
 
 
 # ############################################################################################

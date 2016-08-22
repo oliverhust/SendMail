@@ -11,10 +11,29 @@
 
 ############SMTP error, RCPT TO: 550 5.7.1 Recipient not authorized, your IP has been found on a block list
 
-SMTP error, DOT: 550 Requested mail action not taken: Invalid IP<59.172.234.168>
-SMTP error, DOT: 550 Requested mail action not taken: Invalid IP<59.172.234.168>
+######SMTP error, DOT: 550 Requested mail action not taken: Invalid IP<59.172.234.168>
+#############SMTP error, DOT: 550 Requested mail action not taken: Invalid IP<59.172.234.168>
 
-SMTP error, DATA: 554 Rejected due to the sending MTA's poor reputation. Please refer http://mail.sina.com.cn/help2/rwmail.html. Please refer to http://chengxin.mail.sina.com.cn/info/qa.php?p=ca1-554 113.57.228.201 
+##########SMTP error, DATA: 554 Rejected due to the sending MTA's poor reputation. Please refer http://mail.sina.com.cn/help2/rwmail.html. Please refer to http://chengxin.mail.sina.com.cn/info/qa.php?p=ca1-554 113.57.228.201 
 
-SMTP error, RCPT TO: 451 please try another server http://hosting.nic.ru/support/mail_errors.shtml#p451_1
+#############SMTP error, RCPT TO: 451 please try another server http://hosting.nic.ru/support/mail_errors.shtml#p451_1
+
+
+##############SMTP error, RCPT TO: 552-5.2.2 The email account that you tried to reach is over quota. Please direct 552-5.2.2 the recipient to 552 5.2.2  https://support.google.com/mail/answer/6558 sr4si10376046pab.10 - gsmtp
+
+SMTP error, RCPT TO: 550 Relaying mail to sam.chen@cifm.com is not allowed
+
+SMTP error, RCPT TO: 554 Relay access denied
+
+############# SMTP error, RCPT TO: 550 User suspended: jason.jiang@transn.com
+
+SMTP error, RCPT TO: 554 delivery error: dd This user doesn't have a medsci-tech.com e-mailaccount (huolilong@medsci-tech.com) [0] - mx1.aliyun-inc.com
+
+SMTP error, DOT: 550 Requested action not taken: mail BQGowABXZGQH63VXRtgmAQ--.2851S2 is rejected, 12
+
+##############SMTP error, RCPT TO: 558 Rejected,can't receive outdomain. Please contact your domain administrator. 
+
+
+
+
 
