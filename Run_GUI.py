@@ -3,6 +3,7 @@
 
 import sys
 import time
+import platform
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from ui_send1 import Ui_MainWindow
@@ -13,6 +14,9 @@ from ui_ndr import Ui_Dialog_Ndr
 from main import UIInterface, UITimer
 from main import Account
 from mylog import *
+
+if 'Windows' in platform.system():
+    import winsound
 
 # import pdb; pdb.set_trace()
 PROGRAM_UNIQUE_PORT = 48625
@@ -550,6 +554,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
     def set_button_text_finish(self):
         self._button_is_finish = True
         self.pushButton.setText(QString(u"完成"))
+        beep()
 
     def exit_with_error(self, err_info=u""):
         if err_info != u"":
@@ -711,6 +716,17 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr):
     def slot_refresh_lcd(self):
         self._lcd_minute, self._lcd_second = self._time_convert(self._lcd_minute, self._lcd_second + 1)
         self.lcdNumber.display(QString(u"%02d:%02d" % (self._lcd_minute, self._lcd_second)))
+
+
+def is_windows_system():
+    return 'Windows' in platform.system()
+
+
+def beep():
+    if is_windows_system():
+        winsound.MessageBeep(0)
+    else:
+        print("\a")
 
 
 def test_ndr_win():
