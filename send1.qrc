@@ -7,8 +7,14 @@
     <file>eexit.ico</file>
     <file>pic/1.jpg</file>
   </qresource>
+  <qresource prefix="background">
+    <file>dream_like2_s.jpg</file>
+  </qresource>
   <qresource prefix="icon">
     <file>pic/10d.png</file>
+    <file>pic/ico/green_ok_128px_1075415_easyicon.net.ico</file>
+    <file>pic/ico/ooopic_1471949504.ico</file>
+    <file>pic/ico/red_delete_128px_1075470_easyicon.net.ico</file>
     <file>74.png</file>
   </qresource>
 </RCC>

@@ -64,6 +64,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, gui_proc=None, parent=None):
         super(MainWindow,self).__init__(parent)
         self._GUIProc = gui_proc
+        self._dragPosition = 0  # 窗口移动用
         self.setupUi(self)
 
         # 窗口启动
@@ -96,6 +97,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self._speed_each_hour = 400
         self._speed_each_time = 40
         self._account_list = []
+
+    # self._dragPosition = 0  # 窗口移动用
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self._dragPosition = event.globalPos() - self.frameGeometry().topLeft()
+            event.accept()
+
+    def mouseMoveEvent(self,event):
+           #定义鼠标移动事件
+           if event.buttons() == Qt.LeftButton:
+               self.move(event.globalPos() - self._dragPosition)
+               event.accept()
 
     def slot_open_body(self):
         self.label_body.setText(QString(u"载入时间较长，请稍等..."))

@@ -9592,3 +9592,92 @@ append_list = []
 path_xls = 
 selected = [], col_name = C, sender_name = 
 Speed each hour = 400, each time = 40
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 17:23:36] Start the program
+2016-08-23 17:23:37
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
+The progress will reload
+User cancel add account.
+Traceback (most recent call last):
+  File "E:/MyDocument/Python/SendMail/Run_GUI.py", line 129, in slot_open_appends
+    self._append_list = [unicode(s_list[0])]
+IndexError: sequence index out of range
+sub = adsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u53ef\u4ee5\u4e71\u53d1\u7684\u90ae\u7bb1\\\u6211\u7684\u70b9\u77f3\u90ae\u7bb116-7-2\u4fee\u6539.xls']
+path_xls = E:/可以乱发的邮箱/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3], col_name = C, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+[2016/08/23 17:27:40]
+Get 1080 mails from excel.
+[2016/08/23 17:27:45]Start Timer.The timer period is 360000 ms
+[2016/08/23 17:27:47]Timer call back.
+[2016/08/23 17:27:47]
+读取附件成功
+[2016/08/23 17:27:47]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account sdfadsa@adsf
+[2016/08/23 17:27:50]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u"sdfadsa@adsf\u767b\u5f55\u5931\u8d25\uff0c\u8d26\u53f7\u6216\u5bc6\u7801\u9519\u8bef\n(535, 'Error: authentication failed')", 'ErrCode': 8, 'CurrProgress': (0, 0, 1080)}
+Exit progress window pause or abnormal, ret = 0
+Exit the progress windows.
+sub = adsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u53ef\u4ee5\u4e71\u53d1\u7684\u90ae\u7bb1\\\u6211\u7684\u70b9\u77f3\u90ae\u7bb116-7-2\u4fee\u6539.xls']
+path_xls = E:/可以乱发的邮箱/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3], col_name = C, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+[2016/08/23 17:28:08]
+Get 1080 mails from excel.
+[2016/08/23 17:28:10]Start Timer.The timer period is 360000 ms
+[2016/08/23 17:28:12]Timer call back.
+[2016/08/23 17:28:12]
+读取附件成功
+[2016/08/23 17:28:12]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account sdfadsa@adsf
+[2016/08/23 17:28:13]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u"sdfadsa@adsf\u767b\u5f55\u5931\u8d25\uff0c\u8d26\u53f7\u6216\u5bc6\u7801\u9519\u8bef\n(535, 'Error: authentication failed')", 'ErrCode': 8, 'CurrProgress': (0, 0, 1080)}
+Exit progress window pause or abnormal, ret = 0
+Exit the progress windows.
+sub = adsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u53ef\u4ee5\u4e71\u53d1\u7684\u90ae\u7bb1\\\u6211\u7684\u70b9\u77f3\u90ae\u7bb116-7-2\u4fee\u6539.xls']
+path_xls = E:/可以乱发的邮箱/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3], col_name = C, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+[2016/08/23 17:28:22]
+Get 1080 mails from excel.
+[2016/08/23 17:28:23]Start Timer.The timer period is 360000 ms
+[2016/08/23 17:28:25]Timer call back.
+[2016/08/23 17:28:25]
+读取附件成功
+[2016/08/23 17:28:25]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account sdfadsa@adsf
+[2016/08/23 17:28:26]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u"sdfadsa@adsf\u767b\u5f55\u5931\u8d25\uff0c\u8d26\u53f7\u6216\u5bc6\u7801\u9519\u8bef\n(535, 'Error: authentication failed')", 'ErrCode': 8, 'CurrProgress': (0, 0, 1080)}
+Exit progress window pause or abnormal, ret = 0
+Exit the progress windows.
+Exit and save.
+
+sub = adsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u53ef\u4ee5\u4e71\u53d1\u7684\u90ae\u7bb1\\\u6211\u7684\u70b9\u77f3\u90ae\u7bb116-7-2\u4fee\u6539.xls']
+path_xls = E:/可以乱发的邮箱/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3], col_name = C, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)

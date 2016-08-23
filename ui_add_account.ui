@@ -6,12 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>354</width>
-    <height>342</height>
+    <width>345</width>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>添加账号</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Dialog_Account {background-image: url(:/background/dream_like2_s.jpg);}
+
+</string>
   </property>
   <widget class="QLineEdit" name="lineEdit_user">
    <property name="geometry">
@@ -24,25 +29,40 @@
    </property>
    <property name="font">
     <font>
-     <family>Malgun Gothic Semilight</family>
+     <family>Comic Sans MS</family>
      <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>170</y>
+     <y>180</y>
      <width>161</width>
      <height>32</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Malgun Gothic Semilight</family>
-     <pointsize>16</pointsize>
+     <family>Microsoft YaHei UI Light</family>
+     <pointsize>15</pointsize>
+     <weight>3</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 25 15pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
     <string>服务器地址</string>
@@ -52,7 +72,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>270</y>
+     <y>10</y>
      <width>131</width>
      <height>41</height>
     </rect>
@@ -71,16 +91,23 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>20</y>
+     <y>30</y>
      <width>91</width>
      <height>32</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Malgun Gothic Semilight</family>
-     <pointsize>16</pointsize>
+     <family>Microsoft YaHei UI Light</family>
+     <pointsize>15</pointsize>
+     <weight>3</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 25 15pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
     <string>邮箱账号</string>
@@ -101,6 +128,9 @@
      <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
+   </property>
    <property name="inputMethodHints">
     <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
    </property>
@@ -110,6 +140,9 @@
    <property name="text">
     <string/>
    </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
    </property>
@@ -117,11 +150,11 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_old">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>270</y>
+     <x>210</x>
+     <y>90</y>
      <width>131</width>
      <height>41</height>
     </rect>
@@ -140,16 +173,23 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>90</y>
+     <y>100</y>
      <width>91</width>
      <height>32</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Malgun Gothic Semilight</family>
-     <pointsize>16</pointsize>
+     <family>Microsoft YaHei UI Light</family>
+     <pointsize>15</pointsize>
+     <weight>3</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 25 15pt &quot;Microsoft YaHei UI Light&quot;;</string>
    </property>
    <property name="text">
     <string>密码</string>
@@ -166,12 +206,44 @@
    </property>
    <property name="font">
     <font>
-     <family>Malgun Gothic Semilight</family>
+     <family>Comic Sans MS</family>
      <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
+   </property>
    <property name="text">
     <string>mail.hust.edu.cn</string>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>250</y>
+     <width>61</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="send1.qrc">
+     <normaloff>:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico</normaloff>:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
    </property>
   </widget>
  </widget>
@@ -179,9 +251,11 @@
   <tabstop>lineEdit_user</tabstop>
   <tabstop>lineEdit_passwd</tabstop>
   <tabstop>lineEdit_host</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_old</tabstop>
   <tabstop>pushButton_cancel</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="send1.qrc"/>
+ </resources>
  <connections/>
 </ui>
