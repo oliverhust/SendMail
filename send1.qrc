@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="back">
+    <file>mail_sent.ico</file>
+    <file>email.png</file>
+    <file>mail512.png</file>
+    <file>next.png</file>
+    <file>eexit.ico</file>
+    <file>pic/1.jpg</file>
+  </qresource>
+  <qresource prefix="icon">
+    <file>pic/10d.png</file>
+    <file>74.png</file>
+  </qresource>
+</RCC>
