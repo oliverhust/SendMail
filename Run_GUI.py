@@ -58,11 +58,35 @@ class GUITimer(UITimer, QTimer):
 
 
 # #####################################################################
+# ########################### 无边框窗口 ###############################
+class NoFrameWin(QWidget):
+
+    def __init__(self, parent=None):
+        super(NoFrameWin, self).__init__(parent)
+        self._dragPosition = 0  # 窗口移动用
+        self.setWindowOpacity(1)
+        self.setWindowFlags(Qt.FramelessWindowHint|Qt.WindowSystemMenuHint|Qt.WindowMinMaxButtonsHint)
+        # win.setAttribute(Qt.WA_TranslucentBackground)
+        self.setWindowModality(Qt.ApplicationModal)
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self._dragPosition = event.globalPos() - self.frameGeometry().topLeft()
+            event.accept()
+
+    def mouseMoveEvent(self, event):
+        # 定义鼠标移动事件
+        if event.buttons() == Qt.LeftButton:
+            self.move(event.globalPos() - self._dragPosition)
+            event.accept()
+
+
+# #####################################################################
 # ########################### 主窗口 ###################################
-class MainWindow(QMainWindow, Ui_MainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow, NoFrameWin):
 
     def __init__(self, gui_proc=None, parent=None):
-        super(MainWindow,self).__init__(parent)
+        super(MainWindow, self).__init__(parent)
         self._GUIProc = gui_proc
         self._dragPosition = 0  # 窗口移动用
         self.setupUi(self)
@@ -97,18 +121,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self._speed_each_hour = 400
         self._speed_each_time = 40
         self._account_list = []
-
-    # self._dragPosition = 0  # 窗口移动用
-    def mousePressEvent(self, event):
-        if event.button() == Qt.LeftButton:
-            self._dragPosition = event.globalPos() - self.frameGeometry().topLeft()
-            event.accept()
-
-    def mouseMoveEvent(self,event):
-           #定义鼠标移动事件
-           if event.buttons() == Qt.LeftButton:
-               self.move(event.globalPos() - self._dragPosition)
-               event.accept()
 
     def slot_open_body(self):
         self.label_body.setText(QString(u"载入时间较长，请稍等..."))
@@ -246,10 +258,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def account_add(self):
         # 弹出添加账户界面
-        new_win = AccountWindow(self)
+        new_win = AccountWindow()
         if not new_win.exec_():
             print(u"User cancel add account.")
             return
+        print(u"User try add an account {}.".format(new_win.user))
         for account in self._account_list:
             if account.user == new_win.user:
                 QMessageBox.critical(self, u"Input Error", QString(u"已存在该账户，要添加请先删除"))
@@ -463,7 +476,7 @@ class GUIMain(UIInterface, MainWindow):
 
 
 # ########################### 添加账户窗口 ############################
-class AccountWindow(QDialog, Ui_Dialog_Account):
+class AccountWindow(QDialog, Ui_Dialog_Account, NoFrameWin):
     def __init__(self, parent=None):
         super(AccountWindow, self).__init__(parent)
         self.setAttribute(Qt.WA_DeleteOnClose)
@@ -777,6 +790,13 @@ def test_ui_progress_return():
         print(u"Exit progress window abnormal, ret = {}".format(ret))
 
 
+def test_account_win():
+    app = QApplication(sys.argv)
+    win = AccountWindow()
+    win.show()
+    app.exec_()
+
+
 def test_main_win():
     app = QApplication(sys.argv)
     win = MainWindow(None)
@@ -814,9 +834,6 @@ def main():
     app = QApplication(sys.argv)
     app.setStyle("cleanlooks")
     win = GUIMain()
-    win.setWindowOpacity(1)
-    win.setWindowFlags(Qt.FramelessWindowHint)
-    win.setAttribute(Qt.WA_TranslucentBackground)
     win.show()
     app.exec_()
     main_fini()
@@ -829,3 +846,4 @@ if __name__=='__main__':
     #test_gui_timer()
     #test_ndr_win()
     #test_recv_win()
+    #test_account_win()

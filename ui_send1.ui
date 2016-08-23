@@ -72,9 +72,12 @@
    <string>欢迎使用本软件，遇到问题或有建议请联系Oliver 1026815245@qq.com</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#centralwidget {background-image: url(:/back/pic/1.jpg);}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#centralwidget {background-image: url(:/back/pic/1.jpg);}</string>
+   </property>
    <widget class="QLabel" name="label_body">
     <property name="geometry">
      <rect>

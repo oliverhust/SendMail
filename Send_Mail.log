@@ -9681,3 +9681,585 @@ path_xls = E:/可以乱发的邮箱/我的点石邮箱16-7-2修改.xls
 selected = [1, 2, 3], col_name = C, sender_name = adfds
 Speed each hour = 400, each time = 40
 Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:37:52] Start the program
+2016-08-23 21:37:52
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:47:05] Start the program
+2016-08-23 21:47:05
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:48:55] Start the program
+2016-08-23 21:48:55
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:49:45] Start the program
+2016-08-23 21:49:45
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:50:04] Start the program
+2016-08-23 21:50:04
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:56:17] Start the program
+2016-08-23 21:56:17
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:56:36] Start the program
+2016-08-23 21:56:36
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:56:58] Start the program
+2016-08-23 21:56:58
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:57:31] Start the program
+2016-08-23 21:57:32
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:58:25] Start the program
+2016-08-23 21:58:26
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 21:58:51] Start the program
+2016-08-23 21:58:51
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:06:40] Start the program
+2016-08-23 22:06:41
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:11:48] Start the program
+2016-08-23 22:11:48
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:13:33] Start the program
+2016-08-23 22:13:34
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:16:36] Start the program
+2016-08-23 22:16:36
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+??????????????  Add Account ??????????????????
+??????????????  Add Account ??????????????????
+??????????????  Add Account ??????????????????
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:18:48] Start the program
+2016-08-23 22:18:48
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+??????????????  Add Account ??????????????????
+??????????????? Show windows ???????????
+User cancel add account.
+??????????????  Add Account ??????????????????
+??????????????? Show windows ???????????
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:19:54] Start the program
+2016-08-23 22:19:54
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+??????????????  Add Account ??????????????????
+??????????????? Show windows ???????????
+??????????????  Add Account ??????????????????
+??????????????? Show windows ???????????
+Exit and discard.
+
+User cancel add account.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:26:47] Start the program
+2016-08-23 22:26:47
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+User cancel add account.
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:28:30] Start the program
+2016-08-23 22:28:30
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:35:38] Start the program
+2016-08-23 22:35:38
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:36:50] Start the program
+2016-08-23 22:36:51
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:37:01] Start the program
+2016-08-23 22:37:02
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:37:20] Start the program
+2016-08-23 22:37:20
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:44:10] Start the program
+2016-08-23 22:44:11
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:46:42] Start the program
+2016-08-23 22:46:43
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:46:51] Start the program
+2016-08-23 22:46:51
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:47:35] Start the program
+2016-08-23 22:47:35
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 22:49:14] Start the program
+2016-08-23 22:49:14
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and discard.
+
