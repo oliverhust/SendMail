@@ -77,6 +77,9 @@ class NoFrameWin(QWidget):
     def mouseMoveEvent(self, event):
         # 定义鼠标移动事件
         if event.buttons() == Qt.LeftButton:
+            g_pos = event.globalPos()
+            if type(g_pos) != QPoint or type(self._dragPosition) != QPoint:
+                return
             self.move(event.globalPos() - self._dragPosition)
             event.accept()
 

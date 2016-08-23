@@ -8,7 +8,9 @@
     <file>pic/1.jpg</file>
   </qresource>
   <qresource prefix="background">
+    <file>pic/dream_like2_left.jpg</file>
     <file>pic/dream_like2_s.jpg</file>
+    <file>pic/rain_big.jpg</file>
   </qresource>
   <qresource prefix="icon">
     <file>pic/10d.png</file>
