@@ -9560,3 +9560,35 @@ Speed each hour = 400, each time = 40
 Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
 Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
 Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 14:42:38] Start the program
+2016-08-23 14:42:41
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/23 14:43:09] Start the program
+2016-08-23 14:43:09
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
