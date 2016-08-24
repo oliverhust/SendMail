@@ -103,53 +103,38 @@ class Ui_Dialog_Account(object):
         self.lineEdit_host.setStyleSheet(_fromUtf8("background-color: rgba(255, 255, 255, 120);"))
         self.lineEdit_host.setFrame(False)
         self.lineEdit_host.setObjectName(_fromUtf8("lineEdit_host"))
-        self.pushButton = QtGui.QCommandLinkButton(Dialog_Account)
-        self.pushButton.setGeometry(QtCore.QRect(70, 250, 61, 71))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 40))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        self.pushButton.setPalette(palette)
-        self.pushButton.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.pushButton.setStyleSheet(_fromUtf8("background-color: rgba(255, 255, 255, 40);"))
+        self.pushButton = QtGui.QPushButton(Dialog_Account)
+        self.pushButton.setGeometry(QtCore.QRect(75, 250, 76, 71))
+        self.pushButton.setStyleSheet(_fromUtf8("QPushButton:hover {    \n"
+"    margin: 0;\n"
+"}\n"
+"QPushButton {    \n"
+"    \n"
+"    border-image: url(:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico);\n"
+"    margin: 10;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+" \n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    margin: 5;\n"
+"}"))
         self.pushButton.setText(_fromUtf8(""))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton.setIcon(icon)
-        self.pushButton.setIconSize(QtCore.QSize(50, 50))
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.pushButton_cancel = QtGui.QCommandLinkButton(Dialog_Account)
-        self.pushButton_cancel.setGeometry(QtCore.QRect(200, 250, 61, 71))
-        self.pushButton_cancel.setStyleSheet(_fromUtf8("background-color: rgba(255, 255, 255, 60);"))
+        self.pushButton_cancel = QtGui.QPushButton(Dialog_Account)
+        self.pushButton_cancel.setGeometry(QtCore.QRect(185, 250, 76, 71))
+        self.pushButton_cancel.setStyleSheet(_fromUtf8("QPushButton:hover {    \n"
+"    margin: 0;\n"
+"}\n"
+"QPushButton {    \n"
+"    border-image: url(:/icon/pic/ico/red_delete_128px_1075470_easyicon.net.ico);\n"
+"    margin: 10;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+" \n"
+"}\n"
+"QPushButton:pressed {    \n"
+"    margin: 5;\n"
+"}"))
         self.pushButton_cancel.setText(_fromUtf8(""))
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/pic/ico/red_delete_128px_1075470_easyicon.net.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_cancel.setIcon(icon1)
-        self.pushButton_cancel.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_cancel.setObjectName(_fromUtf8("pushButton_cancel"))
 
         self.retranslateUi(Dialog_Account)

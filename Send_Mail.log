@@ -14140,3 +14140,158 @@ Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
 User cancel add account.
 Exit and discard.
 
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 00:31:33] Start the program
+2016-08-25 00:31:33
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Traceback (most recent call last):
+  File "E:\MyDocuments\Python\SendMail\Run_GUI.py", line 152, in slot_open_appends
+    self._append_list = [unicode(s_list[0])]
+IndexError: sequence index out of range
+User try add an account liangjinchao@hust.edu.cn.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'E:\\\u65b0\u4eba\u57f9\u8bad\u8d44\u6599.rar']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 00:47:29] Start the program
+2016-08-25 00:47:30
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:01:11] Start the program
+2016-08-25 01:01:11
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:01:49] Start the program
+2016-08-25 01:01:49
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:06:36] Start the program
+2016-08-25 01:06:36
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:08:46] Start the program
+2016-08-25 01:08:46
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:09:16] Start the program
+2016-08-25 01:09:16
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+User cancel add account.
+User cancel add account.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)

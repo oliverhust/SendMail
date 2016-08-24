@@ -86,8 +86,8 @@
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>120</y>
-      <width>401</width>
+      <y>135</y>
+      <width>436</width>
       <height>31</height>
      </rect>
     </property>
@@ -114,8 +114,8 @@
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>170</y>
-      <width>401</width>
+      <y>185</y>
+      <width>436</width>
       <height>31</height>
      </rect>
     </property>
@@ -142,8 +142,8 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>220</y>
-      <width>361</width>
+      <y>235</y>
+      <width>396</width>
       <height>31</height>
      </rect>
     </property>
@@ -166,32 +166,11 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_body">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>120</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Malgun Gothic Semilight</family>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>请打开一个包含邮件正文的txt文件</string>
-    </property>
-    <property name="text">
-     <string>浏览..</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_Sub">
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>70</y>
+      <y>85</y>
       <width>491</width>
       <height>31</height>
      </rect>
@@ -216,7 +195,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>70</y>
+      <y>85</y>
       <width>48</width>
       <height>32</height>
      </rect>
@@ -235,7 +214,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>120</y>
+      <y>135</y>
       <width>42</width>
       <height>30</height>
      </rect>
@@ -254,7 +233,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>170</y>
+      <y>185</y>
       <width>42</width>
       <height>30</height>
      </rect>
@@ -273,7 +252,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>220</y>
+      <y>235</y>
       <width>84</width>
       <height>30</height>
      </rect>
@@ -288,53 +267,11 @@
      <string>邮箱列表</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_append">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>170</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Malgun Gothic Semilight</family>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>请打开要发送的附件（可多选）</string>
-    </property>
-    <property name="text">
-     <string>浏览..</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_mail_list">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>220</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Malgun Gothic Semilight</family>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>请打存放开收件人Excel表格</string>
-    </property>
-    <property name="text">
-     <string>浏览..</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_Xls_From">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>270</y>
+      <y>285</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -365,7 +302,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>270</y>
+      <y>285</y>
       <width>41</width>
       <height>30</height>
      </rect>
@@ -387,7 +324,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>270</y>
+      <y>285</y>
       <width>84</width>
       <height>30</height>
      </rect>
@@ -409,7 +346,7 @@
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>270</y>
+      <y>285</y>
       <width>84</width>
       <height>30</height>
      </rect>
@@ -428,7 +365,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>270</y>
+      <y>285</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -459,7 +396,7 @@
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>270</y>
+      <y>285</y>
       <width>31</width>
       <height>30</height>
      </rect>
@@ -478,7 +415,7 @@
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>270</y>
+      <y>285</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -509,10 +446,15 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>380</y>
+      <y>395</y>
       <width>271</width>
       <height>141</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="toolTip">
      <string>点击&quot;添加&quot;来添加账户，多账户将自动切换发送，降低被封号的风险</string>
@@ -525,7 +467,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>340</y>
+      <y>355</y>
       <width>91</width>
       <height>30</height>
      </rect>
@@ -547,7 +489,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>340</y>
+      <y>355</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -572,7 +514,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>340</y>
+      <y>355</y>
       <width>121</width>
       <height>30</height>
      </rect>
@@ -591,7 +533,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>400</y>
+      <y>415</y>
       <width>121</width>
       <height>30</height>
      </rect>
@@ -613,7 +555,7 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>440</y>
+      <y>455</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -635,7 +577,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>440</y>
+      <y>455</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -678,7 +620,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>480</y>
+      <y>495</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -721,7 +663,7 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>480</y>
+      <y>495</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -743,7 +685,7 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>540</y>
+      <y>550</y>
       <width>111</width>
       <height>61</height>
      </rect>
@@ -995,7 +937,7 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>540</y>
+      <y>550</y>
       <width>111</width>
       <height>61</height>
      </rect>
@@ -1008,7 +950,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1028,7 +970,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1048,7 +990,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1079,7 +1021,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1099,7 +1041,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1119,7 +1061,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1150,7 +1092,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1170,7 +1112,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1190,7 +1132,7 @@
          <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="0.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
           <gradientstop position="0.255682000000000">
            <color alpha="255">
-            <red>255</red>
+            <red>168</red>
             <green>0</green>
             <blue>255</blue>
            </color>
@@ -1227,7 +1169,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255682 rgba(255, 0, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255682 rgba(255, 0, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255682 rgba(168, 0, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>退出</string>
@@ -1247,7 +1190,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>335</y>
+      <y>350</y>
       <width>76</width>
       <height>41</height>
      </rect>
@@ -1286,7 +1229,7 @@ color: rgb(0, 0, 255);</string>
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>335</y>
+      <y>350</y>
       <width>76</width>
       <height>41</height>
      </rect>
@@ -1324,14 +1267,22 @@ color: rgb(209, 0, 209);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>285</x>
+      <x>280</x>
       <y>5</y>
       <width>196</width>
-      <height>61</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/logo/pic/mass_send2.png);</string>
+     <string notr="true">QLabel:hover {    
+	margin: 0;
+}
+QLabel {	
+	border-image: url(:/logo/pic/mass_send2.png);
+    margin: 3;
+    background-color: rgba(255, 255, 255, 0);
+ 
+}</string>
     </property>
     <property name="text">
      <string/>
@@ -1341,13 +1292,479 @@ color: rgb(209, 0, 209);</string>
     <property name="geometry">
      <rect>
       <x>185</x>
-      <y>-5</y>
+      <y>0</y>
       <width>101</width>
       <height>86</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border-image: url(:/logo/pic/ico/mail512.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="pushButton_body">
+    <property name="geometry">
+     <rect>
+      <x>555</x>
+      <y>130</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft YaHei UI Light</family>
+      <pointsize>12</pointsize>
+      <weight>3</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;请打开一个包含邮件正文的txt文件&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="send1.qrc">
+      <normaloff>:/back/pic/ico/Folder.png</normaloff>:/back/pic/ico/Folder.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="pushButton_append">
+    <property name="geometry">
+     <rect>
+      <x>555</x>
+      <y>180</y>
+      <width>36</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft YaHei UI Light</family>
+      <pointsize>12</pointsize>
+      <weight>3</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;请打开要发送的附件（可多选）&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="send1.qrc">
+      <normaloff>:/back/pic/ico/Folder.png</normaloff>:/back/pic/ico/Folder.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="pushButton_mail_list">
+    <property name="geometry">
+     <rect>
+      <x>555</x>
+      <y>230</y>
+      <width>36</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft YaHei UI Light</family>
+      <pointsize>12</pointsize>
+      <weight>3</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;请打存放开收件人Excel表格&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="send1.qrc">
+      <normaloff>:/back/pic/ico/Folder.png</normaloff>:/back/pic/ico/Folder.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>575</x>
+      <y>550</y>
+      <width>56</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>105</red>
+          <green>105</green>
+          <blue>105</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="HighlightedText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>246</red>
+          <green>246</green>
+          <blue>246</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="NoRole">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>105</red>
+          <green>105</green>
+          <blue>105</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="HighlightedText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>246</red>
+          <green>246</green>
+          <blue>246</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="NoRole">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>120</red>
+          <green>120</green>
+          <blue>120</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>120</red>
+          <green>120</green>
+          <blue>120</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>105</red>
+          <green>105</green>
+          <blue>105</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>51</red>
+          <green>153</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="HighlightedText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>246</red>
+          <green>246</green>
+          <blue>246</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="NoRole">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover { 
+	border-image: url(:/back/pic/ico/close.ico);
+}
+QPushButton {	
+    background-color: rgba(255, 255, 255, 0);
+ 
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>585</x>
+      <y>0</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel:hover { 
+	
+	border-image: url(:/back/pic/ico/close.ico);
+}
+QLabel {	
+    background-color: rgba(255, 255, 255, 0);
+ 
+}</string>
     </property>
     <property name="text">
      <string/>
@@ -1368,9 +1785,6 @@ color: rgb(209, 0, 209);</string>
  </widget>
  <tabstops>
   <tabstop>lineEdit_Sub</tabstop>
-  <tabstop>pushButton_body</tabstop>
-  <tabstop>pushButton_append</tabstop>
-  <tabstop>pushButton_mail_list</tabstop>
   <tabstop>lineEdit_Xls_From</tabstop>
   <tabstop>lineEdit_Xls_To</tabstop>
   <tabstop>lineEdit_Xls_Col</tabstop>
@@ -1382,7 +1796,24 @@ color: rgb(209, 0, 209);</string>
  <resources>
   <include location="send1.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_cancel</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>612</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>593</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <designerdata>
   <property name="gridDeltaX">
    <number>5</number>

@@ -14,7 +14,13 @@
    <string>设置IMAP服务器</string>
   </property>
   <property name="toolTip">
-   <string>已自动为您选择</string>
+   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;目前只支持下拉选项中的域名&lt;/p&gt;&lt;p&gt;不支持的账号需自己登录查看退信&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Dialog_RecvHost {
+	background-image: url(:/Release_back/pic/back/_love_s.jpg);
+
+}</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -31,6 +37,9 @@
      <pointsize>20</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
     <string>账号：</string>
    </property>
@@ -46,12 +55,13 @@
    </property>
    <property name="font">
     <font>
-     <family>Malgun Gothic Semilight</family>
-     <pointsize>20</pointsize>
+     <family>Comic Sans MS</family>
+     <pointsize>22</pointsize>
+     <underline>false</underline>
     </font>
    </property>
    <property name="text">
-    <string/>
+    <string>liangjinchao@hust.edu.cn</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -59,7 +69,7 @@
     <rect>
      <x>20</x>
      <y>80</y>
-     <width>211</width>
+     <width>186</width>
      <height>41</height>
     </rect>
    </property>
@@ -69,6 +79,9 @@
      <pointsize>16</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
     <string>IMAP服务器地址：</string>
    </property>
@@ -76,31 +89,44 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>200</y>
-     <width>131</width>
-     <height>51</height>
+     <x>370</x>
+     <y>190</y>
+     <width>101</width>
+     <height>66</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Malgun Gothic Semilight</family>
-     <pointsize>16</pointsize>
+     <family>High Tower Text</family>
+     <pointsize>14</pointsize>
+     <italic>true</italic>
     </font>
    </property>
    <property name="toolTip">
-    <string/>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;下一步&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover {    
+	margin: 0;
+}
+QPushButton {	
+	color: rgb(255, 209, 117);
+	border-image: url(:/icon/pic/ico/right64.png);
+    margin: 5;
+    background-color: rgba(255, 255, 255, 0);
+ 
+}</string>
    </property>
    <property name="text">
-    <string>下一步</string>
+    <string>Next</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>190</y>
-     <width>271</width>
+     <x>25</x>
+     <y>210</y>
+     <width>286</width>
      <height>31</height>
     </rect>
    </property>
@@ -110,27 +136,11 @@
      <pointsize>12</pointsize>
     </font>
    </property>
-   <property name="text">
-    <string>目前只支持下拉选项中的域名</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>220</y>
-     <width>281</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Malgun Gothic Semilight</family>
-     <pointsize>12</pointsize>
-    </font>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;目前只支持下拉选项中的域名&lt;/p&gt;&lt;p&gt;不支持的账号需自己登录查看退信&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="text">
-    <string>不支持的账号需自己登录查看退信</string>
+    <string>已为您自动选择，建议直接下一步</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox">
@@ -149,10 +159,32 @@
     </font>
    </property>
    <property name="toolTip">
-    <string>已自动为您选择</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;目前只支持下拉选项中的域名&lt;/p&gt;&lt;p&gt;不支持的账号需自己登录查看退信&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="send1.qrc"/>
+ </resources>
  <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>5</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>5</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
 </ui>

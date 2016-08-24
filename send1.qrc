@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="back">
+    <file>pic/ico/close.ico</file>
+    <file>pic/ico/Folder.png</file>
     <file>pic/dream_like3.jpg</file>
     <file>pic/back/dream_like2_left_t.jpg</file>
     <file>mail_sent.ico</file>
@@ -7,6 +9,9 @@
     <file>mail512.png</file>
     <file>eexit.ico</file>
     <file>pic/1.jpg</file>
+  </qresource>
+  <qresource prefix="Release_back">
+    <file>pic/back/_love_s.jpg</file>
   </qresource>
   <qresource prefix="logo">
     <file>pic/ico/mail512.png</file>
