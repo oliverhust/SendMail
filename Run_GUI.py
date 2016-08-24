@@ -66,7 +66,6 @@ class NoFrameWin(QWidget):
         self._dragPosition = 0  # 窗口移动用
         self.setWindowOpacity(1)
         self.setWindowFlags(Qt.FramelessWindowHint|Qt.WindowSystemMenuHint|Qt.WindowMinMaxButtonsHint)
-        # win.setAttribute(Qt.WA_TranslucentBackground)
         self.setWindowModality(Qt.ApplicationModal)
 
     def mousePressEvent(self, event):
@@ -85,8 +84,17 @@ class NoFrameWin(QWidget):
 
 
 # #####################################################################
+# ########################## 无边框透明窗口 #############################
+class TransParentWin(NoFrameWin):
+
+    def __init__(self, parent=None):
+        NoFrameWin.__init__(self, parent)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+
+
+# #####################################################################
 # ########################### 主窗口 ###################################
-class MainWindow(QMainWindow, Ui_MainWindow, NoFrameWin):
+class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
 
     def __init__(self, gui_proc=None, parent=None):
         super(MainWindow, self).__init__(parent)

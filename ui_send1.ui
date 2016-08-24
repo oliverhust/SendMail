@@ -76,7 +76,11 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">#centralwidget {background-image: url(:/back/pic/1.jpg);}</string>
+    <string notr="true">#centralwidget {
+
+	background-image: url(:/background/pic/back/linernd.jpg);
+
+}</string>
    </property>
    <widget class="QLabel" name="label_body">
     <property name="geometry">
@@ -501,28 +505,6 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>20</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial Unicode MS</family>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>Made by D539 Oliver, 1026815245@qq.com ^_^ 有BUG欢迎反馈</string>
-    </property>
-    <property name="text">
-     <string>群发邮件</string>
-    </property>
-   </widget>
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
@@ -537,48 +519,6 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 60);</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_account_add">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>340</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Malgun Gothic Semilight</family>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>添加一个账户</string>
-    </property>
-    <property name="text">
-     <string>添加</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_account_del">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>340</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Malgun Gothic Semilight</family>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>删除一个账户</string>
-    </property>
-    <property name="text">
-     <string>删除</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_12">
@@ -1303,6 +1243,116 @@
      </size>
     </property>
    </widget>
+   <widget class="QCommandLinkButton" name="pushButton_account_add">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>335</y>
+      <width>76</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft YaHei UI Light</family>
+      <pointsize>12</pointsize>
+      <weight>3</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;添加一个账户&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(0, 0, 255);</string>
+    </property>
+    <property name="text">
+     <string>添加</string>
+    </property>
+    <property name="icon">
+     <iconset resource="send1.qrc">
+      <normaloff>:/icon/pic/ico/Add.png</normaloff>:/icon/pic/ico/Add.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="pushButton_account_del">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>335</y>
+      <width>76</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft YaHei UI Light</family>
+      <pointsize>12</pointsize>
+      <weight>3</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;删除一个账户&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;
+color: rgb(209, 0, 209);</string>
+    </property>
+    <property name="text">
+     <string>删除</string>
+    </property>
+    <property name="icon">
+     <iconset resource="send1.qrc">
+      <normaloff>:/icon/pic/ico/Denided.png</normaloff>:/icon/pic/ico/Denided.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>285</x>
+      <y>5</y>
+      <width>196</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/logo/pic/mass_send2.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>185</x>
+      <y>-5</y>
+      <width>101</width>
+      <height>86</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/logo/pic/ico/mail512.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -1324,8 +1374,6 @@
   <tabstop>lineEdit_Xls_From</tabstop>
   <tabstop>lineEdit_Xls_To</tabstop>
   <tabstop>lineEdit_Xls_Col</tabstop>
-  <tabstop>pushButton_account_add</tabstop>
-  <tabstop>pushButton_account_del</tabstop>
   <tabstop>lineEdit_Sender_Name</tabstop>
   <tabstop>spinBox_Each_Hour</tabstop>
   <tabstop>spinBox_Each_Time</tabstop>
@@ -1335,4 +1383,21 @@
   <include location="send1.qrc"/>
  </resources>
  <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>5</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>5</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
 </ui>

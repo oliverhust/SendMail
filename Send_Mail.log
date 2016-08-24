@@ -13772,3 +13772,329 @@ Speed each hour = 400, each time = 40
 Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
 Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
 Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 00:48:26] Start the program
+2016-08-24 00:48:27
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 00:57:08] Start the program
+2016-08-24 00:57:08
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 09:29:45] Start the program
+2016-08-24 09:29:45
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:06:58] Start the program
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 846, in <module>
+    main()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 839, in main
+    win = GUIMain()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 292, in __init__
+    MainWindow.__init__(self, self)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 113, in __init__
+    self.connect(self.pushButton_account_add, SIGNAL("clicked()"), self.account_add)
+AttributeError: 'GUIMain' object has no attribute 'pushButton_account_add'
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:07:59] Start the program
+2016-08-24 13:07:59
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:08:35] Start the program
+2016-08-24 13:08:36
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+User cancel add account.
+User cancel add account.
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 277, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 277, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 277, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 277, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 277, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 277, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 277, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+User cancel add account.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:12:23] Start the program
+2016-08-24 13:12:23
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:14:03] Start the program
+2016-08-24 13:14:03
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:14:19] Start the program
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 846, in <module>
+    main()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 839, in main
+    win = GUIMain()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 292, in __init__
+    MainWindow.__init__(self, self)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 92, in __init__
+    super(MainWindow, self).__init__(parent)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 69, in __init__
+    win.setAttribute(Qt.WA_TranslucentBackground)
+NameError: global name 'win' is not defined
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:14:28] Start the program
+2016-08-24 13:14:28
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+User cancel add account.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:18:04] Start the program
+2016-08-24 13:18:04
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+User cancel add account.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:18:53] Start the program
+2016-08-24 13:18:53
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:19:01] Start the program
+2016-08-24 13:19:01
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+User cancel add account.
+User cancel add account.
+User cancel add account.
+Exit and save.
+
+sub = 创业红娘
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:24:34] Start the program
+2016-08-24 13:24:34
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:26:34] Start the program
+2016-08-24 13:26:34
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/24 13:26:41] Start the program
+2016-08-24 13:26:42
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and discard.
+
