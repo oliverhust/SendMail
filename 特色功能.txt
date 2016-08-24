@@ -3,3 +3,32 @@
 2. 可多账户自动轮流发送，并保存账户信息不用下次输账号密码
 3. 按照一定规则的乱序发送，降低被拒的概率
 4. 
+
+---------------------------------------------------------
+变大
+QPushButton:hover {    
+	margin: 0;
+}
+QPushButton {	
+	border-image: url(:/icon/pic/10d.png);
+    margin: 20;
+    background-color: rgba(255, 255, 255, 0);
+ 
+}
+
+-----------------------------------------------------
+向上移动
+QPushButton:!hover
+{
+border-image: url(:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico)  0 0 72 0;
+}
+QPushButton:hover:!pressed
+{
+border-image: url(:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico)  36 0 36 0;
+}
+QPushButton:pressed
+{
+border-image: url(:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico)  72 0 0 0;
+}
+
+--------------------------------------------------------

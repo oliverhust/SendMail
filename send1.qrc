@@ -5,7 +5,6 @@
     <file>mail_sent.ico</file>
     <file>email.png</file>
     <file>mail512.png</file>
-    <file>next.png</file>
     <file>eexit.ico</file>
     <file>pic/1.jpg</file>
   </qresource>
@@ -22,6 +21,9 @@
     <file>pic/back/1470448439576.jpg</file>
     <file>pic/back/blue.jpg</file>
     <file>pic/back/ice.jpg</file>
+    <file>pic/back/lan.jpg</file>
+    <file>pic/back/love.jpeg</file>
+    <file>pic/back/sky.jpg</file>
     <file>pic/back/linernd.jpg</file>
     <file>pic/back/linernd2.jpg</file>
     <file>pic/back/sky.jpg</file>
@@ -32,6 +34,8 @@
   </qresource>
   <qresource prefix="icon">
     <file>pic/10d.png</file>
+    <file>pic/ico/go_next_old_128px_4588_easyicon.net.ico</file>
+    <file>pic/ico/right64.png</file>
     <file>pic/ico/Add_Symbol.png</file>
     <file>pic/ico/Add.png</file>
     <file>pic/ico/Denided.png</file>
