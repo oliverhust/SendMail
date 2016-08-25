@@ -38,7 +38,9 @@
     <file>pic/rain_big.jpg</file>
   </qresource>
   <qresource prefix="icon">
+    <file>pic/ico/excel2.png</file>
     <file>pic/10d.png</file>
+    <file>pic/ico/None.png</file>
     <file>pic/ico/go_next_old_128px_4588_easyicon.net.ico</file>
     <file>pic/ico/right64.png</file>
     <file>pic/ico/Add_Symbol.png</file>

@@ -69,7 +69,7 @@
    <string>群发邮件</string>
   </property>
   <property name="toolTip">
-   <string>欢迎使用本软件，遇到问题或有建议请联系Oliver 1026815245@qq.com</string>
+   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;一款多账号发送、进度保存、退信识别的邮件群发工具&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -85,7 +85,7 @@
    <widget class="QLabel" name="label_body">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>115</x>
       <y>135</y>
       <width>436</width>
       <height>31</height>
@@ -98,7 +98,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>请选择一个包含邮件正文的txt文本文件，如果没有则新建一个把内容复制到里面并保存</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;请选择一个包含邮件正文的txt文本文件，如果没有则新建一个把内容复制到里面并保存&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
@@ -113,7 +113,7 @@
    <widget class="QLabel" name="label_append">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>115</x>
       <y>185</y>
       <width>436</width>
       <height>31</height>
@@ -126,7 +126,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>请打开要发送的附件（可多选，按住Ctrl键然后选定多个）</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;请打开要发送的附件，可多选：Window上按住Ctrl键然后选定多个，Mac上则为Shift键&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
@@ -141,7 +141,7 @@
    <widget class="QLabel" name="label_maillist">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>155</x>
       <y>235</y>
       <width>396</width>
       <height>31</height>
@@ -154,7 +154,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>把收件人名单放在Excel表格的某一列</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;把收件人名单放在Excel表格的某一列&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
@@ -169,7 +169,7 @@
    <widget class="QLineEdit" name="lineEdit_Sub">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>115</x>
       <y>85</y>
       <width>491</width>
       <height>31</height>
@@ -182,7 +182,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>邮件标题</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;邮件标题&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
@@ -194,7 +194,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>85</y>
       <width>48</width>
       <height>32</height>
@@ -206,6 +206,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;邮件标题&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>标题</string>
     </property>
@@ -213,7 +216,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>135</y>
       <width>42</width>
       <height>30</height>
@@ -225,6 +228,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;请选择一个包含邮件正文的txt文本文件，如果没有则新建一个把内容复制到里面并保存&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>正文</string>
     </property>
@@ -232,7 +238,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>185</y>
       <width>42</width>
       <height>30</height>
@@ -244,6 +250,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;请打开要发送的附件，可多选：Window上按住Ctrl键然后选定多个，Mac上则为Shift键&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>附件</string>
     </property>
@@ -251,7 +260,7 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>235</y>
       <width>84</width>
       <height>30</height>
@@ -263,6 +272,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;把收件人名单放在Excel表格的某一列&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>邮箱列表</string>
     </property>
@@ -270,7 +282,7 @@
    <widget class="QLineEdit" name="lineEdit_Xls_From">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>95</x>
       <y>285</y>
       <width>51</width>
       <height>31</height>
@@ -283,7 +295,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>从1开始计数，第一张表为首张</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;从1开始计数，第一张表为首张&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
@@ -301,7 +313,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>285</y>
       <width>41</width>
       <height>30</height>
@@ -314,7 +326,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>邮箱列表保存在Excel表格中的哪几张表，以及哪一列</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;邮箱列表保存在Excel表格中的哪几张表，以及哪一列&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>从第</string>
@@ -323,7 +335,7 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>155</x>
       <y>285</y>
       <width>84</width>
       <height>30</height>
@@ -336,7 +348,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>邮箱列表保存在Excel表格中的哪几张表，以及哪一列</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;邮箱列表保存在Excel表格中的哪几张表，以及哪一列&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>张表到第</string>
@@ -345,7 +357,7 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>315</x>
       <y>285</y>
       <width>84</width>
       <height>30</height>
@@ -357,6 +369,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;邮箱列表保存在Excel表格中的哪几张表，以及哪一列&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>张表</string>
     </property>
@@ -364,7 +379,7 @@
    <widget class="QLineEdit" name="lineEdit_Xls_To">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>255</x>
       <y>285</y>
       <width>51</width>
       <height>31</height>
@@ -377,7 +392,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>最后一张(含)</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;最后一张(含)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
@@ -395,7 +410,7 @@
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>445</x>
       <y>285</y>
       <width>31</width>
       <height>30</height>
@@ -407,6 +422,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;保存在哪一列，A,B,C......&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>列</string>
     </property>
@@ -414,7 +432,7 @@
    <widget class="QLineEdit" name="lineEdit_Xls_Col">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>375</x>
       <y>285</y>
       <width>51</width>
       <height>31</height>
@@ -427,7 +445,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>保存在哪一列，A,B,C......</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;保存在哪一列，A,B,C......&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
@@ -445,7 +463,7 @@
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>395</y>
       <width>271</width>
       <height>141</height>
@@ -453,11 +471,11 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="toolTip">
-     <string>点击&quot;添加&quot;来添加账户，多账户将自动切换发送，降低被封号的风险</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;点击&amp;quot;添加&amp;quot;来添加账户，多账户将自动切换发送，降低被封号的风险&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 60);</string>
@@ -466,7 +484,7 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>35</x>
       <y>355</y>
       <width>91</width>
       <height>30</height>
@@ -479,7 +497,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>点击&quot;添加&quot;来添加账户，多账户将自动切换发送，降低被封号的风险</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;点击&amp;quot;添加&amp;quot;来添加账户，多账户将自动切换发送，降低被封号的风险&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>发送账户</string>
@@ -488,7 +506,7 @@
    <widget class="QLineEdit" name="lineEdit_Sender_Name">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>475</x>
       <y>355</y>
       <width>131</width>
       <height>31</height>
@@ -501,7 +519,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>收件人收到的邮件会看到这个名字</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;收件人收到的邮件会看到这个名字&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
@@ -513,7 +531,7 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>345</x>
       <y>355</y>
       <width>121</width>
       <height>30</height>
@@ -525,6 +543,9 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;收件人收到的邮件会看到这个名字&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>发件人姓名</string>
     </property>
@@ -532,9 +553,9 @@
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>345</x>
       <y>415</y>
-      <width>121</width>
+      <width>161</width>
       <height>30</height>
      </rect>
     </property>
@@ -545,7 +566,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>发送速度请谨慎调控，设置不当有被封号的可能</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;发送速度请谨慎调控，设置不当有被封号的可能&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>发送速度</string>
@@ -554,7 +575,7 @@
    <widget class="QLabel" name="label_15">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>485</x>
       <y>455</y>
       <width>131</width>
       <height>31</height>
@@ -567,7 +588,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>每个账号每小时的发送数量</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;每个账号每小时的发送数量&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>封/账号/小时</string>
@@ -576,7 +597,7 @@
    <widget class="QSpinBox" name="spinBox_Each_Hour">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>345</x>
       <y>455</y>
       <width>131</width>
       <height>31</height>
@@ -595,7 +616,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>每个账号每小时的发送数量，多个账号则实际总速度更大</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;每个账号每小时的发送数量，多个账号则实际总速度更大&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
@@ -619,7 +640,7 @@
    <widget class="QSpinBox" name="spinBox_Each_Time">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>345</x>
       <y>495</y>
       <width>131</width>
       <height>31</height>
@@ -638,7 +659,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>每一次发送的最大发送数量，不建议设置过小导致过于频繁得发送</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;每一次发送的最大发送数量，不建议设置过小导致过于频繁得发送&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
@@ -662,7 +683,7 @@
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>485</x>
       <y>495</y>
       <width>131</width>
       <height>31</height>
@@ -675,7 +696,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>每一次发送的最大发送数量</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;每一次发送的最大发送数量&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>封/次</string>
@@ -684,7 +705,7 @@
    <widget class="QCommandLinkButton" name="pushButton_OK">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>185</x>
       <y>550</y>
       <width>111</width>
       <height>61</height>
@@ -915,6 +936,9 @@
       <bold>false</bold>
       <kerning>true</kerning>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;开始发送&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 146, 216, 255), stop:1 rgba(255, 255, 255, 255));</string>
@@ -936,7 +960,7 @@
    <widget class="QCommandLinkButton" name="pushButton_cancel">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>365</x>
       <y>550</y>
       <width>111</width>
       <height>61</height>
@@ -1167,6 +1191,9 @@
       <bold>false</bold>
       <kerning>true</kerning>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;退出&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255682 rgba(255, 0, 255, 255), stop:1 rgba(255, 255, 255, 255));
@@ -1189,26 +1216,26 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255
    <widget class="QCommandLinkButton" name="pushButton_account_add">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>135</x>
       <y>350</y>
-      <width>76</width>
-      <height>41</height>
+      <width>86</width>
+      <height>46</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Microsoft YaHei UI Light</family>
-      <pointsize>12</pointsize>
+      <pointsize>14</pointsize>
       <weight>3</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;添加一个账户&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;添加一个账户&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;
+     <string notr="true">font: 25 14pt &quot;Microsoft YaHei UI Light&quot;;
 color: rgb(0, 0, 255);</string>
     </property>
     <property name="text">
@@ -1220,34 +1247,34 @@ color: rgb(0, 0, 255);</string>
     </property>
     <property name="iconSize">
      <size>
-      <width>24</width>
-      <height>24</height>
+      <width>26</width>
+      <height>26</height>
      </size>
     </property>
    </widget>
    <widget class="QCommandLinkButton" name="pushButton_account_del">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>225</x>
       <y>350</y>
-      <width>76</width>
-      <height>41</height>
+      <width>81</width>
+      <height>46</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Microsoft YaHei UI Light</family>
-      <pointsize>12</pointsize>
+      <pointsize>14</pointsize>
       <weight>3</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;删除一个账户&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;删除一个账户&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;
+     <string notr="true">font: 25 14pt &quot;Microsoft YaHei UI Light&quot;;
 color: rgb(209, 0, 209);</string>
     </property>
     <property name="text">
@@ -1259,19 +1286,22 @@ color: rgb(209, 0, 209);</string>
     </property>
     <property name="iconSize">
      <size>
-      <width>24</width>
-      <height>24</height>
+      <width>26</width>
+      <height>26</height>
      </size>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>285</x>
       <y>5</y>
       <width>196</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;欢迎使用本软件，遇到问题或有建议请联系Oliver 1026815245@qq.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel:hover {    
@@ -1291,7 +1321,7 @@ QLabel {
    <widget class="QLabel" name="label_18">
     <property name="geometry">
      <rect>
-      <x>185</x>
+      <x>190</x>
       <y>0</y>
       <width>101</width>
       <height>86</height>
@@ -1307,7 +1337,7 @@ QLabel {
    <widget class="QCommandLinkButton" name="pushButton_body">
     <property name="geometry">
      <rect>
-      <x>555</x>
+      <x>560</x>
       <y>130</y>
       <width>41</width>
       <height>41</height>
@@ -1323,7 +1353,7 @@ QLabel {
      </font>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;请打开一个包含邮件正文的txt文件&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;请打开一个包含邮件正文的txt文件&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;</string>
@@ -1345,7 +1375,7 @@ QLabel {
    <widget class="QCommandLinkButton" name="pushButton_append">
     <property name="geometry">
      <rect>
-      <x>555</x>
+      <x>560</x>
       <y>180</y>
       <width>36</width>
       <height>41</height>
@@ -1361,7 +1391,7 @@ QLabel {
      </font>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;请打开要发送的附件（可多选）&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;请打开要发送的附件（可多选）&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;</string>
@@ -1383,7 +1413,7 @@ QLabel {
    <widget class="QCommandLinkButton" name="pushButton_mail_list">
     <property name="geometry">
      <rect>
-      <x>555</x>
+      <x>560</x>
       <y>230</y>
       <width>36</width>
       <height>41</height>
@@ -1399,7 +1429,7 @@ QLabel {
      </font>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;请打存放开收件人Excel表格&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;请打存放开收件人Excel表格&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 25 12pt &quot;Microsoft YaHei UI Light&quot;;</string>
@@ -1418,356 +1448,33 @@ QLabel {
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QCommandLinkButton" name="commandLinkButton">
     <property name="geometry">
      <rect>
-      <x>575</x>
-      <y>550</y>
-      <width>56</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="BrightText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Window">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Shadow">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>105</red>
-          <green>105</green>
-          <blue>105</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Highlight">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="HighlightedText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="AlternateBase">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>246</red>
-          <green>246</green>
-          <blue>246</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="NoRole">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="BrightText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Window">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Shadow">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>105</red>
-          <green>105</green>
-          <blue>105</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Highlight">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="HighlightedText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="AlternateBase">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>246</red>
-          <green>246</green>
-          <blue>246</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="NoRole">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>120</red>
-          <green>120</green>
-          <blue>120</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="BrightText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>120</red>
-          <green>120</green>
-          <blue>120</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Window">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Shadow">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>105</red>
-          <green>105</green>
-          <blue>105</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Highlight">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>51</red>
-          <green>153</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="HighlightedText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="AlternateBase">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>246</red>
-          <green>246</green>
-          <blue>246</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="NoRole">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </disabled>
-     </palette>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton:hover { 
-	border-image: url(:/back/pic/ico/close.ico);
-}
-QPushButton {	
-    background-color: rgba(255, 255, 255, 0);
- 
-}</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>585</x>
+      <x>595</x>
       <y>0</y>
-      <width>51</width>
-      <height>51</height>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;关闭&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QLabel:hover { 
-	
+     <string notr="true">QPushButton:hover {  
 	border-image: url(:/back/pic/ico/close.ico);
 }
-QLabel {	
+QPushButton {
     background-color: rgba(255, 255, 255, 0);
  
 }</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="send1.qrc">
+      <normaloff>:/icon/pic/ico/None.png</normaloff>:/icon/pic/ico/None.png</iconset>
     </property>
    </widget>
   </widget>
@@ -1785,31 +1492,39 @@ QLabel {
  </widget>
  <tabstops>
   <tabstop>lineEdit_Sub</tabstop>
+  <tabstop>pushButton_body</tabstop>
+  <tabstop>pushButton_append</tabstop>
+  <tabstop>pushButton_mail_list</tabstop>
   <tabstop>lineEdit_Xls_From</tabstop>
   <tabstop>lineEdit_Xls_To</tabstop>
   <tabstop>lineEdit_Xls_Col</tabstop>
   <tabstop>lineEdit_Sender_Name</tabstop>
+  <tabstop>pushButton_account_add</tabstop>
+  <tabstop>pushButton_account_del</tabstop>
+  <tabstop>listWidget</tabstop>
   <tabstop>spinBox_Each_Hour</tabstop>
   <tabstop>spinBox_Each_Time</tabstop>
-  <tabstop>listWidget</tabstop>
+  <tabstop>pushButton_OK</tabstop>
+  <tabstop>pushButton_cancel</tabstop>
+  <tabstop>commandLinkButton</tabstop>
  </tabstops>
  <resources>
   <include location="send1.qrc"/>
  </resources>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>commandLinkButton</sender>
    <signal>clicked()</signal>
    <receiver>pushButton_cancel</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>612</x>
-     <y>48</y>
+     <x>619</x>
+     <y>51</y>
     </hint>
     <hint type="destinationlabel">
-     <x>440</x>
-     <y>593</y>
+     <x>428</x>
+     <y>605</y>
     </hint>
    </hints>
   </connection>
@@ -1828,7 +1543,7 @@ QLabel {
    <bool>true</bool>
   </property>
   <property name="gridVisible">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
  </designerdata>
 </ui>

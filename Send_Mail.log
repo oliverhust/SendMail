@@ -14295,3 +14295,850 @@ Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
 Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
 Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
 Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:40:36] Start the program
+2016-08-25 01:40:36
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:41:10] Start the program
+2016-08-25 01:41:10
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 01:48:20] Start the program
+2016-08-25 01:48:20
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 08:29:41] Start the program
+2016-08-25 08:29:41
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and discard.
+
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 10:53:06] Start the program
+2016-08-25 10:53:06
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 11:34:29] Start the program
+2016-08-25 11:34:29
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 11:37:13] Start the program
+2016-08-25 11:37:13
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 11:37:44] Start the program
+2016-08-25 11:37:44
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 11:42:02] Start the program
+2016-08-25 11:42:02
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'']
+path_xls = 
+selected = [], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 12:33:37] Start the program
+2016-08-25 12:33:37
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u65b0\u4eba\u57f9\u8bad\u8d44\u6599.rar']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 12:34:25]
+Get 0 mails from excel.
+[2016/08/25 12:34:27]Start Timer.The timer period is 90000 ms
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 269, in slot_button_run
+    self._GUIProc.event_start_send()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1079, in event_start_send
+    ret = self.proc_exec_progress_window(self._mail_matrix.curr_progress())
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 424, in proc_exec_progress_window
+    self._progress_win = ProgressWindow(self)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 578, in __init__
+    self.set_background(self._curr_background)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 598, in set_background
+    style = style_raw.format(self._img_list[img_index])
+KeyError: u' border-image'
+[2016/08/25 12:34:29]Timer call back.
+[2016/08/25 12:34:30]
+读取附件成功
+[2016/08/25 12:34:30]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 58, in __iner_callback
+    self._Callback()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1189, in __send_timer_callback
+    self.proc_update_progress(ret["CurrProgress"], progress_info+u"\nSend Finished")
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 438, in proc_update_progress
+    self._progress_win.set_progress_bar(progress_tuple[0], progress_tuple[1], progress_tuple[2])
+AttributeError: 'NoneType' object has no attribute 'set_progress_bar'
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\\u65b0\u4eba\u57f9\u8bad\u8d44\u6599.rar']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 12:37:18] Start the program
+2016-08-25 12:37:18
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 12:37:32]
+Get 0 mails from excel.
+[2016/08/25 12:37:34]Start Timer.The timer period is 90000 ms
+[2016/08/25 12:37:36]Timer call back.
+[2016/08/25 12:37:36]
+读取附件成功
+[2016/08/25 12:37:36]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 12:39:42] Start the program
+2016-08-25 12:39:42
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 12:39:45]
+Get 0 mails from excel.
+[2016/08/25 12:39:47]Start Timer.The timer period is 90000 ms
+[2016/08/25 12:39:49]Timer call back.
+[2016/08/25 12:39:49]
+读取附件成功
+[2016/08/25 12:39:49]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select liangjinchao@hust.edu.cn recv host 'mail.hust.edu.cn'
+[12:41:14] 开始接收退信
+[12:41:14] 当前账号: hustoliver@hainan.net
+[12:41:14] 当前账号: oliver@dian.com
+[12:41:14] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[12:41:18] 当前账号: liangjinchao@hust.edu.cn
+[12:41:18] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[12:41:21] 完成一轮接收,等待30秒后继续...
+[12:41:43] 终止接收退信操作
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 12:41:58] Start the program
+2016-08-25 12:41:59
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+User cancel add account.
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 12:42:09]
+Get 0 mails from excel.
+[2016/08/25 12:42:10]Start Timer.The timer period is 90000 ms
+[2016/08/25 12:42:12]Timer call back.
+[2016/08/25 12:42:12]
+读取附件成功
+[2016/08/25 12:42:12]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select liangjinchao@hust.edu.cn recv host 'mail.hust.edu.cn'
+[12:42:31] 开始接收退信
+[12:42:31] 当前账号: hustoliver@hainan.net
+[12:42:31] 当前账号: oliver@dian.com
+[12:42:31] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[12:42:32] 当前账号: liangjinchao@hust.edu.cn
+[12:42:32] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[12:42:35] 完成一轮接收,等待30秒后继续...
+[12:42:50] 终止接收退信操作
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 286, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 13:13:08] Start the program
+2016-08-25 13:13:08
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+User del -1
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 287, in account_del
+    user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+AttributeError: 'NoneType' object has no attribute 'text'
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 13:14:51] Start the program
+2016-08-25 13:14:51
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 13:15:16]
+Get 0 mails from excel.
+[2016/08/25 13:15:18]Start Timer.The timer period is 90000 ms
+[2016/08/25 13:15:20]Timer call back.
+[2016/08/25 13:15:20]
+读取附件成功
+[2016/08/25 13:15:20]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 13:18:04] Start the program
+2016-08-25 13:18:04
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 13:18:06]
+Get 0 mails from excel.
+[2016/08/25 13:18:08]Start Timer.The timer period is 90000 ms
+[2016/08/25 13:18:10]Timer call back.
+[2016/08/25 13:18:10]
+读取附件成功
+[2016/08/25 13:18:10]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 13:18:48] Start the program
+2016-08-25 13:18:48
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 13:18:59]
+Get 0 mails from excel.
+[2016/08/25 13:19:01]Start Timer.The timer period is 90000 ms
+[2016/08/25 13:19:03]Timer call back.
+[2016/08/25 13:19:03]
+读取附件成功
+[2016/08/25 13:19:03]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 13:19:30] Start the program
+2016-08-25 13:19:30
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 13:19:32]
+Get 0 mails from excel.
+[2016/08/25 13:19:33]Start Timer.The timer period is 90000 ms
+[2016/08/25 13:19:35]Timer call back.
+[2016/08/25 13:19:35]
+读取附件成功
+[2016/08/25 13:19:35]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select liangjinchao@hust.edu.cn recv host 'mail.hust.edu.cn'
+[13:20:41] 开始接收退信
+[13:20:41] 当前账号: hustoliver@hainan.net
+[13:20:41] 当前账号: oliver@dian.com
+[13:20:41] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:20:42] 当前账号: liangjinchao@hust.edu.cn
+[13:20:42] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:20:45] 完成一轮接收,等待30秒后继续...
+[13:21:02] 终止接收退信操作
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 13:21:08]
+Get 0 mails from excel.
+[2016/08/25 13:21:09]Start Timer.The timer period is 90000 ms
+[2016/08/25 13:21:11]Timer call back.
+[2016/08/25 13:21:11]
+读取附件成功
+[2016/08/25 13:21:11]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host 'mail.hust.edu.cn'
+User select oliver@dian.com recv host u''
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select liangjinchao@hust.edu.cn recv host 'mail.hust.edu.cn'
+[13:23:34] 开始接收退信
+[13:23:34] 当前账号: hustoliver@hainan.net
+[13:23:34] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:23:37] 当前账号: oliver@dian.com
+[13:23:37] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:23:38] 当前账号: liangjinchao@hust.edu.cn
+[13:23:38] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:23:41] 完成一轮接收,等待30秒后继续...
+[13:24:11] 开始接收退信
+[13:24:11] 当前账号: hustoliver@hainan.net
+[13:24:11] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:24:14] 当前账号: oliver@dian.com
+[13:24:14] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:24:15] 当前账号: liangjinchao@hust.edu.cn
+[13:24:15] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:24:18] 完成一轮接收,等待30秒后继续...
+[13:24:48] 开始接收退信
+[13:24:48] 当前账号: hustoliver@hainan.net
+[13:24:48] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:24:51] 当前账号: oliver@dian.com
+[13:24:51] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:24:52] 当前账号: liangjinchao@hust.edu.cn
+[13:24:52] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:24:55] 完成一轮接收,等待30秒后继续...
+[13:25:25] 开始接收退信
+[13:25:25] 当前账号: hustoliver@hainan.net
+[13:25:25] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:25:28] 当前账号: oliver@dian.com
+[13:25:28] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:25:30] 当前账号: liangjinchao@hust.edu.cn
+[13:25:30] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:25:33] 完成一轮接收,等待30秒后继续...
+[13:26:03] 开始接收退信
+[13:26:03] 当前账号: hustoliver@hainan.net
+[13:26:03] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:26:06] 当前账号: oliver@dian.com
+[13:26:06] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:26:07] 当前账号: liangjinchao@hust.edu.cn
+[13:26:07] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:26:10] 完成一轮接收,等待30秒后继续...
+[13:26:40] 开始接收退信
+[13:26:40] 当前账号: hustoliver@hainan.net
+[13:26:40] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:26:43] 当前账号: oliver@dian.com
+[13:26:43] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:26:44] 当前账号: liangjinchao@hust.edu.cn
+[13:26:44] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:26:47] 完成一轮接收,等待30秒后继续...
+[13:27:17] 开始接收退信
+[13:27:17] 当前账号: hustoliver@hainan.net
+[13:27:17] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:27:20] 当前账号: oliver@dian.com
+[13:27:20] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:27:22] 当前账号: liangjinchao@hust.edu.cn
+[13:27:22] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:27:25] 完成一轮接收,等待30秒后继续...
+[13:27:55] 开始接收退信
+[13:27:55] 当前账号: hustoliver@hainan.net
+[13:27:55] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:27:58] 当前账号: oliver@dian.com
+[13:27:58] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:27:59] 当前账号: liangjinchao@hust.edu.cn
+[13:27:59] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:28:02] 完成一轮接收,等待30秒后继续...
+[13:28:32] 开始接收退信
+[13:28:32] 当前账号: hustoliver@hainan.net
+[13:28:32] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:28:35] 当前账号: oliver@dian.com
+[13:28:35] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:28:36] 当前账号: liangjinchao@hust.edu.cn
+[13:28:36] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:28:39] 完成一轮接收,等待30秒后继续...
+[13:29:09] 开始接收退信
+[13:29:09] 当前账号: hustoliver@hainan.net
+[13:29:09] 账号hustoliver@hainan.net登录失败: LOGIN Login error
+[13:29:12] 终止接收退信操作
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 13:29:18] Start the program
+2016-08-25 13:29:19
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 13:29:24]
+Get 0 mails from excel.
+[2016/08/25 13:29:25]Start Timer.The timer period is 90000 ms
+[2016/08/25 13:29:27]Timer call back.
+[2016/08/25 13:29:27]
+读取附件成功
+[2016/08/25 13:29:27]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/25 13:29:45] Start the program
+2016-08-25 13:29:45
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will reload
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/25 13:29:47]
+Get 0 mails from excel.
+[2016/08/25 13:29:49]Start Timer.The timer period is 90000 ms
+[2016/08/25 13:29:51]Timer call back.
+[2016/08/25 13:29:51]
+读取附件成功
+[2016/08/25 13:29:51]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select liangjinchao@hust.edu.cn recv host 'mail.hust.edu.cn'
+[13:30:13] 开始接收退信
+[13:30:13] 当前账号: hustoliver@hainan.net
+[13:30:13] 当前账号: oliver@dian.com
+[13:30:13] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+[13:30:15] 当前账号: liangjinchao@hust.edu.cn
+[13:30:15] 账号liangjinchao@hust.edu.cn登录失败: LOGIN Login error
+[13:30:18] 完成一轮接收,等待30秒后继续...
+[13:30:25] 终止接收退信操作
+Exit and save.
+
+sub = 你好我们一起吧
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1], col_name = E, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(oliver@dian.com, 192.168.56.88, 陈美丽)
+Account[2] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+Account[3] = Account(liangjinchao@hust.edu.cn, mail.hust.edu.cn, 陈美丽)

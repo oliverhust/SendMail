@@ -13,11 +13,28 @@
     <height>658</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1034</width>
+    <height>658</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1034</width>
+    <height>658</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>退信接收</string>
   </property>
   <property name="toolTip">
    <string>建议&quot;已等待退信时间&quot;大于15分钟后停止接收退信</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Dialog_Ndr {
+	border-image: url(:/background/pic/back/blue.jpg);
+}</string>
   </property>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
@@ -43,6 +60,9 @@
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 60);</string>
+   </property>
    <property name="frameShape">
     <enum>QFrame::Panel</enum>
    </property>
@@ -65,8 +85,21 @@
    <property name="toolTip">
     <string>建议&quot;已等待退信时间&quot;大于15分钟后停止接收退信</string>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 60);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Panel</enum>
+   </property>
    <property name="readOnly">
     <bool>true</bool>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Malgun Gothic Semilight'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -96,8 +129,8 @@
     <rect>
      <x>40</x>
      <y>30</y>
-     <width>111</width>
-     <height>61</height>
+     <width>121</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
@@ -105,6 +138,9 @@
      <family>Malgun Gothic Semilight</family>
      <pointsize>22</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(190, 190, 190, 120);</string>
    </property>
    <property name="text">
     <string>停止</string>
@@ -144,6 +180,9 @@
      <pointsize>24</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 220);</string>
+   </property>
    <property name="text">
     <string>0</string>
    </property>
@@ -163,6 +202,9 @@
    <property name="toolTip">
     <string>建议该时间大于15分钟后停止接收退信</string>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
+   </property>
    <property name="frameShape">
     <enum>QFrame::Box</enum>
    </property>
@@ -171,7 +213,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>80</y>
+     <y>85</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -196,25 +238,58 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>130</y>
-     <width>111</width>
-     <height>61</height>
+     <y>125</y>
+     <width>121</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Malgun Gothic Semilight</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="toolTip">
-    <string>停止之后才能保存表格</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;停止之后才能保存表格&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(190, 190, 190, 120);</string>
    </property>
    <property name="text">
-    <string>保存表格</string>
+    <string>导出
+表格</string>
+   </property>
+   <property name="icon">
+    <iconset resource="send1.qrc">
+     <normaloff>:/icon/pic/ico/excel2.png</normaloff>:/icon/pic/ico/excel2.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="send1.qrc"/>
+ </resources>
  <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>5</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>5</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
 </ui>

@@ -3,6 +3,7 @@
 
 import sys
 import time
+import random
 import platform
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -282,7 +283,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.listWidget.addItem(QString(new_win.user))
 
     def account_del(self):
+        if self.listWidget.currentRow() < 0:
+            return
         user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
+        print(u"User del account[{}] {}".format(self.listWidget.currentRow()), user_del)
         for i, account in enumerate(self._account_list):
             if account.user == user_del:
                 del(self._account_list[i])
@@ -549,7 +553,10 @@ class AccountWindow(QDialog, Ui_Dialog_Account, NoFrameWin):
 
 
 # ########################### 进度条窗口 ############################
-class ProgressWindow(QDialog, Ui_Dialog_Progress):
+class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
+    IMG_LIST = [u'/background/pic/back/lan.jpg',
+                u'/background/pic/back/ice.jpg',
+                u'/background/pic/back/love.jpeg', ]
 
     def __init__(self, gui_proc=None, parent=None):
         super(ProgressWindow, self).__init__(parent)
@@ -557,11 +564,21 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         self._timer_close = None  # 定时自动关闭MsgBox
         self._box = None
         self._button_is_finish = False  # 发送完成按钮会变成finish
+        self._curr_background = 0
+        self._img_list = []
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)
+
+        # 定时更换背景
+        self.timer_background = QTimer(self)
+        self.connect(self.timer_background, SIGNAL("timeout()"), self.slot_background)
+        self.timer_background.start(10000)
+        self._img_list = ProgressWindow.IMG_LIST[:]
+        random.shuffle(self._img_list)        # 把原来的图片顺序进行“洗牌”
+        self.set_background(self._curr_background)
 
     def slot_pause(self):
         if self._GUIProc is not None:
@@ -575,15 +592,30 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
         else:
             self.accept()  # 发送完成
 
+    def slot_background(self):
+        self._curr_background = (self._curr_background + 1) % len(self._img_list)
+        self.set_background(self._curr_background)
+
+    def set_background(self, img_index):
+        style_raw = u'''#Dialog_Progress { border-image: url(:%s); }'''
+        style = style_raw % (self._img_list[img_index])
+        self.setStyleSheet(QString(style))
+
     def set_progress_bar(self, success_num, failed_num, not_sent_num):
         self.label_has_sent.setText(QString(unicode(success_num)))
         self.label_failed_sent.setText(QString(unicode(failed_num)))
+        self.label_not_sent.setText(QString(unicode(not_sent_num)))
 
         all_num = success_num + failed_num + not_sent_num
         show_num = success_num + failed_num
-        self.progressBar.setMinimum(0)
-        self.progressBar.setMaximum(all_num)
-        self.progressBar.setValue(show_num)
+        if all_num > 0:
+            self.progressBar.setMinimum(0)
+            self.progressBar.setMaximum(all_num)
+            self.progressBar.setValue(show_num)
+        else:
+            self.progressBar.setMinimum(100)
+            self.progressBar.setMaximum(100)
+            self.progressBar.setValue(100)
 
     def progress_log(self, content):
         self.textEdit.append(QString(unicode(content)))
@@ -618,7 +650,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress):
 
 
 # ########################### 设置IMAP服务器窗口 ############################
-class RecvHostWindow(QDialog, Ui_Dialog_RecvHost):
+class RecvHostWindow(QDialog, Ui_Dialog_RecvHost, NoFrameWin):
 
     def __init__(self, account_user, parent=None):
         super(RecvHostWindow, self).__init__(parent)
@@ -662,7 +694,7 @@ class RecvHostWindow(QDialog, Ui_Dialog_RecvHost):
 
 
 # ########################### 退信窗口 ############################
-class NdrWindow(QDialog, Ui_Dialog_Ndr):
+class NdrWindow(QDialog, Ui_Dialog_Ndr, NoFrameWin):
 
     def __init__(self, gui_proc=None, lcd_minute=0, lcd_second=0, parent=None):
         super(NdrWindow, self).__init__(parent)
@@ -843,7 +875,8 @@ def main():
     main_init()
     QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
     app = QApplication(sys.argv)
-    app.setStyle("cleanlooks")
+    # app.setStyle("cleanlooks")
+    # app.setStyle("plastique")
     win = GUIMain()
     win.show()
     app.exec_()
