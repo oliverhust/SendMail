@@ -133,7 +133,7 @@ class Ui_Dialog_Ndr(object):
         self.lcdNumber.setToolTip(_translate("Dialog_Ndr", "建议该时间大于15分钟后停止接收退信", None))
         self.label_3.setToolTip(_translate("Dialog_Ndr", "建议该时间大于15分钟后停止接收退信", None))
         self.label_3.setText(_translate("Dialog_Ndr", "已等待退信时间：", None))
-        self.pushButton_Save.setToolTip(_translate("Dialog_Ndr", "停止之后才能保存表格", None))
+        self.pushButton_Save.setToolTip(_translate("Dialog_Ndr", "<html><head/><body><p><span style=\" font-size:11pt;\">停止之后才能保存表格</span></p></body></html>", None))
         self.pushButton_Save.setText(_translate("Dialog_Ndr", "导出\n"
 "表格", None))
 

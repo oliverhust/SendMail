@@ -30,8 +30,8 @@ class Ui_Dialog_Progress(object):
         font.setFamily(_fromUtf8("Arial"))
         font.setPointSize(10)
         Dialog_Progress.setFont(font)
+        Dialog_Progress.setToolTip(_fromUtf8(""))
         Dialog_Progress.setStyleSheet(_fromUtf8("#Dialog_Progress {\n"
-"    \n"
 "    \n"
 "    border-image: url(:/background/pic/back/lan.jpg);\n"
 "}"))
@@ -111,7 +111,10 @@ class Ui_Dialog_Progress(object):
 
     def retranslateUi(self, Dialog_Progress):
         Dialog_Progress.setWindowTitle(_translate("Dialog_Progress", "发送进度", None))
+        self.pushButton.setToolTip(_translate("Dialog_Progress", "<html><head/><body><p><span style=\" font-size:11pt;\">如果需要修改发送信息可以随时暂停，返回主界面修改后再次点击开始。已发送的邮件不会重复发送</span></p></body></html>", None))
         self.pushButton.setText(_translate("Dialog_Progress", "暂停", None))
+        self.progressBar.setToolTip(_translate("Dialog_Progress", "<html><head/><body><p><span style=\" font-size:11pt;\">如果需要修改发送信息可以随时暂停，返回主界面修改后再次点击开始。已发送的邮件不会重复发送</span></p></body></html>", None))
+        self.textEdit.setToolTip(_translate("Dialog_Progress", "<html><head/><body><p><span style=\" font-size:11pt;\">如果需要修改发送信息可以随时暂停，返回主界面修改后再次点击开始。已发送的邮件不会重复发送</span></p></body></html>", None))
         self.textEdit.setHtml(_translate("Dialog_Progress", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

@@ -94,6 +94,36 @@ class TransParentWin(NoFrameWin):
 
 
 # #####################################################################
+# ###################### 自动更换背景图片的窗口 ###########################
+class AutoBackgroundWin(QWidget):
+    IMG_LIST = [u'/background/pic/back/lan.jpg',
+                u'/background/pic/back/ice.jpg',
+                u'/background/pic/back/love.jpeg',
+                ] + [u'/Release_back/pic/prog_back/images/img%03d.jpg'%x for x in range(1, 35)]
+
+    def __init__(self, parent=None, internal=5000):
+        super(AutoBackgroundWin, self).__init__(parent)
+        self._curr_background = 0
+        self._img_list = []
+
+        self._timer_background = QTimer(self)
+        self.connect(self._timer_background, SIGNAL("timeout()"), self.__slot_background)
+        self._timer_background.start(internal)
+        self._img_list = AutoBackgroundWin.IMG_LIST[:]
+        random.shuffle(self._img_list)        # 把原来的图片顺序进行“洗牌”
+        self.set_background(self._curr_background)
+
+    def __slot_background(self):
+        self._curr_background = (self._curr_background + 1) % len(self._img_list)
+        self.set_background(self._curr_background)
+
+    def set_background(self, img_index):
+        style_raw = u'''#Dialog_Progress { border-image: url(:%s); }'''
+        style = style_raw % (self._img_list[img_index])
+        self.setStyleSheet(QString(style))
+
+
+# #####################################################################
 # ########################### 主窗口 ###################################
 class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
 
@@ -424,6 +454,7 @@ class GUIMain(UIInterface, MainWindow):
 
     def proc_exec_progress_window(self, init_progress):
         # 弹出进度条界面
+        self.setHidden(True)
         self._progress_win = ProgressWindow(self)
         self._progress_win.set_progress_bar(init_progress[0], init_progress[1], init_progress[2])
         ret = self._progress_win.exec_()
@@ -433,6 +464,7 @@ class GUIMain(UIInterface, MainWindow):
         else:
             print(u"Exit progress window pause or abnormal, ret = {}".format(ret))
             ret = False
+        self.setHidden(False)
         return ret
 
     def proc_update_progress(self, progress_tuple=None, progress_info=None):
@@ -553,10 +585,7 @@ class AccountWindow(QDialog, Ui_Dialog_Account, NoFrameWin):
 
 
 # ########################### 进度条窗口 ############################
-class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
-    IMG_LIST = [u'/background/pic/back/lan.jpg',
-                u'/background/pic/back/ice.jpg',
-                u'/background/pic/back/love.jpeg', ]
+class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin, AutoBackgroundWin):
 
     def __init__(self, gui_proc=None, parent=None):
         super(ProgressWindow, self).__init__(parent)
@@ -564,21 +593,11 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
         self._timer_close = None  # 定时自动关闭MsgBox
         self._box = None
         self._button_is_finish = False  # 发送完成按钮会变成finish
-        self._curr_background = 0
-        self._img_list = []
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)
-
-        # 定时更换背景
-        self.timer_background = QTimer(self)
-        self.connect(self.timer_background, SIGNAL("timeout()"), self.slot_background)
-        self.timer_background.start(10000)
-        self._img_list = ProgressWindow.IMG_LIST[:]
-        random.shuffle(self._img_list)        # 把原来的图片顺序进行“洗牌”
-        self.set_background(self._curr_background)
 
     def slot_pause(self):
         if self._GUIProc is not None:
@@ -592,15 +611,6 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
         else:
             self.accept()  # 发送完成
 
-    def slot_background(self):
-        self._curr_background = (self._curr_background + 1) % len(self._img_list)
-        self.set_background(self._curr_background)
-
-    def set_background(self, img_index):
-        style_raw = u'''#Dialog_Progress { border-image: url(:%s); }'''
-        style = style_raw % (self._img_list[img_index])
-        self.setStyleSheet(QString(style))
-
     def set_progress_bar(self, success_num, failed_num, not_sent_num):
         self.label_has_sent.setText(QString(unicode(success_num)))
         self.label_failed_sent.setText(QString(unicode(failed_num)))
@@ -613,7 +623,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
             self.progressBar.setMaximum(all_num)
             self.progressBar.setValue(show_num)
         else:
-            self.progressBar.setMinimum(100)
+            self.progressBar.setMinimum(0)
             self.progressBar.setMaximum(100)
             self.progressBar.setValue(100)
 
@@ -819,6 +829,7 @@ def test_recv_win():
 def test_ui_progress():
     app = QApplication(sys.argv)
     win = ProgressWindow()
+    win.set_progress_bar(2, 2, 2)
     win.show()
     app.exec_()
 
