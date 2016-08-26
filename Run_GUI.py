@@ -116,7 +116,7 @@ class MyMessageBox(QMessageBox):
 
 
 # #####################################################################
-IMG_LIST = [u'/auto_back/pic/auto_back/img%03d.jpg' % x for x in range(1, 37)]
+IMG_LIST = [u'/auto_back/pic/auto_back/img%03d.jpg' % x for x in range(1, 44)]
 
 
 # #####################################################################
@@ -635,7 +635,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
 
         self.setupUi(self)
         self._background = AutoBackground(self.widget)
-        self._background.start(IMG_LIST)
+        self._background.start(IMG_LIST, 53000)
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)

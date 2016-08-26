@@ -125,10 +125,7 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-
-
-</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QWidget" name="widget_2" native="true">

@@ -66,10 +66,7 @@ class Ui_Dialog_Progress(object):
         self.textEdit.setObjectName(_fromUtf8("textEdit"))
         self.widget = QtGui.QWidget(Dialog_Progress)
         self.widget.setGeometry(QtCore.QRect(0, 0, 1032, 580))
-        self.widget.setStyleSheet(_fromUtf8("\n"
-"\n"
-"\n"
-""))
+        self.widget.setStyleSheet(_fromUtf8(""))
         self.widget.setObjectName(_fromUtf8("widget"))
         self.widget_2 = QtGui.QWidget(Dialog_Progress)
         self.widget_2.setGeometry(QtCore.QRect(260, 45, 676, 56))

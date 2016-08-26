@@ -21876,3 +21876,102 @@ The form has loaded
 The Event form load occur.
 Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/26 19:07:01] Start the program
+2016-08-26 19:07:02
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/26 19:07:35] Start the program
+2016-08-26 19:07:35
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
+sub = 阿斯顿发送到
+body_path = E:/X 发行资料/简报邮件正文内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/可以随便乱发的别人的邮箱.xls
+selected = [1, 2, 3, 4], col_name = H, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+[2016/08/26 19:08:19]
+Get 0 mails from excel.
+[2016/08/26 19:08:20]Start Timer.The timer period is 360000 ms
+[2016/08/26 19:08:22]Timer call back.
+[2016/08/26 19:08:23]
+读取附件成功
+[2016/08/26 19:08:23]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+sub = 阿斯顿发送到
+body_path = E:/X 发行资料/简报邮件正文内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/可以随便乱发的别人的邮箱.xls
+selected = [1, 2, 3, 4], col_name = H, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+[2016/08/26 19:08:54]
+Get 0 mails from excel.
+[2016/08/26 19:08:55]Start Timer.The timer period is 360000 ms
+[2016/08/26 19:08:57]Timer call back.
+[2016/08/26 19:08:57]
+读取附件成功
+[2016/08/26 19:08:57]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/26 19:09:49] Start the program
+2016-08-26 19:09:49
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
+The progress will reload
+sub = 阿斯顿发送到
+body_path = E:/X 发行资料/简报邮件正文内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/可以随便乱发的别人的邮箱.xls
+selected = [1, 2, 3, 4], col_name = H, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+[2016/08/26 19:09:56]
+Get 0 mails from excel.
+[2016/08/26 19:09:57]Start Timer.The timer period is 360000 ms
+[2016/08/26 19:09:59]Timer call back.
+[2016/08/26 19:09:59]
+读取附件成功
+[2016/08/26 19:09:59]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select sdfadsa@adsf recv host u''
+[19:14:07] 开始接收退信:since 2016/08/26 19:08:19
+[19:14:07] 当前账号: sdfadsa@adsf
+[19:14:07] 完成一轮接收,等待30秒后继续...
+[19:14:13] 终止接收退信操作
+Exit and save.
+
+sub = 阿斯顿发送到
+body_path = E:/X 发行资料/简报邮件正文内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/可以随便乱发的别人的邮箱.xls
+selected = [1, 2, 3, 4], col_name = H, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
