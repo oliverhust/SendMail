@@ -27,7 +27,8 @@ class Ui_Dialog_RecvHost(object):
         Dialog_RecvHost.setObjectName(_fromUtf8("Dialog_RecvHost"))
         Dialog_RecvHost.resize(494, 274)
         Dialog_RecvHost.setStyleSheet(_fromUtf8("#Dialog_RecvHost {\n"
-"    background-image: url(:/Release_back/pic/back/_love_s.jpg);\n"
+"    \n"
+"    background-image: url(:/r_back/pic/r_back/love_s.jpeg);\n"
 "\n"
 "}"))
         self.label = QtGui.QLabel(Dialog_RecvHost)
@@ -65,8 +66,8 @@ class Ui_Dialog_RecvHost(object):
 "    margin: 0;\n"
 "}\n"
 "QPushButton {    \n"
-"    color: rgb(255, 209, 117);\n"
-"    border-image: url(:/icon/pic/ico/right64.png);\n"
+"    color: rgb(255, 209, 117);    \n"
+"    border-image: url(:/r_icon/pic/r_icon/right64.png);\n"
 "    margin: 5;\n"
 "    background-color: rgba(255, 255, 255, 0);\n"
 " \n"

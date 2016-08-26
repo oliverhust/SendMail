@@ -1,88 +1,61 @@
 <RCC>
-  <qresource prefix="back">
-    <file>pic/ico/close.ico</file>
-    <file>pic/ico/Folder.png</file>
-    <file>pic/dream_like3.jpg</file>
-    <file>pic/back/dream_like2_left_t.jpg</file>
-    <file>mail_sent.ico</file>
-    <file>email.png</file>
-    <file>mail512.png</file>
-    <file>eexit.ico</file>
-    <file>pic/1.jpg</file>
+  <qresource prefix="r_back">
+    <file>pic/r_back/blue.jpg</file>
+    <file>pic/r_back/dream_like2_s.jpg</file>
+    <file>pic/r_back/linernd2.jpg</file>
+    <file>pic/r_back/love_s.jpeg</file>
   </qresource>
-  <qresource prefix="Release_back">
-    <file>pic/back/_love_s.jpg</file>
-    <file>pic/prog_back/images/img001.jpg</file>
-    <file>pic/prog_back/images/img002.jpg</file>
-    <file>pic/prog_back/images/img003.jpg</file>
-    <file>pic/prog_back/images/img004.jpg</file>
-    <file>pic/prog_back/images/img005.jpg</file>
-    <file>pic/prog_back/images/img006.jpg</file>
-    <file>pic/prog_back/images/img007.jpg</file>
-    <file>pic/prog_back/images/img008.jpg</file>
-    <file>pic/prog_back/images/img009.jpg</file>
-    <file>pic/prog_back/images/img010.jpg</file>
-    <file>pic/prog_back/images/img011.jpg</file>
-    <file>pic/prog_back/images/img012.jpg</file>
-    <file>pic/prog_back/images/img013.jpg</file>
-    <file>pic/prog_back/images/img014.jpg</file>
-    <file>pic/prog_back/images/img015.jpg</file>
-    <file>pic/prog_back/images/img016.jpg</file>
-    <file>pic/prog_back/images/img017.jpg</file>
-    <file>pic/prog_back/images/img018.jpg</file>
-    <file>pic/prog_back/images/img019.jpg</file>
-    <file>pic/prog_back/images/img020.jpg</file>
-    <file>pic/prog_back/images/img021.jpg</file>
-    <file>pic/prog_back/images/img022.jpg</file>
-    <file>pic/prog_back/images/img023.jpg</file>
-    <file>pic/prog_back/images/img024.jpg</file>
-    <file>pic/prog_back/images/img025.jpg</file>
-    <file>pic/prog_back/images/img026.jpg</file>
-    <file>pic/prog_back/images/img027.jpg</file>
-    <file>pic/prog_back/images/img028.jpg</file>
-    <file>pic/prog_back/images/img029.jpg</file>
-    <file>pic/prog_back/images/img030.jpg</file>
-    <file>pic/prog_back/images/img031.jpg</file>
-    <file>pic/prog_back/images/img032.jpg</file>
-    <file>pic/prog_back/images/img033.jpg</file>
-    <file>pic/prog_back/images/img034.jpg</file>
+  <qresource prefix="r_icon">
+    <file>pic/r_icon/10d.png</file>
+    <file>pic/r_icon/excel.ico</file>
+    <file>pic/r_icon/question.png</file>
+    <file>pic/r_icon/Add.png</file>
+    <file>pic/r_icon/cancel.png</file>
+    <file>pic/r_icon/close.png</file>
+    <file>pic/r_icon/Denided.png</file>
+    <file>pic/r_icon/exit.png</file>
+    <file>pic/r_icon/Folder.png</file>
+    <file>pic/r_icon/mail512.png</file>
+    <file>pic/r_icon/mass_send2.png</file>
+    <file>pic/r_icon/ok.png</file>
+    <file>pic/r_icon/right64.png</file>
   </qresource>
-  <qresource prefix="logo">
-    <file>pic/ico/mail512.png</file>
-    <file>pic/massemail.png</file>
-    <file>pic/ico/post.png</file>
-    <file>pic/mass_send2.png</file>
-  </qresource>
-  <qresource prefix="background">
-    <file>pic/back/ice_left.jpg</file>
-    <file>pic/back/yumao_d2.jpg</file>
-    <file>pic/back/yumao.jpg</file>
-    <file>pic/back/1470448439576.jpg</file>
-    <file>pic/back/blue.jpg</file>
-    <file>pic/back/ice.jpg</file>
-    <file>pic/back/lan.jpg</file>
-    <file>pic/back/love.jpeg</file>
-    <file>pic/back/sky.jpg</file>
-    <file>pic/back/linernd.jpg</file>
-    <file>pic/back/linernd2.jpg</file>
-    <file>pic/back/sky.jpg</file>
-    <file>pic/back/blue.jpg</file>
-    <file>pic/dream_like2_left.jpg</file>
-    <file>pic/dream_like2_s.jpg</file>
-    <file>pic/rain_big.jpg</file>
-  </qresource>
-  <qresource prefix="icon">
-    <file>pic/ico/excel2.png</file>
-    <file>pic/10d.png</file>
-    <file>pic/ico/None.png</file>
-    <file>pic/ico/go_next_old_128px_4588_easyicon.net.ico</file>
-    <file>pic/ico/right64.png</file>
-    <file>pic/ico/Add_Symbol.png</file>
-    <file>pic/ico/Add.png</file>
-    <file>pic/ico/Denided.png</file>
-    <file>pic/ico/green_ok_128px_1075415_easyicon.net.ico</file>
-    <file>pic/ico/ooopic_1471949504.ico</file>
-    <file>pic/ico/red_delete_128px_1075470_easyicon.net.ico</file>
-    <file>74.png</file>
+  <qresource prefix="auto_back">
+    <file>pic/auto_back/img001.jpg</file>
+    <file>pic/auto_back/img002.jpg</file>
+    <file>pic/auto_back/img003.jpg</file>
+    <file>pic/auto_back/img004.jpg</file>
+    <file>pic/auto_back/img005.jpg</file>
+    <file>pic/auto_back/img006.jpg</file>
+    <file>pic/auto_back/img007.jpg</file>
+    <file>pic/auto_back/img008.jpg</file>
+    <file>pic/auto_back/img009.jpg</file>
+    <file>pic/auto_back/img010.jpg</file>
+    <file>pic/auto_back/img011.jpg</file>
+    <file>pic/auto_back/img012.jpg</file>
+    <file>pic/auto_back/img013.jpg</file>
+    <file>pic/auto_back/img014.jpg</file>
+    <file>pic/auto_back/img015.jpg</file>
+    <file>pic/auto_back/img016.jpg</file>
+    <file>pic/auto_back/img017.jpg</file>
+    <file>pic/auto_back/img018.jpg</file>
+    <file>pic/auto_back/img019.jpg</file>
+    <file>pic/auto_back/img020.jpg</file>
+    <file>pic/auto_back/img021.jpg</file>
+    <file>pic/auto_back/img022.jpg</file>
+    <file>pic/auto_back/img023.jpg</file>
+    <file>pic/auto_back/img024.jpg</file>
+    <file>pic/auto_back/img025.jpg</file>
+    <file>pic/auto_back/img026.jpg</file>
+    <file>pic/auto_back/img027.jpg</file>
+    <file>pic/auto_back/img028.jpg</file>
+    <file>pic/auto_back/img029.jpg</file>
+    <file>pic/auto_back/img030.jpg</file>
+    <file>pic/auto_back/img031.jpg</file>
+    <file>pic/auto_back/img032.jpg</file>
+    <file>pic/auto_back/img033.jpg</file>
+    <file>pic/auto_back/img034.jpg</file>
+    <file>pic/auto_back/img035.jpg</file>
+    <file>pic/auto_back/img036.jpg</file>
   </qresource>
 </RCC>

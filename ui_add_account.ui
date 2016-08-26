@@ -32,7 +32,10 @@
    <string>添加一个账号</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Dialog_Account {background-image: url(:/background/pic/dream_like2_s.jpg);}
+   <string notr="true">#Dialog_Account {
+	
+	background-image: url(:/r_back/pic/r_back/dream_like2_s.jpg);
+}
 
 
 </string>
@@ -216,7 +219,7 @@ font: 25 15pt &quot;Microsoft YaHei UI Light&quot;;</string>
 }
 QPushButton {	
 	
-	border-image: url(:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico);
+	border-image: url(:/r_icon/pic/r_icon/ok.png);
     margin: 10;
     background-color: rgba(255, 255, 255, 0);
  
@@ -243,7 +246,8 @@ QPushButton:pressed {
 	margin: 0;
 }
 QPushButton {	
-	border-image: url(:/icon/pic/ico/red_delete_128px_1075470_easyicon.net.ico);
+	
+	border-image: url(:/r_icon/pic/r_icon/cancel.png);
     margin: 10;
     background-color: rgba(255, 255, 255, 0);
  
@@ -280,7 +284,7 @@ QPushButton:pressed {
    <bool>true</bool>
   </property>
   <property name="gridVisible">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
  </designerdata>
 </ui>

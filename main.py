@@ -1455,7 +1455,8 @@ class RecvImap:
             return []
         else:
             print(u"Get imap start num = {}, datetime = {}".format(num_list[start_pos], dt))
-            return nums_all[nums_all.index(num_list[start_pos]):]           # 不用num_list是用户可能删邮件
+            index = nums_all.index(num_list[start_pos])
+            return nums_all[index:][::-1]           # 不用num_list是用户可能删邮件 逆序 从新到旧
 
     def _get_num_body(self, num, must_datetime_since=None):
         # 获取指定序号(字符串)邮件的时间和内容 无法获取或时间不符则返回None 如果大于datetime_since将已获取的保存到Cache
@@ -1663,8 +1664,9 @@ class NdrProc(threading.Thread):
     def run(self):
         # 线程运行的任务  出错则下一个账号
         self._thread_db_init()
+        str_start_time = self._start_time.strftime(u"%Y/%m/%d %H:%M:%S")
         while not self._get_is_user_paused():
-            self._write_err_info(u"开始接收退信", True)
+            self._write_err_info(u"开始接收退信:since {}".format(str_start_time), True)
             for account in self._AccountList:
                 self._write_err_info(u"当前账号: {}".format(account.user))
                 since_time = self._account_last_time_get(account.user, self._start_time)  # 每轮结束每个账号的时间自动向后推

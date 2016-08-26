@@ -29,7 +29,10 @@ class Ui_Dialog_Account(object):
         Dialog_Account.setMinimumSize(QtCore.QSize(345, 333))
         Dialog_Account.setMaximumSize(QtCore.QSize(345, 333))
         Dialog_Account.setWindowOpacity(1.0)
-        Dialog_Account.setStyleSheet(_fromUtf8("#Dialog_Account {background-image: url(:/background/pic/dream_like2_s.jpg);}\n"
+        Dialog_Account.setStyleSheet(_fromUtf8("#Dialog_Account {\n"
+"    \n"
+"    background-image: url(:/r_back/pic/r_back/dream_like2_s.jpg);\n"
+"}\n"
 "\n"
 "\n"
 ""))
@@ -110,7 +113,7 @@ class Ui_Dialog_Account(object):
 "}\n"
 "QPushButton {    \n"
 "    \n"
-"    border-image: url(:/icon/pic/ico/green_ok_128px_1075415_easyicon.net.ico);\n"
+"    border-image: url(:/r_icon/pic/r_icon/ok.png);\n"
 "    margin: 10;\n"
 "    background-color: rgba(255, 255, 255, 0);\n"
 " \n"
@@ -126,7 +129,8 @@ class Ui_Dialog_Account(object):
 "    margin: 0;\n"
 "}\n"
 "QPushButton {    \n"
-"    border-image: url(:/icon/pic/ico/red_delete_128px_1075470_easyicon.net.ico);\n"
+"    \n"
+"    border-image: url(:/r_icon/pic/r_icon/cancel.png);\n"
 "    margin: 10;\n"
 "    background-color: rgba(255, 255, 255, 0);\n"
 " \n"

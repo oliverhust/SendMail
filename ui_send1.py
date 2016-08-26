@@ -47,9 +47,8 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(_fromUtf8(""))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setStyleSheet(_fromUtf8("#centralwidget {\n"
-"\n"
-"    background-image: url(:/background/pic/back/linernd.jpg);\n"
-"\n"
+"    \n"
+"    background-image: url(:/r_back/pic/r_back/linernd2.jpg);\n"
 "}"))
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.label_body = QtGui.QLabel(self.centralwidget)
@@ -342,7 +341,7 @@ class Ui_MainWindow(object):
         self.pushButton_OK.setFont(font)
         self.pushButton_OK.setStyleSheet(_fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 146, 216, 255), stop:1 rgba(255, 255, 255, 255));"))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/pic/10d.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/r_icon/pic/r_icon/10d.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_OK.setIcon(icon)
         self.pushButton_OK.setIconSize(QtCore.QSize(50, 40))
         self.pushButton_OK.setObjectName(_fromUtf8("pushButton_OK"))
@@ -432,7 +431,7 @@ class Ui_MainWindow(object):
         self.pushButton_cancel.setStyleSheet(_fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255682 rgba(255, 0, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255682 rgba(168, 0, 255, 255), stop:1 rgba(255, 255, 255, 255));"))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/back/eexit.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/r_icon/pic/r_icon/exit.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_cancel.setIcon(icon1)
         self.pushButton_cancel.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_cancel.setObjectName(_fromUtf8("pushButton_cancel"))
@@ -448,7 +447,7 @@ class Ui_MainWindow(object):
         self.pushButton_account_add.setStyleSheet(_fromUtf8("font: 25 14pt \"Microsoft YaHei UI Light\";\n"
 "color: rgb(0, 0, 255);"))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/pic/ico/Add.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/r_icon/pic/r_icon/Add.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_account_add.setIcon(icon2)
         self.pushButton_account_add.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_account_add.setObjectName(_fromUtf8("pushButton_account_add"))
@@ -464,7 +463,7 @@ class Ui_MainWindow(object):
         self.pushButton_account_del.setStyleSheet(_fromUtf8("font: 25 14pt \"Microsoft YaHei UI Light\";\n"
 "color: rgb(209, 0, 209);"))
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/pic/ico/Denided.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/r_icon/pic/r_icon/Denided.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_account_del.setIcon(icon3)
         self.pushButton_account_del.setIconSize(QtCore.QSize(26, 26))
         self.pushButton_account_del.setObjectName(_fromUtf8("pushButton_account_del"))
@@ -474,7 +473,7 @@ class Ui_MainWindow(object):
 "    margin: 0;\n"
 "}\n"
 "QLabel {    \n"
-"    border-image: url(:/logo/pic/mass_send2.png);\n"
+"    border-image: url(:/r_icon/pic/r_icon/mass_send2.png);\n"
 "    margin: 3;\n"
 "    background-color: rgba(255, 255, 255, 0);\n"
 " \n"
@@ -483,7 +482,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.label_18 = QtGui.QLabel(self.centralwidget)
         self.label_18.setGeometry(QtCore.QRect(190, 0, 101, 86))
-        self.label_18.setStyleSheet(_fromUtf8("border-image: url(:/logo/pic/ico/mail512.png);"))
+        self.label_18.setStyleSheet(_fromUtf8("border-image: url(:/r_icon/pic/r_icon/mail512.png);"))
         self.label_18.setText(_fromUtf8(""))
         self.label_18.setObjectName(_fromUtf8("label_18"))
         self.pushButton_body = QtGui.QCommandLinkButton(self.centralwidget)
@@ -498,7 +497,7 @@ class Ui_MainWindow(object):
         self.pushButton_body.setStyleSheet(_fromUtf8("font: 25 12pt \"Microsoft YaHei UI Light\";"))
         self.pushButton_body.setText(_fromUtf8(""))
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/back/pic/ico/Folder.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(_fromUtf8(":/r_icon/pic/r_icon/Folder.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_body.setIcon(icon4)
         self.pushButton_body.setIconSize(QtCore.QSize(24, 24))
         self.pushButton_body.setObjectName(_fromUtf8("pushButton_body"))
@@ -530,20 +529,20 @@ class Ui_MainWindow(object):
         self.pushButton_mail_list.setIcon(icon4)
         self.pushButton_mail_list.setIconSize(QtCore.QSize(24, 24))
         self.pushButton_mail_list.setObjectName(_fromUtf8("pushButton_mail_list"))
-        self.commandLinkButton = QtGui.QCommandLinkButton(self.centralwidget)
-        self.commandLinkButton.setGeometry(QtCore.QRect(595, 0, 41, 41))
-        self.commandLinkButton.setStyleSheet(_fromUtf8("QPushButton:hover {  \n"
-"    border-image: url(:/back/pic/ico/close.ico);\n"
+        self.button_close = QtGui.QCommandLinkButton(self.centralwidget)
+        self.button_close.setGeometry(QtCore.QRect(595, 0, 41, 41))
+        self.button_close.setStyleSheet(_fromUtf8("QPushButton:hover {    \n"
+"    border-image: url(:/r_icon/pic/r_icon/close.png);\n"
 "}\n"
 "QPushButton {\n"
 "    background-color: rgba(255, 255, 255, 0);\n"
 " \n"
 "}"))
-        self.commandLinkButton.setText(_fromUtf8(""))
+        self.button_close.setText(_fromUtf8(""))
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/pic/ico/None.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.commandLinkButton.setIcon(icon5)
-        self.commandLinkButton.setObjectName(_fromUtf8("commandLinkButton"))
+        self.button_close.setIcon(icon5)
+        self.button_close.setObjectName(_fromUtf8("button_close"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 636, 23))
@@ -554,7 +553,6 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        QtCore.QObject.connect(self.commandLinkButton, QtCore.SIGNAL(_fromUtf8("clicked()")), self.pushButton_cancel.click)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.lineEdit_Sub, self.pushButton_body)
         MainWindow.setTabOrder(self.pushButton_body, self.pushButton_append)
@@ -570,7 +568,7 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.spinBox_Each_Hour, self.spinBox_Each_Time)
         MainWindow.setTabOrder(self.spinBox_Each_Time, self.pushButton_OK)
         MainWindow.setTabOrder(self.pushButton_OK, self.pushButton_cancel)
-        MainWindow.setTabOrder(self.pushButton_cancel, self.commandLinkButton)
+        MainWindow.setTabOrder(self.pushButton_cancel, self.button_close)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "群发邮件", None))
@@ -626,6 +624,6 @@ class Ui_MainWindow(object):
         self.pushButton_body.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:11pt;\">请打开一个包含邮件正文的txt文件</span></p></body></html>", None))
         self.pushButton_append.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:11pt;\">请打开要发送的附件（可多选）</span></p></body></html>", None))
         self.pushButton_mail_list.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:11pt;\">请打存放开收件人Excel表格</span></p></body></html>", None))
-        self.commandLinkButton.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">关闭</span></p></body></html>", None))
+        self.button_close.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">关闭</span></p></body></html>", None))
 
 import send1_rc

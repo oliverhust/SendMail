@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>836</width>
-    <height>470</height>
+    <width>1032</width>
+    <height>604</height>
    </rect>
   </property>
   <property name="font">
@@ -23,32 +23,33 @@
    <string/>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Dialog_Progress {
-	
-	border-image: url(:/background/pic/back/lan.jpg);
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>25</x>
-     <y>25</y>
-     <width>101</width>
-     <height>41</height>
+     <x>40</x>
+     <y>30</y>
+     <width>141</width>
+     <height>76</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Malgun Gothic Semilight</family>
-     <pointsize>14</pointsize>
+     <pointsize>24</pointsize>
     </font>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;如果需要修改发送信息可以随时暂停，返回主界面修改后再次点击开始。已发送的邮件不会重复发送&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(190, 190, 190, 120);
-</string>
+    <string notr="true">QPushButton:hover {    
+	background-color: rgba(190, 190, 190, 150);
+}
+QPushButton {	
+	background-color: rgba(190, 190, 190, 70); 
+}</string>
    </property>
    <property name="text">
     <string>暂停</string>
@@ -57,10 +58,10 @@
   <widget class="QProgressBar" name="progressBar">
    <property name="geometry">
     <rect>
-     <x>25</x>
-     <y>85</y>
-     <width>781</width>
-     <height>36</height>
+     <x>0</x>
+     <y>579</y>
+     <width>1032</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="font">
@@ -82,16 +83,16 @@
   <widget class="QTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>25</x>
+     <x>40</x>
      <y>140</y>
-     <width>781</width>
-     <height>301</height>
+     <width>946</width>
+     <height>401</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Malgun Gothic Semilight</family>
-     <pointsize>12</pointsize>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="toolTip">
@@ -107,127 +108,169 @@
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Malgun Gothic Semilight'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Malgun Gothic Semilight'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="textInteractionFlags">
     <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>155</x>
-     <y>30</y>
-     <width>81</width>
-     <height>32</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1032</width>
+     <height>580</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Microsoft YaHei UI Light</family>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>已发送：</string>
+   <property name="styleSheet">
+    <string notr="true">
+
+
+</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QWidget" name="widget_2" native="true">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>30</y>
-     <width>66</width>
-     <height>32</height>
+     <x>260</x>
+     <y>45</y>
+     <width>676</width>
+     <height>56</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Microsoft YaHei UI Light</family>
-     <pointsize>16</pointsize>
-    </font>
+   <property name="styleSheet">
+    <string notr="true">QWidget#widget_2:hover {
+	background-color: rgba(255, 255, 255, 120);
+}</string>
    </property>
-   <property name="text">
-    <string>失败：</string>
-   </property>
+   <widget class="QLabel" name="label_failed_sent">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>5</y>
+      <width>106</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>257</x>
+      <y>5</y>
+      <width>87</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>失败：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>475</x>
+      <y>5</y>
+      <width>116</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>待发送：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_not_sent">
+    <property name="geometry">
+     <rect>
+      <x>597</x>
+      <y>5</y>
+      <width>16</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_has_sent">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>5</y>
+      <width>96</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_1">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>5</y>
+      <width>116</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic Semilight</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>已发送：</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QLabel" name="label_has_sent">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>30</y>
-     <width>66</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Microsoft YaHei UI Light</family>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>0</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_failed_sent">
-   <property name="geometry">
-    <rect>
-     <x>375</x>
-     <y>30</y>
-     <width>66</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Microsoft YaHei UI Light</family>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>0</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_not_sent">
-   <property name="geometry">
-    <rect>
-     <x>540</x>
-     <y>30</y>
-     <width>81</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Microsoft YaHei UI Light</family>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>0</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>30</y>
-     <width>81</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Microsoft YaHei UI Light</family>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>待发送：</string>
-   </property>
-  </widget>
+  <zorder>widget</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>progressBar</zorder>
+  <zorder>textEdit</zorder>
+  <zorder>widget_2</zorder>
  </widget>
  <resources>
   <include location="send1.qrc"/>

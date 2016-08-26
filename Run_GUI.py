@@ -94,33 +94,62 @@ class TransParentWin(NoFrameWin):
 
 
 # #####################################################################
-# ###################### 自动更换背景图片的窗口 ###########################
-class AutoBackgroundWin(QWidget):
-    IMG_LIST = [u'/background/pic/back/lan.jpg',
-                u'/background/pic/back/ice.jpg',
-                u'/background/pic/back/love.jpeg',
-                ] + [u'/Release_back/pic/prog_back/images/img%03d.jpg'%x for x in range(1, 35)]
+# ########################## MessageBox #############################
+class MyMessageBox(QMessageBox):
+    """  :type 0(question)  """
+    ICON_LIST = [r':/r_icon/pic/r_icon/question.png', ]
 
-    def __init__(self, parent=None, internal=5000):
-        super(AutoBackgroundWin, self).__init__(parent)
+    def __init__(self, parent, icon_type=0):
+        super(MyMessageBox, self).__init__(parent)
+        self.setIconPixmap(QPixmap(MyMessageBox.ICON_LIST[icon_type]))
+
+    def setText(self, q_string):
+        raw_text = unicode(q_string)
+        n = raw_text.count(u"\n")
+        if len(raw_text) > 0 and raw_text[-1] == u"\n":
+            n -= 1
+        if 0 == n:
+            new_string = QString(u"\n") + q_string
+        else:
+            new_string = q_string
+        QMessageBox.setText(self, new_string)
+
+
+# #####################################################################
+IMG_LIST = [u'/auto_back/pic/auto_back/img%03d.jpg' % x for x in range(1, 37)]
+
+
+# #####################################################################
+# ###################### 自动更换背景图片的部件 ###########################
+class AutoBackground:
+
+    def __init__(self, widget):
+        self._Widget = widget
         self._curr_background = 0
         self._img_list = []
 
-        self._timer_background = QTimer(self)
-        self.connect(self._timer_background, SIGNAL("timeout()"), self.__slot_background)
+        self._timer_background = QTimer(widget)
+        self._Widget.connect(self._timer_background, SIGNAL("timeout()"), self.__slot_background)
+
+    def start(self, rc_img_list, internal=80000, rand=True):
+        self._img_list = rc_img_list[:]
+        if rand:
+            random.shuffle(self._img_list)
+        self.set_background(0)
         self._timer_background.start(internal)
-        self._img_list = AutoBackgroundWin.IMG_LIST[:]
-        random.shuffle(self._img_list)        # 把原来的图片顺序进行“洗牌”
-        self.set_background(self._curr_background)
+
+    def stop(self):
+        self._timer_background.stop()
 
     def __slot_background(self):
         self._curr_background = (self._curr_background + 1) % len(self._img_list)
         self.set_background(self._curr_background)
 
     def set_background(self, img_index):
-        style_raw = u'''#Dialog_Progress { border-image: url(:%s); }'''
+        style_raw = u'''#widget { border-image: url(:%s); }'''
         style = style_raw % (self._img_list[img_index])
-        self.setStyleSheet(QString(style))
+        # print(u"Set back style:{}".format(style))
+        self._Widget.setStyleSheet(QString(style))
 
 
 # #####################################################################
@@ -138,6 +167,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.timer_form_load.setSingleShot(True)
         self.connect(self.timer_form_load, SIGNAL("timeout()"), self.slot_form_load)
         self.timer_form_load.start(200)
+
+        # 直接关闭窗口
+        self.connect(self.button_close, SIGNAL("clicked()"), self.slot_button_close)
 
         # 打开正文、附件、Excel
         self.connect(self.pushButton_body, SIGNAL("clicked()"), self.slot_open_body)
@@ -203,8 +235,11 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         if self._GUIProc is not None:
             self._GUIProc.event_form_load()
 
+    def slot_button_close(self):
+        self.close()
+
     def slot_button_cancel(self):
-        box = QMessageBox(self)
+        box = MyMessageBox(self)
         box.setWindowTitle(u"Are you sure to exit?")
         b_save = box.addButton(QString(u"保存"), QMessageBox.ActionRole)
         b_discard = box.addButton(QString(u"不保存"), QMessageBox.ActionRole)
@@ -316,7 +351,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         if self.listWidget.currentRow() < 0:
             return
         user_del = unicode(self.listWidget.item(self.listWidget.currentRow()).text())
-        print(u"User del account[{}] {}".format(self.listWidget.currentRow()), user_del)
+        print(u"User del account[{}] {}".format(self.listWidget.currentRow(), user_del))
         for i, account in enumerate(self._account_list):
             if account.user == user_del:
                 del(self._account_list[i])
@@ -346,7 +381,7 @@ class GUIMain(UIInterface, MainWindow):
 
     def proc_ask_if_recover(self, last_success_num, last_failed_num, last_not_sent):
         ret = False
-        box = QMessageBox(self)
+        box = MyMessageBox(self)
         box.setWindowTitle(u"Recover or not")
         b_recover = box.addButton(QString(u"继续上次的"), QMessageBox.ActionRole)
         box.addButton(QString(u"开始新任务"), QMessageBox.ActionRole)
@@ -367,7 +402,7 @@ class GUIMain(UIInterface, MainWindow):
 
     def proc_ask_if_reload_ui(self, mail_sub):
         ret = False
-        box = QMessageBox(self)
+        box = MyMessageBox(self)
         box.setWindowTitle(u"Reload or not")
         b_recover = box.addButton(QString(u"恢复上次"), QMessageBox.ActionRole)
         box.addButton(QString(u"开始新任务"), QMessageBox.ActionRole)
@@ -511,8 +546,11 @@ class GUIMain(UIInterface, MainWindow):
         delta_seconds = (datetime.datetime.now() - send_finish_datetime).seconds
         minute = delta_seconds / 60
         second = delta_seconds % 60
+
+        self.setHidden(True)
         self._ndr_win = NdrWindow(self, minute, second)
         self._ndr_win.exec_()
+        self.setHidden(False)
 
     def proc_ndr_refresh_data(self, err_info, ndr_data_list, ndr_all_count, has_finish_a_loop):
         # ndr_data_list:[[时间，退回的邮箱， 出错信息， 建议]...]
@@ -585,7 +623,7 @@ class AccountWindow(QDialog, Ui_Dialog_Account, NoFrameWin):
 
 
 # ########################### 进度条窗口 ############################
-class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin, AutoBackgroundWin):
+class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
 
     def __init__(self, gui_proc=None, parent=None):
         super(ProgressWindow, self).__init__(parent)
@@ -594,7 +632,10 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin, AutoBackgroundWin)
         self._box = None
         self._button_is_finish = False  # 发送完成按钮会变成finish
         self.setAttribute(Qt.WA_DeleteOnClose)
+
         self.setupUi(self)
+        self._background = AutoBackground(self.widget)
+        self._background.start(IMG_LIST)
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)
@@ -642,7 +683,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin, AutoBackgroundWin)
 
     def mention_and_auto_close(self, err_info=u"", delay=10000):
         if err_info != u"":
-            box = QMessageBox(self)
+            box = MyMessageBox(self)
             self._box = box
             self._timer_close = QTimer(self)
             self._timer_close.setSingleShot(True)

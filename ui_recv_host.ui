@@ -18,7 +18,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#Dialog_RecvHost {
-	background-image: url(:/Release_back/pic/back/_love_s.jpg);
+	
+	background-image: url(:/r_back/pic/r_back/love_s.jpeg);
 
 }</string>
   </property>
@@ -110,8 +111,8 @@
 	margin: 0;
 }
 QPushButton {	
-	color: rgb(255, 209, 117);
-	border-image: url(:/icon/pic/ico/right64.png);
+	color: rgb(255, 209, 117);	
+	border-image: url(:/r_icon/pic/r_icon/right64.png);
     margin: 5;
     background-color: rgba(255, 255, 255, 0);
  

@@ -77,9 +77,8 @@
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">#centralwidget {
-
-	background-image: url(:/background/pic/back/linernd.jpg);
-
+	
+	background-image: url(:/r_back/pic/r_back/linernd2.jpg);
 }</string>
    </property>
    <widget class="QLabel" name="label_body">
@@ -948,7 +947,7 @@
     </property>
     <property name="icon">
      <iconset resource="send1.qrc">
-      <normaloff>:/icon/pic/10d.png</normaloff>:/icon/pic/10d.png</iconset>
+      <normaloff>:/r_icon/pic/r_icon/10d.png</normaloff>:/r_icon/pic/r_icon/10d.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1204,7 +1203,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.255
     </property>
     <property name="icon">
      <iconset resource="send1.qrc">
-      <normaloff>:/back/eexit.ico</normaloff>:/back/eexit.ico</iconset>
+      <normaloff>:/r_icon/pic/r_icon/exit.png</normaloff>:/r_icon/pic/r_icon/exit.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1243,7 +1242,7 @@ color: rgb(0, 0, 255);</string>
     </property>
     <property name="icon">
      <iconset resource="send1.qrc">
-      <normaloff>:/icon/pic/ico/Add.png</normaloff>:/icon/pic/ico/Add.png</iconset>
+      <normaloff>:/r_icon/pic/r_icon/Add.png</normaloff>:/r_icon/pic/r_icon/Add.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1282,7 +1281,7 @@ color: rgb(209, 0, 209);</string>
     </property>
     <property name="icon">
      <iconset resource="send1.qrc">
-      <normaloff>:/icon/pic/ico/Denided.png</normaloff>:/icon/pic/ico/Denided.png</iconset>
+      <normaloff>:/r_icon/pic/r_icon/Denided.png</normaloff>:/r_icon/pic/r_icon/Denided.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1308,7 +1307,7 @@ color: rgb(209, 0, 209);</string>
 	margin: 0;
 }
 QLabel {	
-	border-image: url(:/logo/pic/mass_send2.png);
+	border-image: url(:/r_icon/pic/r_icon/mass_send2.png);
     margin: 3;
     background-color: rgba(255, 255, 255, 0);
  
@@ -1328,7 +1327,7 @@ QLabel {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/logo/pic/ico/mail512.png);</string>
+     <string notr="true">border-image: url(:/r_icon/pic/r_icon/mail512.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -1363,7 +1362,7 @@ QLabel {
     </property>
     <property name="icon">
      <iconset resource="send1.qrc">
-      <normaloff>:/back/pic/ico/Folder.png</normaloff>:/back/pic/ico/Folder.png</iconset>
+      <normaloff>:/r_icon/pic/r_icon/Folder.png</normaloff>:/r_icon/pic/r_icon/Folder.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1401,7 +1400,7 @@ QLabel {
     </property>
     <property name="icon">
      <iconset resource="send1.qrc">
-      <normaloff>:/back/pic/ico/Folder.png</normaloff>:/back/pic/ico/Folder.png</iconset>
+      <normaloff>:/r_icon/pic/r_icon/Folder.png</normaloff>:/r_icon/pic/r_icon/Folder.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1439,7 +1438,7 @@ QLabel {
     </property>
     <property name="icon">
      <iconset resource="send1.qrc">
-      <normaloff>:/back/pic/ico/Folder.png</normaloff>:/back/pic/ico/Folder.png</iconset>
+      <normaloff>:/r_icon/pic/r_icon/Folder.png</normaloff>:/r_icon/pic/r_icon/Folder.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1448,7 +1447,7 @@ QLabel {
      </size>
     </property>
    </widget>
-   <widget class="QCommandLinkButton" name="commandLinkButton">
+   <widget class="QCommandLinkButton" name="button_close">
     <property name="geometry">
      <rect>
       <x>595</x>
@@ -1461,8 +1460,8 @@ QLabel {
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;关闭&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton:hover {  
-	border-image: url(:/back/pic/ico/close.ico);
+     <string notr="true">QPushButton:hover {	
+	border-image: url(:/r_icon/pic/r_icon/close.png);
 }
 QPushButton {
     background-color: rgba(255, 255, 255, 0);
@@ -1473,7 +1472,7 @@ QPushButton {
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="send1.qrc">
+     <iconset>
       <normaloff>:/icon/pic/ico/None.png</normaloff>:/icon/pic/ico/None.png</iconset>
     </property>
    </widget>
@@ -1506,29 +1505,12 @@ QPushButton {
   <tabstop>spinBox_Each_Time</tabstop>
   <tabstop>pushButton_OK</tabstop>
   <tabstop>pushButton_cancel</tabstop>
-  <tabstop>commandLinkButton</tabstop>
+  <tabstop>button_close</tabstop>
  </tabstops>
  <resources>
   <include location="send1.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>commandLinkButton</sender>
-   <signal>clicked()</signal>
-   <receiver>pushButton_cancel</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>619</x>
-     <y>51</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>428</x>
-     <y>605</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <designerdata>
   <property name="gridDeltaX">
    <number>5</number>

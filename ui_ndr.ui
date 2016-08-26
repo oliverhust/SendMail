@@ -33,7 +33,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#Dialog_Ndr {
-	border-image: url(:/background/pic/back/blue.jpg);
+	background-image: url(:/r_back/pic/r_back/blue.jpg);
 }</string>
   </property>
   <widget class="QTableWidget" name="tableWidget">
@@ -261,7 +261,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="icon">
     <iconset resource="send1.qrc">
-     <normaloff>:/icon/pic/ico/excel2.png</normaloff>:/icon/pic/ico/excel2.png</iconset>
+     <normaloff>:/r_icon/pic/r_icon/excel.ico</normaloff>:/r_icon/pic/r_icon/excel.ico</iconset>
    </property>
    <property name="iconSize">
     <size>

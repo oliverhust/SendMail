@@ -30,7 +30,7 @@ class Ui_Dialog_Ndr(object):
         Dialog_Ndr.setMinimumSize(QtCore.QSize(1034, 658))
         Dialog_Ndr.setMaximumSize(QtCore.QSize(1034, 658))
         Dialog_Ndr.setStyleSheet(_fromUtf8("#Dialog_Ndr {\n"
-"    border-image: url(:/background/pic/back/blue.jpg);\n"
+"    background-image: url(:/r_back/pic/r_back/blue.jpg);\n"
 "}"))
         self.tableWidget = QtGui.QTableWidget(Dialog_Ndr)
         self.tableWidget.setGeometry(QtCore.QRect(40, 220, 951, 401))
@@ -108,7 +108,7 @@ class Ui_Dialog_Ndr(object):
         self.pushButton_Save.setFont(font)
         self.pushButton_Save.setStyleSheet(_fromUtf8("background-color: rgba(190, 190, 190, 120);"))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/pic/ico/excel2.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/r_icon/pic/r_icon/excel.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_Save.setIcon(icon)
         self.pushButton_Save.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_Save.setObjectName(_fromUtf8("pushButton_Save"))
