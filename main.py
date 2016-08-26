@@ -1451,7 +1451,7 @@ class RecvImap:
                     break
 
         if start_pos is None:
-            print(u"Can not find start num situable.")
+            print(u"Can not find start num suitable.")
             return []
         else:
             print(u"Get imap start num = {}, datetime = {}".format(num_list[start_pos], dt))
