@@ -6,6 +6,8 @@ import sys
 import time
 import socket
 import datetime
+import platform
+import subprocess
 
 f_Logging = None
 g_check_same = None
@@ -18,7 +20,7 @@ class MyLog:
     _SOURCEFILE_ENCODING = "utf-8"
     # buf记录最近打印的内容
 
-    def __init__(self, std_fd, file_fd = None, bufsize=65536):
+    def __init__(self, std_fd, file_fd=None, bufsize=65536):
         if isinstance(std_fd, MyLog):
             raise Exception("The object is already mylog")
         if not isinstance(bufsize, int) or bufsize <= 0:
@@ -33,12 +35,15 @@ class MyLog:
         if self._file is not None:
             self._file.close()
 
-    def writefile(self, stream, is_flush = False):
+    def writefile(self, stream, is_flush=False):
         if self._file is not None:
             if isinstance(stream, str):
                 self._file.write(stream)
             elif isinstance(stream, unicode):
-                self._file.write(stream.encode(MyLog._SOURCEFILE_ENCODING))
+                try:
+                    self._file.write(stream.encode(MyLog._SOURCEFILE_ENCODING))
+                except Exception, e:
+                    self._file.write(u"[EXCEPTION {}]#[{}]#".format(e, repr(stream)))
             else:
                 raise TypeError("The stream type is " + str(type(stream)))
             if is_flush:
@@ -52,7 +57,10 @@ class MyLog:
 
     def write(self, stream):
         self.writefile(stream, True)
-        self._std.write(stream)
+        try:
+            self._std.write(stream)
+        except Exception, e:
+            self._std.write(u"[EXCEPTION {}]#[{}]#".format(e, repr(stream)))
         # buf只保存最后bufsize个字符
         if isinstance(stream, unicode):
             stream = stream.encode(MyLog._SOURCEFILE_ENCODING)
@@ -126,7 +134,39 @@ def mylog_buf(is_stderr=False):
         else:
             raise TypeError("The sys.stdout is not type 'mylog'")
 
+
 ######################################################################
+
+def is_windows_system():
+    return 'Windows' in platform.system()
+
+
+def is_mac_system():
+    return 'Darwin' in platform.system()
+
+
+def os_shell(cmd):
+
+    # 获取输出
+    out = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+    # 读取输出
+    lines = out.stdout.read()
+
+    # 编码转换
+    try:
+        result = lines.decode('utf-8')
+    except:
+        result = lines.decode('gb18030')
+        print("Decode command {} output error.".format(repr(cmd)))
+
+    out.wait()
+
+    return result
+
+
+def os_get_user_desktop():
+    return os.path.join(os.path.expanduser("~"), 'Desktop')
 
 
 def check_program_has_same(program_unique_port):

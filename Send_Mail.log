@@ -21975,3 +21975,53 @@ path_xls = E:/X 发行资料/可以随便乱发的别人的邮箱.xls
 selected = [1, 2, 3, 4], col_name = H, sender_name = adfds
 Speed each hour = 400, each time = 40
 Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/27 13:03:20] Start the program
+2016-08-27 13:03:20
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = F, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/27 13:11:35] Start the program
+2016-08-27 13:11:35
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = F, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 13:11:38]
+Get 0 mails from excel.
+[2016/08/27 13:11:39]Start Timer.The timer period is 22500 ms
+[2016/08/27 13:11:41]Timer call back.
+[2016/08/27 13:11:41]
+读取附件成功
+[2016/08/27 13:11:41]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}

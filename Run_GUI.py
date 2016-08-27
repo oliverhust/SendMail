@@ -203,7 +203,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
             self._body_path = u""
         else:
             self._body_path = unicode(s)
-        self.label_body.setText(QString(s))
+        self.label_body.setText(QString(self._body_path))
 
     def slot_open_appends(self):
         self.label_append.setText(QString(u"载入时间较长，请稍等..."))
@@ -211,6 +211,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         if not s_list:
             self.label_append.setText(QString(u""))
             self._append_list = []
+            return
         # 拼接附件文件名
         self._append_list = [unicode(s_list[0])]
         q_s = QString(unicode(s_list[0]).replace(u'\\', u'/'))
@@ -635,7 +636,8 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
 
         self.setupUi(self)
         self._background = AutoBackground(self.widget)
-        self._background.start(IMG_LIST, 53000)
+        self._background.start(IMG_LIST, 5000)
+        # self._background.start(IMG_LIST, 53000)
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)
@@ -800,6 +802,8 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr, NoFrameWin):
                 err, err_info = self._GUIProc.event_save_ndr_to_excel()
                 if err != 0:
                     QMessageBox.warning(self, u"Error", QString(err_info))
+                else:
+                    self.append_text(u"已保存表格到：{}".format(err_info))
 
     def add_one_row(self, mail, suggest, more_info):
         old_row_count = self.tableWidget.rowCount()
@@ -836,10 +840,6 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr, NoFrameWin):
     def slot_refresh_lcd(self):
         self._lcd_minute, self._lcd_second = self._time_convert(self._lcd_minute, self._lcd_second + 1)
         self.lcdNumber.display(QString(u"%02d:%02d" % (self._lcd_minute, self._lcd_second)))
-
-
-def is_windows_system():
-    return 'Windows' in platform.system()
 
 
 def beep():

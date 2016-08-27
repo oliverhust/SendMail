@@ -346,7 +346,7 @@ class ExcelRead:
             for each_ceil in sheet.col_values(mail_which_col):    # sheet.col_values(列号) 获取sheet内一列
                 if "" != str_find_mailbox(each_ceil):
                     mails_read.append(each_ceil)
-        print_t("Get {} mails from excel.".format(len(mails_read)))
+        print_t(u"Get {} mails from excel.".format(len(mails_read)))
         return err, err_info, mails_read
 
 
@@ -1325,6 +1325,8 @@ class RecvImap:
     DECODING = 'gb18030'
     DECODING2 = 'utf-8'
 
+    DATETIME_STR = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
     def __init__(self, host, user, passwd):
         self._Host = host
         self._User = user
@@ -1406,7 +1408,9 @@ class RecvImap:
                 yield each_dir
 
     def _search_from_since_in_dir(self, from_who, datetime_since):   # 时间相等也算
-        str_date = datetime_since.strftime(u"%d-%b-%Y")
+        str_date = datetime_since.strftime(u"%d-{}-%Y")
+        str_date = str_date.format(RecvImap.DATETIME_STR[datetime_since.month-1])
+        print(u"Search imap: from [{}], since [{}]".format(from_who, str_date))
         typ, all_data = self._m.search(None, 'FROM', from_who, 'SINCE', str_date)
         if typ == 'OK':
             nums_all = all_data[0].split()
@@ -1482,7 +1486,12 @@ class RecvImap:
         if not time_str:
             print("A letter does not has time str, num = {}".format(num))
             return None, None
-        dt = datetime.datetime.strptime(time_str[0], "%d %b %Y %H:%M:%S")
+        my_str = time_str[0]
+        for i, each_month in enumerate(RecvImap.DATETIME_STR):
+            if each_month in my_str:
+                my_str = my_str.replace(each_month, str(i+1))
+        dt = datetime.datetime.strptime(my_str, "%d %m %Y %H:%M:%S")
+        # dt = datetime.datetime.strptime(my_str, "%d %b %Y %H:%M:%S")
         body_text = self._try_decode(body)
 
         # 此时已得到 dt, body_text
@@ -1780,6 +1789,8 @@ class ExcelWrite:
         if ERROR_SUCCESS != err:
             return err, err_info
         err, err_info = self._ndr_open_xls()
+        if ERROR_SUCCESS == err:
+            err_info = self._Path
         return err, err_info
 
     # ------------------------------------------------------------------
@@ -1798,8 +1809,8 @@ class ExcelWrite:
         if self._Path is None:
             now = datetime.datetime.now()
             time_str = now.strftime(u"%Y%m%d_%H%M%S")
-            dir_name = os_get_curr_dir()
             file_name = u"退信邮箱_{}.xls".format(time_str)
+            dir_name = os_get_user_desktop()
             self._Path = os.path.join(dir_name, file_name)
         return self._Path
 
@@ -1840,7 +1851,7 @@ class ExcelWrite:
             err_info = u"写Excel到{}失败:{}".format(path, e)
         return err, err_info
 
-    def _ndr_open_xls(self):
+    def _ndr_open_xls_win(self):
         err, err_info = ERROR_SUCCESS, u""
         try:
             os.startfile(self._Path)
@@ -1848,6 +1859,27 @@ class ExcelWrite:
             err = ERROR_START_XLS_FAILED
             err_info = u"尝试用本地程序打开表格{}失败:{}".format(self._Path, e)
         return err, err_info
+
+    def _ndr_open_xls_mac(self):
+        err, err_info = ERROR_SUCCESS, u""
+        try:
+            ret_info = os_shell(u"open {}".format(self._Path))
+        except Exception, e:
+            err = ERROR_START_XLS_FAILED
+            err_info = u"尝试用本地程序打开表格{}失败:{}".format(self._Path, e)
+        else:
+            if ret_info != "":
+                err = ERROR_START_XLS_FAILED
+                err_info = u"尝试使用本地程序打开表格{}失败:{}".format(self._Path, ret_info)
+        return err, err_info
+
+    def _ndr_open_xls(self):
+        if is_windows_system():
+            return self._ndr_open_xls_win()
+        elif is_mac_system():
+            return self._ndr_open_xls_mac()
+        else:
+            return ERROR_START_XLS_FAILED, u"未知的操作系统：{}".format(platform.system())
 
 
 # #####################################################################################################
