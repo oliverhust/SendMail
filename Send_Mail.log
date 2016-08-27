@@ -22046,3 +22046,310 @@ path_xls = E:/X 发行资料/可以随便乱发的别人的邮箱.xls
 selected = [1, 2, 3, 4], col_name = H, sender_name = adfds
 Speed each hour = 400, each time = 40
 Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+
+
+
+
+________________________________________________________________________________
+
+[2016/08/27 22:37:19] Start the program
+2016-08-27 22:37:19
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = F, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 22:37:39]
+Get 0 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = F, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 22:38:15]
+Get 0 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = F, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 22:39:20]
+Get 0 mails from excel.
+[2016/08/27 22:39:21]Start Timer.The timer period is 22500 ms
+[2016/08/27 22:39:23]Timer call back.
+[2016/08/27 22:39:23]
+读取附件成功
+[2016/08/27 22:39:23]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (45, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 22:39:31]
+Get 5 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 22:41:14]
+Get 5 mails from excel.
+[2016/08/27 22:41:17]Start Timer.The timer period is 22500 ms
+[2016/08/27 22:41:19]Timer call back.
+[2016/08/27 22:41:19]
+读取附件成功
+[2016/08/27 22:41:19]
+Start to send a group
+Connecting to host smtp.hainan.net
+Logining account hustoliver@hainan.net
+Start to send email...
+[2016/08/27 22:41:26]
+The email has sent.
+[2016/08/27 22:41:26]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Connection unexpectedly closed: [Errno 10054] \n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7U201313778@hust.edu.cn', 'ErrCode': 5, 'CurrProgress': (45, 0, 5)}
+[2016/08/27 22:41:41]Timer call back.
+[2016/08/27 22:41:41]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/27 22:41:42]
+The email has sent.
+[2016/08/27 22:41:42]
+{'FailedList': [], 'SuccessList': [u'liangjinchao.happy@163.com', u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (47, 0, 3)}
+[2016/08/27 22:42:04]Timer call back.
+[2016/08/27 22:42:04]
+Start to send a group
+Connecting to host smtp.hainan.net
+Logining account hustoliver@hainan.net
+Start to send email...
+[2016/08/27 22:42:07]
+The email has sent.
+[2016/08/27 22:42:07]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Server not connected\n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7U201313778@hust.edu.cn', 'ErrCode': 5, 'CurrProgress': (47, 0, 3)}
+[2016/08/27 22:42:26]Timer call back.
+[2016/08/27 22:42:26]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/27 22:42:27]
+The email has sent.
+[2016/08/27 22:42:27]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com', u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (49, 0, 1)}
+[2016/08/27 22:42:49]Timer call back.
+[2016/08/27 22:42:49]
+Start to send a group
+Connecting to host smtp.hainan.net
+Logining account hustoliver@hainan.net
+Start to send email...
+[2016/08/27 22:42:54]
+The email has sent.
+[2016/08/27 22:42:54]
+{'FailedList': [], 'SuccessList': [u'1026815245@qq.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (50, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[22:43:02] 开始接收退信:since 2016/08/22 01:36:24
+[22:43:02] 当前账号: hustoliver@hainan.net
+[22:43:02] 当前账号: oliver@dian.com
+[22:43:02] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+[22:43:28] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+Get imap start num = 442, datetime = 2016-08-22 01:41:53
+[22:43:36] 接收到邮箱uhhokfs@126.com的退信
+[22:43:37] 接收到邮箱piwhaek@qq.com的退信
+[22:43:38] 接收到邮箱yralgwm@163.com的退信
+[22:43:51] 完成一轮接收,等待30秒后继续...
+[22:44:21] 开始接收退信:since 2016/08/22 01:36:24
+[22:44:21] 当前账号: hustoliver@hainan.net
+[22:44:21] 当前账号: oliver@dian.com
+[22:44:21] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+[22:44:25] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [27-Aug-2016]
+Get imap start num = 466, datetime = 2016-08-27 22:44:29
+[22:44:29] 完成一轮接收,等待30秒后继续...
+[22:44:59] 开始接收退信:since 2016/08/22 01:36:24
+[22:44:59] 当前账号: hustoliver@hainan.net
+[22:44:59] 当前账号: oliver@dian.com
+[22:44:59] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+[22:45:04] 终止接收退信操作
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 22:45:09]
+Get 5 mails from excel.
+[2016/08/27 22:45:14]Start Timer.The timer period is 22500 ms
+[2016/08/27 22:45:16]Timer call back.
+[2016/08/27 22:45:16]
+读取附件成功
+[2016/08/27 22:45:16]
+Start to send a group
+Connecting to host smtp.hainan.net
+Logining account hustoliver@hainan.net
+Start to send email...
+[2016/08/27 22:45:19]
+The email has sent.
+[2016/08/27 22:45:19]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Server not connected\n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7U201313778@hust.edu.cn', 'ErrCode': 5, 'CurrProgress': (47, 0, 3)}
+[2016/08/27 22:45:38]Timer call back.
+[2016/08/27 22:45:38]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/27 22:45:39]
+The email has sent.
+[2016/08/27 22:45:39]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com', u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (49, 0, 1)}
+[2016/08/27 22:46:01]Timer call back.
+[2016/08/27 22:46:01]
+Start to send a group
+Connecting to host smtp.hainan.net
+Logining account hustoliver@hainan.net
+Start to send email...
+[2016/08/27 22:46:24]
+The email has sent.
+[2016/08/27 22:46:24]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u5f53\u524d\u8d26\u53f7hustoliver@hainan.net\u53d1\u9001\u90ae\u4ef6\u8fc7\u591a\u88ab\u62d2\u7edd\u8fde\u63a5: Server not connected\n\u5f53\u524d\u8d26\u53f7\u53d1\u9001\u8fc7\u591a\uff0c\u5207\u6362\u5230\u8d26\u53f7U201313778@hust.edu.cn', 'ErrCode': 5, 'CurrProgress': (49, 0, 1)}
+[2016/08/27 22:46:24]Timer call back.
+[2016/08/27 22:46:24]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account U201313778@hust.edu.cn
+Start to send email...
+[2016/08/27 22:46:25]
+The email has sent.
+[2016/08/27 22:46:25]
+{'FailedList': [], 'SuccessList': [u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (50, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+[22:46:34] 开始接收退信:since 2016/08/22 01:36:24
+[22:46:34] 当前账号: hustoliver@hainan.net
+[22:46:34] 当前账号: oliver@dian.com
+[22:46:34] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+[22:46:37] 当前账号: U201313778@hust.edu.cn
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+Get imap start num = 442, datetime = 2016-08-22 01:41:53
+[22:46:42] 接收到邮箱yralgwm@163.com的退信
+[22:46:43] 接收到邮箱uhhokfs@126.com的退信
+[22:46:44] 接收到邮箱piwhaek@qq.com的退信
+[22:46:58] 完成一轮接收,等待30秒后继续...
+[22:47:07] 终止接收退信操作
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/08/27 22:47:46]
+Get 5 mails from excel.
+User cancel before send.
+Exit and save.
+
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
+Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)

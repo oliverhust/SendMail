@@ -379,7 +379,6 @@ class XlsMatrix:
 
     def delete_failed_sent(self):
         self._mails_sent_failed = []
-        self._MailDB.del_all_failed_sent()
 
     def _init_set_data(self, user_selected_sheets, mail_which_col):
         self._MailColNo = ord(mail_which_col.upper()) - ord('A')
@@ -418,7 +417,6 @@ class XlsMatrix:
 
         # 保存上次发送成功的到总进度中(上次失败的不管)，清除数据库中发送失败的
         self._mails_has_sent = last_sent[:]
-        self._MailDB.del_all_failed_sent()
 
         for each_last_sent in last_sent:
             if each_last_sent in mails_read:
@@ -454,9 +452,9 @@ class XlsMatrix:
             for i in range(self._MaxSendALoop):
                 self._mails_not_sent.pop(0)
 
-        # 保存到成功/失败/进度到数据库
+        # 保存到成功/进度到数据库
         self._MailDB.add_success_sent(curr_mails)
-        self._MailDB.add_failed_sent(failed_mails)
+
         success_sent, failed_sent, not_sent = self.curr_progress()
         self._MailDB.save_sent_progress(success_sent, failed_sent, not_sent)
 
@@ -720,9 +718,9 @@ class MailDB:
         self.del_speed_info()
         self.del_sent_progress()
         self.del_all_success_sent()
-        self.del_all_failed_sent()
         self.del_start_time()
         self.del_all_used_accounts()
+        self.del_all_ndr_mail()
 
     def save(self):
         self._db.commit()
@@ -776,9 +774,6 @@ class MailDB:
         # 已发送成功的表
         self._c.execute("CREATE TABLE IF NOT EXISTS success_sent (mail TEXT NOT NULL)")
 
-        # 发送失败的表
-        self._c.execute("CREATE TABLE IF NOT EXISTS failed_sent (mail TEXT NOT NULL)")
-
         # 退信处理的表：开始时间
         self._c.execute("CREATE TABLE IF NOT EXISTS start_time ("
                         "id INTEGER PRIMARY KEY NOT NULL, "
@@ -790,6 +785,11 @@ class MailDB:
                         "passwd TEXT NOT NULL, "
                         "host TEXT NOT NULL, "
                         "sender_name TEXT)")
+
+        # 曾经退信过的邮件地址和最后一封邮件的时间
+        self._c.execute("CREATE TABLE IF NOT EXISTS ndr_mail ("
+                        "mail TEXT PRIMARY KEY NOT NULL, "
+                        "last_recv_time TEXT)")
 
     # ---------------------------------------------------------------------------
     def save_accounts(self, account_list):
@@ -904,14 +904,14 @@ class MailDB:
     def add_success_sent(self, list_success):
         if not list_success:
             return
-        sql_arg = [(x,) for x in list_success ]
+        sql_arg = [(x,) for x in list_success]
         self._c.executemany("INSERT INTO success_sent VALUES (?)", sql_arg)
         self.save()
 
     def del_success_sent(self, list_to_del):
         if not list_to_del:
             return
-        sql_arg = [(x,) for x in list_to_del ]
+        sql_arg = [(x,) for x in list_to_del]
         self._c.executemany("DELETE FROM success_sent WHERE mail=?", sql_arg)
         self.save()
 
@@ -931,30 +931,6 @@ class MailDB:
         if ret:
             return True
         return False
-
-    # ---------------------------------------------------------------------------
-    def add_failed_sent(self, list_failed):
-        if not list_failed:
-            return
-        sql_arg = [(x,) for x in list_failed ]
-        self._c.executemany("INSERT INTO failed_sent VALUES (?)", sql_arg)
-        self.save()
-
-    def del_failed_sent(self, list_to_del):
-        if not list_to_del:
-            return
-        sql_arg = [(x,) for x in list_to_del ]
-        self._c.executemany("DELETE FROM failed_sent WHERE mail=?", sql_arg)
-        self.save()
-
-    def del_all_failed_sent(self):
-        self._c.execute("DELETE FROM failed_sent")
-        self.save()
-
-    def get_failed_sent(self):
-        self._c.execute("SELECT * FROM failed_sent")
-        ret = self._c.fetchall()
-        return [ret[i][0] for i in range(len(ret))]
 
     # ---------------------------------------------------------------------------
     def save_start_time(self, datetime_start):
@@ -996,6 +972,31 @@ class MailDB:
     def del_all_used_accounts(self):
         # 删除所有曾用账户
         self._c.execute("DELETE FROM used_account")
+        self.save()
+
+    # ---------------------------------------------------------------------------
+    def add_ndr_mail(self, mail, last_recv_time):
+        time_str = last_recv_time.strftime("%Y/%m/%d %H:%M:%S")
+        sql_arg = (mail, time_str)
+        self._c.execute("REPLACE INTO ndr_mail VALUES (?,?)", sql_arg)
+        self.save()
+
+    def get_ndr_mail(self, mail):
+        # 返回[mail, datetime_last_recv], 没有则返回[]
+        self._c.execute("SELECT * FROM ndr_mail WHERE mail=?", (mail, ))
+        ret = self._c.fetchall()
+        if not ret:
+            return []
+        time_str = ret[0][1]
+        dt = datetime.datetime.strptime(time_str, "%Y/%m/%d %H:%M:%S")
+        return [ret[0][0], dt]
+
+    def del_ndr_mail(self, mail):
+        self._c.execute("DELETE FROM ndr_mail WHERE mail=?", (mail, ))
+        self.save()
+
+    def del_all_ndr_mail(self):
+        self._c.execute("DELETE FROM ndr_mail")
         self.save()
 
     # ---------------------------------------------------------------------------
@@ -1673,13 +1674,25 @@ class NdrProc(threading.Thread):
             return
 
         self._db_new_thread.del_success_sent(list_to_del)
-        self._db_new_thread.add_failed_sent(list_to_del)
         progress = self._db_new_thread.get_sent_progress()
         if progress:
             success, failed, not_sent = progress
             success -= len(list_to_del)
             failed += len(list_to_del)
             self._db_new_thread.save_sent_progress(success, failed, not_sent)
+
+    def _thread_db_is_a_new_ndr(self, curr_mail, mail_time):
+        old = self._db_new_thread.get_ndr_mail(curr_mail)
+        ret = False
+        if old:
+            old_dt = old[1]
+            if mail_time > old_dt:
+                ret = True
+                self._db_new_thread.add_ndr_mail(curr_mail, mail_time)
+        else:
+            ret = True
+            self._db_new_thread.add_ndr_mail(curr_mail, mail_time)
+        return ret
 
     def _thread_db_close(self):
         del(self._db_new_thread)
@@ -1731,13 +1744,18 @@ class NdrProc(threading.Thread):
         self._err_info += str_info + u"\n"
         self._lock.release()
 
-    def _fail_entry_proc(self, fail_entry):   # [时间，退回的邮箱， 出错信息， 建议]
+    def _fail_entry_proc(self, fail_entry):   # 入参：[时间，退回的邮箱， 出错信息， 建议]
         self._lock.acquire()
         curr_mail = fail_entry[1]
+        mail_time = fail_entry[0]
         for each_entry in self._ndr_data:
             if each_entry[1] == curr_mail:
                 self._lock.release()
                 return    # 防止重复添加
+        if not self._thread_db_is_a_new_ndr(curr_mail, mail_time):   # 判断且保存最新值
+            self._lock.release()
+            return         # 如果是一封以前已经处理过的NDR就不用再处理了
+
         self._unread_data_num += 1
         self._ndr_data.append(fail_entry)
         self._lock.release()
@@ -1975,7 +1993,7 @@ def html_txt_elem(txt):
 
 
 # ############################################################################################
-# #######################################   测试   ############################################
+# #####################################   测试用例   ##########################################
 # ############################################################################################
 # ############################################################################################
 
@@ -2055,7 +2073,7 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
         print("Delete success")
 
     # -------------------------------------------
-    print("\nSent progress test")
+    print("\nTest Sent progress")
     db.save_sent_progress(4000, 2000, 1000)
     a, b, c = db.get_sent_progress()
     print(u"Success: {}, Failed: {}, NotSend: {}".format(a, b, c))
@@ -2064,7 +2082,7 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
         print("Delete success")
 
     # ---------------------------------------------
-    print("\nSuccess Sent Test")
+    print("\nTest Success Sent")
     db.add_success_sent(["Hello", "@", "", " ", "liangjinchao.happy@jfda.com"])
     print(db.get_success_sent())
     t = "Hello"
@@ -2082,19 +2100,8 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
     t = "Hello2"
     print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
 
-    # ---------------------------------------------
-    print("\nFailed Sent Test")
-    db.add_failed_sent(["Hello", "@", "", " ", "liangjinchao.happy@jfda.com"])
-    print(db.get_failed_sent())
-    print("Delete some")
-    db.del_failed_sent(["Hello", " "])
-    print(db.get_failed_sent())
-    print("Delete all")
-    db.del_all_failed_sent()
-    print(db.get_failed_sent())
-
     # ------------------------------------------
-    print("\nUsed Account Test")
+    print("\nTest Used Account")
     account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉成")
     account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"")
     account3 = Account("M201571856@hust.edu.cn", "M201571856", "", u"李嘉成")
@@ -2112,7 +2119,7 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
         print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
 
     # ------------------------------------------
-    print("\nStart Time Test")
+    print("\nTest Start Time")
     dt = datetime.datetime.now()
     print("Current datetime: {}".format(dt))
     db.save_start_time(dt)
@@ -2125,6 +2132,42 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
         print("Failed!Get start time: {}".format(dt_get))
     else:
         print("Delete start times success")
+
+    # ------------------------------------------
+    print("\nTest Ndr mail")
+    db.add_ndr_mail("oliver@haha.com", datetime.datetime(2018, 2, 6, 8, 5, 6, 555))
+    db.add_ndr_mail("abcde", datetime.datetime(1999, 2, 6, 8, 5, 6, 555))
+    db.add_ndr_mail("qwertyui@haha.com", datetime.datetime(2018, 2, 6, 8, 5, 6, 555))
+    mail = "abcde"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "qwertyui@haha.com"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "abcdef"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "oliver@haha.com"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail, dt = "qwertyui@haha.com", datetime.datetime(2222, 5, 7, 6, 2)
+    db.add_ndr_mail(mail, dt)
+    print("----Modify {} to {}----".format(mail, dt))
+    mail = "abcde"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "qwertyui@haha.com"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "abcdef"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "oliver@haha.com"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "qwertyui@haha.com"
+    db.del_ndr_mail(mail)
+    print("----Delete {}----".format(mail))
+    mail = "abcde"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "qwertyui@haha.com"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "abcdef"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+    mail = "oliver@haha.com"
+    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
 
 
 def test_send_mail():
