@@ -924,6 +924,14 @@ class MailDB:
         ret = self._c.fetchall()
         return [ret[i][0] for i in range(len(ret))]
 
+    def is_exist_success_sent(self, mail):
+        sql_arg = (mail, )
+        self._c.execute("SELECT * FROM success_sent WHERE mail=?", sql_arg)
+        ret = self._c.fetchall()
+        if ret:
+            return True
+        return False
+
     # ---------------------------------------------------------------------------
     def add_failed_sent(self, list_failed):
         if not list_failed:
@@ -1655,8 +1663,15 @@ class NdrProc(threading.Thread):
         self._db_new_thread = MailDB(path_db)
         self._db_new_thread.init()
 
-    def _thread_db_del_success_sent(self, list_to_del):
-        # 从DB中删除已成功的，并把它添加到失败的，更新DB中的进度
+    def _thread_db_del_success_sent(self, list_to_del_origin):
+        # 从DB中删除已成功的(存在才删)，并把它添加到失败的，更新DB中的进度
+        list_to_del = []
+        for each_del in list_to_del_origin:
+            if self._db_new_thread.is_exist_success_sent(each_del):
+                list_to_del.append(each_del)
+        if not list_to_del:
+            return
+
         self._db_new_thread.del_success_sent(list_to_del)
         self._db_new_thread.add_failed_sent(list_to_del)
         progress = self._db_new_thread.get_sent_progress()
@@ -2052,12 +2067,20 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
     print("\nSuccess Sent Test")
     db.add_success_sent(["Hello", "@", "", " ", "liangjinchao.happy@jfda.com"])
     print(db.get_success_sent())
+    t = "Hello"
+    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
+    t = "Hello2"
+    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
     print("Delete some")
     db.del_success_sent(["Hello", " "])
     print(db.get_success_sent())
     print("Delete all")
     db.del_all_success_sent()
     print(db.get_success_sent())
+    t = "Hello"
+    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
+    t = "Hello2"
+    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
 
     # ---------------------------------------------
     print("\nFailed Sent Test")
@@ -2276,7 +2299,7 @@ def test_ndr_proc():
 if __name__ == "__main__":
     # test_send_mail()
     # test_recv_imap2()
-    # test_sql_db()
-    test_ndr_proc()
+    test_sql_db()
+    # test_ndr_proc()
 
 
