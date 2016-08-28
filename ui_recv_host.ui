@@ -62,7 +62,7 @@
     </font>
    </property>
    <property name="text">
-    <string>liangjinchao@hust.edu.cn</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -163,7 +163,9 @@ QPushButton {
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;目前只支持下拉选项中的域名&lt;/p&gt;&lt;p&gt;不支持的账号需自己登录查看退信&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
+    <string notr="true">background-color: rgba(255, 255, 255, 120);
+selection-color: rgb(0, 0, 0);
+selection-background-color: rgba(0, 0, 255, 25);</string>
    </property>
   </widget>
  </widget>

@@ -636,8 +636,7 @@ class ProgressWindow(QDialog, Ui_Dialog_Progress, NoFrameWin):
 
         self.setupUi(self)
         self._background = AutoBackground(self.widget)
-        self._background.start(IMG_LIST, 5000)
-        # self._background.start(IMG_LIST, 53000)
+        self._background.start(IMG_LIST, 53400)
 
         # 暂停按钮
         self.connect(self.pushButton, SIGNAL("clicked()"), self.slot_pause)

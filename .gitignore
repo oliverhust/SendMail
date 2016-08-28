@@ -1,5 +1,5 @@
 /.idea
-/main.spec
+/*.spec
 /dist
 /build
 /send_mail.db

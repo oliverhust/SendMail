@@ -6,6 +6,7 @@
     <file>pic/r_back/love_s.jpeg</file>
   </qresource>
   <qresource prefix="r_icon">
+    <file>pic/r_icon/write_mail.png</file>
     <file>pic/r_icon/10d.png</file>
     <file>pic/r_icon/excel.ico</file>
     <file>pic/r_icon/question.png</file>
@@ -15,7 +16,6 @@
     <file>pic/r_icon/Denided.png</file>
     <file>pic/r_icon/exit.png</file>
     <file>pic/r_icon/Folder.png</file>
-    <file>pic/r_icon/mail512.png</file>
     <file>pic/r_icon/mass_send2.png</file>
     <file>pic/r_icon/ok.png</file>
     <file>pic/r_icon/right64.png</file>
