@@ -113,10 +113,12 @@ class AccountsMange:
         if 1 == len(self._AccountList):
             self._send_too_many_mark = True
             err = ERROR_SEND_TOO_MANY_NEED_WAIT
+            err_info += u"\n当前账号发送过多，等待一段时间后自动重试"
         elif 0 == self._CurrAccountId and self._send_too_many_mark:
             # 不换账号，继续尝试第一个，直到第一个成功
-            err = ERROR_SEND_TOO_MANY_NEED_WAIT
-            err_info = u"所有邮箱都已发送太多邮件被拒，将从第一个开始重新尝试"
+            account_next = self._AccountList[self._CurrAccountId]  # 在每次get的时候已经切换了
+            err = ERROR_SEND_TOO_MANY
+            err_info += u"\n当前邮箱发送过多，切换到账号{}".format(account_next.user)
         else:
             account_next = self._AccountList[self._CurrAccountId]  # 在每次get的时候已经切换了
             err = ERROR_SEND_TOO_MANY
@@ -548,7 +550,7 @@ class MailProc:
             s.login(account.user, account.passwd)
         except Exception, e:
             err = ERROR_LOGIN_FAILED
-            err_info = u"{}登录失败，账号或密码错误\n{}".format(account.user, e)
+            err_info = u"{}登录失败，账号或密码错误；也可能是该账号被封\n{}".format(account.user, e)
             return err, err_info, fail_mail
 
         print(u"Start to send email...")
@@ -1530,7 +1532,7 @@ class NdrContent:
                (r'Service unavailable.*Client Host.*blocked', u'发信服务器被加入黑名单'),
                (r'IP .* block list|Invalid IP|addr.* blacklist|black ip', u'发信服务器IP地址被封'),
                (r'Address rejected', u"发信服务器被拒"),
-               (r"sending MTA's poor reputation", u"被对方认为垃圾邮件"),
+               (r"sending MTA's poor reputation|Mail content denied", u"被对方认为垃圾邮件"),
                (r'domain is notwelcome|Connection refused|Relaying denied|spam|spammers', u'被对方服务器拒收'),
                ]
 
@@ -1610,7 +1612,7 @@ class NdrProc(threading.Thread):
 
     def update_recv_host(self, user_host_dict):
         for i, account in enumerate(self._AccountList):
-            if account.user in user_host_dict:
+            if account.user in user_host_dict and user_host_dict[account.user] is not None:
                 self._AccountList[i].host = user_host_dict[account.user]
 
     def start_thread(self):

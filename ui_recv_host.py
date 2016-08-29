@@ -46,6 +46,7 @@ class Ui_Dialog_RecvHost(object):
         font.setPointSize(22)
         font.setUnderline(False)
         self.label_user.setFont(font)
+        self.label_user.setText(_fromUtf8(""))
         self.label_user.setObjectName(_fromUtf8("label_user"))
         self.label_3 = QtGui.QLabel(Dialog_RecvHost)
         self.label_3.setGeometry(QtCore.QRect(20, 80, 186, 41))
@@ -86,7 +87,9 @@ class Ui_Dialog_RecvHost(object):
         font.setFamily(_fromUtf8("Malgun Gothic Semilight"))
         font.setPointSize(16)
         self.comboBox.setFont(font)
-        self.comboBox.setStyleSheet(_fromUtf8("background-color: rgba(255, 255, 255, 120);"))
+        self.comboBox.setStyleSheet(_fromUtf8("background-color: rgba(255, 255, 255, 120);\n"
+"selection-color: rgb(0, 0, 0);\n"
+"selection-background-color: rgba(0, 0, 255, 25);"))
         self.comboBox.setObjectName(_fromUtf8("comboBox"))
 
         self.retranslateUi(Dialog_RecvHost)
@@ -96,7 +99,6 @@ class Ui_Dialog_RecvHost(object):
         Dialog_RecvHost.setWindowTitle(_translate("Dialog_RecvHost", "设置IMAP服务器", None))
         Dialog_RecvHost.setToolTip(_translate("Dialog_RecvHost", "<html><head/><body><p>目前只支持下拉选项中的域名</p><p>不支持的账号需自己登录查看退信</p></body></html>", None))
         self.label.setText(_translate("Dialog_RecvHost", "账号：", None))
-        self.label_user.setText(_translate("Dialog_RecvHost", "liangjinchao@hust.edu.cn", None))
         self.label_3.setText(_translate("Dialog_RecvHost", "IMAP服务器地址：", None))
         self.pushButton.setToolTip(_translate("Dialog_RecvHost", "<html><head/><body><p>下一步</p></body></html>", None))
         self.pushButton.setText(_translate("Dialog_RecvHost", "Next", None))

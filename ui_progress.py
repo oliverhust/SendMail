@@ -96,7 +96,7 @@ class Ui_Dialog_Progress(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.label_not_sent = QtGui.QLabel(self.widget_2)
-        self.label_not_sent.setGeometry(QtCore.QRect(597, 5, 16, 40))
+        self.label_not_sent.setGeometry(QtCore.QRect(597, 5, 76, 40))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Malgun Gothic Semilight"))
         font.setPointSize(22)

@@ -477,7 +477,7 @@ class GUIMain(UIInterface, MainWindow):
         for i in select_list:
             selected_sheets.append(all_sheets[i-1])  # 用户的选择是从1开始的
         info_sheets = u"\n".join(selected_sheets)
-        info3 = u"\n\n您确定要继续吗？"
+        info3 = u"\n\n【普通账户大量群发邮件有被封号风险】\n您确定仍要继续吗？"
 
         button = QMessageBox.question(self, u"Confirm",
                                       QString(info1 + info2 + info_sheets + info3),
