@@ -2010,11 +2010,11 @@ def test_sql_db():
 
     # ------------------------------------------
     print("\nSave account_list:")
-    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉成")
-    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"")
-    account3 = Account("M201571856@hust.edu.cn", "M201571856", "", u"李嘉成")
-    account4 = Account("liangjinchao.happy@163.com", "ioqitwq!QAZ@WSX", "smtp.163.com", u"李嘉成")
-    account5 = Account("dian@hust.edu.cn", "diangroup1", "mail.hust.edu.cn", u"李市民")
+    account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"")
+    account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "", u"李嘉成")
+    account4 = Account("liangjinchao.happy@163.com", "XXXXXXXXXXXXXX", "smtp.163.com", u"李嘉成")
+    account5 = Account("dian@hust.edu.cn", "XXXXXXXXX", "mail.hust.edu.cn", u"李市民")
     account_list = [account1, account2, account3, account4, account5]
     db.save_accounts(account_list)
     ret = db.get_accounts()
@@ -2104,11 +2104,11 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
 
     # ------------------------------------------
     print("\nTest Used Account")
-    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉成")
-    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"")
-    account3 = Account("M201571856@hust.edu.cn", "M201571856", "", u"李嘉成")
-    account4 = Account("liangjinchao.happy@163.com", "ioqitwq!QAZ@WSX", "smtp.163.com", u"李嘉成")
-    account5 = Account("dian@hust.edu.cn", "diangroup1", "mail.hust.edu.cn", u"李市民")
+    account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"")
+    account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "", u"李嘉成")
+    account4 = Account("liangjinchao.happy@163.com", "XXXXXXXXXX", "smtp.163.com", u"李嘉成")
+    account5 = Account("dian@hust.edu.cn", "XXXXXXXXXXX", "mail.hust.edu.cn", u"李市民")
     account_list = [account1, account2, account3, account4, account5]
     db.save_used_accounts(account_list)
     ret = db.get_used_accounts()
@@ -2173,11 +2173,9 @@ ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
 
 
 def test_send_mail():
-    account1 = Account("M201571736@hust.edu.cn", "hjsg1qaz2wsx", "mail.hust.edu.cn", u"李嘉成")
-    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"李嘉成")
-    account3 = Account("M201571856@hust.edu.cn", "M201571856", "mail.hust.edu.cn", u"李嘉成")
-    account4 = Account("liangjinchao.happy@163.com", "ioqitwq!QAZ@WSX", "smtp.163.com", u"李嘉成")
-    account5 = Account("dian@hust.edu.cn", "diangroup1", "mail.hust.edu.cn", u"李嘉成")
+    account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+    account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
     account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
     account7 = Account("mmyzoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
     account8 = Account("sys@d3p.com", "123456", "192.168.11.25", u"李世明")
@@ -2277,7 +2275,7 @@ def test_has_same_program():
 
 
 def test_recv_imap():
-    m = RecvImap("mail.hust.edu.cn", "U201313778@hust.edu.cn", "dian201313778")
+    m = RecvImap("mail.hust.edu.cn", "U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX")
     err, err_info = m.login()
     if err != ERROR_SUCCESS:
         print(err_info)
@@ -2290,7 +2288,7 @@ def test_recv_imap():
 
 def test_recv_imap2():
     user = "U201313778@hust.edu.cn"
-    m = RecvImap("mail.hust.edu.cn", user, "dian201313778")
+    m = RecvImap("mail.hust.edu.cn", user, "XXXXXXXXXXXXXXX")
     err, err_info = m.login()
     if err != ERROR_SUCCESS:
         print(err_info)
@@ -2316,7 +2314,7 @@ def test_ndr_proc():
     # db.save_sent_progress(100, 20, 30)
     db.add_success_sent(success_list)
 
-    account2 = Account("U201313778@hust.edu.cn", "dian201313778", "mail.hust.edu.cn", u"李嘉成")
+    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
     account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
     account_list = [account2, account6]
 
