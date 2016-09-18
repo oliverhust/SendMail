@@ -720,6 +720,7 @@ class RecvHostWindow(QDialog, Ui_Dialog_RecvHost, NoFrameWin):
     def _init_combobox(self):
         # 把支持的host加入combobox
         host_list = [each_host for domain, each_host in Account.RECV_HOSTS.iteritems()]
+        host_list = list(set(host_list))
         self._host_list = host_list
         for each_host in host_list:
             self.comboBox.addItem(QString(each_host))

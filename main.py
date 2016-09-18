@@ -38,7 +38,7 @@ class Account:
                  "foxmail.com": "smtp.foxmail.com",    "hotmail.com": "smtp.live.com",
                  "hainan.net": "smtp.hainan.net",      "139.com": "smtp.139.com",}
 
-    RECV_HOSTS = {"hust.edu.cn": "mail.hust.edu.cn", }
+    RECV_HOSTS = {"hust.edu.cn": "mail.hust.edu.cn",   "mail.hust.edu.cn": "mail.hust.edu.cn",}
 
     def __init__(self, mail_user, mail_passwd, mail_host, sender_name):
         self.user = mail_user
@@ -130,7 +130,6 @@ class AccountsMange:
 
 class MailContent:
     """  邮件内容：主题、正文、附件 """
-    BODY_TXT_ENCODE = 'gb18030'
     SPECIAL_STR_PATTERN = r'\{##[A-Z]##\}'     # 邮件正文或标题中的特殊字符
 
     def __init__(self, mail_sub, mail_body_path, mail_append_list):
@@ -159,11 +158,11 @@ class MailContent:
             err = ERROR_READ_BODY_FAILED
             err_info = u"读取邮件正文失败\n{}".format(e)
             return err, err_info
-        try:
-            raw_body = body.decode(MailContent.BODY_TXT_ENCODE)
-        except Exception, e:
+
+        err, err_info, raw_body = try_decode(body)
+        if ERROR_SUCCESS != err:
             err = ERROR_DECODE_BODY_FAILED
-            err_info = u"邮件正文解码失败\n{}".format(e)
+            err_info = u"邮件正文解码失败\n{}".format(err_info)
             return err, err_info
 
         self._Body = html_add_head(html_txt_elem(raw_body))
@@ -1918,6 +1917,22 @@ class ExcelWrite:
 
 
 # #####################################################################################################
+
+
+def try_decode(str_raw, encoding_list=None):
+    if encoding_list is None:
+        encoding_list = ['gb18030', 'utf-8']
+
+    err, err_info, text = ERROR_SUCCESS, u"", repr(str_raw)
+    for each_encode in encoding_list:
+        try:
+            text = str_raw.decode(each_encode)
+        except Exception, e:
+            err, err_info = ERROR_DECODE_BODY_FAILED, unicode(e)
+        else:
+            err, err_info = ERROR_SUCCESS, u""
+            break
+    return err, err_info, text
 
 
 def is_break_error(err):
