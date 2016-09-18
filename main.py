@@ -1516,7 +1516,8 @@ class NdrContent:
     """ 邮箱退信(Ndr)内容识别，并提供建议 ：纯粹的文本处理  建议的识别有优先顺序
         添加一个域名的支持还要在Account.RECV_HOSTS里面添加接收服务器地址 """
     HUST_PATT = r'(Your message to (\S+) .*?The error.*?was:\s+"\s*([^"]+)")'
-    NDR_DICT = {"hust.edu.cn": (HUST_PATT, "postmaster@hust.edu.cn")}
+    NDR_DICT = {"hust.edu.cn": (HUST_PATT, "postmaster@hust.edu.cn"),
+                "mail.hust.edu.cn": (HUST_PATT, "postmaster@hust.edu.cn")}
     SUGGEST = [(r'DNS query error', u'收件人有误：域名错误'),
                (r'try another server', u"对方原服务器不存在"),
                (r"can't receive outdomain", u"对方无法接收外域邮件"),
