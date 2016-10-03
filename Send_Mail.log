@@ -23153,3 +23153,63 @@ Speed each hour = 160, each time = 2
 Account[0] = Account(hustoliver@hainan.net, smtp.hainan.net, 陈美丽)
 Account[1] = Account(U201313778@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
 Account[2] = Account(liuyu@mail.hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+
+
+
+
+________________________________________________________________________________
+
+[2016/10/02 19:14:58] Start the program
+2016-10-02 19:14:59
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User del account[0] hustoliver@hainan.net
+User del account[0] U201313778@hust.edu.cn
+User del account[0] liuyu@mail.hust.edu.cn
+User try add an account dian@hust.edu.cn.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = L, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/10/02 19:15:52]
+Get 0 mails from excel.
+User cancel before send.
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, 陈美丽)
+[2016/10/02 19:16:41]
+Get 5 mails from excel.
+[2016/10/02 19:16:43]Start Timer.The timer period is 45000 ms
+[2016/10/02 19:16:45]Timer call back.
+[2016/10/02 19:16:45]
+读取附件成功
+[2016/10/02 19:16:45]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account dian@hust.edu.cn
+Start to send email...
+[2016/10/02 19:16:47]
+The email has sent.
+[2016/10/02 19:16:47]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com', u'uhhokfs@126.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (49, 0, 1)}
+[2016/10/02 19:17:30]Timer call back.
+[2016/10/02 19:17:30]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account dian@hust.edu.cn
+Start to send email...
+[2016/10/02 19:17:31]
+The email has sent.
+[2016/10/02 19:17:32]
+{'FailedList': [], 'SuccessList': [u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (50, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
