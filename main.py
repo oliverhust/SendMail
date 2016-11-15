@@ -977,9 +977,11 @@ class MailDB:
 
     # ---------------------------------------------------------------------------
     def add_ndr_mail(self, mail, last_recv_time):
+        if self.get_ndr_mail(mail):
+            self.del_ndr_mail(mail)
         time_str = last_recv_time.strftime("%Y/%m/%d %H:%M:%S")
         sql_arg = (mail, time_str)
-        self._c.execute("REPLACE INTO ndr_mail VALUES (?,?)", sql_arg)
+        self._c.execute("INSERT INTO ndr_mail VALUES (?,?)", sql_arg)
         self.save()
 
     def get_ndr_mail(self, mail):
@@ -1629,9 +1631,9 @@ class NdrProc(threading.Thread):
         self._unread_data_num = 0
         self._err_info = u""
         self._lock.release()
-        return ret
+        return ret[:]
 
-    def get_all_ndr_data(self):
+    def get_all_ndr_data(self):  # 仅限线程终止后调用
         return self._ndr_data
 
     def stop_proc(self):
@@ -1760,9 +1762,9 @@ class NdrProc(threading.Thread):
 
         self._unread_data_num += 1
         self._ndr_data.append(fail_entry)
-        self._lock.release()
         self._thread_db_del_success_sent([curr_mail])     # 实时从DB中删除已发送成功的
         self._write_err_info(u"接收到邮箱{}的退信".format(curr_mail), True)
+        self._lock.release()
 
     def _set_has_finish_a_loop(self, status=True):
         self._lock.acquire()
