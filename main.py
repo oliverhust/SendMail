@@ -329,6 +329,8 @@ class ExcelRead:
 
     def get_sheet_names(self):
         err, err_info = self._open_excel_if_need()
+        if err != ERROR_SUCCESS:
+            return err, err_info, None
         return err, err_info, self._xls.sheet_names()
 
     def get_mails(self, selected_sheets, mail_which_col):
