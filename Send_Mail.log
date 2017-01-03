@@ -23213,3 +23213,199 @@ The email has sent.
 {'FailedList': [], 'SuccessList': [u'yralgwm@163.com'], 'ErrLog': '', 'ErrCode': 1, 'CurrProgress': (50, 0, 0)}
 Exit progress window normal, ret = 1
 Exit the progress windows.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:24:44] Start the program
+2017-01-02 21:24:45
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:25:12] Start the program
+2017-01-02 21:25:12
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+User try add an account liangjinchao.happy@163.com.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:31:08] Start the program
+2017-01-02 21:31:09
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User try add an account liangjinchao.happy@163.com.
+User del account[1] liangjinchao.happy@163.com
+User del account[0] dian@hust.edu.cn
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:40:30] Start the program
+2017-01-02 21:40:30
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:42:53] Start the program
+2017-01-02 21:42:53
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:45:54] Start the program
+2017-01-02 21:45:54
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:47:45] Start the program
+2017-01-02 21:47:45
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 606, in add_account
+    err, err_info = UIInterface.check_account_login(user, passwd, host)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1122, in check_account_login
+    return MailProc.check_account_login(user_name, passwd, host)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 506, in check_account_login
+    s.ehlo()
+  File "C:\Python27\lib\smtplib.py", line 413, in ehlo
+    self.putcmd(self.ehlo_msg, name or self.local_hostname)
+  File "C:\Python27\lib\smtplib.py", line 341, in putcmd
+    self.send(str)
+  File "C:\Python27\lib\smtplib.py", line 333, in send
+    raise SMTPServerDisconnected('please run connect() first')
+smtplib.SMTPServerDisconnected: please run connect() first
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:49:04] Start the program
+2017-01-02 21:49:05
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:49:50] Start the program
+2017-01-02 21:49:50
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 606, in add_account
+    err, err_info = UIInterface.check_account_login(user, passwd, host)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1122, in check_account_login
+    return MailProc.check_account_login(user_name, passwd, host)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 519, in check_account_login
+    s.starttls()
+  File "C:\Python27\lib\smtplib.py", line 644, in starttls
+    raise SMTPException("STARTTLS extension not supported by server.")
+smtplib.SMTPException: STARTTLS extension not supported by server.
+User cancel add account.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:50:32] Start the program
+2017-01-02 21:50:32
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User try add an account mmyzoliver@gmail.com.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:51:17] Start the program
+2017-01-02 21:51:18
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User try add an account mmyzoliver@gmail.com.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/02 21:52:51] Start the program
+2017-01-02 21:52:52
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+User try add an account mmyzoliver@gmail.com.
+User del account[0] dian@hust.edu.cn
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+[2017/01/02 21:53:19]
+Get 5 mails from excel.
+Add a new used-account mmyzoliver@gmail.com
+User cancel before send.

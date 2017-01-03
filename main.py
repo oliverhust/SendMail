@@ -504,7 +504,7 @@ class MailProc:
 
     @staticmethod
     def check_account_login(user_name, passwd, host):
-        s = smtplib.SMTP()
+        s = smtplib.SMTP_SSL()
         try:
             s.connect(host)
         except Exception, e:
@@ -537,7 +537,7 @@ class MailProc:
             msg.attach(each_append)
 
         print_t(u"Start to send a group")
-        s = smtplib.SMTP()
+        s = smtplib.SMTP_SSL()
         print(u"Connecting to host {}".format(account.host))
         try:
             s.connect(account.host)
