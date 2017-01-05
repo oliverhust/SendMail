@@ -23409,3 +23409,51 @@ Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
 Get 5 mails from excel.
 Add a new used-account mmyzoliver@gmail.com
 User cancel before send.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 11:19:39] Start the program
+[2017/01/05 11:19:39]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 11:20:13] Start the program
+[2017/01/05 11:20:13]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 11:24:45] Start the program
+[2017/01/05 11:24:45]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 11:28:56] Start the program
+[2017/01/05 11:28:57]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover

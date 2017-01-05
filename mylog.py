@@ -4,13 +4,10 @@
 import os
 import sys
 import time
-import socket
-import datetime
-import platform
-import subprocess
+
+from etc_func import chdir_myself, get_time_str
 
 f_Logging = None
-g_check_same = None
 
 
 # ####################################################################
@@ -83,13 +80,13 @@ def mylog_reset():
         sys.stderr = sys.stderr.std()
 
 
-def mylog_set(logfile = None, bufsize=65536):
+def mylog_set(logfile=None, bufsize=65536):
     # 设置当前标准输出/错误到文件
     # 可多次调用修改文件名, None为不输出到文件
     if not isinstance(logfile, unicode):
         try:
             unicode(logfile)
-        except UnicodeDecodeError,e:
+        except UnicodeDecodeError, e:
             raise Exception("The path contains Chinese must be unicode")
 
     if isinstance(sys.stdout, MyLog) or isinstance(sys.stderr, MyLog):
@@ -136,98 +133,6 @@ def mylog_buf(is_stderr=False):
 
 
 ######################################################################
-
-def is_windows_system():
-    return 'Windows' in platform.system()
-
-
-def is_mac_system():
-    return 'Darwin' in platform.system()
-
-
-def os_shell(cmd):
-
-    # 获取输出
-    out = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-
-    # 读取输出
-    lines = out.stdout.read()
-
-    # 编码转换
-    try:
-        result = lines.decode('utf-8')
-    except:
-        result = lines.decode('gb18030')
-        print("Decode command {} output error.".format(repr(cmd)))
-
-    out.wait()
-
-    return result
-
-
-def os_get_user_desktop():
-    return os.path.join(os.path.expanduser("~"), 'Desktop')
-
-
-def check_program_has_same(program_unique_port):
-    global g_check_same
-    ret = False
-    g_check_same = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)   #定义socket类型，网络通信，UDP
-    try:
-        g_check_same.bind(("127.0.0.1", program_unique_port))          #套接字绑定的IP与端口
-    except Exception, e:
-        ret = True
-    return ret
-
-
-def check_program_has_same_fini():
-    g_check_same.close()
-
-
-def os_get_curr_dir():
-    p = os.path.dirname(os.path.realpath(sys.argv[0]))
-    p_decode = u"."
-    try:
-        p_decode = p.decode("gb18030")
-    except Exception, e:
-        print(u"Decode path of gb18030 failed:{}".format(e))
-        try:
-            p_decode = p.decode("utf-8")
-        except Exception, e:
-            print(u"Decode path of utf-8 failed:{}".format(e))
-    print(u"Get MyPath = " + repr(p))
-
-    return p_decode
-
-
-def chdir_myself():
-    p = os_get_curr_dir()
-    if p != u".":
-        os.chdir(p)
-    return p
-
-
-def get_time_str():
-    now = datetime.datetime.now()
-    time_str = now.strftime("%Y/%m/%d %H:%M:%S")
-    return time_str
-
-
-def print_t(log):
-    time_str = get_time_str()
-    content = u"[{}]\n{}".format(time_str, log)
-    print(content)
-
-
-def print_w(log):
-    time_str = get_time_str()
-    print(u"[{}][WARNING]\n{}".format(time_str, log))
-
-
-def print_err(log):
-    time_str = get_time_str()
-    print(u"[{}][@@@ ERROR @@@]\n{}".format(time_str, log))
-
 
 def logging_init(file_name):
     global f_Logging

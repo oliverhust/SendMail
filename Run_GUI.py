@@ -7,14 +7,16 @@ import random
 import platform
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+
 from ui_send1 import Ui_MainWindow
 from ui_add_account import Ui_Dialog_Account
 from ui_progress import Ui_Dialog_Progress
 from ui_recv_host import Ui_Dialog_RecvHost
 from ui_ndr import Ui_Dialog_Ndr
-from main import UIInterface, UITimer
-from main import Account
 from mylog import *
+from cfg_data import *
+from main import UIInterface, UITimer
+
 
 if 'Windows' in platform.system():
     import winsound
@@ -156,10 +158,11 @@ class AutoBackground:
 # ########################### 主窗口 ###################################
 class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
 
+    OPEN_FILEDIALOG_WAIT_TIPS = QString(u"正在选择文件，请稍等...")
+
     def __init__(self, gui_proc=None, parent=None):
         super(MainWindow, self).__init__(parent)
         self._GUIProc = gui_proc
-        self._dragPosition = 0  # 窗口移动用
         self.setupUi(self)
 
         # 窗口启动
@@ -190,15 +193,15 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self._append_list = []
         self._xls_path = u""
         self._xls_selected_list = []
-        self._xls_col_name = ""
+        self._xls_col_name = u""
         self._sender_name = u""
         self._speed_each_hour = 400
         self._speed_each_time = 40
         self._account_list = []
 
     def slot_open_body(self):
-        self.label_body.setText(QString(u"载入时间较长，请稍等..."))
-        s = QFileDialog.getOpenFileName(self, "Open file dialog", "/", "Text file(*.txt)")
+        self.label_body.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
+        s = QFileDialog.getOpenFileName(self, QString(u"打开正文"), "/", "Text file(*.txt)")
         if len(s) == 0:
             self._body_path = u""
         else:
@@ -206,8 +209,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.label_body.setText(QString(self._body_path))
 
     def slot_open_appends(self):
-        self.label_append.setText(QString(u"载入时间较长，请稍等..."))
-        s_list = QFileDialog.getOpenFileNames(self, "Open file dialog", "/", "All files(*.*)")
+        self.label_append.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
+        s_list = QFileDialog.getOpenFileNames(self, QString(u"选择附件(可同时选中多个)"), "/", "All files(*.*)")
         if not s_list:
             self.label_append.setText(QString(u""))
             self._append_list = []
@@ -221,8 +224,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.label_append.setText(q_s)
 
     def slot_open_mail_list(self):
-        self.label_maillist.setText(QString(u"载入时间较长，请稍等..."))
-        s = QFileDialog.getOpenFileName(self, "Open file dialog", "/", "Excel file(*.xls;*.xlsx)")
+        self.label_maillist.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
+        s = QFileDialog.getOpenFileName(self, QString(u"选择邮箱表格"), "/", "Excel file(*.xls;*.xlsx)")
         if len(s) == 0:
             self._xls_path = u""
         else:
@@ -230,8 +233,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.label_maillist.setText(QString(s))
 
     def slot_form_load(self):
-        print time.strftime('%Y-%m-%d %H:%M:%S')
-        print("The form has loaded")
+        print_t(u"The form has loaded")
         # 【【【【调用GUI的事件处理函数: 窗口启动】】】】
         if self._GUIProc is not None:
             self._GUIProc.event_form_load()

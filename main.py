@@ -21,58 +21,12 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
-from mylog import *
 from err_code import *
+from mylog import *
+from cfg_data import *
+from etc_func import *
 
 # import pdb;  pdb.set_trace()
-
-
-class Account:
-    SEND_HOSTS = {"hust.edu.cn": "mail.hust.edu.cn",   "126.com": "smtp.126.com",
-                 "163.com": "smtp.163.com",            "sina.cn": "smtp.sina.cn",
-                 "sina.com": "smtp.sina.com.cn",       "sohu.com": "smtp.sohu.com",
-                 "263.net": "smtp.263.net",            "gmail.com": "smtp.gmail.com",
-                 "tom.com": "smtp.tom.com",            "yahoo.com": "smtp.mail.yahoo.com",
-                 "yahoo.com.cn": "smtp.mail.yahoo.com","21cn.com": "smtp.21cn.com",
-                 "qq.com": "smtp.qq.com",              "x263.net": "smtp.263.net",
-                 "foxmail.com": "smtp.foxmail.com",    "hotmail.com": "smtp.live.com",
-                 "hainan.net": "smtp.hainan.net",      "139.com": "smtp.139.com",}
-
-    RECV_HOSTS = {"hust.edu.cn": "mail.hust.edu.cn",   "mail.hust.edu.cn": "mail.hust.edu.cn",}
-
-    def __init__(self, mail_user, mail_passwd, mail_host, sender_name):
-        self.user = mail_user
-        self.passwd = mail_passwd
-        self.host = mail_host           # 发送和接收用的host不一样，只存发送的host到DB
-        self.sender_name = sender_name
-
-    def __repr__(self):
-        return u"Account({}, {}, {})".format(self.user, self.host, self.sender_name)
-
-    @staticmethod
-    def get_send_host(user):
-        domain = str_get_domain(user)
-        if len(domain) == 0:
-            return u""
-        if domain in Account.SEND_HOSTS:
-            host = unicode(Account.SEND_HOSTS[domain])
-            return host
-        return u""
-
-    @staticmethod
-    def get_recv_host(user):
-        domain = str_get_domain(user)
-        if len(domain) == 0:
-            return u""
-        if domain in Account.RECV_HOSTS:
-            host = unicode(Account.RECV_HOSTS[domain])
-            return host
-        return u""
-
-    def has_host(self):
-        if self.host is None or len(self.host) == 0:
-            return False
-        return True
 
 
 class AccountsMange:
@@ -1489,7 +1443,7 @@ class RecvImap:
         try:
             str_date, body, suffix = self._parse_email(dat[0][1])
         except Exception, e:
-            print("Parse an email failed, num = {}".format(num))
+            print("Parse an email failed, num = {}, err: {}".format(num, e))
             return None, None
 
         if len(str_date) <= 0:
@@ -1921,448 +1875,354 @@ class ExcelWrite:
             return ERROR_START_XLS_FAILED, u"未知的操作系统：{}".format(platform.system())
 
 
-# #####################################################################################################
-
-
-def try_decode(str_raw, encoding_list=None):
-    if encoding_list is None:
-        encoding_list = ['gb18030', 'utf-8']
-
-    err, err_info, text = ERROR_SUCCESS, u"", repr(str_raw)
-    for each_encode in encoding_list:
-        try:
-            text = str_raw.decode(each_encode)
-        except Exception, e:
-            err, err_info = ERROR_DECODE_BODY_FAILED, unicode(e)
-        else:
-            err, err_info = ERROR_SUCCESS, u""
-            break
-    return err, err_info, text
-
-
-def is_break_error(err):
-    if ERROR_FINISH == err and \
-       ERROR_OPEN_APPEND_FAILED == err and \
-       ERROR_READ_APPEND_FAILED == err and \
-       ERROR_CONNECT_FAILED == err and \
-       ERROR_LOGIN_FAILED == err and \
-       ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
-        return True
-    return False
-
-
-def check_contain_chinese(check_str):
-    try:
-        str_decode = check_str.decode('utf-8')
-    except:
-        return True
-    for ch in str_decode:
-        if u'\u4e00' <= ch <= u'\u9fff':
-            return True
-    return False
-
-
-def str_find_mailbox(mail_box):
-    if type(mail_box) != str and type(mail_box) != unicode:
-        return ""
-    r = re.findall(r'\S+@\S+', mail_box)
-    if r:
-        if not check_contain_chinese(r[0]):
-            return r[0]
-    return ""
-
-
-def str_get_domain(user_name):
-    pos = user_name.find("@")
-    if -1 != pos and pos + 1 < len(user_name):
-        domain = user_name[pos+1:]
-        return domain
-    return ""
-
-
-def str_is_domain_equal(mailbox1, mailbox2):
-    if type(mailbox1) != str and type(mailbox1) != unicode:
-        return False
-    if type(mailbox2) != str and type(mailbox2) != unicode:
-        return False
-    pos1 = mailbox1.find("@")
-    pos2 = mailbox2.find("@")
-    if -1 == pos1 or -1 == pos2:
-        return False
-    domain1 = mailbox1[pos1+1:]
-    domain2 = mailbox2[pos2+1:]
-    if domain1 == domain2 and domain1 != "":
-        return True
-    return False
-
-
-def html_add_head(elems):
-    head = '''
-<html>
-<head>
-<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
-<meta name="ProgId" content="FrontPage.Editor.Document">
-<meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-</head>
-<body>
-'''
-    return head + elems + "</body></html>\n\n\n\n"
-
-
-def html_txt_elem(txt):
-    ret = txt.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    return "<pre>" + ret + "</pre>"
-
-
 # ############################################################################################
 # #####################################   测试用例   ##########################################
 # ############################################################################################
 # ############################################################################################
 
+class UnitTest:
 
-def test_sql_db():
-    db_path = ur'E:\X 发行资料\sendmail_test.db'
-    db = MailDB(db_path)
-    err, err_info = db.init()
-    if ERROR_SUCCESS != err:
-        print(err_info)
-        return
+    @staticmethod
+    def test_sql_db():
+        db_path = ur'E:\X 发行资料\sendmail_test.db'
+        db = MailDB(db_path)
+        err, err_info = db.init()
+        if ERROR_SUCCESS != err:
+            print(err_info)
+            return
 
-    # ------------------------------------------
-    print("\nSave account_list:")
-    account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
-    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"")
-    account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "", u"李嘉成")
-    account4 = Account("liangjinchao.happy@163.com", "XXXXXXXXXXXXXX", "smtp.163.com", u"李嘉成")
-    account5 = Account("dian@hust.edu.cn", "XXXXXXXXX", "mail.hust.edu.cn", u"李市民")
-    account_list = [account1, account2, account3, account4, account5]
-    db.save_accounts(account_list)
-    ret = db.get_accounts()
-    for acc in ret:
-        print(u"{} {} {} {}".format(acc.user, acc.passwd, acc.host, acc.sender_name))
-    print("Delete all accounts.")
-    db.del_all_accounts()
-    ret = db.get_accounts()
-    for acc in ret:
-        print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+        # ------------------------------------------
+        print("\nSave account_list:")
+        account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+        account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"")
+        account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "", u"李嘉成")
+        account4 = Account("liangjinchao.happy@163.com", "XXXXXXXXXXXXXX", "smtp.163.com", u"李嘉成")
+        account5 = Account("dian@hust.edu.cn", "XXXXXXXXX", "mail.hust.edu.cn", u"李市民")
+        account_list = [account1, account2, account3, account4, account5]
+        db.save_accounts(account_list)
+        ret = db.get_accounts()
+        for acc in ret:
+            print(u"{} {} {} {}".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+        print("Delete all accounts.")
+        db.del_all_accounts()
+        ret = db.get_accounts()
+        for acc in ret:
+            print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
 
-    # ------------------------------------------
-    print("\nSave mail_content")
-    sub = u"再次分享内容：笛卡尔的思维"
-    body = u"""
-    早在1627 年笛卡尔所写的􀀁指导心灵探求真理
-的原则􀀁 􀀁 一书中, 笛卡尔就明确谈到了思维和物体
-相区分的思想。在原则12 中, 笛卡尔区分了纯粹智
-性的( intellectuelles ) 东西和纯粹物质性
-( mat􀀁rielles) 的东西。纯粹智性的东西, 是那些我
-们无须借助任何物体形象, 而只需理智( l 'entede􀀁
-ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
+        # ------------------------------------------
+        print("\nSave mail_content")
+        sub = u"再次分享内容：笛卡尔的思维"
+        body = u"""
+        早在1627 年笛卡尔所写的􀀁指导心灵探求真理
+    的原则􀀁 􀀁 一书中, 笛卡尔就明确谈到了思维和物体
+    相区分的思想。在原则12 中, 笛卡尔区分了纯粹智
+    性的( intellectuelles ) 东西和纯粹物质性
+    ( mat􀀁rielles) 的东西。纯粹智性的东西, 是那些我
+    们无须借助任何物体形象, 而只需理智( l 'entede􀀁
+    ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
 
-    """
-    append_path_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
+        """
+        append_path_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
+                            ur'E:\X 发行资料\文本-内容.txt',
+                           ]
+        db.save_mail_content(sub, body, append_path_list)
+        sub_, body_, append_path_list_ = db.get_mail_content()
+        print(u"Sub = [{}]".format(sub_))
+        print(u"Appends = {}".format(append_path_list_))
+        # print(u"Body = [{}]".format(body_))             # body 有乱码不能打印
+        print("Clear mail content")
+        db.del_mail_content()
+        if not db.get_mail_content():
+            print "Delete success"
+
+        # ------------------------------------------
+        print("\nReceiver data Test")
+        xls_path = ur'E:\点 石测试Haha\2014点石 你好.xls'
+        selected_list = [4,5,6,7,8,9]
+        col_name = "D"
+        db.save_receiver_data(xls_path, selected_list, col_name)
+        xls_path_, selected_list_, col_name_ = db.get_receiver_data()
+        print(u"xls_path=[{}]\nselected={}\ncol_name={}".format(xls_path_, selected_list_, col_name_))
+        print("Delete receiver data")
+        if not db.get_receiver_data():
+            print("Delete success")
+
+        # ------------------------------------------
+        print("\nSpeed info Test")
+        db.save_speed_info(400, 40)
+        speed, each_time = db.get_speed_info()
+        print("Speed = {}, each time send {}".format(speed, each_time))
+        print("Delete speed info")
+        db.del_speed_info()
+        if not db.get_speed_info():
+            print("Delete success")
+
+        # -------------------------------------------
+        print("\nTest Sent progress")
+        db.save_sent_progress(4000, 2000, 1000)
+        a, b, c = db.get_sent_progress()
+        print(u"Success: {}, Failed: {}, NotSend: {}".format(a, b, c))
+        print("Delete progress")
+        if not db.get_sent_progress():
+            print("Delete success")
+
+        # ---------------------------------------------
+        print("\nTest Success Sent")
+        db.add_success_sent(["Hello", "@", "", " ", "liangjinchao.happy@jfda.com"])
+        print(db.get_success_sent())
+        t = "Hello"
+        print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
+        t = "Hello2"
+        print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
+        print("Delete some")
+        db.del_success_sent(["Hello", " "])
+        print(db.get_success_sent())
+        print("Delete all")
+        db.del_all_success_sent()
+        print(db.get_success_sent())
+        t = "Hello"
+        print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
+        t = "Hello2"
+        print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
+
+        # ------------------------------------------
+        print("\nTest Used Account")
+        account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+        account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"")
+        account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "", u"李嘉成")
+        account4 = Account("liangjinchao.happy@163.com", "XXXXXXXXXX", "smtp.163.com", u"李嘉成")
+        account5 = Account("dian@hust.edu.cn", "XXXXXXXXXXX", "mail.hust.edu.cn", u"李市民")
+        account_list = [account1, account2, account3, account4, account5]
+        db.save_used_accounts(account_list)
+        ret = db.get_used_accounts()
+        for acc in ret:
+            print(u"{} {} {} {}".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+        print("Delete all accounts.")
+        db.del_all_used_accounts()
+        ret = db.get_used_accounts()
+        for acc in ret:
+            print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+
+        # ------------------------------------------
+        print("\nTest Start Time")
+        dt = datetime.datetime.now()
+        print("Current datetime: {}".format(dt))
+        db.save_start_time(dt)
+        dt_get = db.get_start_time()
+        print("Get start time: {}".format(dt_get))
+        db.del_start_time()
+        print("Delete start time")
+        dt_get = db.get_start_time()
+        if dt_get:
+            print("Failed!Get start time: {}".format(dt_get))
+        else:
+            print("Delete start times success")
+
+        # ------------------------------------------
+        print("\nTest Ndr mail")
+        db.add_ndr_mail("oliver@haha.com", datetime.datetime(2018, 2, 6, 8, 5, 6, 555))
+        db.add_ndr_mail("abcde", datetime.datetime(1999, 2, 6, 8, 5, 6, 555))
+        db.add_ndr_mail("qwertyui@haha.com", datetime.datetime(2018, 2, 6, 8, 5, 6, 555))
+        mail = "abcde"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "qwertyui@haha.com"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "abcdef"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "oliver@haha.com"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail, dt = "qwertyui@haha.com", datetime.datetime(2222, 5, 7, 6, 2)
+        db.add_ndr_mail(mail, dt)
+        print("----Modify {} to {}----".format(mail, dt))
+        mail = "abcde"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "qwertyui@haha.com"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "abcdef"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "oliver@haha.com"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "qwertyui@haha.com"
+        db.del_ndr_mail(mail)
+        print("----Delete {}----".format(mail))
+        mail = "abcde"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "qwertyui@haha.com"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "abcdef"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        mail = "oliver@haha.com"
+        print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+
+    @staticmethod
+    def test_send_mail():
+        account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+        account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+        account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+        account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
+        account7 = Account("mmyzoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
+        account8 = Account("sys@d3p.com", "123456", "192.168.11.25", u"李世明")
+        mails = [ [""] ]
+        #i = 20
+        #n = 0
+        #while n < 1900:
+        #    mails.append(MAIL_LIST_ALL[n: n+i])
+        #    n += i
+        #    i += 1
+        #mails = [MAIL_LIST_ALL[1320:1800]]
+        #mails =[["mmyzoliver@163.com"]]
+        mails = [#["hustoliver@hainan.net"],
+                 ["mmyzoliver@163.com", "1026815245@qq.com"],
+                 # MAIL_LIST_ALL[1320:1800],
+                 ["M201571736@hust.edu.cn"],
+                 ["1307408482@qq.com"],
+                 ]
+
+        mail_db = MailDB(ur'D:\tmp\sendmail.db')
+        mail_db.init()
+        # mail_matrix = SimpleMatrix(2, mails)             # 一次循环最大发送数量
+        mail_matrix = XlsMatrix(20, ur'E:\点 石测试Haha\2014点石 你好.xls', mail_db)
+        err, err_info, l = mail_matrix.get_sheet_names()
+        if err != ERROR_SUCCESS:
+            print(err_info)
+            return
+        print(u"Get xls sheets:\n[{}]".format(u", ".join(l)))
+        mail_matrix.init([3, 4], "E")
+        # mail_matrix.init(range(len(l)), "C")
+
+        accounts_list = [ account8 ]
+        account_manger = AccountsMange(accounts_list)
+
+        #mail_sub = ur"——邮件发送出问题，打扰了{}——".format(get_time_str())
+        mail_sub = u"再次分享内容：笛卡尔的思维"
+
+        append_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
                         ur'E:\X 发行资料\文本-内容.txt',
-                       ]
-    db.save_mail_content(sub, body, append_path_list)
-    sub_, body_, append_path_list_ = db.get_mail_content()
-    print(u"Sub = [{}]".format(sub_))
-    print(u"Appends = {}".format(append_path_list_))
-    # print(u"Body = [{}]".format(body_))             # body 有乱码不能打印
-    print("Clear mail content")
-    db.del_mail_content()
-    if not db.get_mail_content():
-        print "Delete success"
+                      ]
+        path_body = ur'E:\X 发行资料\文本-内容.txt'
+        mail_content = MailContent(mail_sub, path_body, append_list)
+        err, err_info = mail_content.init()
+        if ERROR_SUCCESS != err:
+            print(err_info)
+            return
 
-    # ------------------------------------------
-    print("\nReceiver data Test")
-    xls_path = ur'E:\点 石测试Haha\2014点石 你好.xls'
-    selected_list = [4,5,6,7,8,9]
-    col_name = "D"
-    db.save_receiver_data(xls_path, selected_list, col_name)
-    xls_path_, selected_list_, col_name_ = db.get_receiver_data()
-    print(u"xls_path=[{}]\nselected={}\ncol_name={}".format(xls_path_, selected_list_, col_name_))
-    print("Delete receiver data")
-    if not db.get_receiver_data():
-        print("Delete success")
+        mail = MailProc(mail_matrix, account_manger, mail_content)
+        fail_list = []
 
-    # ------------------------------------------
-    print("\nSpeed info Test")
-    db.save_speed_info(400, 40)
-    speed, each_time = db.get_speed_info()
-    print("Speed = {}, each time send {}".format(speed, each_time))
-    print("Delete speed info")
-    db.del_speed_info()
-    if not db.get_speed_info():
-        print("Delete success")
+        while True:
+            ret = mail.send_once()
+            err = ret["ErrCode"]
+            print(ret)
+            if ERROR_SUCCESS == err:
+                pass
+            elif ERROR_FINISH == err:
+                print("OOOOOOOOOOOOOOOOO已经发完了最后一封邮件OOOOOOOOOOOOOOOOOOO")
+                print(u"发送失败的邮件有：{}".format(fail_list))
+                break
+            elif ERROR_OPEN_APPEND_FAILED == err:
+                print(u"打开附件失败")
+                break
+            elif ERROR_READ_APPEND_FAILED == err:
+                print(u"读取附件失败")
+                break
+            elif ERROR_SEND_TOO_MANY == err:
+                print(u"一时发送过多")
+                time.sleep(900)
+            elif ERROR_SEND_TOO_MANY_NEED_WAIT == err:
+                print(u"真的发太多了，等等吧")
+                time.sleep(900)
+            elif ERROR_CONNECT_FAILED == err:
+                print(u"没网了，5秒后再尝试")
+                time.sleep(5)
+            elif ERROR_LOGIN_FAILED == err:
+                print(u"用户名密码错误")
+                break
+            elif ERROR_SEND_FAILED_UNKNOWN == err:
+                print(u"未知错误，将再次尝试")
+            elif ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
+                print(u"太多未知错误了")
+                time.sleep(900)
+            elif ERROR_SOME_EMAILS_FAILED == err:
+                print(u"部分发送失败")
+                fail_list += ret["FailedList"]
+            time.sleep(20)
 
-    # -------------------------------------------
-    print("\nTest Sent progress")
-    db.save_sent_progress(4000, 2000, 1000)
-    a, b, c = db.get_sent_progress()
-    print(u"Success: {}, Failed: {}, NotSend: {}".format(a, b, c))
-    print("Delete progress")
-    if not db.get_sent_progress():
-        print("Delete success")
+    @staticmethod
+    def test_has_same_program():
+        p = check_program_has_same(42412)
+        if p.has_same():
+            print("Has same program runing!")
+        else:
+            print("Only myself runing.")
+            time.sleep(10)
 
-    # ---------------------------------------------
-    print("\nTest Success Sent")
-    db.add_success_sent(["Hello", "@", "", " ", "liangjinchao.happy@jfda.com"])
-    print(db.get_success_sent())
-    t = "Hello"
-    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
-    t = "Hello2"
-    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
-    print("Delete some")
-    db.del_success_sent(["Hello", " "])
-    print(db.get_success_sent())
-    print("Delete all")
-    db.del_all_success_sent()
-    print(db.get_success_sent())
-    t = "Hello"
-    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
-    t = "Hello2"
-    print("Is the {} Exist: {}".format(t, db.is_exist_success_sent(t)))
+    @staticmethod
+    def test_recv_imap():
+        m = RecvImap("mail.hust.edu.cn", "U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX")
+        err, err_info = m.login()
+        if err != ERROR_SUCCESS:
+            print(err_info)
+            return
+        since_time = datetime.datetime(2016,8,14,19,38,02)
+        for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
+            print("\n\n\n--------------------------{}--------------------------------".format(recv_time))
+            print(body)
 
-    # ------------------------------------------
-    print("\nTest Used Account")
-    account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
-    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"")
-    account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "", u"李嘉成")
-    account4 = Account("liangjinchao.happy@163.com", "XXXXXXXXXX", "smtp.163.com", u"李嘉成")
-    account5 = Account("dian@hust.edu.cn", "XXXXXXXXXXX", "mail.hust.edu.cn", u"李市民")
-    account_list = [account1, account2, account3, account4, account5]
-    db.save_used_accounts(account_list)
-    ret = db.get_used_accounts()
-    for acc in ret:
-        print(u"{} {} {} {}".format(acc.user, acc.passwd, acc.host, acc.sender_name))
-    print("Delete all accounts.")
-    db.del_all_used_accounts()
-    ret = db.get_used_accounts()
-    for acc in ret:
-        print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+    @staticmethod
+    def test_recv_imap2():
+        user = "U201313778@hust.edu.cn"
+        m = RecvImap("mail.hust.edu.cn", user, "XXXXXXXXXXXXXXX")
+        err, err_info = m.login()
+        if err != ERROR_SUCCESS:
+            print(err_info)
+            return
+        since_time = datetime.datetime(2016,8,14,19,38,02)
+        fail_content = NdrContent(user)
+        for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
+            print("\n--------------------------{}--------------------------------".format(recv_time))
+            fail_ = fail_content.get_fail_mail(body)
+            print(u"{}, {}, {}".format(fail_[0], fail_[1], fail_[2]))
+        m.logout()
 
-    # ------------------------------------------
-    print("\nTest Start Time")
-    dt = datetime.datetime.now()
-    print("Current datetime: {}".format(dt))
-    db.save_start_time(dt)
-    dt_get = db.get_start_time()
-    print("Get start time: {}".format(dt_get))
-    db.del_start_time()
-    print("Delete start time")
-    dt_get = db.get_start_time()
-    if dt_get:
-        print("Failed!Get start time: {}".format(dt_get))
-    else:
-        print("Delete start times success")
+    @staticmethod
+    def test_ndr_proc():
+        print("Test ndr proc start.")
+        chdir_myself()
+        db = MailDB(r'send_mail.db')
+        db.init()
+        success_list = [u'fa@fhj99.com', u"hahha@163.com", u"wangzhaoyang@chinaacc.c",
+                        u"abcdefg@qq.com", u"hello_world@qqqc.com", u"uuasddpoa@163.com"]
+        db.del_all_success_sent()
+        db.clear_tmp_and_dynamic()
+        # db.save_sent_progress(100, 20, 30)
+        db.add_success_sent(success_list)
 
-    # ------------------------------------------
-    print("\nTest Ndr mail")
-    db.add_ndr_mail("oliver@haha.com", datetime.datetime(2018, 2, 6, 8, 5, 6, 555))
-    db.add_ndr_mail("abcde", datetime.datetime(1999, 2, 6, 8, 5, 6, 555))
-    db.add_ndr_mail("qwertyui@haha.com", datetime.datetime(2018, 2, 6, 8, 5, 6, 555))
-    mail = "abcde"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "qwertyui@haha.com"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "abcdef"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "oliver@haha.com"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail, dt = "qwertyui@haha.com", datetime.datetime(2222, 5, 7, 6, 2)
-    db.add_ndr_mail(mail, dt)
-    print("----Modify {} to {}----".format(mail, dt))
-    mail = "abcde"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "qwertyui@haha.com"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "abcdef"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "oliver@haha.com"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "qwertyui@haha.com"
-    db.del_ndr_mail(mail)
-    print("----Delete {}----".format(mail))
-    mail = "abcde"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "qwertyui@haha.com"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "abcdef"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
-    mail = "oliver@haha.com"
-    print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
+        account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
+        account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
+        account_list = [account2, account6]
 
+        ndr = NdrProc(account_list, db)
+        ndr.event_start_send(datetime.datetime(2013, 8, 14, 18, 00, 02))
+        time.sleep(5)
 
-def test_send_mail():
-    account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
-    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
-    account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
-    account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
-    account7 = Account("mmyzoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
-    account8 = Account("sys@d3p.com", "123456", "192.168.11.25", u"李世明")
-    mails = [ [""] ]
-    #i = 20
-    #n = 0
-    #while n < 1900:
-    #    mails.append(MAIL_LIST_ALL[n: n+i])
-    #    n += i
-    #    i += 1
-    #mails = [MAIL_LIST_ALL[1320:1800]]
-    #mails =[["mmyzoliver@163.com"]]
-    mails = [#["hustoliver@hainan.net"],
-             ["mmyzoliver@163.com", "1026815245@qq.com"],
-             # MAIL_LIST_ALL[1320:1800],
-             ["M201571736@hust.edu.cn"],
-             ["1307408482@qq.com"],
-             ]
+        ndr.start_thread()
 
-    mail_db = MailDB(ur'D:\tmp\sendmail.db')
-    mail_db.init()
-    # mail_matrix = SimpleMatrix(2, mails)             # 一次循环最大发送数量
-    mail_matrix = XlsMatrix(20, ur'E:\点 石测试Haha\2014点石 你好.xls', mail_db)
-    err, err_info, l = mail_matrix.get_sheet_names()
-    if err != ERROR_SUCCESS:
-        print(err_info)
-        return
-    print(u"Get xls sheets:\n[{}]".format(u", ".join(l)))
-    mail_matrix.init([3, 4], "E")
-    # mail_matrix.init(range(len(l)), "C")
+        print("")
+        for i in range(90):
+            err_info, ndr_data_list, ndr_all_count, has_finish_a_loop = ndr.get_data()
+            # print(u"Error Info: {}".format(err_info))
+            print(u"Count: {}\t\tHas Finish a loop: {}".format(ndr_all_count, has_finish_a_loop))
+            print(u"Data: ")
+            print(ndr_data_list)
+            print(u"\n"+u"-"*64)
+            time.sleep(2)
 
-    accounts_list = [ account8 ]
-    account_manger = AccountsMange(accounts_list)
-
-    #mail_sub = ur"——邮件发送出问题，打扰了{}——".format(get_time_str())
-    mail_sub = u"再次分享内容：笛卡尔的思维"
-
-    append_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
-                    ur'E:\X 发行资料\文本-内容.txt',
-                  ]
-    path_body = ur'E:\X 发行资料\文本-内容.txt'
-    mail_content = MailContent(mail_sub, path_body, append_list)
-    err, err_info = mail_content.init()
-    if ERROR_SUCCESS != err:
-        print(err_info)
-        return
-
-    mail = MailProc(mail_matrix, account_manger, mail_content)
-    fail_list = []
-
-    while True:
-        ret = mail.send_once()
-        err = ret["ErrCode"]
-        print(ret)
-        if ERROR_SUCCESS == err:
-            pass
-        elif ERROR_FINISH == err:
-            print("OOOOOOOOOOOOOOOOO已经发完了最后一封邮件OOOOOOOOOOOOOOOOOOO")
-            print(u"发送失败的邮件有：{}".format(fail_list))
-            break
-        elif ERROR_OPEN_APPEND_FAILED == err:
-            print(u"打开附件失败")
-            break
-        elif ERROR_READ_APPEND_FAILED == err:
-            print(u"读取附件失败")
-            break
-        elif ERROR_SEND_TOO_MANY == err:
-            print(u"一时发送过多")
-            time.sleep(900)
-        elif ERROR_SEND_TOO_MANY_NEED_WAIT == err:
-            print(u"真的发太多了，等等吧")
-            time.sleep(900)
-        elif ERROR_CONNECT_FAILED == err:
-            print(u"没网了，5秒后再尝试")
-            time.sleep(5)
-        elif ERROR_LOGIN_FAILED == err:
-            print(u"用户名密码错误")
-            break
-        elif ERROR_SEND_FAILED_UNKNOWN == err:
-            print(u"未知错误，将再次尝试")
-        elif ERROR_SEND_FAILED_UNKNOWN_TOO_MANY == err:
-            print(u"太多未知错误了")
-            time.sleep(900)
-        elif ERROR_SOME_EMAILS_FAILED == err:
-            print(u"部分发送失败")
-            fail_list += ret["FailedList"]
-        time.sleep(20)
-
-
-def test_has_same_program():
-    p = check_program_has_same(42412)
-    if p.has_same():
-        print("Has same program runing!")
-    else:
-        print("Only myself runing.")
-        time.sleep(10)
-
-
-def test_recv_imap():
-    m = RecvImap("mail.hust.edu.cn", "U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX")
-    err, err_info = m.login()
-    if err != ERROR_SUCCESS:
-        print(err_info)
-        return
-    since_time = datetime.datetime(2016,8,14,19,38,02)
-    for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
-        print("\n\n\n--------------------------{}--------------------------------".format(recv_time))
-        print(body)
-
-
-def test_recv_imap2():
-    user = "U201313778@hust.edu.cn"
-    m = RecvImap("mail.hust.edu.cn", user, "XXXXXXXXXXXXXXX")
-    err, err_info = m.login()
-    if err != ERROR_SUCCESS:
-        print(err_info)
-        return
-    since_time = datetime.datetime(2016,8,14,19,38,02)
-    fail_content = NdrContent(user)
-    for recv_time, body in m.search_from_since("postmaster@hust.edu.cn", since_time):
-        print("\n--------------------------{}--------------------------------".format(recv_time))
-        fail_ = fail_content.get_fail_mail(body)
-        print(u"{}, {}, {}".format(fail_[0], fail_[1], fail_[2]))
-    m.logout()
-
-
-def test_ndr_proc():
-    print("Test ndr proc start.")
-    chdir_myself()
-    db = MailDB(r'send_mail.db')
-    db.init()
-    success_list = [u'fa@fhj99.com', u"hahha@163.com", u"wangzhaoyang@chinaacc.c",
-                    u"abcdefg@qq.com", u"hello_world@qqqc.com", u"uuasddpoa@163.com"]
-    db.del_all_success_sent()
-    db.clear_tmp_and_dynamic()
-    # db.save_sent_progress(100, 20, 30)
-    db.add_success_sent(success_list)
-
-    account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
-    account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
-    account_list = [account2, account6]
-
-    ndr = NdrProc(account_list, db)
-    ndr.event_start_send(datetime.datetime(2013, 8, 14, 18, 00, 02))
-    time.sleep(5)
-
-    ndr.start_thread()
-
-    print("")
-    for i in range(90):
-        err_info, ndr_data_list, ndr_all_count, has_finish_a_loop = ndr.get_data()
-        # print(u"Error Info: {}".format(err_info))
-        print(u"Count: {}\t\tHas Finish a loop: {}".format(ndr_all_count, has_finish_a_loop))
-        print(u"Data: ")
-        print(ndr_data_list)
-        print(u"\n"+u"-"*64)
-        time.sleep(2)
-
-    ndr.stop_proc()
-    print(u"已发送成功的变为：")
-    print(db.get_success_sent())
+        ndr.stop_proc()
+        print(u"已发送成功的变为：")
+        print(db.get_success_sent())
 
 
 if __name__ == "__main__":
-    # test_send_mail()
-    # test_recv_imap2()
-    test_sql_db()
-    # test_ndr_proc()
+    UnitTest.test_send_mail()
 
 
