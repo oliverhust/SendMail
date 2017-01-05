@@ -15,6 +15,7 @@ from ui_recv_host import Ui_Dialog_RecvHost
 from ui_ndr import Ui_Dialog_Ndr
 from mylog import *
 from cfg_data import *
+from etc_func import *
 from main import UIInterface, UITimer
 
 
@@ -211,17 +212,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
     def slot_open_appends(self):
         self.label_append.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
         s_list = QFileDialog.getOpenFileNames(self, QString(u"选择附件(可同时选中多个)"), "/", "All files(*.*)")
-        if not s_list:
-            self.label_append.setText(QString(u""))
-            self._append_list = []
-            return
         # 拼接附件文件名
-        self._append_list = [unicode(s_list[0])]
-        q_s = QString(unicode(s_list[0]).replace(u'\\', u'/'))
-        for i in range(1, len(s_list)):
-            self._append_list.append(unicode(s_list[i]))
-            q_s += QString(u"; ") + QString(unicode(s_list[i]).replace(u'\\', u'/'))
-        self.label_append.setText(q_s)
+        self.set_ui_appends([unicode(each_append) for each_append in s_list])
 
     def slot_open_mail_list(self):
         self.label_maillist.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
@@ -336,6 +328,18 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
             # 【【【【调用GUI的事件处理函数: 开始发送】】】】
             self._GUIProc.event_start_send()
 
+    def set_ui_appends(self, full_append_path_list):
+        self._append_list = full_append_path_list[:]
+        append_str = u";".join([os.path.basename(each_append) for each_append in self._append_list])
+        append_str = append_str.replace("\\", "/")
+        self.label_append.setText(QString(append_str))
+
+        if self._append_list:
+            append_head = u"附件({}个) ".format(len(self._append_list))
+        else:
+            append_head = u"附件"
+        self.label_append_head.setText(QString(append_head))
+
     def account_add(self):
         # 弹出添加账户界面
         new_win = AccountWindow()
@@ -429,10 +433,7 @@ class GUIMain(UIInterface, MainWindow):
         self._body_path = data["Body"]
         self.label_body.setText(QString(self._body_path))
 
-        self._append_list = data["AppendList"][:]
-        append_str = u";".join(self._append_list)
-        append_str = append_str.replace("\\", "/")
-        self.label_append.setText(QString(append_str))
+        self.set_ui_appends(data["AppendList"])
 
         self._xls_path = data["XlsPath"]
         self.label_maillist.setText(QString(self._xls_path))
@@ -848,7 +849,7 @@ def beep():
     if is_windows_system():
         winsound.MessageBeep(0)
     else:
-        print("\a")
+        sys.__stdout__.write("\a")
 
 
 def test_ndr_win():

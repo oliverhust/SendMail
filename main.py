@@ -1,13 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os
-import sys
-import re
-import time
+
 import threading
 import random
-import datetime
 import copy
 import xlrd
 import xlwt
@@ -21,7 +17,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
-from err_code import *
 from mylog import *
 from cfg_data import *
 from etc_func import *
@@ -2001,7 +1996,7 @@ class UnitTest:
         db.del_all_used_accounts()
         ret = db.get_used_accounts()
         for acc in ret:
-            print(u"[{}] [{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
+            print(u"[{}] [{}] [{}] [{}]".format(acc.user, acc.passwd, acc.host, acc.sender_name))
 
         # ------------------------------------------
         print("\nTest Start Time")
@@ -2062,16 +2057,16 @@ class UnitTest:
         account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
         account7 = Account("mmyzoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
         account8 = Account("sys@d3p.com", "123456", "192.168.11.25", u"李世明")
-        mails = [ [""] ]
-        #i = 20
-        #n = 0
-        #while n < 1900:
+        mails = [[""]]
+        # i = 20
+        # n = 0
+        # while n < 1900:
         #    mails.append(MAIL_LIST_ALL[n: n+i])
         #    n += i
         #    i += 1
-        #mails = [MAIL_LIST_ALL[1320:1800]]
-        #mails =[["mmyzoliver@163.com"]]
-        mails = [#["hustoliver@hainan.net"],
+        # mails = [MAIL_LIST_ALL[1320:1800]]
+        # mails =[["mmyzoliver@163.com"]]
+        mails = [# ["hustoliver@hainan.net"],
                  ["mmyzoliver@163.com", "1026815245@qq.com"],
                  # MAIL_LIST_ALL[1320:1800],
                  ["M201571736@hust.edu.cn"],

@@ -23457,3 +23457,177 @@ The form has loaded
 The Event form load occur.
 Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:17:04] Start the program
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 942, in <module>
+    main()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 935, in main
+    win = GUIMain()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 373, in __init__
+    MainWindow.__init__(self, self)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 165, in __init__
+    super(MainWindow, self).__init__(parent)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 95, in __init__
+    NoFrameWin.__init__(self, parent)
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 73, in __init__
+    self.setWindowModality(Qt.ApplicationModal)
+TypeError: could not convert 'GUIMain' to 'QMessageBox'
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:17:17] Start the program
+[2017/01/05 21:17:18]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+[2017/01/05 21:17:26]
+Get 5 mails from excel.
+[2017/01/05 21:17:29]Start Timer.The timer period is 45000 ms
+[2017/01/05 21:17:31]Timer call back.
+[2017/01/05 21:17:31]
+读取附件成功
+[2017/01/05 21:17:31]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (50, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+User select hustoliver@hainan.net recv host u''
+User select oliver@dian.com recv host u''
+User select dian@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select U201313778@hust.edu.cn recv host 'mail.hust.edu.cn'
+User select liuyu@mail.hust.edu.cn recv host 'mail.hust.edu.cn'
+User select mmyzoliver@gmail.com recv host u''
+[21:17:43] 开始接收退信:since 2016/08/22 01:36:24
+[21:17:43] 当前账号: hustoliver@hainan.net
+[21:17:43] 当前账号: oliver@dian.com
+[21:17:43] 当前账号: dian@hust.edu.cn
+IMAP select dir /&XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /&kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+IMAP select dir /INBOX
+Search imap: from [postmaster@hust.edu.cn], since [22-Aug-2016]
+A letter has no date() or body, num = 66
+A letter has no date() or body, num = 86
+A letter has no date() or body, num = 65
+A letter has no date() or body, num = 87
+A letter has no date() or body, num = 61
+A letter has no date() or body, num = 100
+A letter has no date() or body, num = 54
+A letter has no date() or body, num = 102
+Get imap start num = 43, datetime = 2016-09-22 20:09:15
+[21:18:20] 终止接收退信操作
+sub = 形式与策略
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [6], col_name = D, sender_name = 陈美丽
+Speed each hour = 160, each time = 2
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+[2017/01/05 21:19:01]
+Get 5 mails from excel.
+User cancel before send.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:45:14] Start the program
+[2017/01/05 21:45:15]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:46:09] Start the program
+[2017/01/05 21:46:09]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:48:08] Start the program
+[2017/01/05 21:48:09]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:58:00] Start the program
+[2017/01/05 21:58:00]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:59:09] Start the program
+[2017/01/05 21:59:10]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 21:59:51] Start the program
+[2017/01/05 21:59:51]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/05 23:51:11] Start the program
+[2017/01/05 23:51:12]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+The progress will recover
