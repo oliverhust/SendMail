@@ -87,6 +87,14 @@ def str_is_domain_equal(mailbox1, mailbox2):
     return False
 
 
+def str_is_contains(string, pattern_list):
+    #  判断一个字符串中是否包含一个字符串列表中的任意一个字符串，存在返回匹配的索引，不存在返回-1
+    for i, each_pattern in enumerate(pattern_list):
+        if string.find(each_pattern) >= 0:
+            return i
+    return -1
+
+
 def html_add_head(elems):
     head = '''
 <html>

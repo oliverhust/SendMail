@@ -23631,3 +23631,125 @@ The form has loaded
 The Event form load occur.
 Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/07 19:51:24] Start the program
+[2017/01/07 19:51:25]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+[2017/01/07 19:51:25]
+Open database success, Ver = 2.6.0
+Thread maildb flush started.
+User cancel add account.
+User try add an account diannewletter@gmail.com.
+sub = testasdfjslad;fjsd dsfsadf0sdafasdfsafdsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf', u'E:\\X \u53d1\u884c\u8d44\u6599\\\u6587\u672c-\u5185\u5bb9.txt']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = C, sender_name = 陈美丽
+Speed each hour = 400, each time = 40
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+Account[1] = Account(diannewletter@gmail.com, smtp.gmail.com, 陈美丽)
+[2017/01/07 19:54:23]
+Get 1260 mails from excel.
+User cancel before send.
+sub = testasdfjslad;fjsd dsfsadf0sdafasdfsafdsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf', u'E:\\X \u53d1\u884c\u8d44\u6599\\\u6587\u672c-\u5185\u5bb9.txt']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = C, sender_name = 陈美丽
+Speed each hour = 100, each time = 10
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+Account[1] = Account(diannewletter@gmail.com, smtp.gmail.com, 陈美丽)
+[2017/01/07 19:54:41]
+Get 1260 mails from excel.
+[2017/01/07 19:54:46]Start Timer.The timer period is 180000 ms
+[2017/01/07 19:54:48]Timer call back.
+[2017/01/07 19:54:48]
+读取附件成功
+[2017/01/07 19:54:48]
+Start to send a group
+Connecting to host smtp.gmail.com
+Logining account mmyzoliver@gmail.com
+Start to send email...
+[2017/01/07 19:55:27]
+The email has sent.
+[2017/01/07 19:55:27]
+{'FailedList': [], 'SuccessList': [u'hongyi211@sina.com', u'cilijichuang@sina.com', u'cnjiangtai@126.com', u'ankson@126.com', u'zjykrc@163.com', u'hahdjx@163.com', u'5663@sohu.com', u'mmyzoliver@163.com', u'ycx358@sina.com', u'fx@yangte.com'], 'ErrLog': '', 'ErrCode': 0, 'CurrProgress': (10, 0, 1250)}
+Exit progress window pause or abnormal, ret = 0
+Exit the progress windows.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/07 19:56:09] Start the program
+[2017/01/07 19:56:09]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+[2017/01/07 19:56:09]
+Open database success, Ver = 2.6.0
+Thread maildb flush started.
+The progress will recover
+sub = testasdfjslad;fjsd dsfsadf0sdafasdfsafdsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf', u'E:\\X \u53d1\u884c\u8d44\u6599\\\u6587\u672c-\u5185\u5bb9.txt']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = C, sender_name = 陈美丽
+Speed each hour = 100, each time = 10
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+Account[1] = Account(diannewletter@gmail.com, smtp.gmail.com, 陈美丽)
+[2017/01/07 19:56:14]
+Get 1260 mails from excel.
+User cancel before send.
+sub = testasdfjslad;fjsd dsfsadf0sdafasdfsafdsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf', u'E:\\X \u53d1\u884c\u8d44\u6599\\\u6587\u672c-\u5185\u5bb9.txt']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = C, sender_name = 陈美丽
+Speed each hour = 100, each time = 10
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+Account[1] = Account(diannewletter@gmail.com, smtp.gmail.com, 陈美丽)
+[2017/01/07 19:56:20]
+Get 1260 mails from excel.
+[2017/01/07 19:56:23]Start Timer.The timer period is 180000 ms
+[2017/01/07 19:56:25]Timer call back.
+[2017/01/07 19:56:25]
+读取附件成功
+[2017/01/07 19:56:25]
+Start to send a group
+Connecting to host smtp.gmail.com
+Logining account mmyzoliver@gmail.com
+Start to send email...
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/07 19:56:45] Start the program
+[2017/01/07 19:56:46]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+[2017/01/07 19:56:46]
+Open database success, Ver = 2.6.0
+Thread maildb flush started.
+The progress will recover
+Exit and save.
+
+sub = testasdfjslad;fjsd dsfsadf0sdafasdfsafdsfs
+body_path = E:/X 发行资料/文本-内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf', u'E:\\X \u53d1\u884c\u8d44\u6599\\\u6587\u672c-\u5185\u5bb9.txt']
+path_xls = E:/X 发行资料/我的点石邮箱16-7-2修改.xls
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = C, sender_name = 陈美丽
+Speed each hour = 100, each time = 10
+Account[0] = Account(mmyzoliver@gmail.com, smtp.gmail.com, 陈美丽)
+Account[1] = Account(diannewletter@gmail.com, smtp.gmail.com, 陈美丽)

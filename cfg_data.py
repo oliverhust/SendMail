@@ -15,7 +15,7 @@ class Account:
                   "foxmail.com": "smtp.foxmail.com",        "hotmail.com": "smtp.live.com",
                   "hainan.net": "smtp.hainan.net",          "139.com": "smtp.139.com", }
 
-    RECV_HOSTS = {"hust.edu.cn": "mail.hust.edu.cn",   "mail.hust.edu.cn": "mail.hust.edu.cn", }
+    RECV_HOSTS = {"hust.edu.cn": "mail.hust.edu.cn",        "mail.hust.edu.cn": "mail.hust.edu.cn", }
 
     def __init__(self, mail_user, mail_passwd, mail_host, sender_name):
         self.user = mail_user

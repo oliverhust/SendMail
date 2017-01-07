@@ -1,0 +1,31 @@
+481 (BODYSTRUCTURE (
+("Text" "HTML" ("charset" "utf-8") NIL "Notification" "base64" 7446 97 NIL NIL NIL)
+
+("Message" "delivery-status" NIL NIL "Delivery error report" "7BIT" 217 NIL NIL NIL)
+
+("Message" "Rfc822" NIL NIL "Undelivered Message" "8bit" 4933333 
+("Sun, 1 Jan 2017 18:26:43 +0800" "=?UTF-8?B?RGlhbuWboumYn+W3peS9nOeugOaKpeesrDE3OOacnw==?=" (("=?UTF-8?B?IkRpYW4gR3JvdXAi?=" NIL "dian" "hust.edu.cn")) (("=?UTF-8?B?IkRpYW4gR3JvdXAi?=" NIL "dian" "hust.edu.cn")) (("=?UTF-8?B?IkRpYW4gR3JvdXAi?=" NIL "dian" "hust.edu.cn")) NIL NIL NIL NIL "<099464AF7E514280B3D53DBC2DE223CF@wangjiajingpc>") 
+(("text" "plain" NIL NIL NIL "8bit" 805 32 NIL NIL NIL)("application" "pdf" ("name" "DianNewsletter_20170101_178.pdf") NIL NIL "base64" 4930990 NIL ("attachment" ("filename" "DianNewsletter_20170101_178.pdf")) NIL) "mixed" ("boundary" "----=_NextPart_000_001E_01D2645C.9A566DD0") NIL NIL) 
+63293 NIL NIL NIL) 
+
+"report" ("report-type" "delivery-status" "boundary" "------------Boundary-00=_IDQ3TDDHNWQPJ2ZQENY1") NIL NIL))
+
+得到：
+----------Type: multipart/report
+----------Type: text/html                     html正文
+----------Type: message/delivery-status
+----------Type: text/plain                    只包含头，但有错误信息
+----------Type: message/rfc822
+----------Type: multipart/mixed
+----------Type: text/plain                    xx您好...2017年1月1日
+----------Type: application/pdf
+
+
+37 (BODYSTRUCTURE ("TEXT" "PLAIN" ("CHARSET" "UTF-8") NIL NIL "7BIT" 2690 53 NIL NIL NIL))
+
+
+QQ回复邮件：
+----------Type: multipart/alternative
+----------Type: text/plain
+----------Type: text/html
+<type 'list'>: [('Content-Type', 'text/plain;\r\n\tcharset="gb18030"'), ('Content-Transfer-Encoding', 'base64')]
