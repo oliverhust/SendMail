@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from copy import deepcopy
 from etc_func import str_get_domain
 
 
@@ -50,3 +51,85 @@ class Account:
         if self.host is None or len(self.host) == 0:
             return False
         return True
+
+
+class CfgNdr(dict):
+    # 接收退信的设置
+
+    POS_INVALID = 'Invalid'
+    POS_BODY = 'Body'
+    POS_DELIVERY = 'Delivery'
+
+    _VOID_CFG = {
+            'Domain':       u'',
+            'Enable':       False,
+            'ImapHost':     u'',
+            'UseSSL':       True,
+            'SysEmail':     u'',
+
+            # 后面两部分用来做内容识别(识别退信邮箱、退信错误信息)
+            'Mail':
+            {
+                            'Pos':      POS_INVALID,
+                            'PosKey':   u'',
+                            'RePatt':   u'',
+            },
+            'Info':
+            {
+                            'Pos':      POS_INVALID,
+                            'PosKey':   u'',
+                            'RePatt':   u'',
+            },
+    }
+    # 'MailPos':      POS_INVALID,
+    # 'MailPosKey':   u'',
+    # 'MailRePatt':   u'',
+    # 'InfoPos':      u'',
+    # 'InfoPosKey':   u'',
+    # 'InfoRePatt':   u'',
+
+    # noinspection PyTypeChecker
+    def __init__(self, cfg_iter=None):
+        if type(cfg_iter) == dict:
+            dict.__init__(self, deepcopy(cfg_iter))
+        elif type(cfg_iter) in (list, tuple, set) and cfg_iter:
+            (self['Domain'], self['Enable'], self['ImapHost'], self['UseSSL'], self['SysEmail'],
+             self['Mail']['Pos'], self['Mail']['PosKey'], self['Mail']['RePatt'],
+             self['Info']['Pos'], self['Info']['PosKey'], self['Info']['RePatt']) = cfg_iter
+        else:
+            dict.__init__(self, deepcopy(self._VOID_CFG))
+
+        if not self.check():
+                print(u"Warning: invalid CfgNdr: {}".format(self))
+
+    # noinspection PyTypeChecker
+    def __getitem__(self, key):
+        if key not in self:
+            return None
+        return dict.__getitem__(self, key)
+
+    def check(self):
+        if not set(self._VOID_CFG.keys()) <= set(self.keys()):
+            return False
+        if not set(self._VOID_CFG['Mail'].keys()) <= set(self['Mail'].keys()):
+            return False
+        if not set(self._VOID_CFG['Info'].keys()) <= set(self['Info'].keys()):
+            return False
+        return True
+
+    def to_tuple(self):
+        return (self['Domain'], self['Enable'], self['ImapHost'], self['UseSSL'], self['SysEmail'],
+                self['Mail']['Pos'], self['Mail']['PosKey'], self['Mail']['RePatt'],
+                self['Info']['Pos'], self['Info']['PosKey'], self['Info']['RePatt'])
+
+    def is_enable(self):
+        return self['Enable']
+
+    def get_sys_email(self):
+        return self['SysEmail']
+
+    def get_imap_host(self):
+        return self['ImapHost']
+
+
+

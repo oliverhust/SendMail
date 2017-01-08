@@ -13,6 +13,7 @@ from err_code import *
 
 
 g_check_same = None
+RE_PATT_MAILBOX = ur"[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+"
 
 
 def try_decode(str_raw, encoding_list=None):
@@ -56,7 +57,7 @@ def check_contain_chinese(check_str):
 def str_find_mailbox(mail_box):
     if type(mail_box) != str and type(mail_box) != unicode:
         return ""
-    r = re.findall(r'\S+@\S+', mail_box)
+    r = re.findall(RE_PATT_MAILBOX, mail_box)
     if r:
         if not check_contain_chinese(r[0]):
             return r[0]

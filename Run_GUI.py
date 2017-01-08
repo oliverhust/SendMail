@@ -557,11 +557,11 @@ class GUIMain(UIInterface, MainWindow):
         self.setHidden(False)
 
     def proc_ndr_refresh_data(self, err_info, ndr_data_list, ndr_all_count, has_finish_a_loop):
-        # ndr_data_list:[[时间，退回的邮箱， 出错信息， 建议]...]
+        # ndr_data_list: [{'Date': datetime, 'Mail': u'', 'Info': u'', 'Suggestion': u''}...]
         if len(err_info) > 0:
             self._ndr_win.append_text(err_info)
         for ndr_data in ndr_data_list:
-            self._ndr_win.add_one_row(ndr_data[1], ndr_data[3], ndr_data[2])
+            self._ndr_win.add_one_row(ndr_data['Mail'], ndr_data['Suggestion'], ndr_data['Info'])
 
 
 # ########################### 添加账户窗口 ############################
@@ -811,9 +811,9 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr, NoFrameWin):
     def add_one_row(self, mail, suggest, more_info):
         old_row_count = self.tableWidget.rowCount()
         self.tableWidget.setRowCount(old_row_count + 1)
-        self.tableWidget.setItem(old_row_count, 0, QTableWidgetItem(QString(mail)))
-        self.tableWidget.setItem(old_row_count, 1, QTableWidgetItem(QString(suggest)))
-        self.tableWidget.setItem(old_row_count, 2, QTableWidgetItem(QString(more_info)))
+        self.tableWidget.setItem(old_row_count, 0, QTableWidgetItem(QString(unicode(mail))))
+        self.tableWidget.setItem(old_row_count, 1, QTableWidgetItem(QString(unicode(suggest))))
+        self.tableWidget.setItem(old_row_count, 2, QTableWidgetItem(QString(unicode(more_info))))
         self.label_NdrNum.setText(QString(unicode(old_row_count + 1)))
 
     def append_text(self, text):
