@@ -26423,3 +26423,34 @@ Get email id in curr dir: []
 [01:37:28] 当前账号: U201313778@hust.edu.cn
 [01:37:28] 账号U201313778@hust.edu.cn登录失败: LOGIN Login error user suspended
 [01:37:31] 当前账号: diannewletter@gmail.com
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/09 12:29:58] Start the program
+[2017/01/09 12:29:59]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocument\\Python\\SendMail'
+[2017/01/09 12:29:59]
+Open database success, Ver = 2.6.0
+Thread maildb flush started.
+The progress will reload
+sub = 阿斯顿发送到
+body_path = E:/X 发行资料/简报邮件正文内容.txt
+append_list = [u'E:\\X \u53d1\u884c\u8d44\u6599\\\u987a\u5e94\u8bba\u89c6\u89d2\u4e0b\u653f\u6cbb\u6f14\u8bb2\u7684\u82f1\u8bd1\u7814\u7a76_\u5218\u65b0\u65b0.pdf']
+path_xls = E:/X 发行资料/可以随便乱发的别人的邮箱.xls
+selected = [1, 2, 3, 4], col_name = H, sender_name = adfds
+Speed each hour = 400, each time = 40
+Account[0] = Account(sdfadsa@adsf, mail.hust.edu.cn, adfds)
+Account[1] = Account(liuyu@mail.hust.edu.cn, mail.hust.edu.cn, adfds)
+[2017/01/09 12:30:05]
+Get 0 mails from excel.
+[2017/01/09 12:30:06]Start Timer.The timer period is 180000 ms
+[2017/01/09 12:30:08]Timer call back.
+[2017/01/09 12:30:08]
+读取附件成功
+[2017/01/09 12:30:08]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}

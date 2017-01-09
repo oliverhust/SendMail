@@ -469,7 +469,7 @@ class MailProc:
         return ERROR_SUCCESS, u""
 
     @staticmethod
-    def send_one_group(mail_list, account, mail_sub, mail_body, msg_append_list):
+    def send_one_group(mail_list, account, mail_sub, mail_body, msg_append_list, use_ssl=True):
         err = ERROR_SUCCESS
         err_info = ""
         fail_mail = []  # 部分发送失败的邮件
@@ -486,7 +486,11 @@ class MailProc:
             msg.attach(each_append)
 
         print_t(u"Start to send a group")
-        s = smtplib.SMTP_SSL()
+        if use_ssl:
+            s = smtplib.SMTP_SSL()
+        else:
+            s = smtplib.SMTP()
+
         print(u"Connecting to host {}".format(account.host))
         try:
             s.connect(account.host)

@@ -131,5 +131,8 @@ class CfgNdr(dict):
     def get_imap_host(self):
         return self['ImapHost']
 
+    def use_ssl(self):
+        return self['UseSSL']
+
 
 

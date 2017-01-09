@@ -18,12 +18,13 @@ class RecvImap:
 
     DATETIME_STR = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    def __init__(self, host, user, passwd):
+    def __init__(self, host, user, passwd, recv_size=32768):
         self._Host = host
         self._User = user
         self._Passwd = passwd
+        self._RecvSize = int(recv_size)  # 一封邮件只接收前面多少个字节，None为无限制
 
-        self._m = None
+        self._m = None  # IMAP连接
 
     def __del__(self):
         self.logout()
@@ -122,7 +123,7 @@ class RecvImap:
             msg_tmp = RecvImap._parse_email_part(dat[i][1])
             # 添加msg_tmp到msg_all
             for k, v in msg_tmp.iteritems():
-                if v is not None and v != "":
+                if v:
                     msg_all[k] = v
         return msg_all
 
@@ -233,8 +234,11 @@ class RecvImap:
         start_pos = None
         if not nums_all:
             return []
+
+        dt = None
         num_list = nums_all[:]
         x, y = 0, len(num_list) - 1   # 初始区间
+
         while True:
             mid = int((x + y) / 2)
             parsed_msg = self._get_num_body(num_list[mid], None)  # 获取指定邮件的时间
@@ -267,10 +271,13 @@ class RecvImap:
     def _get_num_body(self, num, must_datetime_since=None):
         # 获取指定序号(字符串)邮件的时间和内容 无法获取或时间不符则返回None
         num = str(num)
+
+        # '(RFC822.HEADER BODY.PEEK[1])'   '(BODYSTRUCTURE)'
         try:
-            typ, dat = self._m.fetch(num, '(BODY.PEEK[]<0.65535>)')
-            # typ, dat = self._m.fetch(num, '(RFC822.HEADER BODY.PEEK[1])')
-            # typ, dat = self._m.fetch(num, '(BODYSTRUCTURE)')
+            if self._RecvSize:
+                typ, dat = self._m.fetch(num, '(BODY.PEEK[]<0.{}>)'.format(self._RecvSize))
+            else:
+                typ, dat = self._m.fetch(num, '(BODY.PEEK[])')
         except:
             return None
         if typ != 'OK':
@@ -284,10 +291,10 @@ class RecvImap:
             return None
 
         # 检查邮件的时间
-        if parsed_msg['Date'] is None:
+        if not parsed_msg['Date']:
             print("A letter does not has time str, num = {}".format(num))
             return None
-        elif must_datetime_since is not None and parsed_msg['Date'] < must_datetime_since:
+        elif must_datetime_since and parsed_msg['Date'] < must_datetime_since:
             return None
 
         return parsed_msg
@@ -503,7 +510,7 @@ class NdrProc(threading.Thread, NdrCfgProc):
                 if ndr_cfg and ndr_cfg.is_enable():
                     self._write_err_info(u"当前账号: {}".format(account.user))
                     m = RecvImap(ndr_cfg.get_imap_host(), account.user, account.passwd)
-                    err, err_info = m.login()
+                    err, err_info = m.login(ndr_cfg.use_ssl())
                     if err == ERROR_SUCCESS:
                         ndr_content = NdrContent(ndr_cfg)
                         since_time = self._account_last_time_get(account.user, self._start_time)  # 每轮结束每个账号的时间自动向后推
