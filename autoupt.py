@@ -3,6 +3,8 @@
 
 
 # 尽可能导入尽可能多的库，但不要太大的
+import asynchat
+import glob
 
 
 import re
@@ -11,6 +13,7 @@ import os
 import sys
 import urllib2
 import zipfile
+import shutil
 
 
 class AuptErr(Exception):
@@ -91,7 +94,7 @@ class AuptMake:
         mkdir_path = os.path.join(run_path, AuptMake._NEW_MAKE_DIR)
         if os.path.exists(mkdir_path):
             if os.path.isdir(mkdir_path):
-                return
+                shutil.rmtree(mkdir_path)
             else:
                 raise AuptErr(u"存在同名文件: {}".format(mkdir_path))
 
@@ -122,7 +125,8 @@ class AuptMake:
                     run_path = each_path
                     break
         if not run_path:
-            raise AuptErr(u"不能识别的运行环境: {}".format(sys.path))
+            return u'.'
+            # raise AuptErr(u"不能识别的运行环境: {}".format(sys.path))
 
         return AuptMake._try_decode(run_path)
 
@@ -145,13 +149,13 @@ class AuptMake:
 
 
 def test():
-    pkg = AuptDownload(None, r'')
+    pkg = AuptDownload(None, r'https://github.com/oliverhust/SendMail/raw/master/version/version.zip')
     fetch_pkg = pkg.fetch_pkg()
     m = AuptMake(fetch_pkg)
     m.make()
     exec_py = 'AutoUpdateMain'
     exec 'from {} import {}'.format(m.module(), exec_py)
-    exec '{}.main()'.format(exec_py)
+    exec '{}.run()'.format(exec_py)
 
 
 if __name__ == '__main__':
