@@ -1,0 +1,103 @@
+>>> import urllib
+>>> import urllib2
+>>> f_down = urllib2.urlopen('https://github.com/racaljk/hosts/archive/master.zip')
+>>> 
+>>> f_down
+<addinfourl at 59165448L whose fp = <socket._fileobject object at 0x000000000381AC78>>
+>>> import BytesIo
+
+Traceback (most recent call last):
+  File "<pyshell#30>", line 1, in <module>
+    import BytesIo
+ImportError: No module named BytesIo
+>>> import BytesIO
+
+Traceback (most recent call last):
+  File "<pyshell#31>", line 1, in <module>
+    import BytesIO
+ImportError: No module named BytesIO
+>>> import io
+>>> b_zip = io.BytesIO()
+>>> import ZipFile
+
+Traceback (most recent call last):
+  File "<pyshell#34>", line 1, in <module>
+    import ZipFile
+ImportError: No module named ZipFile
+>>> import zipfile
+>>> z = zipfile.ZipFile(f_down)
+
+Traceback (most recent call last):
+  File "<pyshell#36>", line 1, in <module>
+    z = zipfile.ZipFile(f_down)
+  File "C:\Python27\lib\zipfile.py", line 770, in __init__
+    self._RealGetContents()
+  File "C:\Python27\lib\zipfile.py", line 807, in _RealGetContents
+    endrec = _EndRecData(fp)
+  File "C:\Python27\lib\zipfile.py", line 208, in _EndRecData
+    fpin.seek(0, 2)
+AttributeError: addinfourl instance has no attribute 'seek'
+>>> b_down = io.BytesIO(f_down.read())
+>>> b_down
+<_io.BytesIO object at 0x000000000399A150>
+>>> z = zipfile.ZipFile(b_down)
+>>> z
+<zipfile.ZipFile object at 0x0000000003867E10>
+>>> z.filelist()
+
+Traceback (most recent call last):
+  File "<pyshell#41>", line 1, in <module>
+    z.filelist()
+TypeError: 'list' object is not callable
+>>> z.filelist
+[<zipfile.ZipInfo object at 0x0000000003885288>, <zipfile.ZipInfo object at 0x0000000003885348>, <zipfile.ZipInfo object at 0x0000000003885408>, <zipfile.ZipInfo object at 0x00000000038854C8>, <zipfile.ZipInfo object at 0x0000000003885588>, <zipfile.ZipInfo object at 0x0000000003885648>, <zipfile.ZipInfo object at 0x0000000003885708>, <zipfile.ZipInfo object at 0x00000000038857C8>, <zipfile.ZipInfo object at 0x0000000003885888>, <zipfile.ZipInfo object at 0x0000000003885948>, <zipfile.ZipInfo object at 0x0000000003885A08>, <zipfile.ZipInfo object at 0x0000000003885AC8>, <zipfile.ZipInfo object at 0x0000000003885B88>, <zipfile.ZipInfo object at 0x0000000003885C48>, <zipfile.ZipInfo object at 0x0000000003885D08>]
+>>> z.infolist()
+[<zipfile.ZipInfo object at 0x0000000003885288>, <zipfile.ZipInfo object at 0x0000000003885348>, <zipfile.ZipInfo object at 0x0000000003885408>, <zipfile.ZipInfo object at 0x00000000038854C8>, <zipfile.ZipInfo object at 0x0000000003885588>, <zipfile.ZipInfo object at 0x0000000003885648>, <zipfile.ZipInfo object at 0x0000000003885708>, <zipfile.ZipInfo object at 0x00000000038857C8>, <zipfile.ZipInfo object at 0x0000000003885888>, <zipfile.ZipInfo object at 0x0000000003885948>, <zipfile.ZipInfo object at 0x0000000003885A08>, <zipfile.ZipInfo object at 0x0000000003885AC8>, <zipfile.ZipInfo object at 0x0000000003885B88>, <zipfile.ZipInfo object at 0x0000000003885C48>, <zipfile.ZipInfo object at 0x0000000003885D08>]
+>>> z_info=z.infolist()
+>>> z_info.count()
+
+Traceback (most recent call last):
+  File "<pyshell#45>", line 1, in <module>
+    z_info.count()
+TypeError: count() takes exactly one argument (0 given)
+>>> z_info
+[<zipfile.ZipInfo object at 0x0000000003885288>, <zipfile.ZipInfo object at 0x0000000003885348>, <zipfile.ZipInfo object at 0x0000000003885408>, <zipfile.ZipInfo object at 0x00000000038854C8>, <zipfile.ZipInfo object at 0x0000000003885588>, <zipfile.ZipInfo object at 0x0000000003885648>, <zipfile.ZipInfo object at 0x0000000003885708>, <zipfile.ZipInfo object at 0x00000000038857C8>, <zipfile.ZipInfo object at 0x0000000003885888>, <zipfile.ZipInfo object at 0x0000000003885948>, <zipfile.ZipInfo object at 0x0000000003885A08>, <zipfile.ZipInfo object at 0x0000000003885AC8>, <zipfile.ZipInfo object at 0x0000000003885B88>, <zipfile.ZipInfo object at 0x0000000003885C48>, <zipfile.ZipInfo object at 0x0000000003885D08>]
+>>> z_infos=z_info
+>>> z_infos[0].filename
+'hosts-master/'
+>>> z_infos[1].filename
+'hosts-master/.gitattributes'
+>>> z_infos[2].filename
+'hosts-master/.github/'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> [x.filename for x in z_infos]
+['hosts-master/', 'hosts-master/.gitattributes', 'hosts-master/.github/', 'hosts-master/.github/ISSUE_TEMPLATE.md', 'hosts-master/.github/PULL_REQUEST_TEMPLATE.md', 'hosts-master/.gitignore', 'hosts-master/.travis.yml', 'hosts-master/LICENSE', 'hosts-master/README.md', 'hosts-master/hosts', 'hosts-master/tools/', 'hosts-master/tools/Hindent', 'hosts-master/tools/README.md', 'hosts-master/tools/checkhosts.sh', 'hosts-master/tools/lhosts']
+>>> [x.filename for x in z_infos].index('hosts-master/README.md')
+8
+>>> z
+<zipfile.ZipFile object at 0x0000000003867E10>
+>>> z.getinfo()
+
+Traceback (most recent call last):
+  File "<pyshell#60>", line 1, in <module>
+    z.getinfo()
+TypeError: getinfo() takes exactly 2 arguments (1 given)
+>>> z.getinfo(8)
+
+Traceback (most recent call last):
+  File "<pyshell#61>", line 1, in <module>
+    z.getinfo(8)
+  File "C:\Python27\lib\zipfile.py", line 909, in getinfo
+    'There is no item named %r in the archive' % name)
+KeyError: 'There is no item named 8 in the archive'
+>>> z.getinfo('hosts-master/README.md')
+<zipfile.ZipInfo object at 0x0000000003885888>
+>>> z.namelist()
+['hosts-master/', 'hosts-master/.gitattributes', 'hosts-master/.github/', 'hosts-master/.github/ISSUE_TEMPLATE.md', 'hosts-master/.github/PULL_REQUEST_TEMPLATE.md', 'hosts-master/.gitignore', 'hosts-master/.travis.yml', 'hosts-master/LICENSE', 'hosts-master/README.md', 'hosts-master/hosts', 'hosts-master/tools/', 'hosts-master/tools/Hindent', 'hosts-master/tools/README.md', 'hosts-master/tools/checkhosts.sh', 'hosts-master/tools/lhosts']
+>>> z.read('hosts-master/README.md')
+'[![doodle]][doodle-story]\n\n[doodle]: https://www.google.com/logos/doodles/2016/holidays-2016-day-3-southern-hemisphere-5185011929055232-hp2x.gif "\xe5\x9c\xa3\xe8\xaf\x9e\xe5\xbf\xab\xe4\xb9\x90\xef\xbc\x81"\n[doodle-story]: https://www.google.com.hk/search?q=%E5%9C%A3%E8%AF%9E%E8%8A%82\n\n**\xe4\xbd\xbf\xe7\x94\xa8\xe6\x9c\xac\xe9\xa

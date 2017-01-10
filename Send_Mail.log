@@ -26454,3 +26454,18 @@ Get 0 mails from excel.
 读取附件成功
 [2017/01/09 12:30:08]
 {'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (0, 0, 0)}
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/09 22:41:26] Start the program
+[2017/01/09 22:41:27]
+The form has loaded
+The Event form load occur.
+Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
+[2017/01/09 22:41:27]
+Open database success, Ver = 2.6.0
+Thread maildb flush started.
+The progress will reload
