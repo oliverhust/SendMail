@@ -24,6 +24,9 @@ from ndr import *
 # import pdb;  pdb.set_trace()
 
 
+SOFTWARE_VERSION_CURR = '0.0.0'
+
+
 class AccountsMange:
     def __init__(self, account_list=None):
         if account_list is not None:
@@ -108,10 +111,10 @@ class MailContent:
             err_info = u"读取邮件正文失败\n{}".format(e)
             return err, err_info
 
-        err, err_info, raw_body = try_decode(body)
-        if ERROR_SUCCESS != err:
+        raw_body = try_decode(body)
+        if raw_body is None:
             err = ERROR_DECODE_BODY_FAILED
-            err_info = u"邮件正文解码失败\n{}".format(err_info)
+            err_info = u"邮件正文解码失败"
             return err, err_info
 
         self._Body = html_add_head(html_txt_elem(raw_body))
@@ -651,9 +654,10 @@ def maildb_multithread_safe(func):
 class MailDB(threading.Thread):
     """ 数据实时保存和持久化，请勿为同一数据库创建多个对象 定时线程定时commit数据到磁盘
         如果需要频繁增删的数据不要写完就立即commit而是让定时线程自行commit """
+    DEFAULT_DB_NAME = 'send_mail.db'
     _UNIQUE_DB = None
 
-    def __init__(self, path_db):
+    def __init__(self, path_db=None):
         threading.Thread.__init__(self)
         self._path = path_db
         self._db = None
@@ -667,6 +671,7 @@ class MailDB(threading.Thread):
         self._force_unique_fini()
         if self._db is not None:
             self._flush_thread_close()
+            self._db.commit()
             self._db.close()
             self._db = None
 
@@ -674,6 +679,7 @@ class MailDB(threading.Thread):
         # 创建各个表(如果不存在)
         err, err_info = ERROR_SUCCESS, u""
         self._force_unique_init()
+        self._set_default_path_if_void()
 
         try:
             self._db = sqlite3.connect(self._path, check_same_thread=False)
@@ -701,6 +707,16 @@ class MailDB(threading.Thread):
 
     def _save(self):
         self._db.commit()
+
+    def _set_default_path_if_void(self):
+        if self._path:
+            return
+        self._path = self.mail_db_default_path()
+
+    @staticmethod
+    def mail_db_default_path():
+        path_me = os_get_curr_dir()
+        return os.path.join(path_me, MailDB.DEFAULT_DB_NAME)
 
     @staticmethod
     def _force_unique_init():
@@ -780,12 +796,6 @@ class MailDB(threading.Thread):
                         "info_pos TEXT NOT NULL, "
                         "info_pos_key TEXT, "
                         "info_patt TEXT NOT NULL) ")
-
-        # 永久保存的全局信息
-        self._c.execute("CREATE TABLE IF NOT EXISTS forever_globals("
-                        "key TEXT PRIMARY KEY NOT NULL, "
-                        "value TEXT, "
-                        "value_bin BLOB)")
 
     def _create_tmp_table(self):
 
@@ -1090,65 +1100,87 @@ class MailDB(threading.Thread):
 
     # ---------------------------------------------------------------------------
 
-    @maildb_multithread_safe
-    def set_software_version(self, version):   # str
-        sql_arg = (unicode(version), "")
-        self._c.execute("REPLACE INTO forever_globals VALUES ('software_version',?,?)", sql_arg)
+
+class AuptDB:
+
+    def __init__(self):
+        self._db = None
+
+    def init(self):
+        path_db = MailDB.mail_db_default_path()
+        self._db = sqlite3.connect(path_db)
+        self._create_tables()
+
+    def close(self):
+        self._db.commit()
+        self._db.close()
+
+    def _create_tables(self):
+
+        c = self._db.cursor()
+
+        # 永久保存的全局信息
+        c.execute("CREATE TABLE IF NOT EXISTS aupt_globals("
+                  "key TEXT PRIMARY KEY NOT NULL, "
+                  "value TEXT)")
+
+        # 永久保存的全局信息
+        c.execute("CREATE TABLE IF NOT EXISTS aupt_bins("
+                  "key TEXT PRIMARY KEY NOT NULL, "
+                  "value BLOB)")
+
+        c.close()
         self._db.commit()
 
-    @maildb_multithread_safe
+    def set_software_version(self, version):   # str
+        c = self._db.cursor()
+        sql_arg = (unicode(version), )
+        c.execute("REPLACE INTO aupt_globals VALUES ('software_version',?)", sql_arg)
+        c.close()
+        self._db.commit()
+
     def get_software_version(self):   # str
-        self._c.execute("SELECT * FROM forever_globals WHERE key='software_version'")
-        ret = self._c.fetchall()
+        c = self._db.cursor()
+        c.execute("SELECT * FROM aupt_globals WHERE key='software_version'")
+        ret = c.fetchall()
+        c.close()
         if not ret:
-            return u""
+            return SOFTWARE_VERSION_CURR
         return ret[0][1]
 
-    @maildb_multithread_safe
     def set_last_check_update(self, dt):    # datetime()精确到天
+        c = self._db.cursor()
         datetime_str = dt.strftime("%Y/%m/%d")
-        sql_arg = (datetime_str, "")
-        self._c.execute("REPLACE INTO forever_globals VALUES ('last_check_update',?,?)", sql_arg)
+        sql_arg = (datetime_str, )
+        c.execute("REPLACE INTO aupt_globals VALUES ('last_check_update',?)", sql_arg)
+        c.close()
         self._db.commit()
 
-    @maildb_multithread_safe
     def get_last_check_update(self):     # 返回datetime()精确到天
-        self._c.execute("SELECT * FROM forever_globals WHERE key='last_check_update'")
-        ret = self._c.fetchall()
+        c = self._db.cursor()
+        c.execute("SELECT * FROM aupt_globals WHERE key='last_check_update'")
+        ret = c.fetchall()
+        c.close()
         if not ret:
             return None
         dt = datetime.datetime.strptime(ret[0][1], "%Y/%m/%d")
         return dt
 
-    @maildb_multithread_safe
-    def set_check_update_interval(self, interval):   # 单位：天
-        sql_arg = (unicode(interval), "")
-        self._c.execute("REPLACE INTO forever_globals VALUES ('check_update_interval',?,?)", sql_arg)
-        self._db.commit()
-
-    @maildb_multithread_safe
-    def get_check_update_interval(self):     # 单位：天
-        self._c.execute("SELECT * FROM forever_globals WHERE key='check_update_interval'")
-        ret = self._c.fetchall()
-        if not ret:
-            return u""
-        return int(ret[0][1])
-
-    @maildb_multithread_safe
     def set_dist_pkg(self, pkg_str):   # str类型
-        sql_arg = (u"", buffer(pkg_str))
-        self._c.execute("REPLACE INTO forever_globals VALUES ('dist_pkg',?,?)", sql_arg)
+        c = self._db.cursor()
+        sql_arg = (buffer(pkg_str), )
+        c.execute("REPLACE INTO aupt_bins VALUES ('dist_pkg',?)", sql_arg)
+        c.close()
         self._db.commit()
 
-    @maildb_multithread_safe
     def get_dist_pkg(self):   # str类型
-        self._c.execute("SELECT * FROM forever_globals WHERE key='dist_pkg'")
-        ret = self._c.fetchall()
+        c = self._db.cursor()
+        c.execute("SELECT * FROM aupt_bins WHERE key='dist_pkg'")
+        ret = c.fetchall()
+        c.close()
         if not ret:
             return ""
-        return str(ret[0][2])
-
-    # ---------------------------------------------------------------------------
+        return str(ret[0][1])
 
 
 # #############################################################################################################
@@ -1160,7 +1192,6 @@ class UIInterface:
     """ 用户的各种操作对应的处理   提供给上层UI进行使用(提示: 直接继承本类)"""
     def __init__(self):
         self._db = None
-        self._path_me = u""
         self._send_finish_time = None
 
         self._mail_matrix = None
@@ -1175,10 +1206,9 @@ class UIInterface:
 
     def event_form_load(self):
         print(u"The Event form load occur.")
-        self._path_me = os_get_curr_dir()
 
         # 打开MailDB判断上次情况
-        self._db = MailDB(os.path.join(self._path_me, 'send_mail.db'))
+        self._db = MailDB()
         err, err_info = self._db.init()
         if ERROR_SUCCESS != err:
             self.proc_err_before_load(err, err_info)
@@ -1207,9 +1237,13 @@ class UIInterface:
         self._db.close()
 
     def event_main_exit_and_discard(self):
-        if self._db is not None:
+        if self._db:
             self._db.clear_tmp_and_dynamic()
-        self._db.close()
+            self._db.close()
+
+    def event_main_exit_direct(self):
+        if self._db:
+            self._db.close()
 
     def event_start_send(self):
         # 用户设置完所有数据后的处理
@@ -1601,9 +1635,12 @@ class ExcelWrite:
 
 class UnitTest:
 
+    def __init__(self):
+        pass
+
     @staticmethod
     def test_sql_db():
-        db_path = ur'E:\X 发行资料\sendmail_test.db'
+        db_path = ur'send_mail.db'
         db = MailDB(db_path)
         err, err_info = db.init()
         if ERROR_SUCCESS != err:
@@ -1773,40 +1810,33 @@ class UnitTest:
         mail = "oliver@haha.com"
         print("Get {}:{}".format(mail, db.get_ndr_mail(mail)))
 
-        # ------------------------------------------
-        print("\n----------- Test Ndr mail ------------------")
+    @staticmethod
+    def test_aupt_sql_db():
+        print("\n----------- Test software version ------------------")
 
-        print("version: {}".format(db.get_software_version()))
-        print("last_check: {}".format(db.get_last_check_update()))
-        print("interval: {}".format(db.get_check_update_interval()))
-        print("pkg: {}".format(repr(db.get_dist_pkg())))
+        db = AuptDB()
+        db.init()
+
+        def print_software_version(_db):
+            print("software_version: {}".format(_db.get_software_version()))
+            print("last_check: {}".format(_db.get_last_check_update()))
+            print("pkg: {}".format(repr(_db.get_dist_pkg())))
 
         db.set_software_version('1.0.31.5')
         db.set_last_check_update(datetime.datetime(2016, 4, 21))
-        db.set_check_update_interval(22)
         db.set_dist_pkg("aada\xFF\xAAdddddddddddc")
 
-        print("version: {}".format(db.get_software_version()))
-        print("last_check: {}".format(db.get_last_check_update()))
-        print("interval: {}".format(db.get_check_update_interval()))
-        print("pkg: {}".format(repr(db.get_dist_pkg())))
+        print_software_version(db)
 
         db.set_software_version('2.30.4.5')
-        db.set_check_update_interval(543)
-
-        print("version: {}".format(db.get_software_version()))
-        print("last_check: {}".format(db.get_last_check_update()))
-        print("interval: {}".format(db.get_check_update_interval()))
-        print("pkg: {}".format(repr(db.get_dist_pkg())))
-
-        db.set_last_check_update(datetime.datetime(2014, 4, 21))
         db.set_dist_pkg("\xFF\xAAddddddddggg\xFF\xDD")
 
-        print("version: {}".format(db.get_software_version()))
-        print("last_check: {}".format(db.get_last_check_update()))
-        print("interval: {}".format(db.get_check_update_interval()))
-        print("pkg: {}".format(repr(db.get_dist_pkg())))
+        print_software_version(db)
 
+        db.set_last_check_update(datetime.datetime(2014, 4, 21))
+
+
+        print_software_version(db)
 
     @staticmethod
     def test_sql_multithread():
@@ -1949,6 +1979,6 @@ class UnitTest:
 
 
 if __name__ == "__main__":
-    UnitTest.test_sql_db()
+    UnitTest.test_aupt_sql_db()
 
 

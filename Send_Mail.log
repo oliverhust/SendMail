@@ -26469,3 +26469,175 @@ Get MyPath = 'E:\\MyDocuments\\Python\\SendMail'
 Open database success, Ver = 2.6.0
 Thread maildb flush started.
 The progress will reload
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 11:12:30] Start the program
+[2017/01/14 11:12:31]
+The form has loaded
+The Event form load occur.
+[2017/01/14 11:12:31]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 11:19:18] Start the program
+[2017/01/14 11:19:18]
+The form has loaded
+The Event form load occur.
+[2017/01/14 11:19:18]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 16:02:06] Start the program
+[2017/01/14 16:02:07]
+The form has loaded
+The Event form load occur.
+[2017/01/14 16:02:07]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:31:41] Start the program
+[2017/01/14 17:31:41]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:31:41]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:32:16] Start the program
+[2017/01/14 17:32:16]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:32:16]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:36:45] Start the program
+[2017/01/14 17:36:45]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:36:45]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:36:57] Start the program
+[2017/01/14 17:36:58]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:36:58]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:37:50] Start the program
+[2017/01/14 17:37:50]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:37:50]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:45:40] Start the program
+[2017/01/14 17:45:40]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:45:40]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:45:52] Start the program
+[2017/01/14 17:45:52]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:45:52]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = []
+path_xls = 
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/14 17:47:06] Start the program
+[2017/01/14 17:47:06]
+The form has loaded
+The Event form load occur.
+[2017/01/14 17:47:06]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Thread maildb flush stopped.

@@ -231,6 +231,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
             self._GUIProc.event_form_load()
 
     def slot_button_close(self):
+        # 【【【【调用GUI的事件处理函数: 窗口关闭】】】】
+        if self._GUIProc is not None:
+            self._GUIProc.event_main_exit_direct()
         self.close()
 
     def slot_button_cancel(self):

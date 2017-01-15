@@ -168,7 +168,7 @@ class RecvImap:
             suffix = 'unknown'
 
         charset = RecvImap._try_get_charset(part)
-        payload = RecvImap._try_decode(part.get_payload(decode=True), charset)
+        payload = try_decode(part.get_payload(decode=True), charset, fail_ret_repr=True)
         return payload, suffix
 
     @staticmethod
@@ -176,8 +176,8 @@ class RecvImap:
         charset = RecvImap._try_get_charset(part)
         ret_dict = {}
         for k, v in part.items():
-            k_decode = RecvImap._try_decode(k, charset)
-            v_decode = RecvImap._try_decode(v, charset)
+            k_decode = try_decode(k, charset, fail_ret_repr=True)
+            v_decode = try_decode(v, charset, fail_ret_repr=True)
             ret_dict[k_decode] = v_decode
         return ret_dict
 

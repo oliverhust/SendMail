@@ -23,8 +23,10 @@ r'http://code.taobao.org/p/mmyzSendMail/src/trunk/version.zip?orig',
 import time
 import urllib2
 
-def download(url):
+def download(url, timeout):
 	st=time.time()
-	f=urllib2.urlopen(url)
+	f=urllib2.urlopen(url, timeout=timeout)
+	ot = time.time()
 	c=f.read()
-	print(u"\n#### %s \nDownload %s bytes elaspe %.3f seconds" % (url, len(c), time.time()-st))
+	now = time.time()
+	print(u"\n#### %s \nDownload %s bytes elaspe %.3f seconds(%.3fs connect)" % (url, len(c), now-st, ot-st))

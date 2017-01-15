@@ -16,20 +16,29 @@ g_check_same = None
 RE_PATT_MAILBOX = ur"[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+"
 
 
-def try_decode(str_raw, encoding_list=None):
-    if encoding_list is None:
-        encoding_list = ['gb18030', 'utf-8']
+# 失败返回None(fail_ret_repr为True则)
+def try_decode(str_raw, charset=None, fail_ret_repr=False):
+    if type(str_raw) is unicode:
+        return str_raw
 
-    err, err_info, text = ERROR_SUCCESS, u"", repr(str_raw)
-    for each_encode in encoding_list:
+    encodings = ['gb18030', 'utf-8']
+    if charset:
+        encodings = [charset] + encodings
+
+    text = None
+    for each_encode in encodings:
         try:
             text = str_raw.decode(each_encode)
-        except Exception, e:
-            err, err_info = ERROR_DECODE_BODY_FAILED, unicode(e)
+        except:
+            pass
         else:
-            err, err_info = ERROR_SUCCESS, u""
             break
-    return err, err_info, text
+
+    if type(text) is not unicode:
+        if fail_ret_repr:
+            text = unicode(repr(str_raw))
+
+    return text
 
 
 def is_break_error(err):
@@ -134,10 +143,8 @@ def os_shell(cmd):
     lines = out.stdout.read()
 
     # 编码转换
-    try:
-        result = lines.decode('utf-8')
-    except:
-        result = lines.decode('gb18030')
+    result = try_decode(lines)
+    if result is None:
         print("Decode command {} output error.".format(repr(cmd)))
 
     out.wait()
@@ -166,16 +173,11 @@ def check_program_has_same_fini():
 
 def os_get_curr_dir():
     p = os.path.dirname(os.path.realpath(sys.argv[0]))
-    p_decode = u"."
-    try:
-        p_decode = p.decode("gb18030")
-    except Exception, e:
-        print(u"Decode path of gb18030 failed:{}".format(e))
-        try:
-            p_decode = p.decode("utf-8")
-        except Exception, e:
-            print(u"Decode path of utf-8 failed:{}".format(e))
-    print(u"Get MyPath = " + repr(p))
+
+    p_decode = try_decode(p)
+    if p_decode is None:
+        p_decode = u"."
+        print(u"Can not decode current path: {}".format(repr(p)))
 
     return p_decode
 
