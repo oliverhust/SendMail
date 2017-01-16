@@ -1101,7 +1101,7 @@ class MailDB(threading.Thread):
     # ---------------------------------------------------------------------------
 
 
-class AuptDB:
+class AuptEnv:
 
     def __init__(self):
         self._db = None
@@ -1814,7 +1814,7 @@ class UnitTest:
     def test_aupt_sql_db():
         print("\n----------- Test software version ------------------")
 
-        db = AuptDB()
+        db = AuptEnv()
         db.init()
 
         def print_software_version(_db):

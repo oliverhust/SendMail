@@ -63,20 +63,24 @@ class _AuptDB:
 
 class AuptDownload:
 
-    _TIMEOUT = 1
-
     def __init__(self, url_version, url_pkg):
         self._url_version = url_version
         self._url_pkg = url_pkg
 
     def fetch_version(self, match_regex=r'\d+(?:\.\d+)+'):
+        print_t(u"建立连接：版本信息")
         try:
-            f_down = urllib2.urlopen(self._url_version, timeout=self._TIMEOUT)
-        except Exception, e:
-            raise AuptErr(u"下载版本信息失败: {}".format(e))
+            f_down = urllib2.urlopen(self._url_version)
+        except Exception as e:
+            raise AuptErr(u"连接版本信息失败: {}".format(e))
 
         print_t(u"版本号地址已建立连接")
-        str_down = f_down.read()
+
+        try:
+            str_down = f_down.read()
+        except Exception as e:
+            raise AuptErr(u"下载版本信息过程中失败: {}".format(e))
+
         ver = re.findall(match_regex, str_down)
         if not ver:
             raise AuptErr(u"找不到版本号信息: {}".format(repr(str_down[:512])))
@@ -91,12 +95,16 @@ class AuptDownload:
 
         print_t(u"开始下载")
         try:
-            f_down = urllib2.urlopen(self._url_pkg, timeout=self._TIMEOUT)
+            f_down = urllib2.urlopen(self._url_pkg)
         except Exception, e:
             raise AuptErr(u"下载安装包失败: {}".format(e))
         print_t(u"安装包下载连接完成")
 
-        r = f_down.read()
+        try:
+            r = f_down.read()
+        except Exception as e:
+            raise AuptErr(u"下载安装包过程中失败: {}".format(e))
+
         print_t(u"读取完毕")
 
         return io.BytesIO(r)

@@ -237,25 +237,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.close()
 
     def slot_button_cancel(self):
-        box = MyMessageBox(self)
-        box.setWindowTitle(u"Are you sure to exit?")
-        b_save = box.addButton(QString(u"保存"), QMessageBox.ActionRole)
-        b_discard = box.addButton(QString(u"不保存"), QMessageBox.ActionRole)
-        box.addButton(QString(u"点错了"), QMessageBox.ActionRole)
-        box.setText(QString(u"是否保存进度，以便下次启动继续?"))
-        box.exec_()
-
-        button = box.clickedButton()
-        if button == b_save:
-            print(u"Exit and save.\n")
-            if self._GUIProc is not None:
-                self._GUIProc.event_main_exit_and_save()
-            self.close()
-        elif button == b_discard:
-            print(u"Exit and discard.\n")
-            if self._GUIProc is not None:
-                self._GUIProc.event_main_exit_and_discard()
-            self.close()
+        print(u"Exit and save.\n")
+        if self._GUIProc is not None:
+            self._GUIProc.event_main_exit_and_save()
+        self.close()
 
     def _set_account_list_sender_name(self, sender_name):
         # 返回一个账户结构体的列表，没有则返回[]
