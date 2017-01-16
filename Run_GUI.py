@@ -332,7 +332,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
             self._GUIProc.event_start_send()
 
     def set_ui_appends(self, full_append_path_list):
-        self._append_list = full_append_path_list[:]
+        self._append_list = [append for append in full_append_path_list if append]
         append_str = u";".join([os.path.basename(each_append) for each_append in self._append_list])
         append_str = append_str.replace("\\", "/")
         self.label_append.setText(QString(append_str))

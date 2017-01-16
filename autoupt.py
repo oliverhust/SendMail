@@ -63,13 +63,15 @@ class _AuptDB:
 
 class AuptDownload:
 
+    _TIMEOUT = 1
+
     def __init__(self, url_version, url_pkg):
         self._url_version = url_version
         self._url_pkg = url_pkg
 
     def fetch_version(self, match_regex=r'\d+(?:\.\d+)+'):
         try:
-            f_down = urllib2.urlopen(self._url_version, timeout=1)
+            f_down = urllib2.urlopen(self._url_version, timeout=self._TIMEOUT)
         except Exception, e:
             raise AuptErr(u"下载版本信息失败: {}".format(e))
 
@@ -89,7 +91,7 @@ class AuptDownload:
 
         print_t(u"开始下载")
         try:
-            f_down = urllib2.urlopen(self._url_pkg, timeout=1)
+            f_down = urllib2.urlopen(self._url_pkg, timeout=self._TIMEOUT)
         except Exception, e:
             raise AuptErr(u"下载安装包失败: {}".format(e))
         print_t(u"安装包下载连接完成")

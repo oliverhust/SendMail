@@ -13,6 +13,11 @@ def run():
 
     url_ver = r'http://git.oschina.net/mmyz/SendMail/raw/master/README.md'
     url_pkg = r'http://git.oschina.net/mmyz/SendMail/raw/master/version.zip'
+
+    url_ver = r'http://github.com/oliverhust/SendMail/raw/master/README.md'
+    url_pkg = r'http://github.com/oliverhust/SendMail/raw/master/version/version.zip'
+
+
     run_py, run_func = 'Run_GUI', 'main'
     aupt = AuptMain(db, url_ver, url_pkg, run_py, run_func)
     aupt.run()
