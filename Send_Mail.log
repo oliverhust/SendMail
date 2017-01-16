@@ -26641,3 +26641,17 @@ The Event form load occur.
 Open database success, Ver = 2.6.0
 Thread maildb flush timer started.
 Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/01/16 20:39:22] Start the program
+[2017/01/16 20:39:23]
+The form has loaded
+The Event form load occur.
+[2017/01/16 20:39:23]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Thread maildb flush stopped.

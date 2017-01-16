@@ -69,7 +69,7 @@ class AuptDownload:
 
     def fetch_version(self, match_regex=r'\d+(?:\.\d+)+'):
         try:
-            f_down = urllib2.urlopen(self._url_version)
+            f_down = urllib2.urlopen(self._url_version, timeout=1)
         except Exception, e:
             raise AuptErr(u"下载版本信息失败: {}".format(e))
 
@@ -89,7 +89,7 @@ class AuptDownload:
 
         print_t(u"开始下载")
         try:
-            f_down = urllib2.urlopen(self._url_pkg)
+            f_down = urllib2.urlopen(self._url_pkg, timeout=1)
         except Exception, e:
             raise AuptErr(u"下载安装包失败: {}".format(e))
         print_t(u"安装包下载连接完成")
@@ -350,7 +350,7 @@ def print_t(log):
 
 
 def test():
-    import AutoUpdateMain
+    import Run_GUI
     print_t_init()
     print_t(u"开始运行程序")
 
