@@ -5,6 +5,15 @@
     <file>pic/r_back/linernd2.jpg</file>
     <file>pic/r_back/love_s.jpeg</file>
   </qresource>
+  <qresource prefix="edit_tool">
+    <file>pic/tools/textbold.png</file>
+    <file>pic/tools/textcenter.png</file>
+    <file>pic/tools/textitalic.png</file>
+    <file>pic/tools/textjustify.png</file>
+    <file>pic/tools/textleft.png</file>
+    <file>pic/tools/textright.png</file>
+    <file>pic/tools/textunder.png</file>
+  </qresource>
   <qresource prefix="r_icon">
     <file>pic/r_icon/write_mail.png</file>
     <file>pic/r_icon/10d.png</file>

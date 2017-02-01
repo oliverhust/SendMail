@@ -20,8 +20,7 @@ r'http://code.taobao.org/p/mmyzSendMail/src/trunk/version.zip?orig',
 
 
 
-import time
-import urllib2
+import time, urllib2
 
 def download(url, timeout):
 	st=time.time()

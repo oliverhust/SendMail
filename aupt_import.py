@@ -2,12 +2,11 @@
 # -*- coding: utf-8 -*-
 
 
-import asynchat
-import glob
-import pdb
-
-
 def test_aupt_import():
+
+    import asynchat
+    import glob
+    import pdb
 
     import json
     import logging

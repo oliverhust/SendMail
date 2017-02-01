@@ -367,7 +367,6 @@ def test():
     # url_ver = r'https://coding.net/u/mmyzoliver/p/SendMail/git/raw/master/README.md'
     url_ver = r'http://git.oschina.net/mmyz/SendMail/raw/master/README.md'
 
-    # url_pkg = r'http://bjbgp01.baidupcs.com/file/413c6bd77f9a3e12b80391f15db50e71?bkt=p3-1400413c6bd77f9a3e12b80391f15db50e71d2b5c673000000024cc6&fid=4044588379-250528-73886866994231&time=1484098660&sign=FDTAXGERLBH-DCb740ccc5511e5e8fedcff06b081203-umeyMVcYEJWBh2PMrjUvXQXr%2Frc%3D&to=hbjbgp&fm=Yan,B,G,e&sta_dx=150726&sta_cs=2&sta_ft=zip&sta_ct=0&sta_mt=0&fm2=Yangquan,B,G,e&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=1400413c6bd77f9a3e12b80391f15db50e71d2b5c673000000024cc6&sl=81723466&expires=8h&rt=sh&r=498045650&mlogid=241232226608971775&vuk=4044588379&vbdid=678661293&fin=version.zip&fn=version.zip&slt=pm&uta=0&rtype=1&iv=0&isw=0&dp-logid=241232226608971775&dp-callid=0.1.1&csl=1024&csign=PjPitPnInxBSER%2BVYL52%2BGi4z5w%3D'
     # url_pkg = r'https://github.com/oliverhust/SendMail/raw/master/version/version.zip'
     url_pkg = r'http://git.oschina.net/mmyz/SendMail/raw/master/version.zip'
 

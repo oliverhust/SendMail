@@ -28,6 +28,7 @@ SOFTWARE_VERSION_CURR = '0.0.0'
 
 
 class AccountsMange:
+
     def __init__(self, account_list=None):
         if account_list is not None:
             self._AccountList = account_list[:]
@@ -875,7 +876,7 @@ class MailDB(threading.Thread):
     def save_mail_content(self, sub, body, append_path_list):
         # 邮件内容： 标题 正文 附件路径列表 id永远为0 先删再加
         self._c.execute("DELETE FROM mail_content")
-        append_str = "\n\n".join(append_path_list)   # 用两个换行符分开不同的附件路径
+        append_str = u"\n\n".join(append_path_list)   # 用两个换行符分开不同的附件路径
         sql_arg = (0, sub, body, append_str)
         self._c.execute("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
         self._save()
