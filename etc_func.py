@@ -118,8 +118,12 @@ def html_add_head(elems):
     return head + elems + "</body></html>\n\n\n\n"
 
 
+def html_escape(origin):
+    return origin.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
 def html_txt_elem(txt):
-    ret = txt.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    ret = html_escape(txt)
     return "<pre>" + ret + "</pre>"
 
 
