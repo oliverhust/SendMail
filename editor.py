@@ -55,6 +55,7 @@ class HtmlImg:
         self._html = self.__re_img_src.sub(ReRepl(), self._html)
         return self._html
 
+
 class TmpFile:
 
     _TMPDIR = None
@@ -79,19 +80,12 @@ class TmpFile:
         return file_path
 
     @staticmethod
-    def qvariant2tmp(qvariant):
-        # 返回文件路径
-        bin_content = str(qvariant.toByteArray())
-
-        dst_file = TmpFile.rand_file_path(file_content=bin_content)
-        return dst_file
-
-    @staticmethod
     def copy(src_file):
-        # 返回文件路径, 文件不存在则IOError
+        # 返回文件路径, 文件不存在则IOError异常
         dst_file = TmpFile.rand_file_path()
 
         shutil.copy(src_file, dst_file)
+
         return dst_file
 
     @staticmethod
@@ -193,7 +187,7 @@ class BasicEditor(Ui_Dialog_Editor):
 
     @_ignore_program_signal
     def __slot_bold_press(self, *args, **kwargs):
-        print(u"User pressed bold: {}".format(self.Button_B.isChecked()))
+        # print(u"User pressed bold: {}".format(self.Button_B.isChecked()))
         fmt = QTextCharFormat()
         if self.Button_B.isChecked():
             fmt.setFontWeight(QFont.Bold)
@@ -203,21 +197,21 @@ class BasicEditor(Ui_Dialog_Editor):
 
     @_ignore_program_signal
     def __slot_italic_press(self, *args, **kwargs):
-        print(u"User pressed italic: {}".format(self.Button_I.isChecked()))
+        # print(u"User pressed italic: {}".format(self.Button_I.isChecked()))
         fmt = QTextCharFormat()
         fmt.setFontItalic(self.Button_I.isChecked())
         self.__merge_format(fmt)
 
     @_ignore_program_signal
     def __slot_underline_press(self, *args, **kwargs):
-        print(u"User pressed underline: {}".format(self.Button_U.isChecked()))
+        # print(u"User pressed underline: {}".format(self.Button_U.isChecked()))
         fmt = QTextCharFormat()
         fmt.setFontUnderline(self.Button_U.isChecked())
         self.__merge_format(fmt)
 
     @_ignore_program_signal
     def __slot_font_box_changed(self, *args, **kwargs):
-        print(u"User font Box changed, set as new font")
+        # print(u"User font Box changed, set as new font")
         fmt = QTextCharFormat()
         user_set_font = self.fontBox.currentFont()
         fmt.setFont(user_set_font)
@@ -225,7 +219,7 @@ class BasicEditor(Ui_Dialog_Editor):
 
     @_ignore_program_signal
     def __slot_font_size_changed(self, *args, **kwargs):
-        print(u"User font size changed to {}, set as new size".format(self.fontSizeBox.value()))
+        # print(u"User font size changed to {}, set as new size".format(self.fontSizeBox.value()))
         fmt = QTextCharFormat()
         point_size = self.fontSizeBox.value()
         fmt.setFontPointSize(point_size)
@@ -263,8 +257,11 @@ class BasicEditor(Ui_Dialog_Editor):
             html_img = HtmlImg(unicode(source.html()))
             html_img.correct_img_src()
             img_src = html_img.get_img_src()
-            for i in range(len(img_src)):
-                img_src[i] = TmpFile.copy(img_src[i])
+            try:
+                for i in range(len(img_src)):
+                    img_src[i] = TmpFile.copy(img_src[i])
+            except IOError:
+                return
             html_img.replace_img_src(img_src)
 
             modify_html = html_img.html()
