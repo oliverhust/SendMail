@@ -27413,3 +27413,40 @@ Open database success, Ver = 2.6.0
 Thread maildb flush timer started.
 User cancel reload
 Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/02 15:24:28] Start the program
+[2017/02/02 15:24:29]
+The form has loaded
+The Event form load occur.
+[2017/02/02 15:24:29]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+sub = 
+body_path = 
+append_list = [u'C:\\Users\\Oliver\\Pictures\\\u6301\u7eed\u96c6\u6210\u73af\u5883\u642d\u5efa\u8bb0\u5f55.txt']
+path_xls = 
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/02 15:24:58] Start the program
+[2017/02/02 15:24:58]
+The form has loaded
+The Event form load occur.
+[2017/02/02 15:24:58]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Thread maildb flush stopped.

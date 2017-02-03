@@ -4,6 +4,8 @@
 import os
 import sys
 import re
+import shutil
+import random
 from copy import deepcopy
 import tempfile
 
@@ -11,22 +13,23 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 from ui_editor import Ui_Dialog_Editor
+from etc_func import html_escape, random_str
 
 
 class HtmlImg:
 
-    __re_correct = re.compile(r'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)file:///\s*([^'"<>]*)([^<>]*?/?\s*>)''')
-    __re_img_src = re.compile(r'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)([^'"<>]*)([^<>]*?/?\s*>)''')
+    __re_correct = re.compile(ur'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)file:///\s*([^'"<>]*)([^<>]*?/?\s*>)''')
+    __re_img_src = re.compile(ur'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)([^'"<>]*)([^<>]*?/?\s*>)''')
 
     def __init__(self, html_text):
-        self._html = html_text
+        self._html = unicode(html_text)
 
     def html(self):
         return self._html
 
     def correct_img_src(self):
         # 去除粘贴图片路径前的 file:///
-        self._html = self.__re_correct.subn(r'\1\2\3', self._html)[0]
+        self._html = self.__re_correct.subn(ur'\1\2\3', self._html)[0]
         return self._html
 
     def get_img_src(self):
@@ -41,7 +44,7 @@ class HtmlImg:
 
             def __call__(self, match_obj):
                 if self._n < len(replace_img_src_list):
-                    replace_patt = r'{}{}{}'.format(match_obj.group(1),
+                    replace_patt = u'{}{}{}'.format(match_obj.group(1),
                                                     replace_img_src_list[self._n],
                                                     match_obj.group(3))
                 else:
@@ -51,6 +54,71 @@ class HtmlImg:
 
         self._html = self.__re_img_src.sub(ReRepl(), self._html)
         return self._html
+
+class TmpFile:
+
+    _TMPDIR = None
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def init():
+        TmpFile._TMPDIR = tempfile.mkdtemp()
+
+    @staticmethod
+    def fini():
+        if TmpFile._TMPDIR:
+            shutil.rmtree(TmpFile._TMPDIR, ignore_errors=True)
+            TmpFile._TMPDIR = None
+
+    @staticmethod
+    def qimage2tmp(qimage):
+        file_path = TmpFile.rand_file_path()
+        qimage.save(QString(file_path), u'jpg')
+        return file_path
+
+    @staticmethod
+    def qvariant2tmp(qvariant):
+        # 返回文件路径
+        bin_content = str(qvariant.toByteArray())
+
+        dst_file = TmpFile.rand_file_path(file_content=bin_content)
+        return dst_file
+
+    @staticmethod
+    def copy(src_file):
+        # 返回文件路径, 文件不存在则IOError
+        dst_file = TmpFile.rand_file_path()
+
+        shutil.copy(src_file, dst_file)
+        return dst_file
+
+    @staticmethod
+    def rand_file_path(dirname=None, filename_len=16, file_content=None):
+        # 返回一个随机文件名(带路径)，但默认不会创建文件。如果带file_content才会创建
+        if not dirname:
+            dir_self = TmpFile._TMPDIR
+        else:
+            dir_self = dirname
+
+        file_name = random_str(filename_len)
+        file_path = os.path.join(dir_self, file_name)
+
+        if not file_content or not isinstance(file_content, str):
+            return file_path
+
+        f = open(file_path, 'wb')
+        try:
+            f.write(file_content)
+        finally:
+            f.close()
+
+        return file_path
+
+    @staticmethod
+    def get_dir():
+        return TmpFile._TMPDIR
 
 
 # 装饰器：当信号来自程序设置产生时不处理
@@ -64,39 +132,13 @@ def _ignore_program_signal(func):
     return final_func
 
 
-class TmpFile:
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def qvariant2tmp(qvariant):
-        # 返回文件路径
-        bin_content = str(qvariant.toByteArray())
-        fd_temp, file_path = tempfile.mkstemp()
-        os.write(fd_temp, bin_content)
-        return file_path
-
-    @staticmethod
-    def copy(src_file):
-        # 返回文件路径, 文件不存在则IOError
-        f = open(src_file)
-        try:
-            src_content = f.read()
-        finally:
-            f.close()
-        fd_temp, file_path = tempfile.mkstemp()
-        os.write(fd_temp, src_content)
-        return file_path
-
-
 # 写完该类后把Ui_Dialog_Editor去掉
 class BasicEditor(Ui_Dialog_Editor):
 
     _INIT_FONT_SIZE = 16
 
     # html img r'''<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*([^'"<>]*)[^<>]*?/?\s*>'''
-    __re_html_img = re.compile(r'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)file:///([^'"<>]*)([^<>]*?/?\s*>)''')
+    __re_html_img = re.compile(ur'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)file:///([^'"<>]*)([^<>]*?/?\s*>)''')
 
     def __init__(self):
         super(BasicEditor, self).__init__()
@@ -210,15 +252,27 @@ class BasicEditor(Ui_Dialog_Editor):
     def __insert_from_mine_data(self, source):
         curr_cursor = self.textEdit.textCursor()
 
-        if source.hasText():
-            curr_cursor.insertText(source.text())
-        elif source.hasImage():
-            new_file = TmpFile.qvariant2tmp(source.imageData())
-            html_img = r'<img src="{}" />'.format(new_file)
+        if source.hasImage():
+            # 插入图片：复制一份到临时目录，然后用html插入
+            new_file = TmpFile.qimage2tmp(QImage(source.imageData()))
+            html_img = r'<img src="{}" />'.format(html_escape(new_file))
             curr_cursor.insertHtml(html_img)
+
         elif source.hasHtml():
-            modify_html = self.__html_moidfy(unicode(source.html()))
+            # 插入超文本：替换里面所有的图片路径
+            html_img = HtmlImg(unicode(source.html()))
+            html_img.correct_img_src()
+            img_src = html_img.get_img_src()
+            for i in range(len(img_src)):
+                img_src[i] = TmpFile.copy(img_src[i])
+            html_img.replace_img_src(img_src)
+
+            modify_html = html_img.html()
             curr_cursor.insertHtml(modify_html)
+
+        elif source.hasText():
+            # 可能存在同时hasHtml和hasText
+            curr_cursor.insertText(source.text())
 
     @staticmethod
     def __html_moidfy(html_string):
@@ -254,12 +308,24 @@ class WinEditor(QMainWindow, BasicEditor, Ui_Dialog_Editor):
             self.PlainTextEdit_Html.setPlainText(html_str)
 
 
+def init():
+    TmpFile.init()
+
+
+def fini():
+    TmpFile.fini()
+
+
 def main():
-    QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
-    app = QApplication(sys.argv)
-    win = WinEditor()
-    win.show()
-    app.exec_()
+    init()
+    try:
+        QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
+        app = QApplication(sys.argv)
+        win = WinEditor()
+        win.show()
+        app.exec_()
+    finally:
+        fini()
 
 
 # ################################## 测试 #########################################
@@ -291,7 +357,7 @@ p, li { white-space: pre-wrap; }
 <p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">asdfas </p></body></html>
     '''
 
-    ht = HtmlTextImg(html_all)
+    ht = HtmlImg(html_all)
 
     print("\nOrigin imgage src:")
     print(ht.get_img_src())

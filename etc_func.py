@@ -8,6 +8,7 @@ import socket
 import datetime
 import platform
 import subprocess
+import random
 
 from err_code import *
 
@@ -103,6 +104,14 @@ def str_is_contains(string, pattern_list):
         if string.find(each_pattern) >= 0:
             return i
     return -1
+
+
+def random_str(str_len=16):
+    rand_str = ''
+    rand_range = '0123456789abcdefghijklmnopqrstuvwxyz'
+    for i in xrange(str_len):
+        rand_str += random.choice(rand_range)
+    return rand_str
 
 
 def html_add_head(elems):
