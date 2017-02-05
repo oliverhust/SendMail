@@ -428,7 +428,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QToolButton" name="Button_AddList">
      <property name="geometry">
       <rect>
-       <x>855</x>
+       <x>975</x>
        <y>0</y>
        <width>56</width>
        <height>51</height>
@@ -477,7 +477,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QToolButton" name="Button_AddList2">
      <property name="geometry">
       <rect>
-       <x>910</x>
+       <x>920</x>
        <y>0</y>
        <width>56</width>
        <height>51</height>
@@ -526,7 +526,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QToolButton" name="Button_SetUp">
      <property name="geometry">
       <rect>
-       <x>1030</x>
+       <x>1040</x>
        <y>0</y>
        <width>56</width>
        <height>51</height>
@@ -575,7 +575,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QToolButton" name="Button_SetDown">
      <property name="geometry">
       <rect>
-       <x>1085</x>
+       <x>1095</x>
        <y>0</y>
        <width>56</width>
        <height>51</height>
@@ -781,59 +781,10 @@ p, li { white-space: pre-wrap; }
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
-    <widget class="QToolButton" name="Button_AddLink">
-     <property name="geometry">
-      <rect>
-       <x>965</x>
-       <y>0</y>
-       <width>56</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>插入超链接</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="send1.qrc">
-       <normaloff>:/edit_tool/pic/editor/534861.png</normaloff>:/edit_tool/pic/editor/534861.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>32</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
-     </property>
-     <property name="popupMode">
-      <enum>QToolButton::DelayedPopup</enum>
-     </property>
-     <property name="autoRaise">
-      <bool>true</bool>
-     </property>
-     <property name="arrowType">
-      <enum>Qt::NoArrow</enum>
-     </property>
-    </widget>
     <widget class="Line" name="line_5">
      <property name="geometry">
       <rect>
-       <x>1020</x>
+       <x>1030</x>
        <y>0</y>
        <width>10</width>
        <height>51</height>
@@ -896,6 +847,68 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>735</x>
+       <y>0</y>
+       <width>10</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="Button_AddLink">
+     <property name="geometry">
+      <rect>
+       <x>855</x>
+       <y>0</y>
+       <width>56</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>插入超链接</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="send1.qrc">
+       <normaloff>:/edit_tool/pic/editor/534861.png</normaloff>:/edit_tool/pic/editor/534861.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <property name="popupMode">
+      <enum>QToolButton::DelayedPopup</enum>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+     <property name="arrowType">
+      <enum>Qt::NoArrow</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_7">
+     <property name="geometry">
+      <rect>
+       <x>910</x>
        <y>0</y>
        <width>10</width>
        <height>51</height>
@@ -970,6 +983,10 @@ p, li { white-space: pre-wrap; }
     <string>主题：</string>
    </property>
   </widget>
+  <zorder>tabWidget</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>label</zorder>
+  <zorder>line_5</zorder>
  </widget>
  <resources>
   <include location="send1.qrc"/>

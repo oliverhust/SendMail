@@ -149,6 +149,10 @@ class BasicEditor(Ui_Dialog_Editor):
         self.Button_BackColor.clicked.connect(self.__slot_set_back_color)
         self.Button_SetUp.clicked.connect(self.__slot_set_word_up)
         self.Button_SetDown.clicked.connect(self.__slot_set_word_down)
+        self.Button_AddLink.clicked.connect(self.__slot_add_hyperlink)
+        self.Button_AddTable.clicked.connect(self.__slot_add_table)
+        self.Button_AddList.clicked.connect(self.__slot_add_list)
+        self.Button_AddList2.clicked.connect(self.__slot_add_list2)
 
         # 对齐方式
         menu_align = QMenu()
@@ -364,6 +368,23 @@ class BasicEditor(Ui_Dialog_Editor):
         else:
             fmt.setVerticalAlignment(QTextCharFormat.AlignNormal)
         self.__merge_format(fmt)
+
+    # -----------------------------------------------------------------------------------------
+    # 插入列表，列表2，超级链接，表格
+    def __slot_add_list(self):
+        curr_cursor = self.textEdit.textCursor()
+        curr_cursor.insertList(QTextListFormat.ListDisc)
+
+    def __slot_add_list2(self):
+        curr_cursor = self.textEdit.textCursor()
+        curr_cursor.insertList(QTextListFormat.ListDecimal)
+
+    def __slot_add_hyperlink(self):
+        pass
+
+    def __slot_add_table(self):
+        pass
+
 
 
 class WinEditor(QMainWindow, BasicEditor, Ui_Dialog_Editor):
