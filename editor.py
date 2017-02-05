@@ -131,9 +131,6 @@ class BasicEditor(Ui_Dialog_Editor):
 
     _INIT_FONT_SIZE = 16
 
-    # html img r'''<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*([^'"<>]*)[^<>]*?/?\s*>'''
-    __re_html_img = re.compile(ur'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)file:///([^'"<>]*)([^<>]*?/?\s*>)''')
-
     def __init__(self):
         super(BasicEditor, self).__init__()
         self._is_program_signal = False
@@ -148,7 +145,22 @@ class BasicEditor(Ui_Dialog_Editor):
         self.fontBox.activated.connect(self.__slot_font_box_changed)
         self.fontSizeBox.valueChanged.connect(self.__slot_font_size_changed)
         self.Button_AddPic.clicked.connect(self.__slot_insert_picture)
+        self.Button_FontColor.clicked.connect(self.__slot_set_font_color)
+        self.Button_BackColor.clicked.connect(self.__slot_set_back_color)
+        self.Button_SetUp.clicked.connect(self.__slot_set_word_up)
+        self.Button_SetDown.clicked.connect(self.__slot_set_word_down)
 
+        # 对齐方式
+        menu_align = QMenu()
+        action_align_mid = menu_align.addAction(QString(u"居中"))
+        action_align_mid.triggered.connect(self.__slot_set_alignment_mid)
+        action_align_left = menu_align.addAction(QString(u"左对齐"))
+        action_align_left.triggered.connect(self.__slot_set_alignment_left)
+        action_align_right = menu_align.addAction(QString(u"右对齐"))
+        action_align_right.triggered.connect(self.__slot_set_alignment_right)
+        self.Button_Align.setMenu(menu_align)
+
+        # 插入超文本
         self.textEdit.canInsertFromMimeData = self.__can_insert_mine_data
         self.textEdit.insertFromMimeData = self.__insert_from_mine_data
 
@@ -160,8 +172,11 @@ class BasicEditor(Ui_Dialog_Editor):
     def to_html(self):
         return self.textEdit.toHtml()
 
-    def __set_edit_tools_status(self, text_char_fmt):
-        set_font = QFont(text_char_fmt.font())
+    # -----------------------------------------------------------------------------------------
+    # 当光标的charFormat改变时工具按钮的状态对应改变
+
+    def __set_edit_tools_status(self, char_fmt):
+        set_font = QFont(char_fmt.font())
 
         self._is_program_signal = True
         try:
@@ -170,12 +185,14 @@ class BasicEditor(Ui_Dialog_Editor):
             self.Button_U.setChecked(set_font.underline())
             self.fontBox.setCurrentFont(set_font)
             self.fontSizeBox.setValue(set_font.pointSize())
+            self.Button_SetUp.setChecked(char_fmt.verticalAlignment() == QTextCharFormat.AlignSuperScript)
+            self.Button_SetDown.setChecked(char_fmt.verticalAlignment() == QTextCharFormat.AlignSubScript)
         finally:
             self._is_program_signal = False
 
     def __slot_curr_pos_fmt_changed(self, *args, **kwargs):
         # 当前光标的字体发生变化(如移动光标)
-        print(u"Curr_pos_fmt_changed, set tool status")
+        # print(u"Curr_pos_fmt_changed, set tool status")
         set_cursor = QTextCursor(self.textEdit.textCursor())
 
         # # 当前字体有选择文本时工具状态保持为字体发生变化时刻 已选择部分第一个字的字体
@@ -184,6 +201,9 @@ class BasicEditor(Ui_Dialog_Editor):
         #    set_cursor.setPosition(set_position)
 
         self.__set_edit_tools_status(set_cursor.charFormat())
+
+    # -----------------------------------------------------------------------------------------
+    # 粗体/斜体/下划线/字体及大小 设置
 
     @_ignore_program_signal
     def __slot_bold_press(self, *args, **kwargs):
@@ -233,9 +253,13 @@ class BasicEditor(Ui_Dialog_Editor):
     # -----------------------------------------------------------------------------------------
     # 插入图片/html
     def __slot_insert_picture(self):
-        img = QImage(r'E:\MyDocuments\Python\SendMail\pic\Emotions\28.gif')
-        curr_cursor = self.textEdit.textCursor()
-        curr_cursor.insertImage(img)
+        suffix = "Image files(*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tiff;*.pbm;*.pgm;*.ppm;*.xbm;*.xpm)"
+        s_list = QFileDialog.getOpenFileNames(self, QString(u"插入图片(可多选)"), "/", suffix)
+        s_list = [unicode(y) for y in s_list if y]
+
+        for src in s_list:
+            self._insert_qimage(QImage(src))
+            # self.textEdit.textCursor().insertImage(QImage(src))
 
     def __can_insert_mine_data(self, source):
         if source.hasImage():
@@ -244,37 +268,102 @@ class BasicEditor(Ui_Dialog_Editor):
             return QTextEdit.canInsertFromMimeData(self.textEdit, source)
 
     def __insert_from_mine_data(self, source):
-        curr_cursor = self.textEdit.textCursor()
-
         if source.hasImage():
             # 插入图片：复制一份到临时目录，然后用html插入
-            new_file = TmpFile.qimage2tmp(QImage(source.imageData()))
-            html_img = r'<img src="{}" />'.format(html_escape(new_file))
-            curr_cursor.insertHtml(html_img)
-
+            self._insert_qimage(QImage(source.imageData()))
         elif source.hasHtml():
             # 插入超文本：替换里面所有的图片路径
-            html_img = HtmlImg(unicode(source.html()))
-            html_img.correct_img_src()
-            img_src = html_img.get_img_src()
-            try:
-                for i in range(len(img_src)):
-                    img_src[i] = TmpFile.copy(img_src[i])
-            except IOError:
-                return
-            html_img.replace_img_src(img_src)
-
-            modify_html = html_img.html()
-            curr_cursor.insertHtml(modify_html)
-
+            self._insert_html(source.html())
         elif source.hasText():
             # 可能存在同时hasHtml和hasText
+            curr_cursor = self.textEdit.textCursor()
             curr_cursor.insertText(source.text())
 
-    @staticmethod
-    def __html_moidfy(html_string):
-        # 将用户复制粘贴的html进行处理
-        return BasicEditor.__re_html_img.subn(r'\1\2\3', html_string)[0]
+    def _insert_qimage(self, qimage):
+        # 插入图片：复制一份到临时目录，然后用html插入
+        curr_cursor = self.textEdit.textCursor()
+        new_file = TmpFile.qimage2tmp(qimage)
+        curr_cursor.insertImage(qimage, new_file)
+        # html_img = r'<img src="{}" />'.format(html_escape(new_file))
+        # curr_cursor.insertHtml(html_img)
+
+    def _insert_html(self, html_text):
+        # 插入超文本：替换里面所有的图片路径
+        curr_cursor = self.textEdit.textCursor()
+        html_img = HtmlImg(unicode(html_text))
+        html_img.correct_img_src()
+
+        img_src = html_img.get_img_src()
+        try:
+            for i in range(len(img_src)):
+                img_src[i] = TmpFile.copy(img_src[i])
+        except IOError:
+            return
+        html_img.replace_img_src(img_src)
+
+        modify_html = html_img.html()
+        curr_cursor.insertHtml(modify_html)
+
+    # -----------------------------------------------------------------------------------------
+    # 段落对齐方式
+    def __slot_set_alignment_mid(self):
+        self.textEdit.setAlignment(Qt.AlignCenter | Qt.AlignAbsolute)
+
+    def __slot_set_alignment_left(self):
+        self.textEdit.setAlignment(Qt.AlignLeft | Qt.AlignAbsolute)
+
+    def __slot_set_alignment_right(self):
+        self.textEdit.setAlignment(Qt.AlignRight | Qt.AlignAbsolute)
+
+    # -----------------------------------------------------------------------------------------
+    # 颜色设置
+    @_ignore_program_signal
+    def __slot_set_font_color(self, *args, **kwargs):
+        q_color = QColorDialog.getColor(Qt.black)
+        if not q_color.isValid():
+            return
+
+        fmt = QTextCharFormat()
+        brush = QBrush(q_color)
+        fmt.setForeground(brush)
+        self.__merge_format(fmt)
+
+    @_ignore_program_signal
+    def __slot_set_back_color(self, *args, **kwargs):
+        q_color = QColorDialog.getColor(Qt.white)
+        if not q_color.isValid():
+            return
+
+        fmt = QTextCharFormat()
+        brush = QBrush(q_color)
+        fmt.setBackground(brush)
+        self.__merge_format(fmt)
+
+    # -----------------------------------------------------------------------------------------
+    # 上下标设置
+    @_ignore_program_signal
+    def __slot_set_word_up(self, *args, **kwargs):
+        # 设置下标按钮复原
+        self.Button_SetDown.setChecked(False)
+
+        fmt = QTextCharFormat()
+        if self.Button_SetUp.isChecked():
+            fmt.setVerticalAlignment(QTextCharFormat.AlignSuperScript)
+        else:
+            fmt.setVerticalAlignment(QTextCharFormat.AlignNormal)
+        self.__merge_format(fmt)
+
+    @_ignore_program_signal
+    def __slot_set_word_down(self, *args, **kwargs):
+        # 设置上标按钮复原
+        self.Button_SetUp.setChecked(False)
+
+        fmt = QTextCharFormat()
+        if self.Button_SetDown.isChecked():
+            fmt.setVerticalAlignment(QTextCharFormat.AlignSubScript)
+        else:
+            fmt.setVerticalAlignment(QTextCharFormat.AlignNormal)
+        self.__merge_format(fmt)
 
 
 class WinEditor(QMainWindow, BasicEditor, Ui_Dialog_Editor):
