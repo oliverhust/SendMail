@@ -13,6 +13,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 from ui_editor import Ui_Dialog_Editor
+from ui_editor_addlink import Ui_Dialog_AddLink
+from ui_editor_addtable import Ui_Dialog_AddTable
 from etc_func import html_escape, random_str
 
 
@@ -113,6 +115,118 @@ class TmpFile:
     @staticmethod
     def get_dir():
         return TmpFile._TMPDIR
+
+
+class WinAddLink(QDialog, Ui_Dialog_AddLink):
+    # 插入超级链接窗口
+
+    def __init__(self, parent=None):
+        super(WinAddLink, self).__init__(parent)
+        self.setAttribute(Qt.WA_DeleteOnClose)
+        self.setupUi(self)
+
+        self.Button_OK.clicked.connect(self.__slot_button_ok)
+        self.Button_Cancel.clicked.connect(self.__slot_button_cancel)
+
+        self._link = u""
+        self._text = u""
+
+    def __slot_button_ok(self):
+        self._link = unicode(self.lineEdit_Link.text())
+        if not self._link:
+            QMessageBox.critical(self, u"Input Error", QString(u"请输入链接地址"))
+            return
+
+        self._text = unicode(self.lineEdit_Text.text())
+        self.accept()
+
+    def __slot_button_cancel(self):
+        self.reject()
+
+    def html(self):
+        # 用户可能取消
+        if not self._link:
+            return u''
+
+        # 如果不填则和链接名一致
+        h_text = self._text if self._text else self._link
+        h = u'<a href="{}" target="_blank">{}</a>'.format(html_escape(self._link),
+                                                          html_escape(h_text))
+        return h
+
+    def link(self):
+        return self._link
+
+    def text(self):
+        return self._text
+
+
+class WinAddTable(QDialog, Ui_Dialog_AddTable):
+    # 插入表格窗口   UI已经保证了数据的正确性
+
+    def __init__(self, parent=None):
+        super(WinAddTable, self).__init__(parent)
+        self._row = None
+        self._column = None
+        self._align = None
+        self._color = None
+        self._borderWidth = None
+        self._padding = None
+        self._spacing = None
+
+        self.setAttribute(Qt.WA_DeleteOnClose)
+        self.setupUi(self)
+
+        self.Button_OK.clicked.connect(self.__slot_button_ok)
+        self.Button_Cancel.clicked.connect(self.__slot_button_cancel)
+        self.Button_Color.clicked.connect(self.__slot_set_color)
+
+        # 设置颜色 按钮
+        self.__set_border_color(QColor(Qt.black))
+
+    def table(self):
+        fmt = QTextTableFormat()
+        fmt.setCellSpacing(self._spacing)
+        fmt.setCellPadding(self._padding)
+        fmt.setAlignment(self._align)
+
+        fmt.setBorderBrush(QBrush(self._color))
+        fmt.setBorder(self._borderWidth / 2.0)
+        fmt.setBorderStyle(QTextTableFormat.BorderStyle_Solid)  # 固定
+
+        return self._row, self._column, fmt
+
+    def __slot_button_ok(self):
+        self._row = int(self.Box_Row.value())
+        self._column = int(self.Box_Column.value())
+        self._color = self._color
+        self._borderWidth = int(self.Box_BorderWidth.value())
+        self._padding = int(self.Box_Padding.value())
+        self._spacing = int(self.Box_Space.value())
+
+        if self.radioButton_Right.isChecked():
+            self._align = Qt.AlignRight
+        elif self.radioButton_Mid.isChecked():
+            self._align = Qt.AlignCenter
+        else:
+            self._align = Qt.AlignLeft
+
+        self.accept()
+
+    def __slot_button_cancel(self):
+        self.reject()
+
+    def __slot_set_color(self):
+        q_color = QColorDialog.getColor(Qt.black)
+        if not q_color.isValid():
+            return
+        self.__set_border_color(q_color)
+
+    def __set_border_color(self, q_color):
+        self._color = q_color
+        color_pix = QPixmap(self.Button_Color.width(), self.Button_Color.height())
+        color_pix.fill(q_color)
+        self.Button_Color.setIcon(QIcon(color_pix))
 
 
 # 装饰器：当信号来自程序设置产生时不处理
@@ -380,11 +494,31 @@ class BasicEditor(Ui_Dialog_Editor):
         curr_cursor.insertList(QTextListFormat.ListDecimal)
 
     def __slot_add_hyperlink(self):
-        pass
+        old_char_fmt = QTextCharFormat(self.textEdit.currentCharFormat())
+
+        new_win = WinAddLink()
+        if not new_win.exec_():
+            return
+
+        h = new_win.html()
+        curr_cursor = self.textEdit.textCursor()
+        curr_cursor.insertText(QString(u' '))   # 在链接前插入一个空格
+        curr_cursor.insertHtml(h)
+
+        # 恢复原来的格式
+        curr_cursor.setCharFormat(old_char_fmt)
+        self.textEdit.setCurrentCharFormat(old_char_fmt)
+        curr_cursor.insertText(QString(u' '))    # 在链接后插入一个空格
+        self.textEdit.setFocus()
 
     def __slot_add_table(self):
-        pass
+        new_win = WinAddTable()
+        if not new_win.exec_():
+            return
 
+        row, col, fmt = new_win.table()
+        curr_cursor = self.textEdit.textCursor()
+        curr_cursor.insertTable(row, col, fmt)
 
 
 class WinEditor(QMainWindow, BasicEditor, Ui_Dialog_Editor):
