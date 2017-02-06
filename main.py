@@ -740,12 +740,20 @@ class MailDB(threading.Thread):
         while True:
             self._lock.acquire()
             if self._db is not None:
+                # print("flushing mail db")
                 self._db.commit()
             self._lock.release()
-            if self._flush_thread_get_need_close():
+
+            # 把延时1秒拆分成多次是为了提高关闭的响应速度
+            need_close = False
+            spilt_times = 4
+            for i in range(spilt_times):
+                if self._flush_thread_get_need_close():
+                    need_close = True
+                    break
+                time.sleep(1.0 / spilt_times)
+            if need_close:
                 break
-            time.sleep(1)
-            # print("flushing mail db")
 
     def _flush_thread_close(self, need_close=True):
         self._flush_thread_lock.acquire()
