@@ -233,24 +233,25 @@ class WinAddTable(QDialog, Ui_Dialog_AddTable):
 def _ignore_program_signal(func):
     def final_func(self, *args, **kwargs):
         ret = None
-        if not self._is_program_signal:
+        if self._set_by_program <= 0:
             ret = func(self, *args, **kwargs)
             self.textEdit.setFocus()
+        else:
+            print("Program signal")
         return ret
     return final_func
 
 
-# 写完该类后把Ui_Dialog_Editor去掉
 class BasicEditor(Ui_Dialog_Editor):
 
     _INIT_FONT_SIZE = 16
 
     def __init__(self):
         super(BasicEditor, self).__init__()
-        self._is_program_signal = False
+        self._set_by_program = 0
 
     def setup_basic_editor(self):
-        self._is_program_signal = False
+        self._set_by_program = 0
 
         self.textEdit.currentCharFormatChanged.connect(self.__slot_curr_pos_fmt_changed)
         self.Button_B.clicked.connect(self.__slot_bold_press)
@@ -296,7 +297,7 @@ class BasicEditor(Ui_Dialog_Editor):
     def __set_edit_tools_status(self, char_fmt):
         set_font = QFont(char_fmt.font())
 
-        self._is_program_signal = True
+        self._set_by_program += 1
         try:
             self.Button_B.setChecked(set_font.bold())
             self.Button_I.setChecked(set_font.italic())
@@ -306,7 +307,7 @@ class BasicEditor(Ui_Dialog_Editor):
             self.Button_SetUp.setChecked(char_fmt.verticalAlignment() == QTextCharFormat.AlignSuperScript)
             self.Button_SetDown.setChecked(char_fmt.verticalAlignment() == QTextCharFormat.AlignSubScript)
         finally:
-            self._is_program_signal = False
+            self._set_by_program -= 1
 
     def __slot_curr_pos_fmt_changed(self, *args, **kwargs):
         # 当前光标的字体发生变化(如移动光标)
@@ -521,23 +522,51 @@ class BasicEditor(Ui_Dialog_Editor):
         curr_cursor.insertTable(row, col, fmt)
 
 
-class WinEditor(QMainWindow, BasicEditor, Ui_Dialog_Editor):
+class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
 
     _TAB_INDEX_EDIT = 0
     _TAB_INDEX_HTML = 1
+    _TAB_INDEX_APPENDIX = 2
+
+    _COLOR_WARNING = Qt.yellow
+    _COLOR_ERROR = Qt.red
 
     def __init__(self, parent=None):
-        super(WinEditor, self).__init__(parent)
+        super(EmailEditor, self).__init__(parent)
         self._last_html_str = None
+        self._set_by_program = 0   # 过滤程序设置引发的信号
 
         self.setupUi(self)
         self.setup_basic_editor()
 
-        # 切换到html
-        self.tabWidget.currentChanged.connect(self._slot_edit_mode_change)
+        # 初始化表格
+        self.__init_table_appendix()
+
+        self.tabWidget.currentChanged.connect(self.__slot_edit_mode_change)  # 切换到html
+        self.Button_AddAppend.clicked.connect(self.__slot_add_appendix)
+        self.Button_DelAppend.clicked.connect(self.__slot_del_appendix)
+        self.table_Appendix.itemChanged.connect(self.__slot_item_changed)
+        self.Button_Appendix.clicked.connect(self.__slot_jump_appendix_tab)
+
+    def __init_table_appendix(self):
+        self.table_Appendix.setColumnCount(4)
+        # 设置单元格初始长度
+        len_list = [400, 100, 75, 600]
+        for i, each_len in enumerate(len_list):
+            self.table_Appendix.setColumnWidth(i, each_len)
+
+        headers = [u"附件名(可双击编辑)", u"大小", u"状态", u"路径"]
+        tool_tips = [u"对方收到附件时显示的名字，如果附件名后缀名不是1~5个字符则提示是否输错",
+                     u"附件大小", u"附件状态", u"附件的绝对路径"]
+        for i, header in enumerate(headers):
+            table_item = QTableWidgetItem(QString(unicode(header)))
+            table_item.setTextColor(Qt.blue)
+            if i < len(tool_tips) and tool_tips[i]:
+                table_item.setToolTip(QString(tool_tips[i]))
+            self.table_Appendix.setHorizontalHeaderItem(i, table_item)
 
     # 编辑模式变化(超文本编辑/html编辑)
-    def _slot_edit_mode_change(self, curr_index):
+    def __slot_edit_mode_change(self, curr_index):
 
         if curr_index == self._TAB_INDEX_EDIT:
             html_str = self.PlainTextEdit_Html.toPlainText()
@@ -548,6 +577,101 @@ class WinEditor(QMainWindow, BasicEditor, Ui_Dialog_Editor):
             self._last_html_str = QString(html_str)
             self.PlainTextEdit_Html.setPlainText(html_str)
 
+    # -----------------------------------------------------------------------------------------
+    # 增/删/编辑附件
+    def __slot_add_appendix(self):
+        s_list = QFileDialog.getOpenFileNames(self, QString(u"选择附件(可同时选中多个)"), "/", "All files(*.*)")
+        self._ui_add_appends([unicode(each_append) for each_append in s_list])
+
+    def __slot_del_appendix(self):
+        selected = self.table_Appendix.selectedIndexes()
+        # 从后往前删，否则会误删
+        rows = sorted(list(set(s.row() for s in selected)), reverse=True)
+        for each_row in rows:
+            self.table_Appendix.removeRow(each_row)
+
+        # 附件按钮文字改变
+        self.__update_appendix_button_num()
+
+    def __slot_item_changed(self, item):
+        # 防止无穷递归
+        if self._set_by_program > 0:
+            return
+
+        # 只有附件名可编辑
+        # print(u"item_changed: row={}, column={}, text={}".format(item.row(), item.column(), item.text()))
+        if item.column() != 0:
+            return
+
+        new_item = QTableWidgetItem(item)
+        self._set_by_program += 1
+        if not EmailEditor.__is_good_basename(unicode(item.text())):
+            new_item.setBackgroundColor(EmailEditor._COLOR_WARNING)
+            self.table_Appendix.setItem(item.row(), item.column(), new_item)
+            new_item.setSelected(False)
+        else:
+            new_item.setBackgroundColor(Qt.transparent)
+            self.table_Appendix.setItem(item.row(), item.column(), new_item)
+            new_item.setSelected(False)
+        self._set_by_program -= 1
+
+    def __slot_jump_appendix_tab(self):
+        if self.tabWidget.currentIndex() != EmailEditor._TAB_INDEX_APPENDIX:
+            self.tabWidget.setCurrentIndex(EmailEditor._TAB_INDEX_APPENDIX)
+
+    def _ui_add_appends(self, full_append_path_list):
+        append_list = [i for i in full_append_path_list if i]
+        for each_path in append_list:
+            self.__table_add_one_appendix(each_path)
+
+        # 附件按钮文字改变
+        self.__update_appendix_button_num()
+
+    def __table_add_one_appendix(self, append_path):
+        old_row_count = self.table_Appendix.rowCount()
+        self.table_Appendix.setRowCount(old_row_count + 1)
+
+        # 注意附件可能不存在
+        append_basename = os.path.basename(append_path)
+        state_ok = u"OK"
+        state = state_ok if os.path.isfile(append_path) else u"不存在"
+        if state == state_ok:
+            append_size = u"{} K".format((os.path.getsize(append_path) + 1023) / 1024)
+        else:
+            append_size = 0
+
+        items = [append_basename, append_size, state, append_path]      # 附件名 大小 状态 路径
+        editable = [True, False, False, False]
+        align_center = [False, True, True, False]
+        back_color = [None if EmailEditor.__is_good_basename(append_basename) else EmailEditor._COLOR_WARNING,
+                      None,
+                      None if state == state_ok else EmailEditor._COLOR_ERROR,
+                      None]
+
+        for i, item in enumerate(items):
+            table_item = QTableWidgetItem(QString(unicode(item)))
+            if i < len(editable) and not editable[i]:
+                old_flag = table_item.flags()
+                table_item.setFlags(old_flag & (~Qt.ItemIsEditable))
+            if i < len(align_center) and align_center[i]:
+                table_item.setTextAlignment(Qt.AlignCenter)
+            if i < len(back_color) and back_color[i]:
+                table_item.setBackgroundColor(back_color[i])
+            self.table_Appendix.setItem(old_row_count, i, table_item)
+
+    @staticmethod
+    def __is_good_basename(file_basename):
+        patt = ur'\.[a-zA-Z0-9_]{1,5}$'
+        if re.search(patt, file_basename):
+            return True
+        return False
+
+    def __update_appendix_button_num(self):
+        num = self.table_Appendix.rowCount()
+        if num > 0:
+            self.Button_Appendix.setText(QString(u"附件({}个)".format(num)))
+        else:
+            self.Button_Appendix.setText(QString(u"附件"))
 
 def init():
     TmpFile.init()
@@ -562,7 +686,7 @@ def main():
     try:
         QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
         app = QApplication(sys.argv)
-        win = WinEditor()
+        win = EmailEditor()
         win.show()
         app.exec_()
     finally:

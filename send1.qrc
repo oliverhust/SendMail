@@ -6,7 +6,11 @@
     <file>pic/r_back/love_s.jpeg</file>
   </qresource>
   <qresource prefix="edit_tool">
+    <file>pic/ico/minus.png</file>
+    <file>pic/tools/max.png</file>
+    <file>pic/editor/534848.png</file>
     <file>pic/tools/textbold.png</file>
+    <file>pic/tools/save.png</file>
     <file>pic/editor/534834.png</file>
     <file>pic/editor/534862.png</file>
     <file>pic/editor/534835.png</file>
@@ -22,6 +26,8 @@
     <file>pic/editor/534872.png</file>
     <file>pic/editor/534873.png</file>
     <file>pic/editor/534877.png</file>
+    <file>pic/editor/534845.png</file>
+    <file>pic/editor/attachment6.png</file>
     <file>pic/editor/534878.png</file>
     <file>pic/editor/534879.png</file>
     <file>pic/editor/534880.png</file>
