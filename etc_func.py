@@ -13,7 +13,7 @@ import random
 from err_code import *
 
 
-g_check_same = None
+__g_check_same = None
 RE_PATT_MAILBOX = ur"[a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+"
 
 
@@ -170,18 +170,18 @@ def os_get_user_desktop():
 
 
 def check_program_has_same(program_unique_port):
-    global g_check_same
+    global __g_check_same
     ret = False
-    g_check_same = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)   # 定义socket类型，网络通信，UDP
+    __g_check_same = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)   # 定义socket类型，网络通信，UDP
     try:
-        g_check_same.bind(("127.0.0.1", program_unique_port))          # 套接字绑定的IP与端口
+        __g_check_same.bind(("127.0.0.1", program_unique_port))          # 套接字绑定的IP与端口
     except Exception:
         ret = True
     return ret
 
 
 def check_program_has_same_fini():
-    g_check_same.close()
+    __g_check_same.close()
 
 
 def os_get_curr_dir():

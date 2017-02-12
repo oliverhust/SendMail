@@ -16,46 +16,7 @@ from ui_editor import Ui_Dialog_Editor
 from ui_editor_addlink import Ui_Dialog_AddLink
 from ui_editor_addtable import Ui_Dialog_AddTable
 from etc_func import html_escape, random_str
-
-
-class HtmlImg:
-
-    __re_correct = re.compile(ur'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)file:///\s*([^'"<>]*)([^<>]*?/?\s*>)''')
-    __re_img_src = re.compile(ur'''(<img\b[^<>]*?\bsrc\s*=\s*['"]?\s*)([^'"<>]*)([^<>]*?/?\s*>)''')
-
-    def __init__(self, html_text):
-        self._html = unicode(html_text)
-
-    def html(self):
-        return self._html
-
-    def correct_img_src(self):
-        # 去除粘贴图片路径前的 file:///
-        self._html = self.__re_correct.subn(ur'\1\2\3', self._html)[0]
-        return self._html
-
-    def get_img_src(self):
-        fd_all = self.__re_img_src.findall(self._html)
-        return [x[1] for x in fd_all]
-
-    def replace_img_src(self, replace_img_src_list):
-
-        class ReRepl:
-            def __init__(self):
-                self._n = 0
-
-            def __call__(self, match_obj):
-                if self._n < len(replace_img_src_list):
-                    replace_patt = u'{}{}{}'.format(match_obj.group(1),
-                                                    replace_img_src_list[self._n],
-                                                    match_obj.group(3))
-                else:
-                    replace_patt = match_obj.group(0)
-                self._n += 1
-                return replace_patt
-
-        self._html = self.__re_img_src.sub(ReRepl(), self._html)
-        return self._html
+from cfg_data import HtmlImg, MailResource, MailContent
 
 
 class TmpFile:
@@ -250,7 +211,7 @@ class BasicEditor(Ui_Dialog_Editor):
         super(BasicEditor, self).__init__()
         self._set_by_program = 0
 
-    def setup_basic_editor(self):
+    def _setup_basic_editor(self):
         self._set_by_program = 0
 
         self.textEdit.currentCharFormatChanged.connect(self.__slot_curr_pos_fmt_changed)
@@ -290,6 +251,11 @@ class BasicEditor(Ui_Dialog_Editor):
 
     def to_html(self):
         return self.textEdit.toHtml()
+
+    def img_src(self):
+        html_img = HtmlImg(self.textEdit.toHtml())
+        html_img.correct_img_src()
+        return html_img.get_img_src()
 
     # -----------------------------------------------------------------------------------------
     # 当光标的charFormat改变时工具按钮的状态对应改变
@@ -399,7 +365,7 @@ class BasicEditor(Ui_Dialog_Editor):
             curr_cursor.insertText(source.text())
 
     def _insert_qimage(self, qimage):
-        # 插入图片：复制一份到临时目录，然后用html插入
+        # 插入图片：复制一份到临时目录
         curr_cursor = self.textEdit.textCursor()
         new_file = TmpFile.qimage2tmp(qimage)
         curr_cursor.insertImage(qimage, new_file)
@@ -528,6 +494,9 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
     _TAB_INDEX_HTML = 1
     _TAB_INDEX_APPENDIX = 2
 
+    _COL_APPENDIX_NAME = 0
+    _COL_APPENDIX_PATH = 3
+
     _COLOR_WARNING = Qt.yellow
     _COLOR_ERROR = Qt.red
 
@@ -537,16 +506,42 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         self._set_by_program = 0   # 过滤程序设置引发的信号
 
         self.setupUi(self)
-        self.setup_basic_editor()
-
-        # 初始化表格
-        self.__init_table_appendix()
+        self._setup_basic_editor()
+        self.__init_table_appendix()    # 初始化表格
 
         self.tabWidget.currentChanged.connect(self.__slot_edit_mode_change)  # 切换到html
         self.Button_AddAppend.clicked.connect(self.__slot_add_appendix)
         self.Button_DelAppend.clicked.connect(self.__slot_del_appendix)
         self.table_Appendix.itemChanged.connect(self.__slot_item_changed)
         self.Button_Appendix.clicked.connect(self.__slot_jump_appendix_tab)
+
+    def to_mail_content(self):
+        sub = unicode(self.Edit_Sub.text())
+        body = self.to_html()
+        append_resources = self.__all_appendix()
+        body_resources = [MailResource(i, i) for i in self.img_src()]
+        content = MailContent(sub, body, append_resources, body_resources)
+
+        return content
+
+    def recover_ui(self, mail_content):
+        mail_content = MailContent(None, None)
+
+        self.Edit_Sub.setText(QString(mail_content.sub()))
+        self._ui_add_appends(mail_content.append_resource_list())
+
+        # 复制body resource二进制数据到文件，以及修改html中对应的资源名为新文件名
+        h = HtmlImg(mail_content.body())
+        html_src_list = h.get_img_src()
+        for each_rc in mail_content.body_resource_list():
+            new_file = TmpFile.rand_file_path(file_content=each_rc.bin_data)
+            # 修改html中对应的资源名为新文件名
+            for j, each_html_src in enumerate(html_src_list):
+                if each_rc.name == each_html_src:
+                    html_src_list[j] = new_file
+        h.replace_img_src(html_src_list)
+
+        self.set_html(h.html())
 
     def __init_table_appendix(self):
         self.table_Appendix.setColumnCount(4)
@@ -600,7 +595,7 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
 
         # 只有附件名可编辑
         # print(u"item_changed: row={}, column={}, text={}".format(item.row(), item.column(), item.text()))
-        if item.column() != 0:
+        if item.column() != EmailEditor._COL_APPENDIX_NAME:
             return
 
         new_item = QTableWidgetItem(item)
@@ -620,19 +615,22 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
             self.tabWidget.setCurrentIndex(EmailEditor._TAB_INDEX_APPENDIX)
 
     def _ui_add_appends(self, full_append_path_list):
-        append_list = [i for i in full_append_path_list if i]
-        for each_path in append_list:
-            self.__table_add_one_appendix(each_path)
+        # full_append_path_list的元素为字符串/MailResource类型
+        for each_append in full_append_path_list:
+            if isinstance(each_append, unicode) and each_append:
+                self.__table_add_one_appendix(each_append)
+            elif isinstance(each_append, MailResource) and each_append.path:
+                self.__table_add_one_appendix(each_append.path, each_append.name)
 
         # 附件按钮文字改变
         self.__update_appendix_button_num()
 
-    def __table_add_one_appendix(self, append_path):
+    def __table_add_one_appendix(self, append_path, append_name_in=u""):
         old_row_count = self.table_Appendix.rowCount()
         self.table_Appendix.setRowCount(old_row_count + 1)
 
         # 注意附件可能不存在
-        append_basename = os.path.basename(append_path)
+        append_name = append_name_in if append_name_in else os.path.basename(append_path)
         state_ok = u"OK"
         state = state_ok if os.path.isfile(append_path) else u"不存在"
         if state == state_ok:
@@ -640,10 +638,10 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         else:
             append_size = 0
 
-        items = [append_basename, append_size, state, append_path]      # 附件名 大小 状态 路径
+        items = [append_name, append_size, state, append_path]      # 附件名 大小 状态 路径
         editable = [True, False, False, False]
         align_center = [False, True, True, False]
-        back_color = [None if EmailEditor.__is_good_basename(append_basename) else EmailEditor._COLOR_WARNING,
+        back_color = [None if EmailEditor.__is_good_basename(append_name) else EmailEditor._COLOR_WARNING,
                       None,
                       None if state == state_ok else EmailEditor._COLOR_ERROR,
                       None]
@@ -672,6 +670,16 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
             self.Button_Appendix.setText(QString(u"附件({}个)".format(num)))
         else:
             self.Button_Appendix.setText(QString(u"附件"))
+
+    def __all_appendix(self):  # 返回由MailResource组成的列表
+        num = self.table_Appendix.rowCount()
+        appendix_list = []
+        for i in range(num):
+            path = unicode(self.table_Appendix.item(i, EmailEditor._COL_APPENDIX_PATH).text())
+            name = unicode(self.table_Appendix.item(i, EmailEditor._COL_APPENDIX_NAME).text())
+            appendix_list.append(MailResource(path, name))
+        return appendix_list
+
 
 def init():
     TmpFile.init()

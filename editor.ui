@@ -252,7 +252,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="Edit_Sub">
        <property name="minimumSize">
         <size>
          <width>1091</width>

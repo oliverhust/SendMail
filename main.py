@@ -81,131 +81,6 @@ class AccountsMange:
         return err, err_info
 
 
-class MailContent:
-    """  邮件内容：主题、正文、附件 """
-    SPECIAL_STR_PATTERN = r'\{##[A-Z]##\}'     # 邮件正文或标题中的特殊字符
-
-    def __init__(self, mail_sub, mail_body_path, mail_append_list):
-        self._Sub = mail_sub    # 原始主题
-        self._Body = ""  # 原始正文
-        self._AppendList = mail_append_list
-        self._BodyPath = mail_body_path
-
-        # 暂存附件内容不用每次读取
-        self._msg_append_list = []
-
-        # 判断内容里面是否有特殊含义的字符需要替换（这样每封邮件都不一样，需要一封封发送）
-        self._bool_special = self._is_special_content(self._Sub, self._Body)
-
-    def init(self):
-        err, err_info = ERROR_SUCCESS, u""
-        try:
-            f = open(self._BodyPath)
-        except Exception, e:
-            err = ERROR_OPEN_BODY_FAILED
-            err_info = u"打开邮件正文失败\n{}".format(e)
-            return err, err_info
-        try:
-            body = f.read()
-        except Exception, e:
-            err = ERROR_READ_BODY_FAILED
-            err_info = u"读取邮件正文失败\n{}".format(e)
-            return err, err_info
-
-        raw_body = try_decode(body)
-        if raw_body is None:
-            err = ERROR_DECODE_BODY_FAILED
-            err_info = u"邮件正文解码失败"
-            return err, err_info
-
-        self._Body = html_add_head(html_txt_elem(raw_body))
-        return err, err_info
-
-    def sub(self, mail_matrix=None, mail_address=""):
-        if not self.is_special_content():
-            return self._Sub
-        # 获取实际位置然后调用替换
-        data_tmp = mail_matrix.get_data_by_name(mail_address)
-        if data_tmp:
-            print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
-            return self.text_replace(self._Sub, data_tmp)
-        return self._Sub
-
-    def body(self, mail_matrix=None, mail_address=""):
-        if not self.is_special_content():
-            return self._Body
-        # 获取实际位置然后调用替换
-        data_tmp = mail_matrix.get_data_by_name(mail_address)
-        if data_tmp:
-            # 再进一步检查防止出错
-            if data_tmp[0] != mail_address:
-                print_w(u"Replace {}`s content is not match {}".format(mail_address, data_tmp[0]))
-            return self.text_replace(self._Body, data_tmp)
-        return self._Body
-
-    def append_list(self):
-        return self._AppendList
-
-    def msg_append_list(self):
-        return self._msg_append_list
-
-    def read_append(self):
-        """ 读取附件，失败则暂停 """
-        if self._msg_append_list:   # 如果已经读取了就返回
-            return ERROR_SUCCESS, u""
-        ret = ERROR_SUCCESS, u"读取附件成功"
-        for each_append in self._AppendList:
-            try:
-                f = open(each_append, 'rb')
-            except Exception, e:
-                ret = ERROR_OPEN_APPEND_FAILED, u"无法打开附件: {} \n{}".format(each_append, e)
-                break
-            try:
-                file_content = f.read()
-            except Exception, e:
-                ret = ERROR_READ_APPEND_FAILED, u"无法读取附件: {} \n{}".format(each_append, e)
-                f.close()
-                break
-            f.close()
-            msg_append = MIMEApplication(file_content)
-            f_basename = os.path.basename(each_append).encode(MailProc.ENCODE)
-            msg_append.add_header('Content-Disposition', 'attachment', filename=f_basename)
-            self._msg_append_list.append(msg_append)
-        print_t(ret[1])
-        return ret
-
-    @staticmethod
-    def text_replace(text, data_list):
-        text_ret = text
-        matches = re.findall(MailContent.SPECIAL_STR_PATTERN, text_ret)
-        if not matches:
-            return text_ret
-        matches = list(set(matches))
-        for each_match in matches:
-            index = ord(each_match[3]) - ord('A') + 1
-            if 0 < index < len(data_list):
-                data_tmp = data_list[index]
-                if type(data_tmp) == unicode or type(data_tmp) == str:
-                    text_ret = text_ret.replace(text_ret, data_tmp)
-                else:
-                    text_ret = text_ret.replace(text_ret, u"")
-            else:
-                text_ret = text_ret.replace(text_ret, u"")
-        return text_ret
-
-    @staticmethod
-    def _is_special_content(sub, body):
-        """ 真正作判断的函数 """
-        if re.search(MailContent.SPECIAL_STR_PATTERN, sub) is None and \
-           re.search(MailContent.SPECIAL_STR_PATTERN, body) is None:
-            return False
-        return True
-
-    def is_special_content(self):
-        """  判断内容里面是否有特殊含义的字符需要替换（这样每封邮件都不一样，需要一封封发送）  """
-        return self._bool_special
-
-
 class SimpleMatrix:
     """ 邮件矩阵的基类 """
     def __init__(self, max_send_a_loop=0, mail_matrix=None):
@@ -323,7 +198,7 @@ class XlsMatrix:
         self._mails_has_sent = []
         self._mails_sent_failed = []
 
-    def get_sheet_names(self):     # 可能会出异常 打开失败，调用者注意
+    def get_sheet_names(self):     # 可能会打开失败，调用者注意
         return self._excel.get_sheet_names()
 
     # 注意selected_sheets从1开始，与用户看到的一致，与表格模块不一致 列名： 'A' 'B' ..
@@ -442,10 +317,6 @@ class MailProc:
         self._AccountsMange = accounts_manager
         self._Content = mail_content
 
-        # 每回合发送邮件的数量
-        if self._Content.is_special_content():
-            self._MailMatrix.set_max_send_a_loop(MailProc.MAX_SPECIAL_SEND_A_LOOP)
-
         # 未知错误连续发生的次数
         self._unknown_error_continue_times = 0
 
@@ -473,21 +344,15 @@ class MailProc:
         return ERROR_SUCCESS, u""
 
     @staticmethod
-    def send_one_group(mail_list, account, mail_sub, mail_body, msg_append_list, use_ssl=True):
-        err = ERROR_SUCCESS
-        err_info = ""
+    def send_one_group(mail_list, account, mail_content, use_ssl=True):
         fail_mail = []  # 部分发送失败的邮件
 
-        msg = MIMEMultipart()
-        msg['Subject'] = mail_sub
+        err, err_info, msg = mail_content.to_msg()
+        if err != ERROR_SUCCESS:
+            return err, err_info, fail_mail
+
         msg['From'] = MailProc._format_addr(u"{}<{}>".format(account.sender_name, account.user))
         msg['BCC'] = ";".join(mail_list)
-
-        msg_text = MIMEText(mail_body, 'html', MailProc.ENCODE)
-        msg.attach(msg_text)
-
-        for each_append in msg_append_list:
-            msg.attach(each_append)
 
         print_t(u"Start to send a group")
         if use_ssl:
@@ -538,30 +403,9 @@ class MailProc:
         return err, err_info, fail_mail
 
     def _send_try(self, mail_list):
-        if not self._Content.is_special_content():
-            ret = self.send_one_group(mail_list,
-                                      self._AccountsMange.get_an_account(),
-                                      self._Content.sub(),
-                                      self._Content.body(),
-                                      self._Content.msg_append_list())
-        else:
-            # 特殊邮件只能一封封发
-            ret = ERROR_SUCCESS, u"", []
-            fail_mail = []
-            for offset, each_mail in enumerate(mail_list):
-                ret = self.send_one_group(each_mail,
-                                          self._AccountsMange.get_an_account(),
-                                          self._Content.sub(self._MailMatrix, each_mail),
-                                          self._Content.body(self._MailMatrix, each_mail),
-                                          self._Content.msg_append_list())
-                if ERROR_SUCCESS == ret[0]:
-                    continue
-                elif ERROR_SEND_FAILED_UNKNOWN == ret[0]:
-                    fail_mail += each_mail
-                else:
-                    break
-            if len(fail_mail) != 0 and len(fail_mail) != len(mail_list):     # 部分失败的情况
-                ret = ERROR_SOME_EMAILS_FAILED, u"部分邮件发送失败", fail_mail
+        ret = self.send_one_group(mail_list,
+                                  self._AccountsMange.get_an_account(),
+                                  self._Content)
         return ret
 
     def _send_policy1(self):
@@ -570,7 +414,8 @@ class MailProc:
         ret = {"ErrCode": ERROR_SUCCESS, "ErrLog": "", "SuccessList": [], "FailedList": [],
                "CurrProgress": self._MailMatrix.curr_progress()}  # (成功, 失败, 未发送) 的数量
 
-        err, err_info = self._Content.read_append()
+        # 先测试邮件内容是否正常
+        err, err_info, tmp_msg = self._Content.to_msg()
         if ERROR_SUCCESS != err:
             ret["ErrCode"], ret["ErrLog"] = err, err_info
             return ret
@@ -810,10 +655,10 @@ class MailDB(threading.Thread):
 
         # 邮件内容 标题 正文 附件路径(换行符分开不同的附件) id永远为0
         self._c.execute("CREATE TABLE IF NOT EXISTS mail_content ("
-                        "id INTEGER PRIMARY KEY NOT NULL, "
-                        "sub TEXT, "
-                        "body TEXT, "
-                        "appends TEXT)")
+                        "key TEXT NOT NULL, "
+                        "value TEXT, "
+                        "name TEXT, "
+                        "bin BLOB)")
 
         # 收件人来源 (xls路径，选择的表(逗号隔开), 列) id永远为0
         self._c.execute("CREATE TABLE IF NOT EXISTS receiver ("
@@ -881,12 +726,23 @@ class MailDB(threading.Thread):
 
     # ---------------------------------------------------------------------------
     @maildb_multithread_safe
-    def save_mail_content(self, sub, body, append_path_list):
-        # 邮件内容： 标题 正文 附件路径列表 id永远为0 先删再加
+    def save_mail_content(self, mail_content):
+        # MailContent类型 如果body的resource中含bin_data则把bin_data也存进去
         self._c.execute("DELETE FROM mail_content")
-        append_str = u"\n\n".join(append_path_list)   # 用两个换行符分开不同的附件路径
-        sql_arg = (0, sub, body, append_str)
-        self._c.execute("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+
+        sql_arg = [(u"sub", mail_content.sub(), u"", buffer("")),
+                   (u"body", mail_content.body(), u"", buffer(""))]
+
+        for rc_append in mail_content.append_resource_list():
+            sql_arg.append((u"append", rc_append.path, rc_append.name, buffer("")))
+
+        for i, rc_body in enumerate(mail_content.body_resource_list()):
+            if not rc_body.bin_data:
+                sql_arg.append((u"body_resource", rc_body.path, rc_body.name, buffer("")))
+            else:
+                sql_arg.append((u"body_resource", rc_body.path, rc_body.name, buffer(rc_body.bin_data)))
+
+        self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
         self._save()
 
     @maildb_multithread_safe
@@ -895,10 +751,24 @@ class MailDB(threading.Thread):
         self._c.execute("SELECT * FROM mail_content")
         ret = self._c.fetchall()
         if not ret:
-            return []
-        ret = ret[0]
-        append_path_list = ret[3].split('\n\n')
-        return [ret[1], ret[2], append_path_list]
+            return None
+
+        sub = u""
+        body = u""
+        append_rc_list = []
+        body_rc_list = []
+
+        for key, value, name, blod in ret:
+            if key == u"sub":
+                sub = value
+            elif key == u"body":
+                body = value
+            elif key == u"append":
+                append_rc_list.append(MailResource(value, name))
+            elif key == u"body_resource":
+                body_rc_list.append(MailResource(value, name, str(blod)))
+
+        return MailContent(sub, body, append_rc_list, body_rc_list)
 
     @maildb_multithread_safe
     def del_mail_content(self):
@@ -1230,7 +1100,7 @@ class UIInterface:
         if last_progress:
             is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
         elif last_content:                             # 单纯的恢复发送内容
-            is_recover = self.proc_ask_if_reload_ui(last_content[0])
+            is_recover = self.proc_ask_if_reload_ui(last_content)
         if is_recover:
             self._reload_db_tmp_data()             # 回读所有的界面上的tmp数据然后UI显示
         else:
@@ -1649,7 +1519,7 @@ class UnitTest:
 
     @staticmethod
     def test_sql_db():
-        db_path = ur'send_mail.db'
+        db_path = ur'D:\tmp\sendmail.db'
         db = MailDB(db_path)
         err, err_info = db.init()
         if ERROR_SUCCESS != err:
@@ -1677,24 +1547,28 @@ class UnitTest:
         # ------------------------------------------
         print("\nSave mail_content")
         sub = u"再次分享内容：笛卡尔的思维"
-        body = u"""
-        早在1627 年笛卡尔所写的􀀁指导心灵探求真理
-    的原则􀀁 􀀁 一书中, 笛卡尔就明确谈到了思维和物体
-    相区分的思想。在原则12 中, 笛卡尔区分了纯粹智
-    性的( intellectuelles ) 东西和纯粹物质性
-    ( mat􀀁rielles) 的东西。纯粹智性的东西, 是那些我
-    们无须借助任何物体形象, 而只需理智( l 'entede􀀁
-    ment) 在􀀁 自然光芒􀀁 的照耀下就能认识的东西, 我
+        body = ur'''
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'SimSun'; font-size:16pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">你好dd的都是的<img src="E:\X 发行资料\exit.png" />啥的<img src="E:\X 发行资料\write_mail.png" />阿大声道</p></body></html>
+        '''
 
-        """
-        append_path_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
-                            ur'E:\X 发行资料\文本-内容.txt',
-                           ]
-        db.save_mail_content(sub, body, append_path_list)
-        sub_, body_, append_path_list_ = db.get_mail_content()
-        print(u"Sub = [{}]".format(sub_))
-        print(u"Appends = {}".format(append_path_list_))
-        # print(u"Body = [{}]".format(body_))             # body 有乱码不能打印
+        append_rc_list = [MailResource(ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf', u'hha点事'),
+                          ur'E:\X 发行资料\文本-内容.txt']
+
+        body_rc_list = [MailResource(ur'E:\X 发行资料\exit.png', ur'E:\X 发行资料\exit.png'),
+                        MailResource(ur'E:\X 发行资料\write_mail.png', ur'E:\X 发行资料\write_mail.png')]
+
+        origin_mc = MailContent(sub, body, append_rc_list, body_rc_list)
+        origin_mc.fill_body_resource_bin_data()
+        db.save_mail_content(origin_mc)
+        mc = db.get_mail_content()
+        print(u"Sub = [{}]".format(mc.sub()))
+        print(u"Appends = {}".format(mc.append_resource_list()))
+        print(u"BodyRc = {}".format(mc.body_resource_list()))
+        print(u"Body = [{}]".format(mc.body()))
         print("Clear mail content")
         db.del_mail_content()
         if not db.get_mail_content():
@@ -1885,12 +1759,22 @@ class UnitTest:
 
     @staticmethod
     def test_send_mail():
+        html_body = ur'''
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'SimSun'; font-size:16pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">你好dd的都是的<img src="E:\X 发行资料\exit.png" />啥的<img src="E:\X 发行资料\write_mail.png" />阿大声道</p></body></html>
+        '''
+
         account1 = Account("M201571736@hust.edu.cn", "XXXXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
         account2 = Account("U201313778@hust.edu.cn", "XXXXXXXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
         account3 = Account("XXXXXXXXXX@hust.edu.cn", "XXXXXXXXXX", "mail.hust.edu.cn", u"李嘉成")
         account6 = Account("hustoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
         account7 = Account("mmyzoliver@hainan.net", "qwertyui", "smtp.hainan.net", u"李世明")
         account8 = Account("sys@d3p.com", "123456", "192.168.11.25", u"李世明")
+        account9 = Account("mmyzoliver@gmail.com", "gjakl!QAZ@WSX", u"smtp.gmail.com", u"张珊")
+
         mails = [[""]]
         # i = 20
         # n = 0
@@ -1910,27 +1794,31 @@ class UnitTest:
         mail_db = MailDB(ur'D:\tmp\sendmail.db')
         mail_db.init()
         # mail_matrix = SimpleMatrix(2, mails)             # 一次循环最大发送数量
-        mail_matrix = XlsMatrix(20, ur'E:\点 石测试Haha\2014点石 你好.xls', mail_db)
+        mail_matrix = XlsMatrix(20, ur'E:\X 发行资料\我的点石邮箱16-7-2修改.xls', mail_db)
         err, err_info, l = mail_matrix.get_sheet_names()
         if err != ERROR_SUCCESS:
             print(err_info)
             return
         print(u"Get xls sheets:\n[{}]".format(u", ".join(l)))
-        mail_matrix.init([3, 4], "E")
+        mail_matrix.init(range(3, 9), "D")
         # mail_matrix.init(range(len(l)), "C")
 
-        accounts_list = [ account8 ]
+        accounts_list = [account9]
         account_manger = AccountsMange(accounts_list)
 
-        #mail_sub = ur"——邮件发送出问题，打扰了{}——".format(get_time_str())
+        # mail_sub = ur"——邮件发送出问题，打扰了{}——".format(get_time_str())
         mail_sub = u"再次分享内容：笛卡尔的思维"
 
-        append_list = [ ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf',
-                        ur'E:\X 发行资料\文本-内容.txt',
+        append_list = [MailResource(ur'E:\X 发行资料\简报 点事 （2016年8月）.pdf', u'hha点事'),
+                       ur'E:\X 发行资料\文本-内容.txt',
                       ]
-        path_body = ur'E:\X 发行资料\文本-内容.txt'
-        mail_content = MailContent(mail_sub, path_body, append_list)
-        err, err_info = mail_content.init()
+
+        resource_list = [MailResource(ur'E:\X 发行资料\exit.png', ur'E:\X 发行资料\exit.png'),
+                         MailResource(ur'E:\X 发行资料\write_mail.png', ur'E:\X 发行资料\write_mail.png')]
+
+        mail_content = MailContent(mail_sub, html_body, append_list, resource_list)
+        mail_content.modify_body_with_resource()
+        err, err_info, tmp_msg = mail_content.to_msg()
         if ERROR_SUCCESS != err:
             print(err_info)
             return
@@ -1986,8 +1874,6 @@ class UnitTest:
             time.sleep(10)
 
 
-
 if __name__ == "__main__":
-    UnitTest.test_aupt_sql_db()
-
+    UnitTest.test_sql_db()
 
