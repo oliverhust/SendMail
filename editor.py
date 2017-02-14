@@ -500,48 +500,62 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
     _COLOR_WARNING = Qt.yellow
     _COLOR_ERROR = Qt.red
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, mail_content=None, gui_proc=None):
         super(EmailEditor, self).__init__(parent)
-        self._last_html_str = None
-        self._set_by_program = 0   # 过滤程序设置引发的信号
+        self._last_tab_index = EmailEditor._TAB_INDEX_EDIT   # 切换tab事件发生前
+        self._last_html_str = None                 # 判断在两次切换tab之间用户是否改变了html
+        self.__gui_proc = None
+        self.__window_has_closed = False           # 窗口关闭标志
+        self.__mail_content_when_close = None      # 窗口关闭时的MailContent
 
         self.setupUi(self)
         self._setup_basic_editor()
         self.__init_table_appendix()    # 初始化表格
 
-        self.tabWidget.currentChanged.connect(self.__slot_edit_mode_change)  # 切换到html
+        if mail_content:
+            self.recover_ui(mail_content, False)
+
+        self.tabWidget.currentChanged.connect(self.__slot_edit_mode_change)  # 切换到页面
         self.Button_AddAppend.clicked.connect(self.__slot_add_appendix)
         self.Button_DelAppend.clicked.connect(self.__slot_del_appendix)
-        self.table_Appendix.itemChanged.connect(self.__slot_item_changed)
+        self.table_Appendix.itemChanged.connect(self.__slot_appendix_item_changed)
         self.Button_Appendix.clicked.connect(self.__slot_jump_appendix_tab)
 
+        self.Button_OK.clicked.connect(self.__slot_button_ok)
+        self.Button_Cancel.clicked.connect(self.__slot_button_cancel)
+        self.Button_Save.clicked.connect(self.__slot_button_save)
+
     def to_mail_content(self):
-        sub = unicode(self.Edit_Sub.text())
-        body = self.to_html()
-        append_resources = self.__all_appendix()
-        body_resources = [MailResource(i, i) for i in self.img_src()]
-        content = MailContent(sub, body, append_resources, body_resources)
+        # 如果窗口已经关闭，则返回关闭前的MailContent
+        if self.__window_has_closed:
+            content = deepcopy(self.__mail_content_when_close)
+        else:
+            sub = unicode(self.Edit_Sub.text())
+            body = self.to_html()
+            append_resources = self.__all_appendix()
+            body_resources = [MailResource(i, i) for i in self.img_src()]
+            content = MailContent(sub, body, append_resources, body_resources)
 
         return content
 
-    def recover_ui(self, mail_content):
-        mail_content = MailContent(None, None)
-
+    def recover_ui(self, mail_content, modify_html=True):
         self.Edit_Sub.setText(QString(mail_content.sub()))
         self._ui_add_appends(mail_content.append_resource_list())
 
-        # 复制body resource二进制数据到文件，以及修改html中对应的资源名为新文件名
-        h = HtmlImg(mail_content.body())
-        html_src_list = h.get_img_src()
-        for each_rc in mail_content.body_resource_list():
-            new_file = TmpFile.rand_file_path(file_content=each_rc.bin_data)
-            # 修改html中对应的资源名为新文件名
-            for j, each_html_src in enumerate(html_src_list):
-                if each_rc.name == each_html_src:
-                    html_src_list[j] = new_file
-        h.replace_img_src(html_src_list)
-
-        self.set_html(h.html())
+        if modify_html:
+            # 复制body resource二进制数据到文件，以及修改html中对应的资源名为新文件名
+            h = HtmlImg(mail_content.body())
+            html_src_list = h.get_img_src()
+            for each_rc in mail_content.body_resource_list():
+                new_file = TmpFile.rand_file_path(file_content=each_rc.bin_data)
+                # 修改html中对应的资源名为新文件名
+                for j, each_html_src in enumerate(html_src_list):
+                    if each_rc.name == each_html_src:
+                        html_src_list[j] = new_file
+            h.replace_img_src(html_src_list)
+            self.set_html(h.html())
+        else:
+            self.set_html(mail_content.body())
 
     def __init_table_appendix(self):
         self.table_Appendix.setColumnCount(4)
@@ -560,17 +574,39 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
                 table_item.setToolTip(QString(tool_tips[i]))
             self.table_Appendix.setHorizontalHeaderItem(i, table_item)
 
-    # 编辑模式变化(超文本编辑/html编辑)
+    # 编辑模式变化(超文本编辑/html编辑/附件)
     def __slot_edit_mode_change(self, curr_index):
+        last_index = self._last_tab_index
+        self._last_tab_index = curr_index
+        if curr_index == last_index:
+            return
 
-        if curr_index == self._TAB_INDEX_EDIT:
-            html_str = self.PlainTextEdit_Html.toPlainText()
-            if html_str != self._last_html_str:
-                self.textEdit.setHtml(QString(html_str))
-        elif curr_index == self._TAB_INDEX_HTML:
+        if last_index == EmailEditor._TAB_INDEX_EDIT:
             html_str = QString(self.textEdit.toHtml())
             self._last_html_str = QString(html_str)
             self.PlainTextEdit_Html.setPlainText(html_str)
+        elif last_index == EmailEditor._TAB_INDEX_HTML:
+            html_str = self.PlainTextEdit_Html.toPlainText()
+            if html_str != self._last_html_str:
+                self.textEdit.setHtml(QString(html_str))
+
+    # -----------------------------------------------------------------------------------------
+    # 确认/取消/保存
+    def __slot_button_ok(self):
+        self.__mail_content_when_close = self.to_mail_content()
+        if self.__gui_proc:
+            self.__gui_proc.save_mail_content(self.__mail_content_when_close)
+
+        self.accept()
+        self.__window_has_closed = True
+
+    def __slot_button_cancel(self):
+        self.reject()
+        self.__window_has_closed = True
+
+    def __slot_button_save(self):
+        if self.__gui_proc:
+            self.__gui_proc.save_mail_content(self.to_mail_content())
 
     # -----------------------------------------------------------------------------------------
     # 增/删/编辑附件
@@ -588,7 +624,7 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         # 附件按钮文字改变
         self.__update_appendix_button_num()
 
-    def __slot_item_changed(self, item):
+    def __slot_appendix_item_changed(self, item):
         # 防止无穷递归
         if self._set_by_program > 0:
             return
@@ -600,15 +636,17 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
 
         new_item = QTableWidgetItem(item)
         self._set_by_program += 1
-        if not EmailEditor.__is_good_basename(unicode(item.text())):
-            new_item.setBackgroundColor(EmailEditor._COLOR_WARNING)
-            self.table_Appendix.setItem(item.row(), item.column(), new_item)
-            new_item.setSelected(False)
-        else:
-            new_item.setBackgroundColor(Qt.transparent)
-            self.table_Appendix.setItem(item.row(), item.column(), new_item)
-            new_item.setSelected(False)
-        self._set_by_program -= 1
+        try:
+            if not EmailEditor.__is_good_basename(unicode(item.text())):
+                new_item.setBackgroundColor(EmailEditor._COLOR_WARNING)
+                self.table_Appendix.setItem(item.row(), item.column(), new_item)
+                new_item.setSelected(False)
+            else:
+                new_item.setBackgroundColor(Qt.transparent)
+                self.table_Appendix.setItem(item.row(), item.column(), new_item)
+                new_item.setSelected(False)
+        finally:
+            self._set_by_program -= 1
 
     def __slot_jump_appendix_tab(self):
         if self.tabWidget.currentIndex() != EmailEditor._TAB_INDEX_APPENDIX:

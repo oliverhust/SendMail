@@ -27450,3 +27450,220 @@ Open database success, Ver = 2.6.0
 Thread maildb flush timer started.
 The progress will reload
 Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/13 23:00:46] Start the program
+[2017/02/13 23:00:46]
+The form has loaded
+The Event form load occur.
+[2017/02/13 23:00:46]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Traceback (most recent call last):
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 346, in __slot_insert_picture
+    self._insert_qimage(QImage(src))
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 370, in _insert_qimage
+    new_file = TmpFile.qimage2tmp(qimage)
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 41, in qimage2tmp
+    file_path = TmpFile.rand_file_path()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 63, in rand_file_path
+    file_path = os.path.join(dir_self, file_name)
+  File "C:\Python27\lib\ntpath.py", line 65, in join
+    result_drive, result_path = splitdrive(path)
+  File "C:\Python27\lib\ntpath.py", line 115, in splitdrive
+    if len(p) > 1:
+TypeError: object of type 'NoneType' has no len()
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/14 00:11:11] Start the program
+[2017/02/14 00:11:11]
+The form has loaded
+The Event form load occur.
+[2017/02/14 00:11:11]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1114, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 433, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 301, in get_ui_data_to_memory
+    print(u"mail_content = {}".format(repr(self._mail_content)))
+  File "E:\MyDocuments\Python\SendMail\cfg_data.py", line 148, in __repr__
+    self.sub(), len(self.body()), self._AppendList, self._BodyResourceList
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 3-5: ordinal not in range(128)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/14 00:17:09] Start the program
+[2017/02/14 00:17:09]
+The form has loaded
+The Event form load occur.
+[2017/02/14 00:17:09]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1114, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 433, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 301, in get_ui_data_to_memory
+    print(u"mail_content = {}".format(repr(self._mail_content)))
+  File "E:\MyDocuments\Python\SendMail\cfg_data.py", line 148, in __repr__
+    self.sub(), len(self.body()), repr(self._AppendList), self._BodyResourceList
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 5-6: ordinal not in range(128)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/14 00:18:22] Start the program
+[2017/02/14 00:18:22]
+The form has loaded
+The Event form load occur.
+[2017/02/14 00:18:22]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1114, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 433, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 301, in get_ui_data_to_memory
+    print(u"mail_content = {}".format(repr(self._mail_content)))
+  File "E:\MyDocuments\Python\SendMail\cfg_data.py", line 148, in __repr__
+    self.sub(), len(self.body()), repr(self._AppendList), repr(self._BodyResourceList)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/14 00:19:33] Start the program
+[2017/02/14 00:19:34]
+The form has loaded
+The Event form load occur.
+[2017/02/14 00:19:34]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1114, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 433, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 301, in get_ui_data_to_memory
+    print(u"mail_content = {}".format(repr(self._mail_content)))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 18-22: ordinal not in range(128)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/14 00:21:12] Start the program
+[2017/02/14 00:21:12]
+The form has loaded
+The Event form load occur.
+[2017/02/14 00:21:12]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1115, in event_main_exit_and_save
+    self._save_ui_data_to_db(data)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1214, in _save_ui_data_to_db
+    self._db.save_mail_content(data["MailContent"])
+  File "E:\MyDocuments\Python\SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 745, in save_mail_content
+    self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+sqlite3.IntegrityError: datatype mismatch
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/14 22:34:11] Start the program
+[2017/02/14 22:34:11]
+The form has loaded
+The Event form load occur.
+[2017/02/14 22:34:11]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/14 22:42:39] Start the program
+[2017/02/14 22:42:39]
+The form has loaded
+The Event form load occur.
+[2017/02/14 22:42:39]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/15 00:44:04] Start the program
+[2017/02/15 00:44:04]
+The form has loaded
+The Event form load occur.
+[2017/02/15 00:44:04]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Thread maildb flush stopped.

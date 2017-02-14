@@ -143,6 +143,11 @@ class MailContent:
         # 暂存附件/内部资源内容不用每次读取
         self.__msg = None
 
+    def __repr__(self):
+        return u"MailContent(Sub = {}, Body_html_len = {}, Appendix = {}, BodyResource = {})".format(
+            self.sub(), len(self.body()), repr(self._AppendList), repr(self._BodyResourceList)
+        )
+
     def sub(self):
         return self._Sub
 

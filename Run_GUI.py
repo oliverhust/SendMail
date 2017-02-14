@@ -17,6 +17,7 @@ from mylog import *
 from cfg_data import *
 from etc_func import *
 from main import UIInterface, UITimer
+from editor import EmailEditor, TmpFile
 
 
 if 'Windows' in platform.system():
@@ -175,10 +176,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         # 直接关闭窗口
         self.connect(self.button_close, SIGNAL("clicked()"), self.slot_button_close)
 
-        # 打开正文、附件、Excel
-        self.connect(self.pushButton_body, SIGNAL("clicked()"), self.slot_open_body)
-        self.connect(self.pushButton_append, SIGNAL("clicked()"), self.slot_open_appends)
-        self.connect(self.pushButton_mail_list, SIGNAL("clicked()"), self.slot_open_mail_list)
+        # 编辑邮件，打开Excel
+        self.pushButton_edit_mail.clicked.connect(self.slot_edit_mail)
+        self.pushButton_mail_list.clicked.connect(self.slot_open_mail_list)
 
         # 按钮 开始、退出
         self.connect(self.pushButton_OK, SIGNAL("clicked()"), self.slot_button_run)
@@ -189,9 +189,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.connect(self.pushButton_account_del, SIGNAL("clicked()"), self.account_del)
 
         # 用户界面数据
-        self._sub = u""
-        self._body_path = u""
-        self._append_list = []
+        self._mail_content = None
         self._xls_path = u""
         self._xls_selected_list = []
         self._xls_col_name = u""
@@ -200,20 +198,12 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self._speed_each_time = 40
         self._account_list = []
 
-    def slot_open_body(self):
-        self.label_body.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
-        s = QFileDialog.getOpenFileName(self, QString(u"打开正文"), "/", "Text file(*.txt)")
-        if len(s) == 0:
-            self._body_path = u""
+    def slot_edit_mail(self):
+        editor_win = EmailEditor(mail_content=self._mail_content, gui_proc=self._GUIProc)
+        if editor_win.exec_():
+            self._set_mail_content(editor_win.to_mail_content())
         else:
-            self._body_path = unicode(s)
-        self.label_body.setText(QString(self._body_path))
-
-    def slot_open_appends(self):
-        self.label_append.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
-        s_list = QFileDialog.getOpenFileNames(self, QString(u"选择附件(可同时选中多个)"), "/", "All files(*.*)")
-        # 拼接附件文件名
-        self.set_ui_appends([unicode(each_append) for each_append in s_list])
+            self._set_mail_content(self._GUIProc.get_mail_content() if self._GUIProc else None)
 
     def slot_open_mail_list(self):
         self.label_maillist.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
@@ -247,12 +237,19 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         for i in range(len(self._account_list)):
             self._account_list[i].sender_name = sender_name
 
+    def _set_mail_content(self, mail_content):
+        self._mail_content = mail_content
+        if mail_content:
+            self.label_mail_info.setText(QString(self._mail_content.sub()))
+        else:
+            self.label_mail_info.setText(QString(u""))
+
     def _ui_data_check(self):
-        if len(unicode(self.lineEdit_Sub.text())) == 0:
+        if len(unicode(self._mail_content.sub())) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入标题"))
             return False
-        if len(self._body_path) == 0:
-            QMessageBox.critical(self, u"Input Error", QString(u"请输入正文txt文件所在路径"))
+        if len(unicode(self._mail_content.body())) == 0:
+            QMessageBox.critical(self, u"Input Error", QString(u"请输入邮件正文"))
             return False
         if len(self._xls_path) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入包含邮箱列表的Excel表格所在路径"))
@@ -286,7 +283,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         return True
 
     def get_ui_data_to_memory(self):
-        self._sub = unicode(self.lineEdit_Sub.text())
         # xls表格位置选择
         txt_from = unicode(self.lineEdit_Xls_From.text())
         txt_to = unicode(self.lineEdit_Xls_To.text())
@@ -302,7 +298,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self._speed_each_time = self.spinBox_Each_Time.value()
         self._set_account_list_sender_name(self._sender_name)
 
-        print(u"sub = {}\nbody_path = {}\nappend_list = {}\npath_xls = {}".format(self._sub, self._body_path, self._append_list, self._xls_path))
+        print(u"mail_content = {}".format(repr(self._mail_content)))
         print(u"selected = {}, col_name = {}, sender_name = {}".format(self._xls_selected_list, self._xls_col_name, self._sender_name))
         print(u"Speed each hour = {}, each time = {}".format(self._speed_each_hour, self._speed_each_time))
         for i, account in enumerate(self._account_list):
@@ -315,18 +311,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         if self._GUIProc is not None:
             # 【【【【调用GUI的事件处理函数: 开始发送】】】】
             self._GUIProc.event_start_send()
-
-    def set_ui_appends(self, full_append_path_list):
-        self._append_list = [append for append in full_append_path_list if append]
-        append_str = u";".join([os.path.basename(each_append) for each_append in self._append_list])
-        append_str = append_str.replace("\\", "/")
-        self.label_append.setText(QString(append_str))
-
-        if self._append_list:
-            append_head = u"附件({}个) ".format(len(self._append_list))
-        else:
-            append_head = u"附件"
-        self.label_append_head.setText(QString(append_head))
 
     def account_add(self):
         # 弹出添加账户界面
@@ -416,12 +400,7 @@ class GUIMain(UIInterface, MainWindow):
         return ret
 
     def proc_reload_tmp_data_to_ui(self, data):
-        self._sub = data["Sub"]
-        self.lineEdit_Sub.setText(QString(self._sub))
-        self._body_path = data["Body"]
-        self.label_body.setText(QString(self._body_path))
-
-        self.set_ui_appends(data["AppendList"])
+        self._set_mail_content(data["MailContent"])
 
         self._xls_path = data["XlsPath"]
         self.label_maillist.setText(QString(self._xls_path))
@@ -452,7 +431,7 @@ class GUIMain(UIInterface, MainWindow):
 
     def proc_get_all_ui_data(self):
         self.get_ui_data_to_memory()
-        data = {"Sub": self._sub, "Body": self._body_path, "AppendList": self._append_list[:],
+        data = {"MailContent": self._mail_content,
                 "XlsPath": self._xls_path, "ColName": self._xls_col_name, "SelectedList": self._xls_selected_list[:],
                 "EachHour": self._speed_each_hour, "EachTime": self._speed_each_time,
                 "AccountList": self._account_list[:]}
@@ -906,9 +885,11 @@ def main_init():
         exit(1)
     print(u"Init the log.")
     logging_init("Send_Mail.log")
+    TmpFile.init()
 
 
 def main_fini():
+    TmpFile.fini()
     logging_fini()
     check_program_has_same_fini()
 
@@ -916,14 +897,16 @@ def main_fini():
 # Main Function
 def main():
     main_init()
-    QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
-    app = QApplication(sys.argv)
-    # app.setStyle("cleanlooks")
-    # app.setStyle("plastique")
-    win = GUIMain()
-    win.show()
-    app.exec_()
-    main_fini()
+    try:
+        QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
+        app = QApplication(sys.argv)
+        # app.setStyle("cleanlooks")
+        # app.setStyle("plastique")
+        win = GUIMain()
+        win.show()
+        app.exec_()
+    finally:
+        main_fini()
 
 
 if __name__=='__main__':

@@ -1100,7 +1100,7 @@ class UIInterface:
         if last_progress:
             is_recover = self.proc_ask_if_recover(last_progress[0], last_progress[1], last_progress[2])
         elif last_content:                             # 单纯的恢复发送内容
-            is_recover = self.proc_ask_if_reload_ui(last_content)
+            is_recover = self.proc_ask_if_reload_ui(last_content.sub())
         if is_recover:
             self._reload_db_tmp_data()             # 回读所有的界面上的tmp数据然后UI显示
         else:
@@ -1175,6 +1175,12 @@ class UIInterface:
         ndr_data_list = self._ndr.get_all_ndr_data()
         return excel.save_ndr_data(ndr_data_list)
 
+    def save_mail_content(self, mail_content):
+        self._db.save_mail_content(mail_content)
+
+    def get_mail_content(self):
+        self._db.get_mail_content()
+
     @staticmethod
     def check_account_login(user_name, passwd, host):
         return MailProc.check_account_login(user_name, passwd, host)
@@ -1182,12 +1188,7 @@ class UIInterface:
     # -----------------------------------------------------------------------------
 
     def _reload_db_tmp_data(self):
-        data = {}
-        tmp = self._db.get_mail_content()
-        if tmp:
-            data["Sub"], data["Body"], data["AppendList"] = tmp
-        else:
-            data["Sub"], data["Body"], data["AppendList"] = u"", u"", u""
+        data = {"MailContent": self._db.get_mail_content()}
 
         tmp = self._db.get_receiver_data()
         if tmp:
@@ -1210,7 +1211,7 @@ class UIInterface:
         self.proc_reload_account_list_to_ui(account_list)
 
     def _save_ui_data_to_db(self, data):
-        self._db.save_mail_content(data["Sub"], data["Body"], data["AppendList"])
+        self._db.save_mail_content(data["MailContent"])
         self._db.save_receiver_data(data["XlsPath"], data["SelectedList"], data["ColName"])
         self._db.save_speed_info(data["EachHour"], data["EachTime"])
         self._db.save_accounts(data["AccountList"])
