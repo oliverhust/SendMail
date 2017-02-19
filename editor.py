@@ -4,10 +4,7 @@
 import os
 import sys
 import re
-import shutil
-import random
 from copy import deepcopy
-import tempfile
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -15,67 +12,8 @@ from PyQt4.QtGui import *
 from ui_editor import Ui_Dialog_Editor
 from ui_editor_addlink import Ui_Dialog_AddLink
 from ui_editor_addtable import Ui_Dialog_AddTable
-from etc_func import html_escape, random_str
-from cfg_data import HtmlImg, MailResource, MailContent
-
-
-class TmpFile:
-
-    _TMPDIR = None
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def init():
-        TmpFile._TMPDIR = tempfile.mkdtemp()
-
-    @staticmethod
-    def fini():
-        if TmpFile._TMPDIR:
-            shutil.rmtree(TmpFile._TMPDIR, ignore_errors=True)
-            TmpFile._TMPDIR = None
-
-    @staticmethod
-    def qimage2tmp(qimage):
-        file_path = TmpFile.rand_file_path()
-        qimage.save(QString(file_path), u'jpg')
-        return file_path
-
-    @staticmethod
-    def copy(src_file):
-        # 返回文件路径, 文件不存在则IOError异常
-        dst_file = TmpFile.rand_file_path()
-
-        shutil.copy(src_file, dst_file)
-
-        return dst_file
-
-    @staticmethod
-    def rand_file_path(dirname=None, filename_len=16, file_content=None):
-        # 返回一个随机文件名(带路径)，但默认不会创建文件。如果带file_content才会创建
-        if not dirname:
-            dir_self = TmpFile._TMPDIR
-        else:
-            dir_self = dirname
-
-        file_name = random_str(filename_len)
-        file_path = os.path.join(dir_self, file_name)
-
-        if not file_content or not isinstance(file_content, str):
-            return file_path
-
-        f = open(file_path, 'wb')
-        try:
-            f.write(file_content)
-        finally:
-            f.close()
-
-        return file_path
-
-    @staticmethod
-    def get_dir():
-        return TmpFile._TMPDIR
+from etc_func import html_escape
+from cfg_data import TmpFile, HtmlImg, MailResource, MailContent
 
 
 class WinAddLink(QDialog, Ui_Dialog_AddLink):
@@ -250,7 +188,7 @@ class BasicEditor(Ui_Dialog_Editor):
         self.textEdit.setHtml(QString(html_str))
 
     def to_html(self):
-        return self.textEdit.toHtml()
+        return unicode(self.textEdit.toHtml())
 
     def img_src(self):
         html_img = HtmlImg(self.textEdit.toHtml())
@@ -500,20 +438,20 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
     _COLOR_WARNING = Qt.yellow
     _COLOR_ERROR = Qt.red
 
-    def __init__(self, parent=None, mail_content=None, gui_proc=None):
+    def __init__(self, parent=None, gui_proc=None, mail_content=None):
         super(EmailEditor, self).__init__(parent)
         self._last_tab_index = EmailEditor._TAB_INDEX_EDIT   # 切换tab事件发生前
         self._last_html_str = None                 # 判断在两次切换tab之间用户是否改变了html
-        self.__gui_proc = None
+        self.__gui_proc = gui_proc
         self.__window_has_closed = False           # 窗口关闭标志
-        self.__mail_content_when_close = None      # 窗口关闭时的MailContent
+        self.__mail_content_finally = None      # 窗口关闭时的MailContent
 
         self.setupUi(self)
         self._setup_basic_editor()
         self.__init_table_appendix()    # 初始化表格
 
         if mail_content:
-            self.recover_ui(mail_content, False)
+            self.recover_ui(mail_content)
 
         self.tabWidget.currentChanged.connect(self.__slot_edit_mode_change)  # 切换到页面
         self.Button_AddAppend.clicked.connect(self.__slot_add_appendix)
@@ -526,9 +464,9 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         self.Button_Save.clicked.connect(self.__slot_button_save)
 
     def to_mail_content(self):
-        # 如果窗口已经关闭，则返回关闭前的MailContent
+        # 如果窗口已经关闭，则返回关闭前的MailContent 返回的MailContent不包含bin_data
         if self.__window_has_closed:
-            content = deepcopy(self.__mail_content_when_close)
+            content = deepcopy(self.__mail_content_finally)
         else:
             sub = unicode(self.Edit_Sub.text())
             body = self.to_html()
@@ -539,23 +477,12 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         return content
 
     def recover_ui(self, mail_content, modify_html=True):
+        mail_content.rc_name_mode_edit()
         self.Edit_Sub.setText(QString(mail_content.sub()))
         self._ui_add_appends(mail_content.append_resource_list())
-
         if modify_html:
-            # 复制body resource二进制数据到文件，以及修改html中对应的资源名为新文件名
-            h = HtmlImg(mail_content.body())
-            html_src_list = h.get_img_src()
-            for each_rc in mail_content.body_resource_list():
-                new_file = TmpFile.rand_file_path(file_content=each_rc.bin_data)
-                # 修改html中对应的资源名为新文件名
-                for j, each_html_src in enumerate(html_src_list):
-                    if each_rc.name == each_html_src:
-                        html_src_list[j] = new_file
-            h.replace_img_src(html_src_list)
-            self.set_html(h.html())
-        else:
-            self.set_html(mail_content.body())
+            mail_content.rc_data_mode_file()
+        self.set_html(mail_content.body())
 
     def __init_table_appendix(self):
         self.table_Appendix.setColumnCount(4)
@@ -593,15 +520,21 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
     # -----------------------------------------------------------------------------------------
     # 确认/取消/保存
     def __slot_button_ok(self):
-        self.__mail_content_when_close = self.to_mail_content()
+        self.__mail_content_finally = self.to_mail_content()
         if self.__gui_proc:
-            self.__gui_proc.save_mail_content(self.__mail_content_when_close)
+            self.__gui_proc.save_mail_content(self.__mail_content_finally)
 
         self.accept()
         self.__window_has_closed = True
 
     def __slot_button_cancel(self):
         self.reject()
+        # 从数据库里面取MailContent
+        if self.__gui_proc:
+            mail_content = self.__gui_proc.get_mail_content()
+            if mail_content is not None:
+                mail_content.rc_data_mode_file()
+            self.__mail_content_finally = mail_content
         self.__window_has_closed = True
 
     def __slot_button_save(self):

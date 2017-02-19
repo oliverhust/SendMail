@@ -726,28 +726,37 @@ class MailDB(threading.Thread):
 
     # ---------------------------------------------------------------------------
     @maildb_multithread_safe
-    def save_mail_content(self, mail_content):
+    def save_mail_content(self, mail_content, save_bin_data=True):
         # MailContent类型 如果body的resource中含bin_data则把bin_data也存进去
         self._c.execute("DELETE FROM mail_content")
 
-        sql_arg = [(u"sub", mail_content.sub(), u"", buffer("")),
-                   (u"body", mail_content.body(), u"", buffer(""))]
+        if not mail_content:
+            return
+
+        sql_arg = [(u"sub", unicode(mail_content.sub()), u"", buffer("")),
+                   (u"body", unicode(mail_content.body()), u"", buffer(""))]
 
         for rc_append in mail_content.append_resource_list():
-            sql_arg.append((u"append", rc_append.path, rc_append.name, buffer("")))
+            sql_arg.append((u"append", unicode(rc_append.path), unicode(rc_append.name), buffer("")))
 
+        # 读取正文资源的二进制，如果没有则读取
         for i, rc_body in enumerate(mail_content.body_resource_list()):
-            if not rc_body.bin_data:
-                sql_arg.append((u"body_resource", rc_body.path, rc_body.name, buffer("")))
-            else:
-                sql_arg.append((u"body_resource", rc_body.path, rc_body.name, buffer(rc_body.bin_data)))
+            bin_data = ""
+            if save_bin_data:
+                if rc_body.bin_data:
+                    bin_data = rc_body.bin_data
+                else:
+                    err, err_info, bin_data = mail_content.body_resource_bin_data(i)
+                    if err != ERROR_SUCCESS:
+                        continue
+            sql_arg.append((u"body_resource", unicode(rc_body.path), unicode(rc_body.name), buffer(bin_data)))
 
         self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
         self._save()
 
     @maildb_multithread_safe
     def get_mail_content(self):
-        # 返回邮件内容：[ 标题, 正文, 附件路径列表 ] id永远为0
+        # 返回邮件内容：MailContent类型
         self._c.execute("SELECT * FROM mail_content")
         ret = self._c.fetchall()
         if not ret:
@@ -1179,7 +1188,7 @@ class UIInterface:
         self._db.save_mail_content(mail_content)
 
     def get_mail_content(self):
-        self._db.get_mail_content()
+        return self._db.get_mail_content()
 
     @staticmethod
     def check_account_login(user_name, passwd, host):
@@ -1227,10 +1236,8 @@ class UIInterface:
 
         self._account_manger = AccountsMange(data["AccountList"])
 
-        self._mail_content = MailContent(data["Sub"], data["Body"], data["AppendList"])
-        err, err_info = self._mail_content.init()
-        if err != ERROR_SUCCESS:
-            return err, err_info
+        self._mail_content = deepcopy(data["MailContent"])
+        self._mail_content.rc_name_mode_mail()
 
         self._mail_proc = MailProc(self._mail_matrix, self._account_manger, self._mail_content)
 
@@ -1818,7 +1825,7 @@ p, li { white-space: pre-wrap; }
                          MailResource(ur'E:\X 发行资料\write_mail.png', ur'E:\X 发行资料\write_mail.png')]
 
         mail_content = MailContent(mail_sub, html_body, append_list, resource_list)
-        mail_content.modify_body_with_resource()
+        mail_content.rc_name_mode_mail()
         err, err_info, tmp_msg = mail_content.to_msg()
         if ERROR_SUCCESS != err:
             print(err_info)

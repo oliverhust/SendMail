@@ -27667,3 +27667,1385 @@ The Event form load occur.
 Open database success, Ver = 2.6.0
 Thread maildb flush timer started.
 Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/15 00:46:46] Start the program
+[2017/02/15 00:46:46]
+The form has loaded
+The Event form load occur.
+[2017/02/15 00:46:46]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Program signal
+Program signal
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1114, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 433, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 301, in get_ui_data_to_memory
+    print(u"mail_content = {}".format(repr(self._mail_content)))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 18-23: ordinal not in range(128)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/15 00:48:28] Start the program
+[2017/02/15 00:48:28]
+The form has loaded
+The Event form load occur.
+[2017/02/15 00:48:28]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/15 00:56:13] Start the program
+[2017/02/15 00:56:13]
+The form has loaded
+The Event form load occur.
+[2017/02/15 00:56:13]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail\editor.py", line 609, in __slot_button_save
+    self.__gui_proc.save_mail_content(self.to_mail_content())
+  File "E:/MyDocuments/Python/SendMail\main.py", line 1179, in save_mail_content
+    self._db.save_mail_content(mail_content)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 745, in save_mail_content
+    self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+sqlite3.IntegrityError: datatype mismatch
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail\editor.py", line 609, in __slot_button_save
+    self.__gui_proc.save_mail_content(self.to_mail_content())
+  File "E:/MyDocuments/Python/SendMail\main.py", line 1179, in save_mail_content
+    self._db.save_mail_content(mail_content)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 745, in save_mail_content
+    self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+sqlite3.IntegrityError: datatype mismatch
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/17 23:22:16] Start the program
+[2017/02/17 23:22:17]
+The form has loaded
+The Event form load occur.
+[2017/02/17 23:22:17]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Traceback (most recent call last):
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 598, in __slot_button_ok
+    self.__gui_proc.save_mail_content(self.__mail_content_when_close)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1179, in save_mail_content
+    self._db.save_mail_content(mail_content)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 745, in save_mail_content
+    self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+sqlite3.IntegrityError: datatype mismatch
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/17 23:22:44] Start the program
+[2017/02/17 23:22:44]
+The form has loaded
+The Event form load occur.
+[2017/02/17 23:22:44]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Traceback (most recent call last):
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 598, in __slot_button_ok
+    self.__gui_proc.save_mail_content(self.__mail_content_when_close)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1179, in save_mail_content
+    self._db.save_mail_content(mail_content)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 745, in save_mail_content
+    self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+sqlite3.IntegrityError: datatype mismatch
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/17 23:24:55] Start the program
+[2017/02/17 23:24:56]
+The form has loaded
+The Event form load occur.
+[2017/02/17 23:24:56]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail\editor.py", line 598, in __slot_button_ok
+    self.__gui_proc.save_mail_content(self.__mail_content_when_close)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 1179, in save_mail_content
+    self._db.save_mail_content(mail_content)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 745, in save_mail_content
+    self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+sqlite3.InterfaceError: Error binding parameter 1 - probably unsupported type.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/17 23:28:29] Start the program
+[2017/02/17 23:28:29]
+The form has loaded
+The Event form load occur.
+[2017/02/17 23:28:29]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\JetBrains\PyCharm 2016.3.2\helpers\pydev\_pydevd_bundle\pydevd_comm.py", line 1125, in do_it
+    result = pydevd_vars.evaluate_expression(self.thread_id, self.frame_id, self.expression, self.doExec)
+  File "C:\Program Files (x86)\JetBrains\PyCharm 2016.3.2\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 356, in evaluate_expression
+    Exec(expression, updated_globals, frame.f_locals)
+  File "C:\Program Files (x86)\JetBrains\PyCharm 2016.3.2\helpers\pydev\_pydevd_bundle\pydevd_exec.py", line 3, in Exec
+    exec exp in global_vars, local_vars
+  File "<string>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail\editor.py", line 598, in __slot_button_ok
+    self.__gui_proc.save_mail_content(self.__mail_content_when_close)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 1179, in save_mail_content
+    self._db.save_mail_content(mail_content)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:/MyDocuments/Python/SendMail\main.py", line 745, in save_mail_content
+    self._c.executemany("INSERT INTO mail_content VALUES (?,?,?,?)", sql_arg)
+sqlite3.InterfaceError: Error binding parameter 1 - probably unsupported type.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/17 23:40:05] Start the program
+[2017/02/17 23:40:05]
+The form has loaded
+The Event form load occur.
+[2017/02/17 23:40:05]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/18 00:08:26] Start the program
+[2017/02/18 00:08:27]
+The form has loaded
+The Event form load occur.
+[2017/02/18 00:08:27]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/18 00:22:01] Start the program
+[2017/02/18 00:22:01]
+The form has loaded
+The Event form load occur.
+[2017/02/18 00:22:01]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/18 00:26:52] Start the program
+[2017/02/18 00:26:52]
+The form has loaded
+The Event form load occur.
+[2017/02/18 00:26:52]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+User cancel reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = , Body_html_len = 534, Appendix = [], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp2bbicm\\pav8d4rkm39dlf1g', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp2bbicm\\pav8d4rkm39dlf1g')])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/18 00:28:10] Start the program
+[2017/02/18 00:28:10]
+The form has loaded
+The Event form load occur.
+[2017/02/18 00:28:10]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = None
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1121, in event_main_exit_and_save
+    self._save_ui_data_to_db(data)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1220, in _save_ui_data_to_db
+    self._db.save_mail_content(data["MailContent"])
+  File "E:\MyDocuments\Python\SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 733, in save_mail_content
+    sql_arg = [(u"sub", unicode(mail_content.sub()), u"", buffer("")),
+AttributeError: 'NoneType' object has no attribute 'sub'
+Exit and save.
+
+mail_content = None
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1121, in event_main_exit_and_save
+    self._save_ui_data_to_db(data)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1220, in _save_ui_data_to_db
+    self._db.save_mail_content(data["MailContent"])
+  File "E:\MyDocuments\Python\SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 733, in save_mail_content
+    sql_arg = [(u"sub", unicode(mail_content.sub()), u"", buffer("")),
+AttributeError: 'NoneType' object has no attribute 'sub'
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 19:50:03] Start the program
+[2017/02/19 19:50:03]
+The form has loaded
+The Event form load occur.
+[2017/02/19 19:50:03]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+mail_content = None
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1121, in event_main_exit_and_save
+    self._save_ui_data_to_db(data)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1220, in _save_ui_data_to_db
+    self._db.save_mail_content(data["MailContent"])
+  File "E:\MyDocuments\Python\SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 733, in save_mail_content
+    sql_arg = [(u"sub", unicode(mail_content.sub()), u"", buffer("")),
+AttributeError: 'NoneType' object has no attribute 'sub'
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 19:53:36] Start the program
+[2017/02/19 19:53:36]
+The form has loaded
+The Event form load occur.
+[2017/02/19 19:53:36]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+mail_content = None
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 19:53:43] Start the program
+[2017/02/19 19:53:43]
+The form has loaded
+The Event form load occur.
+[2017/02/19 19:53:43]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = sdafasd  ad avadas , Body_html_len = 802, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u6301\u7eed\u96c6\u6210\u73af\u5883\u642d\u5efa\u8bb0\u5f55.txt', u'\u6301\u7eed\u96c6\u6210\u73af\u5883\u642d\u5efa\u8bb0\u5f55.txt'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirlckl\\qmftqg5i08j8ek40', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirlckl\\qmftqg5i08j8ek40'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirlckl\\4bif8ngvd9kvcfgj', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirlckl\\4bif8ngvd9kvcfgj')])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 19:58:58] Start the program
+[2017/02/19 19:58:59]
+The form has loaded
+The Event form load occur.
+[2017/02/19 19:58:59]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1123, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 433, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 301, in get_ui_data_to_memory
+    print(u"mail_content = {}".format(repr(self._mail_content)))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 37-38: ordinal not in range(128)
+Exit and save.
+
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 232, in slot_button_cancel
+    self._GUIProc.event_main_exit_and_save()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1123, in event_main_exit_and_save
+    data = self.proc_get_all_ui_data()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 433, in proc_get_all_ui_data
+    self.get_ui_data_to_memory()
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 301, in get_ui_data_to_memory
+    print(u"mail_content = {}".format(repr(self._mail_content)))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 37-38: ordinal not in range(128)
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = sdafasd  ad avadas , Body_html_len = 4028, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg'), MailRC(u'E:\\BOOK\\\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf', u'\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\b7w43dp51cgadoq2', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\b7w43dp51cgadoq2'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\4mm2zob51jgockun', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\4mm2zob51jgockun')])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:07:21] Start the program
+[2017/02/19 20:07:21]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:07:21]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'sdafasd  ad avadas \u4f60\u597d\u5417', Body_html_len = 4028, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg'), MailRC(u'E:\\BOOK\\\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf', u'\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\b7w43dp51cgadoq2', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\b7w43dp51cgadoq2'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\4mm2zob51jgockun', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\4mm2zob51jgockun')])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:07:36] Start the program
+[2017/02/19 20:07:37]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:07:37]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'sdafasd  ad avadas \u4f60\u597d\u5417\\iafsafsda', Body_html_len = 3213, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg'), MailRC(u'E:\\BOOK\\\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf', u'\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\4mm2zob51jgockun', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaesdne\\4mm2zob51jgockun')])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:20:47] Start the program
+[2017/02/19 20:20:47]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:20:47]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Exit and save.
+
+mail_content = MailContent(Sub = u'sdafasd  ad avadas \u4f60\u597d\u5417\\iafsafsda', Body_html_len = 3213, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg'), MailRC(u'E:\\BOOK\\\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf', u'\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf')], BodyResource = [])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:22:04] Start the program
+[2017/02/19 20:22:04]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:22:04]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Exit and save.
+
+mail_content = MailContent(Sub = u'sdafasd  ad avadas \u4f60\u597d\u5417\\iafsafsda', Body_html_len = 3213, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg'), MailRC(u'E:\\BOOK\\\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf', u'\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5\u5206\u6790\uff1aC\u8bed\u8a00\u63cf\u8ff0\uff08\u539f\u4e66\u7b2c2\u7248\uff09.pdf')], BodyResource = [])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:22:21] Start the program
+[2017/02/19 20:22:21]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:22:21]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:25:08] Start the program
+[2017/02/19 20:25:09]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:25:09]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:30:41] Start the program
+[2017/02/19 20:30:41]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:30:41]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:33:51] Start the program
+[2017/02/19 20:33:51]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:33:51]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = None
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:34:17] Start the program
+[2017/02/19 20:34:17]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:34:17]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+Exit and save.
+
+mail_content = MailContent(Sub = u'', Body_html_len = 474, Appendix = [], BodyResource = [])
+selected = [], col_name = C, sender_name = 
+Speed each hour = 400, each time = 40
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 20:57:25] Start the program
+[2017/02/19 20:57:25]
+The form has loaded
+The Event form load occur.
+[2017/02/19 20:57:25]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+User cancel reload
+Program signal
+Program signal
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:07:32] Start the program
+[2017/02/19 21:07:33]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:07:33]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 1052, Appendix = [], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpwl40jc\\adtxzikqq6t15xap', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpwl40jc\\adtxzikqq6t15xap'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpwl40jc\\k5177xw16ycd6v7s', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpwl40jc\\k5177xw16ycd6v7s')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 1, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:07:49] Start the program
+[2017/02/19 21:07:50]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:07:50]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 1052, Appendix = [], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvtrczy\\bp7p39kh7y9nnqfx', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvtrczy\\bp7p39kh7y9nnqfx'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvtrczy\\pvq3xy1hdebj1seh', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvtrczy\\pvq3xy1hdebj1seh')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 1, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:08:02] Start the program
+[2017/02/19 21:08:03]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:08:03]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 4786, Appendix = [], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpmhogt1\\o6t666b32y0pz6hx', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpmhogt1\\o6t666b32y0pz6hx'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpmhogt1\\8kjoy83a06ry8m21', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpmhogt1\\8kjoy83a06ry8m21')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 1, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:10:23] Start the program
+[2017/02/19 21:10:24]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:10:24]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 4786, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\6aot28udt4h30nzg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\6aot28udt4h30nzg'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\ug3n9rrgvqr7g9hg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\ug3n9rrgvqr7g9hg')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 1, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:11:04] Start the program
+[2017/02/19 21:11:04]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:11:04]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 4786, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\6aot28udt4h30nzg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\6aot28udt4h30nzg'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\ug3n9rrgvqr7g9hg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\ug3n9rrgvqr7g9hg')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 1, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:11:10] Start the program
+[2017/02/19 21:11:10]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:11:10]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 4786, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\6aot28udt4h30nzg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\6aot28udt4h30nzg'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\ug3n9rrgvqr7g9hg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp19d_6u\\ug3n9rrgvqr7g9hg')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 11, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:11:16] Start the program
+[2017/02/19 21:11:17]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:11:17]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5311, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpiy_cdt\\ozsbkzb9jkt4zebo', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpiy_cdt\\ozsbkzb9jkt4zebo'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpiy_cdt\\rhc4ag08b75xfq9p', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpiy_cdt\\rhc4ag08b75xfq9p')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 11, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:12:27] Start the program
+[2017/02/19 21:12:27]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:12:27]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5311, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip123')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpdrbk22\\6nd5ndxn21d57n4s', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpdrbk22\\6nd5ndxn21d57n4s'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpdrbk22\\o5k9jvwzdikh85dw', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpdrbk22\\o5k9jvwzdikh85dw')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 11, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:13:42] Start the program
+[2017/02/19 21:13:43]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:13:43]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5311, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpu6ksq_\\bpr8c8wf5qfv59n5', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpu6ksq_\\bpr8c8wf5qfv59n5'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpu6ksq_\\hthkp15w7862xpmx', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpu6ksq_\\hthkp15w7862xpmx')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 11, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:19:27] Start the program
+[2017/02/19 21:19:27]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:19:27]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5311, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\5bxjdiai6h9fmig3', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\5bxjdiai6h9fmig3'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\633k962wetdu1nvd', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\633k962wetdu1nvd')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 11, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:25:42] Start the program
+[2017/02/19 21:25:42]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:25:42]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5311, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\5bxjdiai6h9fmig3', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\5bxjdiai6h9fmig3'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\633k962wetdu1nvd', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcb8ioa\\633k962wetdu1nvd')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 11, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 21:30:09] Start the program
+[2017/02/19 21:30:09]
+The form has loaded
+The Event form load occur.
+[2017/02/19 21:30:09]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5315, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp5e3yaw\\gx87y2mph98469cl', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp5e3yaw\\gx87y2mph98469cl'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp5e3yaw\\t1p978jrrn7cmteb', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp5e3yaw\\t1p978jrrn7cmteb')])
+selected = [], col_name = , sender_name = 
+Speed each hour = 11, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 23:43:52] Start the program
+[2017/02/19 23:43:52]
+The form has loaded
+The Event form load occur.
+[2017/02/19 23:43:52]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 23:47:31] Start the program
+[2017/02/19 23:47:32]
+The form has loaded
+The Event form load occur.
+[2017/02/19 23:47:32]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 23:48:51] Start the program
+[2017/02/19 23:48:52]
+The form has loaded
+The Event form load occur.
+[2017/02/19 23:48:52]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 23:55:53] Start the program
+[2017/02/19 23:55:54]
+The form has loaded
+The Event form load occur.
+[2017/02/19 23:55:54]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+User cancel add account.
+User cancel add account.
+Program signal
+Program signal
+User cancel add account.
+User cancel add account.
+User cancel add account.
+User cancel add account.
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5683, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpsiwvx3\\5bc5234z95lgwh34', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpsiwvx3\\5bc5234z95lgwh34'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpsiwvx3\\shrccnemme769xha', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpsiwvx3\\shrccnemme769xha')])
+selected = [1, 2], col_name = E, sender_name = 55
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/19 23:58:38] Start the program
+[2017/02/19 23:58:38]
+The form has loaded
+The Event form load occur.
+[2017/02/19 23:58:38]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:12:44] Start the program
+[2017/02/20 00:12:44]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:12:44]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5764, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpicoevr\\utmd5wiu0q81lutf', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpicoevr\\utmd5wiu0q81lutf'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpicoevr\\2bk5ybr4c3mlneum', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpicoevr\\2bk5ybr4c3mlneum'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpicoevr\\2agglvjh384pzzgb', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpicoevr\\2agglvjh384pzzgb')])
+selected = [1, 2], col_name = E, sender_name = 
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:13:18] Start the program
+[2017/02/20 00:13:18]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:13:18]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5764, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpx4yagt\\zhv1morq6waoboha', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpx4yagt\\zhv1morq6waoboha'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpx4yagt\\dxyd7mf54shyfs4x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpx4yagt\\dxyd7mf54shyfs4x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpx4yagt\\qv9aj1ns9k54bfbt', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpx4yagt\\qv9aj1ns9k54bfbt')])
+selected = [1, 2], col_name = E, sender_name = 
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:35:38] Start the program
+[2017/02/20 00:35:39]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:35:39]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u4f60\u6211\u7684\u963f\u65af\u987f\u7684dsaf', Body_html_len = 5764, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\python-3.6.0-amd64.exe', u'python-3.6.0-amd64.exe'), MailRC(u'G:\\IE\u4e0b\u8f7d\\hMailServer-5.6.4-B2283.zip', u'hMailServer-5.6.4-B2283.zip')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqlrq7w\\8xl1wd78wx70umxu', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqlrq7w\\8xl1wd78wx70umxu'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqlrq7w\\u0omz574l3qlfhqa', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqlrq7w\\u0omz574l3qlfhqa'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqlrq7w\\olju5ek0w5mdf2ve', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqlrq7w\\olju5ek0w5mdf2ve')])
+selected = [1, 2], col_name = E, sender_name = 
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:38:51] Start the program
+[2017/02/20 00:38:51]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:38:51]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'dsaf asd \u5730\u65b9', Body_html_len = 446, Appendix = [], BodyResource = [])
+selected = [1, 2], col_name = E, sender_name = 
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:49:30] Start the program
+[2017/02/20 00:49:30]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:49:30]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'asdfasfasdf\u4f60', Body_html_len = 454, Appendix = [], BodyResource = [])
+selected = [1, 2], col_name = E, sender_name = 
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:50:11] Start the program
+[2017/02/20 00:50:12]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:50:12]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Exit and save.
+
+mail_content = MailContent(Sub = u'asdfasfasdf\u4f60', Body_html_len = 454, Appendix = [], BodyResource = [])
+selected = [1, 2], col_name = E, sender_name = 
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:50:18] Start the program
+[2017/02/20 00:50:18]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:50:18]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:52:56] Start the program
+[2017/02/20 00:52:56]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:52:56]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:53:22] Start the program
+[2017/02/20 00:53:22]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:53:22]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:53:42] Start the program
+[2017/02/20 00:53:42]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:53:42]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:56:32] Start the program
+[2017/02/20 00:56:32]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:56:32]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 00:57:49] Start the program
+[2017/02/20 00:57:50]
+The form has loaded
+The Event form load occur.
+[2017/02/20 00:57:50]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'asdfasfasdf\u4f60\u6536\u7684\u5230', Body_html_len = 681, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\start_send.png', u'start_send.png'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvqm5aj\\8g5fwrtpxuyb4xic', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvqm5aj\\8g5fwrtpxuyb4xic'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvqm5aj\\chjq7i7qtux614ob', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvqm5aj\\chjq7i7qtux614ob'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvqm5aj\\eoqtjvc0q5np63ck', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpvqm5aj\\eoqtjvc0q5np63ck')])
+selected = [1, 2], col_name = E, sender_name = 
+Speed each hour = 500, each time = 1
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/20 01:01:38] Start the program
+[2017/02/20 01:01:38]
+The form has loaded
+The Event form load occur.
+[2017/02/20 01:01:38]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will reload
+Program signal
+Program signal
+User try add an account dian@hust.edu.cn.
+mail_content = MailContent(Sub = u'asdfasfasdf\u4f60\u6536\u7684\u5230', Body_html_len = 681, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\start_send.png', u'start_send.png'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\qlvqg2l2dccswu6p', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\qlvqg2l2dccswu6p'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\ye5vznbxtvb7z6ew', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\ye5vznbxtvb7z6ew'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\20tserdtzldofzsg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\20tserdtzldofzsg')])
+selected = [3, 4, 5, 6, 7], col_name = D, sender_name = oliver
+Speed each hour = 500, each time = 1
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/20 01:02:54]
+Get 5 mails from excel.
+User cancel before send.
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 307, in slot_button_run
+    if not self._ui_data_check():
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 247, in _ui_data_check
+    if len(unicode(self._mail_content.sub())) == 0:
+AttributeError: 'NoneType' object has no attribute 'sub'
+Program signal
+Program signal
+mail_content = MailContent(Sub = u'asdfasfasdf\u4f60\u6536\u7684\u5230', Body_html_len = 681, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\start_send.png', u'start_send.png'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\qlvqg2l2dccswu6p', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\qlvqg2l2dccswu6p'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\ye5vznbxtvb7z6ew', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\ye5vznbxtvb7z6ew'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\20tserdtzldofzsg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\20tserdtzldofzsg')])
+selected = [3, 4, 5, 6, 7], col_name = D, sender_name = oliver
+Speed each hour = 100, each time = 3
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/20 01:04:50]
+Get 5 mails from excel.
+User cancel before send.
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 307, in slot_button_run
+    if not self._ui_data_check():
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 247, in _ui_data_check
+    if len(unicode(self._mail_content.sub())) == 0:
+AttributeError: 'NoneType' object has no attribute 'sub'
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 307, in slot_button_run
+    if not self._ui_data_check():
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 247, in _ui_data_check
+    if len(unicode(self._mail_content.sub())) == 0:
+AttributeError: 'NoneType' object has no attribute 'sub'
+mail_content = MailContent(Sub = u'asdfasfasdf\u4f60\u6536\u7684\u5230', Body_html_len = 681, Appendix = [MailRC(u'C:\\Users\\Oliver\\Pictures\\start_send.png', u'start_send.png'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG', u'\u963f\u59b9SD\u5361\u5360\u7a7a\u95f4.PNG'), MailRC(u'C:\\Users\\Oliver\\Pictures\\\u56fe\u72471.jpg', u'\u56fe\u72471.jpg')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\qlvqg2l2dccswu6p', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\qlvqg2l2dccswu6p'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\ye5vznbxtvb7z6ew', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\ye5vznbxtvb7z6ew'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\20tserdtzldofzsg', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpcizj8m\\20tserdtzldofzsg')])
+selected = [3, 4, 5, 6, 7], col_name = D, sender_name = oliver
+Speed each hour = 100, each time = 3
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/20 01:05:10]
+Get 5 mails from excel.
+User cancel before send.
+Traceback (most recent call last):
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 307, in slot_button_run
+    if not self._ui_data_check():
+  File "E:/MyDocuments/Python/SendMail/Run_GUI.py", line 247, in _ui_data_check
+    if len(unicode(self._mail_content.sub())) == 0:
+AttributeError: 'NoneType' object has no attribute 'sub'
+Thread maildb flush stopped.

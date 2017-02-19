@@ -17,7 +17,7 @@ from mylog import *
 from cfg_data import *
 from etc_func import *
 from main import UIInterface, UITimer
-from editor import EmailEditor, TmpFile
+from editor import EmailEditor
 
 
 if 'Windows' in platform.system():
@@ -199,20 +199,19 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self._account_list = []
 
     def slot_edit_mail(self):
-        editor_win = EmailEditor(mail_content=self._mail_content, gui_proc=self._GUIProc)
-        if editor_win.exec_():
-            self._set_mail_content(editor_win.to_mail_content())
-        else:
-            self._set_mail_content(self._GUIProc.get_mail_content() if self._GUIProc else None)
+        editor_win = EmailEditor(gui_proc=self._GUIProc, mail_content=self._mail_content)
+        editor_win.exec_()
+        self._set_mail_content(editor_win.to_mail_content())
 
     def slot_open_mail_list(self):
         self.label_maillist.setText(self.OPEN_FILEDIALOG_WAIT_TIPS)
-        s = QFileDialog.getOpenFileName(self, QString(u"选择邮箱表格"), "/", "Excel file(*.xls;*.xlsx)")
+        s = QFileDialog.getOpenFileName(self, QString(u"选择邮箱表格"), QString(""), "Excel file(*.xls;*.xlsx)")
+
         if len(s) == 0:
             self._xls_path = u""
         else:
-            self._xls_path = unicode(s)
-        self.label_maillist.setText(QString(s))
+            self._xls_path = os.path.abspath(unicode(s))
+        self.label_maillist.setText(QString(self._xls_path))
 
     def slot_form_load(self):
         print_t(u"The form has loaded")

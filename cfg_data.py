@@ -3,14 +3,17 @@
 
 import re
 import os
+import shutil
+import tempfile
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
+from PyQt4.QtCore import QString
 from err_code import *
 from copy import deepcopy
-from etc_func import str_get_domain
+from etc_func import str_get_domain, random_str
 
 
 class Account:
@@ -59,6 +62,65 @@ class Account:
         if self.host is None or len(self.host) == 0:
             return False
         return True
+
+
+class TmpFile:
+
+    _TMPDIR = None
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def init():
+        TmpFile._TMPDIR = tempfile.mkdtemp()
+
+    @staticmethod
+    def fini():
+        if TmpFile._TMPDIR:
+            shutil.rmtree(TmpFile._TMPDIR, ignore_errors=True)
+            TmpFile._TMPDIR = None
+
+    @staticmethod
+    def qimage2tmp(qimage):
+        file_path = TmpFile.rand_file_path()
+        qimage.save(QString(file_path), u'png')
+        return file_path
+
+    @staticmethod
+    def copy(src_file):
+        # 返回文件路径, 文件不存在则IOError异常
+        dst_file = TmpFile.rand_file_path()
+
+        shutil.copy(src_file, dst_file)
+
+        return dst_file
+
+    @staticmethod
+    def rand_file_path(dirname=None, filename_len=16, file_content=None):
+        # 返回一个随机文件名(带路径)，但默认不会创建文件。如果带file_content才会创建
+        if not dirname:
+            dir_self = TmpFile._TMPDIR
+        else:
+            dir_self = dirname
+
+        file_name = random_str(filename_len)
+        file_path = os.path.join(dir_self, file_name)
+
+        if not file_content or not isinstance(file_content, str):
+            return file_path
+
+        f = open(file_path, 'wb')
+        try:
+            f.write(file_content)
+        finally:
+            f.close()
+
+        return file_path
+
+    @staticmethod
+    def get_dir():
+        return TmpFile._TMPDIR
 
 
 class HtmlImg:
@@ -145,7 +207,7 @@ class MailContent:
 
     def __repr__(self):
         return u"MailContent(Sub = {}, Body_html_len = {}, Appendix = {}, BodyResource = {})".format(
-            self.sub(), len(self.body()), repr(self._AppendList), repr(self._BodyResourceList)
+            repr(self.sub()), len(self.body()), repr(self._AppendList), repr(self._BodyResourceList)
         )
 
     def sub(self):
@@ -161,9 +223,11 @@ class MailContent:
         return self._BodyResourceList[:]
 
     def to_msg(self):
+        # 可能会修改原body中html的源
         if self.__msg is not None:          # 暂存附件/内部资源内容不用每次读取
             return ERROR_SUCCESS, u"", self.__msg
 
+        self.rc_name_mode_mail()
         self.__msg = MIMEMultipart()        # __msg下面存放 MIMEMultipart('related')(含正文) 和 附件
         err, err_info = self.__load_body_resource()
         if err != ERROR_SUCCESS:
@@ -172,12 +236,23 @@ class MailContent:
         err, err_info = self.__load_append_resource()
         return err, err_info, self.__msg
 
-    def modify_body_with_resource(self):
-        # 由于原html中的图片路径不能在邮件/数据库中传递，需要修改
+    def rc_name_mode_mail(self):
+        # 由于原html中的图片路径不能在邮件传递，需要修改
+        # 修改html中的源
         h = HtmlImg(self._Body)
         old_src_name = h.get_img_src()
-        new_src_name = ["cid:" + os.path.basename(s) for s in old_src_name]  # 发送/存储的名字
 
+        new_src_name = []                       # 发送/存储的名字
+        for s in old_src_name:
+            if s.startswith(u"cid:"):
+                new_src_name.append(s)
+            else:
+                new_src_name.append(u"cid:" + os.path.basename(s))
+
+        if old_src_name == new_src_name:
+            return
+
+        self.__msg = None       # 这时__msg需要重新计算
         self._Body = h.replace_img_src(new_src_name)
 
         # 对应修改self._BodyResourceList中的name部分
@@ -185,16 +260,70 @@ class MailContent:
             if old_rc.name in old_src_name:
                 old_rc.name = new_src_name[old_src_name.index(old_rc.name)]
 
-    def fill_body_resource_bin_data(self):
-        # 将资源文件的二进制数据读到内存(body_resource_list())
+    def rc_name_mode_edit(self):
+        # 将html中的源变成可以编辑(复制，粘贴)的模式
+        h = HtmlImg(self._Body)
+        old_src_name = h.get_img_src()
+        new_src_name = old_src_name[:]                      # 发送/存储的名字
+
+        #  修改html及self._BodyResourceList中的name部分
+        for i, old_rc in enumerate(self._BodyResourceList):
+            if old_rc.name in old_src_name:
+                old_rc.name = old_rc.path
+                new_src_name[old_src_name.index(old_rc.name)] = old_rc.path
+
+        self._Body = h.replace_img_src(new_src_name)
+
+    def rc_data_mode_bin(self):
+        # 资源文件的二进制数据在MailContent中有两种存储形式，一种是存放在MailResource.bin_data(Yes)，一种格式存到文件然后引用
+        # 将资源文件的二进制数据读到内存(body_resource_list()，根据路径名读取)
         err, err_info = ERROR_SUCCESS, u""
         for i in range(len(self._BodyResourceList)):
             if self._BodyResourceList[i].bin_data is None:
-                err, err_info, bin_data = self.__body_resource_bin_data(i)
+                err, err_info, bin_data = self.body_resource_bin_data(i)
                 if err != ERROR_SUCCESS:
-                    break
+                    continue                   # 按路径读取失败的跳过
+                self.__msg = None              # 这时__msg需要重新计算
                 self._BodyResourceList[i].bin_data = bin_data
         return err, err_info
+
+    def rc_data_mode_file(self, save_dir=u""):
+        # 资源文件的二进制数据在MailContent中有两种存储形式，一种是存放在MailResource.bin_data，一种格式存到文件然后引用(Yes)
+        # 将资源文件的二进制数据存到目录下，如果不给定则存到随机目录。是fill_body_resource_bin_data的逆过程
+        # 这个过程会修改html中的资源文件路径，清空bin_data， 为新产生的文件路径
+        h = HtmlImg(self.body())
+        html_src_list = h.get_img_src()
+
+        for i, each_rc in enumerate(self.body_resource_list()):
+            if each_rc.bin_data is not None:          # 如果没有bin_data则不修改该路径
+                try:                      # 存为文件
+                    new_file = TmpFile.rand_file_path(dirname=save_dir, file_content=each_rc.bin_data)
+                except IOError:
+                    continue
+
+                # 修改html中对应的资源名为新文件名
+                for j, each_html_src in enumerate(html_src_list):
+                    if each_rc.name == each_html_src:
+                        self.__msg = None              # 这时__msg需要重新计算
+                        html_src_list[j] = new_file
+                        self._BodyResourceList[i].bin_data = None
+
+        h.replace_img_src(html_src_list)
+        self._Body = h.html()
+
+    def body_resource_bin_data(self, rc_index):
+        # 获取资源文件的二进制数据
+        len_rc_list = len(self._BodyResourceList)
+        if rc_index >= len_rc_list:
+            return ERROR_READ_BODY_RESOURCE_FAILED, u"输入的资源索引值过大: {} > {}".format(rc_index, len_rc_list), ""
+
+        try:
+            with open(self._BodyResourceList[rc_index].path, 'rb') as f:
+                bin_data = f.read()
+        except IOError as e:
+            return ERROR_READ_BODY_RESOURCE_FAILED, u"读取资源二进制数据失败: {}".format(e), ""
+
+        return ERROR_SUCCESS, u"", bin_data
 
     def __load_body_resource(self):
         ret = ERROR_SUCCESS, u""
@@ -257,20 +386,6 @@ class MailContent:
             msg_resource.attach(m_img)
 
         return ERROR_SUCCESS, u""
-
-    def __body_resource_bin_data(self, rc_index):
-        # 将资源文件的二进制数据读到内存(body_resource_list())
-        len_rc_list = len(self._BodyResourceList)
-        if rc_index >= len_rc_list:
-            return ERROR_READ_BODY_RESOURCE_FAILED, u"输入的资源索引值过大: {} > {}".format(rc_index, len_rc_list), ""
-
-        try:
-            with open(self._BodyResourceList[rc_index].path, 'rb') as f:
-                bin_data = f.read()
-        except IOError as e:
-            return ERROR_READ_BODY_RESOURCE_FAILED, u"读取资源二进制数据失败: {}".format(e)
-
-        return ERROR_SUCCESS, u"", bin_data
 
 
 class CfgNdr(dict):
