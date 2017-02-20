@@ -1084,7 +1084,6 @@ class UIInterface:
 
         self._mail_matrix = None
         self._account_manger = None
-        self._mail_content = None
         self._mail_proc = None
         self._ndr = None
         self._timer = None
@@ -1236,10 +1235,10 @@ class UIInterface:
 
         self._account_manger = AccountsMange(data["AccountList"])
 
-        self._mail_content = deepcopy(data["MailContent"])
-        self._mail_content.rc_name_mode_mail()
+        mail_content = deepcopy(data["MailContent"])
+        mail_content.rc_name_mode_mail()
 
-        self._mail_proc = MailProc(self._mail_matrix, self._account_manger, self._mail_content)
+        self._mail_proc = MailProc(self._mail_matrix, self._account_manger, mail_content)
 
         self._ndr = NdrProc(data["AccountList"], self._db)
         self._ndr.event_start_send()
@@ -1249,7 +1248,6 @@ class UIInterface:
     def _delete_mail_objects(self):
         self._mail_matrix = None
         self._account_manger = None
-        self._mail_content = None
         self._mail_proc = None
 
     def __send_timer_callback(self):

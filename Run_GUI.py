@@ -244,6 +244,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
             self.label_mail_info.setText(QString(u""))
 
     def _ui_data_check(self):
+        if not self._mail_content:
+            QMessageBox.critical(self, u"Input Error", QString(u"邮件内容为空"))
+            return False
         if len(unicode(self._mail_content.sub())) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入标题"))
             return False

@@ -228,6 +228,7 @@ class MailContent:
             return ERROR_SUCCESS, u"", self.__msg
 
         self.rc_name_mode_mail()
+        self.rc_data_mode_file()
         self.__msg = MIMEMultipart()        # __msg下面存放 MIMEMultipart('related')(含正文) 和 附件
         err, err_info = self.__load_body_resource()
         if err != ERROR_SUCCESS:
@@ -269,6 +270,9 @@ class MailContent:
         #  修改html及self._BodyResourceList中的name部分
         for i, old_rc in enumerate(self._BodyResourceList):
             if old_rc.name in old_src_name:
+                if old_rc.name == old_rc.path:
+                    continue
+                self.__msg = None                           # 这时__msg需要重新计算
                 old_rc.name = old_rc.path
                 new_src_name[old_src_name.index(old_rc.name)] = old_rc.path
 
@@ -283,7 +287,6 @@ class MailContent:
                 err, err_info, bin_data = self.body_resource_bin_data(i)
                 if err != ERROR_SUCCESS:
                     continue                   # 按路径读取失败的跳过
-                self.__msg = None              # 这时__msg需要重新计算
                 self._BodyResourceList[i].bin_data = bin_data
         return err, err_info
 
@@ -292,7 +295,8 @@ class MailContent:
         # 将资源文件的二进制数据存到目录下，如果不给定则存到随机目录。是fill_body_resource_bin_data的逆过程
         # 这个过程会修改html中的资源文件路径，清空bin_data， 为新产生的文件路径
         h = HtmlImg(self.body())
-        html_src_list = h.get_img_src()
+        old_src_list = h.get_img_src()
+        new_src_list = old_src_list[:]
 
         for i, each_rc in enumerate(self.body_resource_list()):
             if each_rc.bin_data is not None:          # 如果没有bin_data则不修改该路径
@@ -302,14 +306,15 @@ class MailContent:
                     continue
 
                 # 修改html中对应的资源名为新文件名
-                for j, each_html_src in enumerate(html_src_list):
+                for j, each_html_src in enumerate(new_src_list):
                     if each_rc.name == each_html_src:
-                        self.__msg = None              # 这时__msg需要重新计算
-                        html_src_list[j] = new_file
-                        self._BodyResourceList[i].bin_data = None
+                        new_src_list[j] = new_file
+                self._BodyResourceList[i] = MailResource(new_file, new_file)   # 这会清除原bin_data
 
-        h.replace_img_src(html_src_list)
-        self._Body = h.html()
+        if old_src_list != new_src_list:
+            self.__msg = None              # 这时__msg需要重新计算
+            h.replace_img_src(new_src_list)
+            self._Body = h.html()
 
     def body_resource_bin_data(self, rc_index):
         # 获取资源文件的二进制数据
@@ -364,18 +369,21 @@ class MailContent:
             msg_append.add_header('Content-Disposition', 'attachment', filename=f_name)
             self.__msg.attach(msg_append)
 
-        print(ret[1])
         return ret
 
     def __load_body_resource_img(self, msg_resource):
         # 加载图片资源
         for each_img in self._BodyResourceList:
 
-            try:
-                with open(each_img.path, 'rb') as f:
-                    img_data = f.read()
-            except IOError as e:
-                return ERROR_READ_BODY_RESOURCE_FAILED, u"加载某个资源({})失败 {}".format(each_img.path, e)
+            # 如果有bin_data则直接取bin_data
+            if each_img.bin_data:
+                img_data = each_img.bin_data
+            else:
+                try:
+                    with open(each_img.path, 'rb') as f:
+                        img_data = f.read()
+                except IOError as e:
+                    return ERROR_READ_BODY_RESOURCE_FAILED, u"加载某个资源({})失败 {}".format(each_img.path, e)
 
             content_id = unicode(each_img.name)
             if content_id.startswith(u"cid:"):
