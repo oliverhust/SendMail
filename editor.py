@@ -462,6 +462,7 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         self.Button_OK.clicked.connect(self.__slot_button_ok)
         self.Button_Cancel.clicked.connect(self.__slot_button_cancel)
         self.Button_Save.clicked.connect(self.__slot_button_save)
+        self.closeEvent = self.__slot_win_close         # 窗口关闭事件
 
     def to_mail_content(self):
         # 如果窗口已经关闭，则返回关闭前的MailContent 返回的MailContent不包含bin_data
@@ -520,26 +521,38 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
     # -----------------------------------------------------------------------------------------
     # 确认/取消/保存
     def __slot_button_ok(self):
-        self.__mail_content_finally = self.to_mail_content()
+        try:
+            self.__mail_content_finally = self.to_mail_content()
+        finally:
+            self.__win_fini()
+
+        self.accept()
         if self.__gui_proc:
             self.__gui_proc.save_mail_content(self.__mail_content_finally)
 
-        self.accept()
-        self.__window_has_closed = True
-
-    def __slot_button_cancel(self):
-        self.reject()
-        # 从数据库里面取MailContent
-        if self.__gui_proc:
-            mail_content = self.__gui_proc.get_mail_content()
-            if mail_content is not None:
-                mail_content.rc_data_mode_file()
-            self.__mail_content_finally = mail_content
-        self.__window_has_closed = True
+    def __slot_button_cancel(self, *args, **kwargs):
+        self.__slot_win_close()
 
     def __slot_button_save(self):
         if self.__gui_proc:
             self.__gui_proc.save_mail_content(self.to_mail_content())
+
+    # 窗口关闭事件
+    def __slot_win_close(self, *args, **kwargs):
+        # 从数据库里面取MailContent
+        try:
+            if self.__gui_proc:
+                mail_content = self.__gui_proc.get_mail_content()
+                if mail_content is not None:
+                    mail_content.rc_data_mode_file()
+                self.__mail_content_finally = mail_content
+        finally:
+            self.__win_fini()
+            self.reject()
+
+    def __win_fini(self):
+        # 设置窗口关闭标记，关闭定时器
+        self.__window_has_closed = True
 
     # -----------------------------------------------------------------------------------------
     # 增/删/编辑附件
@@ -589,16 +602,24 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         # full_append_path_list的元素为字符串/MailResource类型
         for each_append in full_append_path_list:
             if isinstance(each_append, unicode) and each_append:
-                self.__table_add_one_appendix(each_append)
+                self.__table_set_one_appendix(each_append)
             elif isinstance(each_append, MailResource) and each_append.path:
-                self.__table_add_one_appendix(each_append.path, each_append.name)
+                self.__table_set_one_appendix(each_append.path, each_append.name)
 
         # 附件按钮文字改变
         self.__update_appendix_button_num()
 
-    def __table_add_one_appendix(self, append_path, append_name_in=u""):
+    def __table_set_one_appendix(self, append_path, append_name_in=u"", index=None):
+        """
+        :param append_path: 附件实际路径
+        :param append_name_in: 附件在邮件中显示的名字
+        :param index: 显示在表格中的第几行，从0开始
+        :return: 无
+        """
         old_row_count = self.table_Appendix.rowCount()
-        self.table_Appendix.setRowCount(old_row_count + 1)
+        index_set = index if index else old_row_count
+        if index_set >= old_row_count:
+            self.table_Appendix.setRowCount(index_set + 1)
 
         # 注意附件可能不存在
         append_name = append_name_in if append_name_in else os.path.basename(append_path)
@@ -626,7 +647,7 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
                 table_item.setTextAlignment(Qt.AlignCenter)
             if i < len(back_color) and back_color[i]:
                 table_item.setBackgroundColor(back_color[i])
-            self.table_Appendix.setItem(old_row_count, i, table_item)
+            self.table_Appendix.setItem(index_set, i, table_item)
 
     @staticmethod
     def __is_good_basename(file_basename):

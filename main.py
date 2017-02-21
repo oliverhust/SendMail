@@ -1196,7 +1196,11 @@ class UIInterface:
     # -----------------------------------------------------------------------------
 
     def _reload_db_tmp_data(self):
-        data = {"MailContent": self._db.get_mail_content()}
+        data = {}
+
+        mail_content = self._db.get_mail_content()
+        mail_content.rc_data_mode_file()
+        data["MailContent"] = mail_content
 
         tmp = self._db.get_receiver_data()
         if tmp:
@@ -1568,7 +1572,7 @@ p, li { white-space: pre-wrap; }
                         MailResource(ur'E:\X 发行资料\write_mail.png', ur'E:\X 发行资料\write_mail.png')]
 
         origin_mc = MailContent(sub, body, append_rc_list, body_rc_list)
-        origin_mc.fill_body_resource_bin_data()
+        origin_mc.rc_data_mode_bin()
         db.save_mail_content(origin_mc)
         mc = db.get_mail_content()
         print(u"Sub = [{}]".format(mc.sub()))

@@ -330,6 +330,21 @@ class MailContent:
 
         return ERROR_SUCCESS, u"", bin_data
 
+    def check_append(self, ignore_suffix=True):
+        # 检查附件(是否忽略对后缀的检查)，返回错误码和错误信息
+        err, err_info = ERROR_SUCCESS, u""
+        err_file = []
+        for append_rc in self.append_resource_list():
+            file_path = unicode(append_rc.path)
+            if not os.path.isfile(file_path):
+                err_file.append(file_path)
+
+        if err_file:
+            err = ERROR_OPEN_APPEND_FAILED
+            err_info = u"以下附件不存在： " + u", ".join(err_file)
+
+        return err, err_info, err_file
+
     def __load_body_resource(self):
         ret = ERROR_SUCCESS, u""
 

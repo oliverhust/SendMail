@@ -29049,3 +29049,3152 @@ Traceback (most recent call last):
     if len(unicode(self._mail_content.sub())) == 0:
 AttributeError: 'NoneType' object has no attribute 'sub'
 Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 21:38:03] Start the program
+[2017/02/21 21:38:04]
+The form has loaded
+The Event form load occur.
+[2017/02/21 21:38:04]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2061, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\3qyur23zk8vw51ne', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\3qyur23zk8vw51ne'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\d935nmafjjtp9xhw', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\d935nmafjjtp9xhw'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\1r0povjm1z05dar2', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\1r0povjm1z05dar2')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/21 21:39:31]
+Get 5 mails from excel.
+User cancel before send.
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2282, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\rahy1jgrpci8bv84', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\rahy1jgrpci8bv84'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\z5hs9sx8y0on32xl', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\z5hs9sx8y0on32xl'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\9rl5xuj9nzujyu88', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\9rl5xuj9nzujyu88'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\vn2bodn06oxl7qsd', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\vn2bodn06oxl7qsd')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/21 21:45:56]
+Get 5 mails from excel.
+[2017/02/21 21:45:59]Start Timer.The timer period is 360000 ms
+[2017/02/21 21:46:01]Timer call back.
+[2017/02/21 21:46:01]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (5, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+[21:46:03] 开始接收退信:since 2017/02/20 22:24:35
+[21:46:03] 当前账号: dian@hust.edu.cn
+Get all email dir: ('OK', ['() "/" "INBOX"', '(\\Drafts) "/" "Drafts"', '(\\Sent) "/" "Sent Items"', '(\\Trash) "/" "Trash"', '(\\Junk) "/" "Junk E-mail"', '() "/" "Virus Items"', '() "/" "&e4BipZAAi6KQrk72-"', '() "/" "&YnlSJGAnYB1+9JAAi6I-"', '() "/" "&cLl385AAi6I-"', '() "/" "&kc2JgZCuTvY-"', '() "/" "&fPt+35AAT+E-"', '() "/" "&XnR+yIM2i91PGg-"'])
+Filter valid email dir: ['INBOX', 'Virus Items', '&e4BipZAAi6KQrk72-', '&YnlSJGAnYB1+9JAAi6I-', '&cLl385AAi6I-', '&kc2JgZCuTvY-', '&fPt+35AAT+E-', '&XnR+yIM2i91PGg-']
+[2017/02/21 21:46:04]
+IMAP select dir INBOX
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: ['1253', '1254', '1255']
+Get imap start num = 1253, datetime = 2017-02-20 22:24:59
+[21:46:04] 接收到邮箱piwhaek@qq.com的退信
+[21:46:05] 接收到邮箱uhhokfs@126.com的退信
+[21:46:05] 接收到邮箱yralgwm@163.com的退信
+[2017/02/21 21:46:05]
+IMAP select dir Virus Items
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:05]
+IMAP select dir &e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:05]
+IMAP select dir &YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:05]
+IMAP select dir &cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:05]
+IMAP select dir &kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:05]
+IMAP select dir &fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:06]
+IMAP select dir &XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[21:46:06] 完成一轮接收,等待30秒后继续...
+[21:46:36] 开始接收退信:since 2017/02/20 22:24:35
+[21:46:36] 当前账号: dian@hust.edu.cn
+Get all email dir: ('OK', ['() "/" "INBOX"', '(\\Drafts) "/" "Drafts"', '(\\Sent) "/" "Sent Items"', '(\\Trash) "/" "Trash"', '(\\Junk) "/" "Junk E-mail"', '() "/" "Virus Items"', '() "/" "&e4BipZAAi6KQrk72-"', '() "/" "&YnlSJGAnYB1+9JAAi6I-"', '() "/" "&cLl385AAi6I-"', '() "/" "&kc2JgZCuTvY-"', '() "/" "&fPt+35AAT+E-"', '() "/" "&XnR+yIM2i91PGg-"'])
+Filter valid email dir: ['INBOX', 'Virus Items', '&e4BipZAAi6KQrk72-', '&YnlSJGAnYB1+9JAAi6I-', '&cLl385AAi6I-', '&kc2JgZCuTvY-', '&fPt+35AAT+E-', '&XnR+yIM2i91PGg-']
+[2017/02/21 21:46:36]
+IMAP select dir INBOX
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: ['1253', '1254', '1255']
+Get imap start num = 1254, datetime = 2017-02-20 22:27:45
+[2017/02/21 21:46:37]
+IMAP select dir Virus Items
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:37]
+IMAP select dir &e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:37]
+IMAP select dir &YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:37]
+IMAP select dir &cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:37]
+IMAP select dir &kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:37]
+IMAP select dir &fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 21:46:38]
+IMAP select dir &XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[21:46:38] 完成一轮接收,等待30秒后继续...
+[21:46:50] 终止接收退信操作
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2282, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\rahy1jgrpci8bv84', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\rahy1jgrpci8bv84'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\z5hs9sx8y0on32xl', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\z5hs9sx8y0on32xl'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\9rl5xuj9nzujyu88', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\9rl5xuj9nzujyu88'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\vn2bodn06oxl7qsd', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\vn2bodn06oxl7qsd')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/21 21:47:54]
+Get 5 mails from excel.
+User cancel before send.
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2282, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\rahy1jgrpci8bv84', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\rahy1jgrpci8bv84'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\z5hs9sx8y0on32xl', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\z5hs9sx8y0on32xl'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\9rl5xuj9nzujyu88', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\9rl5xuj9nzujyu88'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\vn2bodn06oxl7qsd', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpqtj829\\vn2bodn06oxl7qsd')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 21:48:14] Start the program
+[2017/02/21 21:48:15]
+The form has loaded
+The Event form load occur.
+[2017/02/21 21:48:15]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2282, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\dogy45tlwnqpg03d', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\dogy45tlwnqpg03d'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\82sw13a25jtfqxbn', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\82sw13a25jtfqxbn'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\mwxobc8f2uhjfzyl', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\mwxobc8f2uhjfzyl'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\4hl1ohs6z3d69qrz', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\4hl1ohs6z3d69qrz')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/21 21:48:19]
+Get 5 mails from excel.
+User cancel before send.
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\dogy45tlwnqpg03d', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\dogy45tlwnqpg03d'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\82sw13a25jtfqxbn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\82sw13a25jtfqxbn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\mwxobc8f2uhjfzyl', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\mwxobc8f2uhjfzyl'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\4hl1ohs6z3d69qrz', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpirt9uf\\4hl1ohs6z3d69qrz')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 22:18:53] Start the program
+[2017/02/21 22:18:53]
+The form has loaded
+The Event form load occur.
+[2017/02/21 22:18:53]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver)
+[2017/02/21 22:24:25]
+Get 5 mails from excel.
+User cancel before send.
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:24:33]
+Get 5 mails from excel.
+User cancel before send.
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:40:54]
+Get 5 mails from excel.
+User cancel before send.
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ojy54xj78d4973a1'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\o5t5kzdjl911om5b'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\ctibmjsicmijdg82'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpnxnwnb\\rwajtcs1j1q500kl')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 22:41:08] Start the program
+[2017/02/21 22:41:08]
+The form has loaded
+The Event form load occur.
+[2017/02/21 22:41:08]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\y4rmy8v8wrx0ykb6', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\y4rmy8v8wrx0ykb6'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\knfs6qvskb85t163', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\knfs6qvskb85t163'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\hjinvt9vwoemrjrq', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\hjinvt9vwoemrjrq'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\86kn8ztk46k6mp1a', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpdccdpj\\86kn8ztk46k6mp1a')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 22:41:14] Start the program
+[2017/02/21 22:41:15]
+The form has loaded
+The Event form load occur.
+[2017/02/21 22:41:15]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\1v8empu32pkyw9hk', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\1v8empu32pkyw9hk'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\a6zapaeb376abawx', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\a6zapaeb376abawx'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\l34fc8agpxi0ke6s', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\l34fc8agpxi0ke6s'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\jm1bfkavmxgw4aa1', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjenaju\\jm1bfkavmxgw4aa1')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 22:41:20] Start the program
+[2017/02/21 22:41:20]
+The form has loaded
+The Event form load occur.
+[2017/02/21 22:41:20]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\9ucnyfj6u6qlegwz', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\9ucnyfj6u6qlegwz'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\mkhw7qkrug9jrb62', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\mkhw7qkrug9jrb62'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\wzde39u3f4or1cuq', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\wzde39u3f4or1cuq'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\tl0icdn9lv3t1qrk', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpp1u9dz\\tl0icdn9lv3t1qrk')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 22:42:37] Start the program
+[2017/02/21 22:42:37]
+The form has loaded
+The Event form load occur.
+[2017/02/21 22:42:37]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+mail_content = MailContent(Sub = u'\u50bb\u50bb\u7684\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:49:55]
+Get 5 mails from excel.
+User cancel before send.
+Program signal
+Program signal
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = E, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:50:20]
+Get 40 mails from excel.
+User cancel before send.
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = A, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:50:24]
+Get 0 mails from excel.
+[2017/02/21 22:50:26]Start Timer.The timer period is 360000 ms
+[2017/02/21 22:50:28]Timer call back.
+[2017/02/21 22:50:28]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (2, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:50:33]
+Get 5 mails from excel.
+[2017/02/21 22:50:43]Start Timer.The timer period is 360000 ms
+[2017/02/21 22:50:45]Timer call back.
+[2017/02/21 22:50:45]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account dian@hust.edu.cn
+Start to send email...
+[2017/02/21 22:50:49]
+The email has sent.
+[2017/02/21 22:50:50]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com', u'yralgwm@163.com', u'uhhokfs@126.com'], 'ErrLog': u'', 'ErrCode': 1, 'CurrProgress': (5, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:51:10]
+Get 5 mails from excel.
+User cancel before send.
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:51:15]
+Get 5 mails from excel.
+User cancel before send.
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:51:17]
+Get 5 mails from excel.
+[2017/02/21 22:51:18]Start Timer.The timer period is 360000 ms
+[2017/02/21 22:51:20]Timer call back.
+[2017/02/21 22:51:20]
+{'FailedList': [], 'SuccessList': [], 'ErrLog': u'\u6240\u6709\u90ae\u4ef6\u90fd\u5df2\u5c1d\u8bd5\u53d1\u9001', 'ErrCode': 1, 'CurrProgress': (5, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+[22:51:23] 开始接收退信:since 2017/02/20 22:24:35
+[22:51:23] 当前账号: dian@hust.edu.cn
+Get all email dir: ('OK', ['() "/" "INBOX"', '(\\Drafts) "/" "Drafts"', '(\\Sent) "/" "Sent Items"', '(\\Trash) "/" "Trash"', '(\\Junk) "/" "Junk E-mail"', '() "/" "Virus Items"', '() "/" "&e4BipZAAi6KQrk72-"', '() "/" "&YnlSJGAnYB1+9JAAi6I-"', '() "/" "&cLl385AAi6I-"', '() "/" "&kc2JgZCuTvY-"', '() "/" "&fPt+35AAT+E-"', '() "/" "&XnR+yIM2i91PGg-"'])
+Filter valid email dir: ['INBOX', 'Virus Items', '&e4BipZAAi6KQrk72-', '&YnlSJGAnYB1+9JAAi6I-', '&cLl385AAi6I-', '&kc2JgZCuTvY-', '&fPt+35AAT+E-', '&XnR+yIM2i91PGg-']
+[2017/02/21 22:51:25]
+IMAP select dir INBOX
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: ['1253', '1254', '1255']
+Get imap start num = 1253, datetime = 2017-02-20 22:24:59
+[2017/02/21 22:51:27]
+IMAP select dir Virus Items
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:51:27]
+IMAP select dir &e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:51:27]
+IMAP select dir &YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:51:27]
+IMAP select dir &cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:51:27]
+IMAP select dir &kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:51:27]
+IMAP select dir &fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:51:27]
+IMAP select dir &XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[22:51:28] 完成一轮接收,等待30秒后继续...
+[22:51:58] 开始接收退信:since 2017/02/20 22:24:35
+[22:51:58] 当前账号: dian@hust.edu.cn
+Get all email dir: ('OK', ['() "/" "INBOX"', '(\\Drafts) "/" "Drafts"', '(\\Sent) "/" "Sent Items"', '(\\Trash) "/" "Trash"', '(\\Junk) "/" "Junk E-mail"', '() "/" "Virus Items"', '() "/" "&e4BipZAAi6KQrk72-"', '() "/" "&YnlSJGAnYB1+9JAAi6I-"', '() "/" "&cLl385AAi6I-"', '() "/" "&kc2JgZCuTvY-"', '() "/" "&fPt+35AAT+E-"', '() "/" "&XnR+yIM2i91PGg-"'])
+Filter valid email dir: ['INBOX', 'Virus Items', '&e4BipZAAi6KQrk72-', '&YnlSJGAnYB1+9JAAi6I-', '&cLl385AAi6I-', '&kc2JgZCuTvY-', '&fPt+35AAT+E-', '&XnR+yIM2i91PGg-']
+[2017/02/21 22:51:58]
+IMAP select dir INBOX
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: ['1253', '1254', '1255', '1256', '1257', '1258']
+Get imap start num = 1254, datetime = 2017-02-20 22:27:45
+[22:52:00] 接收到邮箱uhhokfs@126.com的退信
+[22:52:01] 接收到邮箱yralgwm@163.com的退信
+[22:52:01] 接收到邮箱piwhaek@qq.com的退信
+[2017/02/21 22:52:02]
+IMAP select dir Virus Items
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:02]
+IMAP select dir &e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:02]
+IMAP select dir &YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:03]
+IMAP select dir &cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:03]
+IMAP select dir &kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:03]
+IMAP select dir &fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:03]
+IMAP select dir &XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[22:52:03] 完成一轮接收,等待30秒后继续...
+[22:52:19] 终止接收退信操作
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:52:23]
+Get 5 mails from excel.
+[2017/02/21 22:52:24]Start Timer.The timer period is 360000 ms
+[2017/02/21 22:52:26]Timer call back.
+[2017/02/21 22:52:26]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account dian@hust.edu.cn
+Start to send email...
+[2017/02/21 22:52:28]
+The email has sent.
+[2017/02/21 22:52:28]
+{'FailedList': [], 'SuccessList': [u'piwhaek@qq.com', u'uhhokfs@126.com', u'yralgwm@163.com'], 'ErrLog': u'', 'ErrCode': 1, 'CurrProgress': (5, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+[22:52:44] 开始接收退信:since 2017/02/20 22:24:35
+[22:52:44] 当前账号: dian@hust.edu.cn
+Get all email dir: ('OK', ['() "/" "INBOX"', '(\\Drafts) "/" "Drafts"', '(\\Sent) "/" "Sent Items"', '(\\Trash) "/" "Trash"', '(\\Junk) "/" "Junk E-mail"', '() "/" "Virus Items"', '() "/" "&e4BipZAAi6KQrk72-"', '() "/" "&YnlSJGAnYB1+9JAAi6I-"', '() "/" "&cLl385AAi6I-"', '() "/" "&kc2JgZCuTvY-"', '() "/" "&fPt+35AAT+E-"', '() "/" "&XnR+yIM2i91PGg-"'])
+Filter valid email dir: ['INBOX', 'Virus Items', '&e4BipZAAi6KQrk72-', '&YnlSJGAnYB1+9JAAi6I-', '&cLl385AAi6I-', '&kc2JgZCuTvY-', '&fPt+35AAT+E-', '&XnR+yIM2i91PGg-']
+[2017/02/21 22:52:45]
+IMAP select dir INBOX
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: ['1253', '1254', '1255', '1256', '1257', '1258', '1259', '1260']
+Get imap start num = 1253, datetime = 2017-02-20 22:24:59
+[22:52:45] 接收到邮箱yralgwm@163.com的退信
+[22:52:46] 接收到邮箱uhhokfs@126.com的退信
+[2017/02/21 22:52:46]
+IMAP select dir Virus Items
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:47]
+IMAP select dir &e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:47]
+IMAP select dir &YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:47]
+IMAP select dir &cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:47]
+IMAP select dir &kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:47]
+IMAP select dir &fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:52:47]
+IMAP select dir &XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [20-Feb-2017]
+Get email id in curr dir: []
+[22:52:47] 完成一轮接收,等待30秒后继续...
+[22:53:17] 开始接收退信:since 2017/02/20 22:24:35
+[22:53:17] 当前账号: dian@hust.edu.cn
+Get all email dir: ('OK', ['() "/" "INBOX"', '(\\Drafts) "/" "Drafts"', '(\\Sent) "/" "Sent Items"', '(\\Trash) "/" "Trash"', '(\\Junk) "/" "Junk E-mail"', '() "/" "Virus Items"', '() "/" "&e4BipZAAi6KQrk72-"', '() "/" "&YnlSJGAnYB1+9JAAi6I-"', '() "/" "&cLl385AAi6I-"', '() "/" "&kc2JgZCuTvY-"', '() "/" "&fPt+35AAT+E-"', '() "/" "&XnR+yIM2i91PGg-"'])
+Filter valid email dir: ['INBOX', 'Virus Items', '&e4BipZAAi6KQrk72-', '&YnlSJGAnYB1+9JAAi6I-', '&cLl385AAi6I-', '&kc2JgZCuTvY-', '&fPt+35AAT+E-', '&XnR+yIM2i91PGg-']
+[2017/02/21 22:53:18]
+IMAP select dir INBOX
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: ['1256', '1257', '1258', '1259', '1260']
+Get imap start num = 1259, datetime = 2017-02-21 22:52:32
+[2017/02/21 22:53:19]
+IMAP select dir Virus Items
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:19]
+IMAP select dir &e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:19]
+IMAP select dir &YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:19]
+IMAP select dir &cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:19]
+IMAP select dir &kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:19]
+IMAP select dir &fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:19]
+IMAP select dir &XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[22:53:19] 完成一轮接收,等待30秒后继续...
+[22:53:49] 开始接收退信:since 2017/02/20 22:24:35
+[22:53:49] 当前账号: dian@hust.edu.cn
+Get all email dir: ('OK', ['() "/" "INBOX"', '(\\Drafts) "/" "Drafts"', '(\\Sent) "/" "Sent Items"', '(\\Trash) "/" "Trash"', '(\\Junk) "/" "Junk E-mail"', '() "/" "Virus Items"', '() "/" "&e4BipZAAi6KQrk72-"', '() "/" "&YnlSJGAnYB1+9JAAi6I-"', '() "/" "&cLl385AAi6I-"', '() "/" "&kc2JgZCuTvY-"', '() "/" "&fPt+35AAT+E-"', '() "/" "&XnR+yIM2i91PGg-"'])
+Filter valid email dir: ['INBOX', 'Virus Items', '&e4BipZAAi6KQrk72-', '&YnlSJGAnYB1+9JAAi6I-', '&cLl385AAi6I-', '&kc2JgZCuTvY-', '&fPt+35AAT+E-', '&XnR+yIM2i91PGg-']
+[2017/02/21 22:53:50]
+IMAP select dir INBOX
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: ['1256', '1257', '1258', '1259', '1260']
+Get imap start num = 1259, datetime = 2017-02-21 22:52:32
+[2017/02/21 22:53:51]
+IMAP select dir Virus Items
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:52]
+IMAP select dir &e4BipZAAi6KQrk72-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:52]
+IMAP select dir &YnlSJGAnYB1+9JAAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:52]
+IMAP select dir &cLl385AAi6I-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:52]
+IMAP select dir &kc2JgZCuTvY-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:52]
+IMAP select dir &fPt+35AAT+E-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[2017/02/21 22:53:52]
+IMAP select dir &XnR+yIM2i91PGg-
+Search imap: from [postmaster@hust.edu.cn], since [21-Feb-2017]
+Get email id in curr dir: []
+[22:53:53] 完成一轮接收,等待30秒后继续...
+[22:54:20] 终止接收退信操作
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\k038uabp4npiw456'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\r7kfpna1ndcwuphn'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\dsilxf7zl5hvbq8x'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp14qgmk\\sb12qa55yclj5x8r')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 22:54:29]
+Get 5 mails from excel.
+User cancel before send.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 23:23:49] Start the program
+[2017/02/21 23:23:49]
+The form has loaded
+The Event form load occur.
+[2017/02/21 23:23:49]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Program signal
+Program signal
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\2m6yn6pv9scqm8rb', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\2m6yn6pv9scqm8rb'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\mufgel2tz4nea574', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\mufgel2tz4nea574'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\vv60f4bgsstlmaud', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\vv60f4bgsstlmaud'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\8ufsuz3ceo01gavr', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\8ufsuz3ceo01gavr')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/21 23:24:19]
+Get 5 mails from excel.
+User cancel before send.
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\2m6yn6pv9scqm8rb', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\2m6yn6pv9scqm8rb'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\mufgel2tz4nea574', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\mufgel2tz4nea574'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\vv60f4bgsstlmaud', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\vv60f4bgsstlmaud'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\8ufsuz3ceo01gavr', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpaacv1n\\8ufsuz3ceo01gavr')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/21 23:45:06] Start the program
+[2017/02/21 23:45:06]
+The form has loaded
+The Event form load occur.
+[2017/02/21 23:45:06]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\6tjf9twmjxe4l5r0', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\6tjf9twmjxe4l5r0'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\6rwkhfjeqzvub9dt', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\6rwkhfjeqzvub9dt'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\h1x4nwi951z6non1', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\h1x4nwi951z6non1'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\rhs3ztsdrbiwjpg0', u'c:\\users\\oliver\\appdata\\local\\temp\\tmp20yfcs\\rhs3ztsdrbiwjpg0')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:04:09] Start the program
+[2017/02/22 00:04:09]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:04:09]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:05:05] Start the program
+[2017/02/22 00:05:05]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:05:05]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+TypeError: __slot_win_close() takes exactly 1 argument (2 given)
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+TypeError: __slot_win_close() takes exactly 1 argument (2 given)
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+TypeError: __slot_win_close() takes exactly 1 argument (2 given)
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:15:28] Start the program
+[2017/02/22 00:15:28]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:15:28]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\tgwkqjpmaebqg4dn', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\tgwkqjpmaebqg4dn'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\uk3m6nf0rczwpnw7', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\uk3m6nf0rczwpnw7'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\fooy9wig3ev4el1x', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\fooy9wig3ev4el1x'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\0o10vcvbvzw2gv3q', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpgurjhp\\0o10vcvbvzw2gv3q')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:16:20] Start the program
+[2017/02/22 00:16:20]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:16:20]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\5ls39z9awfipijoe', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\5ls39z9awfipijoe'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\4be6xdps1wuzxs8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\4be6xdps1wuzxs8r'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\byrzbgcujlyw6h9w', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\byrzbgcujlyw6h9w'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\vods1h03dx7b9x5k', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\vods1h03dx7b9x5k')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+[2017/02/22 00:16:32]
+Get 5 mails from excel.
+[2017/02/22 00:16:35]Start Timer.The timer period is 360000 ms
+[2017/02/22 00:16:37]Timer call back.
+[2017/02/22 00:16:37]
+Start to send a group
+Connecting to host mail.hust.edu.cn
+Logining account dian@hust.edu.cn
+Start to send email...
+[2017/02/22 00:16:40]
+The email has sent.
+[2017/02/22 00:16:40]
+{'FailedList': [], 'SuccessList': [u'uhhokfs@126.com', u'yralgwm@163.com'], 'ErrLog': u'', 'ErrCode': 1, 'CurrProgress': (5, 0, 0)}
+Exit progress window normal, ret = 1
+Exit the progress windows.
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+TypeError: __slot_win_close() takes exactly 1 argument (2 given)
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\5ls39z9awfipijoe', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\5ls39z9awfipijoe'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\4be6xdps1wuzxs8r', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\4be6xdps1wuzxs8r'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\byrzbgcujlyw6h9w', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\byrzbgcujlyw6h9w'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\vods1h03dx7b9x5k', u'c:\\users\\oliver\\appdata\\local\\temp\\tmpzfyqwp\\vods1h03dx7b9x5k')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:17:45] Start the program
+[2017/02/22 00:17:45]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:17:45]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\uscdcsqdmfm09ng8', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\uscdcsqdmfm09ng8'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\aqrcpjkfieabcpcd', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\aqrcpjkfieabcpcd'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\duxys5dg28fndbef', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\duxys5dg28fndbef'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\k57q0z5pbt1keft0', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpkdkatl\\k57q0z5pbt1keft0')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:26:28] Start the program
+[2017/02/22 00:26:29]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:26:29]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:27:10] Start the program
+[2017/02/22 00:27:10]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:27:10]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Traceback (most recent call last):
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 555, in __slot_win_close
+    self.__slot_win_close()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 551, in __slot_win_close
+    mail_content = self.__gui_proc.get_mail_content()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 1190, in get_mail_content
+    return self._db.get_mail_content()
+  File "E:\MyDocuments\Python\SendMail\main.py", line 492, in proc_func
+    ret = func(self, *args, **kwargs)
+  File "E:\MyDocuments\Python\SendMail\main.py", line 780, in get_mail_content
+    return MailContent(sub, body, append_rc_list, body_rc_list)
+  File "E:\MyDocuments\Python\SendMail\cfg_data.py", line 192, in __init__
+    if isinstance(each_append, unicode):
+RuntimeError: maximum recursion depth exceeded while calling a Python object
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\tjxga6gfgn7aakke', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\tjxga6gfgn7aakke'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\jjkjpqs7z32u533g', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\jjkjpqs7z32u533g'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\111a89rmhjf88x0x', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\111a89rmhjf88x0x'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\234xr12b8slis4ak', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpzn7uvi\\234xr12b8slis4ak')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:29:04] Start the program
+[2017/02/22 00:29:04]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:29:04]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Hello, world!
+Program signal
+Program signal
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Program signal
+Hello, world!
+Program signal
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\d3dlj2mwp1s4njdf', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\d3dlj2mwp1s4njdf'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\x7zvi5wki1o61z6x', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\x7zvi5wki1o61z6x'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\gnrnbd8awgsw7b0u', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\gnrnbd8awgsw7b0u'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\ussuaewy1dszwq9a', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpjukgdp\\ussuaewy1dszwq9a')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:40:56] Start the program
+[2017/02/22 00:40:56]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:40:56]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Traceback (most recent call last):
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 527, in __slot_button_ok
+    self.__win_fini()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 556, in __win_fini
+    self.__timer_update_append.stop()
+AttributeError: 'EmailEditor' object has no attribute '_EmailEditor__timer_update_append'
+Traceback (most recent call last):
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 550, in __slot_win_close
+    self.__win_fini()
+  File "E:\MyDocuments\Python\SendMail\editor.py", line 556, in __win_fini
+    
+AttributeError: 'EmailEditor' object has no attribute '_EmailEditor__timer_update_append'
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\glmha206im6rh08w', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\glmha206im6rh08w'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\z9z64r6c42gfarov', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\z9z64r6c42gfarov'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\9vitn796ham158it', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\9vitn796ham158it'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\e84d5pfdkwroqmce', 'c:\\users\\oliver\\appdata\\local\\temp\\tmp6yrsnn\\e84d5pfdkwroqmce')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:41:47] Start the program
+[2017/02/22 00:41:47]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:41:47]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\0grvpkz731a2lsey', u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\0grvpkz731a2lsey'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\tf64za6rhzftcgxi', u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\tf64za6rhzftcgxi'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\cl4fxw0ldphrxyha', u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\cl4fxw0ldphrxyha'), MailRC(u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\6fo0y4jfunqv01th', u'c:\\users\\oliver\\appdata\\local\\temp\\tmphe4unx\\6fo0y4jfunqv01th')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
+
+
+
+
+________________________________________________________________________________
+
+[2017/02/22 00:44:14] Start the program
+[2017/02/22 00:44:14]
+The form has loaded
+The Event form load occur.
+[2017/02/22 00:44:14]
+Open database success, Ver = 2.6.0
+Thread maildb flush timer started.
+The progress will recover
+Program signal
+Program signal
+Program signal
+Program signal
+Exit and save.
+
+mail_content = MailContent(Sub = u'\u6309\u65f6 \u6211\u8bf4\u7684\u963f\u8428\u5fb72332', Body_html_len = 2298, Appendix = [MailRC(u'G:\\IE\u4e0b\u8f7d\\npptoolsdll_33lc.com.rar', u'npptoolsdll_33lc.com.rar'), MailRC(u'G:\\IE\u4e0b\u8f7d\\minimize_box_blue.png', u'minimize_box_blue.png'), MailRC(u'G:\\IE\u4e0b\u8f7d\\003.png', u'003.png')], BodyResource = [MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\besbdp4m91z6q82p', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\besbdp4m91z6q82p'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\cnnz93cs9tt411f6', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\cnnz93cs9tt411f6'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\q9hzfvvptkaowklj', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\q9hzfvvptkaowklj'), MailRC('c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\q3eqma52zx890xia', 'c:\\users\\oliver\\appdata\\local\\temp\\tmpo9e2ej\\q3eqma52zx890xia')])
+selected = [1, 2, 3, 4, 5, 6, 7, 8, 9], col_name = D, sender_name = oliver了
+Speed each hour = 400, each time = 40
+Account[0] = Account(dian@hust.edu.cn, mail.hust.edu.cn, oliver了)
+Thread maildb flush stopped.
