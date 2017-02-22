@@ -41,6 +41,7 @@
     <file>pic/tools/textunder.png</file>
   </qresource>
   <qresource prefix="r_icon">
+    <file>pic/ico/refresh.png</file>
     <file>pic/r_icon/write_mail.png</file>
     <file>pic/r_icon/10d.png</file>
     <file>pic/r_icon/excel.ico</file>

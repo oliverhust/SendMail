@@ -253,6 +253,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         if len(unicode(self._mail_content.body())) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入邮件正文"))
             return False
+        err, err_info, err_file = self._mail_content.check_append_state()
+        if err != ERROR_SUCCESS:
+            QMessageBox.critical(self, u"Input Error", QString(err_info))
+            return False
         if len(self._xls_path) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入包含邮箱列表的Excel表格所在路径"))
             return False

@@ -458,6 +458,7 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         self.Button_DelAppend.clicked.connect(self.__slot_del_appendix)
         self.table_Appendix.itemChanged.connect(self.__slot_appendix_item_changed)
         self.Button_Appendix.clicked.connect(self.__slot_jump_appendix_tab)
+        self.Button_UpdateAppend.clicked.connect(self.__slot_refresh_append)
 
         self.Button_OK.clicked.connect(self.__slot_button_ok)
         self.Button_Cancel.clicked.connect(self.__slot_button_cancel)
@@ -598,6 +599,10 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         if self.tabWidget.currentIndex() != EmailEditor._TAB_INDEX_APPENDIX:
             self.tabWidget.setCurrentIndex(EmailEditor._TAB_INDEX_APPENDIX)
 
+    def __slot_refresh_append(self):
+        for i, each_append in enumerate(self.__all_appendix()):
+            self.__table_set_one_appendix(each_append.path, each_append.name, i)
+
     def _ui_add_appends(self, full_append_path_list):
         # full_append_path_list的元素为字符串/MailResource类型
         for each_append in full_append_path_list:
@@ -617,7 +622,7 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         :return: 无
         """
         old_row_count = self.table_Appendix.rowCount()
-        index_set = index if index else old_row_count
+        index_set = index if index is not None else old_row_count
         if index_set >= old_row_count:
             self.table_Appendix.setRowCount(index_set + 1)
 
