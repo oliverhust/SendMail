@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1222</width>
+    <width>1190</width>
     <height>760</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>编辑邮件内容</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="send1.qrc">
+    <normaloff>:/r_icon/pic/r_icon/write_mail.png</normaloff>:/r_icon/pic/r_icon/write_mail.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -158,75 +162,15 @@
         <enum>Qt::Horizontal</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
+        <enum>QSizePolicy::Expanding</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>473</width>
+         <width>600</width>
          <height>20</height>
         </size>
        </property>
       </spacer>
-     </item>
-     <item>
-      <widget class="QToolButton" name="toolButton_3">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="send1.qrc">
-         <normaloff>:/edit_tool/pic/ico/minus.png</normaloff>:/edit_tool/pic/ico/minus.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="autoRaise">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="toolButton_2">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="send1.qrc">
-         <normaloff>:/edit_tool/pic/tools/max.png</normaloff>:/edit_tool/pic/tools/max.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="autoRaise">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="toolButton">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="send1.qrc">
-         <normaloff>:/r_icon/pic/r_icon/close.png</normaloff>:/r_icon/pic/r_icon/close.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="autoRaise">
-        <bool>true</bool>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>
@@ -255,7 +199,7 @@
       <widget class="QLineEdit" name="Edit_Sub">
        <property name="minimumSize">
         <size>
-         <width>1091</width>
+         <width>1101</width>
          <height>41</height>
         </size>
        </property>

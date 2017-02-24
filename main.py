@@ -66,16 +66,16 @@ class AccountsMange:
         if 1 == len(self._AccountList):
             self._send_too_many_mark = True
             err = ERROR_SEND_TOO_MANY_NEED_WAIT
-            err_info += u"\n当前账号发送过多，等待一段时间后自动重试"
+            err_info += u"\n当前账号无法发送，等待一段时间后自动重试"
         elif 0 == self._CurrAccountId and self._send_too_many_mark:
             # 不换账号，继续尝试第一个，直到第一个成功
             account_next = self._AccountList[self._CurrAccountId]  # 在每次get的时候已经切换了
             err = ERROR_SEND_TOO_MANY
-            err_info += u"\n当前邮箱发送过多，切换到账号{}".format(account_next.user)
+            err_info += u"\n当前邮箱无法发送，切换到账号{}".format(account_next.user)
         else:
             account_next = self._AccountList[self._CurrAccountId]  # 在每次get的时候已经切换了
             err = ERROR_SEND_TOO_MANY
-            err_info += u"\n当前账号发送过多，切换到账号{}".format(account_next.user)
+            err_info += u"\n当前账号无法发送，切换到账号{}".format(account_next.user)
             # 只要进一次这里就永远被标记
             self._send_too_many_mark = True
         return err, err_info
@@ -381,13 +381,13 @@ class MailProc:
             fail_mail = s.sendmail(account.user, mail_list, msg.as_string())
         except smtplib.SMTPRecipientsRefused, e:
             err = ERROR_SEND_TOO_MANY
-            err_info = u"当前账号{}发送邮件太多被拒: {}".format(account.user, e)
+            err_info = u"当前账号{}发送邮件被拒: {}".format(account.user, e)
         except smtplib.SMTPDataError, e:
             err = ERROR_SEND_TOO_MANY
-            err_info = u"当前账号{}发送邮件过多被拒: {}".format(account.user, e)
+            err_info = u"当前账号{}无法发送邮件: {}".format(account.user, e)
         except smtplib.SMTPServerDisconnected, e:
             err = ERROR_SEND_TOO_MANY
-            err_info = u"当前账号{}发送邮件过多被拒绝连接: {}".format(account.user, e)
+            err_info = u"当前账号{}发送邮件被拒绝连接: {}".format(account.user, e)
         except Exception, e:
             err = ERROR_SEND_FAILED_UNKNOWN
             err_info = u"未知原因，暂时发送失败: {}".format(e)

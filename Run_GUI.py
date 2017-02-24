@@ -17,6 +17,7 @@ from mylog import *
 from cfg_data import *
 from etc_func import *
 from main import UIInterface, UITimer
+from public_ui import NoFrameWin, TransParentWin
 from editor import EmailEditor
 
 
@@ -60,41 +61,6 @@ class GUITimer(UITimer, QTimer):
     def __iner_callback(self):
         QTimer.setInterval(self, self._Period)
         self._Callback()
-
-
-# #####################################################################
-# ########################### 无边框窗口 ###############################
-class NoFrameWin(QWidget):
-
-    def __init__(self, parent=None):
-        super(NoFrameWin, self).__init__(parent)
-        self._dragPosition = 0  # 窗口移动用
-        self.setWindowOpacity(1)
-        self.setWindowFlags(Qt.FramelessWindowHint|Qt.WindowSystemMenuHint|Qt.WindowMinMaxButtonsHint)
-        self.setWindowModality(Qt.ApplicationModal)
-
-    def mousePressEvent(self, event):
-        if event.button() == Qt.LeftButton:
-            self._dragPosition = event.globalPos() - self.frameGeometry().topLeft()
-            event.accept()
-
-    def mouseMoveEvent(self, event):
-        # 定义鼠标移动事件
-        if event.buttons() == Qt.LeftButton:
-            g_pos = event.globalPos()
-            if type(g_pos) != QPoint or type(self._dragPosition) != QPoint:
-                return
-            self.move(event.globalPos() - self._dragPosition)
-            event.accept()
-
-
-# #####################################################################
-# ########################## 无边框透明窗口 #############################
-class TransParentWin(NoFrameWin):
-
-    def __init__(self, parent=None):
-        NoFrameWin.__init__(self, parent)
-        self.setAttribute(Qt.WA_TranslucentBackground)
 
 
 # #####################################################################
@@ -791,7 +757,7 @@ class NdrWindow(QDialog, Ui_Dialog_Ndr, NoFrameWin):
 
     def append_text(self, text):
         # self.textEdit.insertPlainText(QString(unicode(text)))
-        if len(text) > 0 and text[-1] == '\n':
+        if len(text) > 0 and text[-1] == u'\n':
             text_append = text[:-1]
         else:
             text_append = text

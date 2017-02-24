@@ -35,7 +35,7 @@ class Ui_Dialog_Ndr(object):
         self.tableWidget = QtGui.QTableWidget(Dialog_Ndr)
         self.tableWidget.setGeometry(QtCore.QRect(40, 220, 951, 401))
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Malgun Gothic Semilight"))
+        font.setFamily(_fromUtf8("SimSun-ExtB"))
         font.setPointSize(12)
         self.tableWidget.setFont(font)
         self.tableWidget.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
@@ -48,7 +48,7 @@ class Ui_Dialog_Ndr(object):
         self.textEdit = QtGui.QTextEdit(Dialog_Ndr)
         self.textEdit.setGeometry(QtCore.QRect(450, 30, 541, 171))
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Malgun Gothic Semilight"))
+        font.setFamily(_fromUtf8("SimSun-ExtB"))
         font.setPointSize(12)
         self.textEdit.setFont(font)
         self.textEdit.setStyleSheet(_fromUtf8("background-color: rgba(255, 255, 255, 60);"))
@@ -124,8 +124,8 @@ class Ui_Dialog_Ndr(object):
         self.textEdit.setHtml(_translate("Dialog_Ndr", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Malgun Gothic Semilight\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
+"</style></head><body style=\" font-family:\'SimSun-ExtB\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Malgun Gothic Semilight\';\"><br /></p></body></html>", None))
         self.label.setText(_translate("Dialog_Ndr", "退信:", None))
         self.pushButton.setText(_translate("Dialog_Ndr", "停止", None))
         self.label_2.setText(_translate("Dialog_Ndr", "封", None))

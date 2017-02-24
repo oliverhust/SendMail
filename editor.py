@@ -136,7 +136,8 @@ def _ignore_program_signal(func):
             ret = func(self, *args, **kwargs)
             self.textEdit.setFocus()
         else:
-            print("Program signal")
+            pass
+            # print("Program signal")
         return ret
     return final_func
 
@@ -145,7 +146,7 @@ class BasicEditor(Ui_Dialog_Editor):
 
     _INIT_FONT_SIZE = 16
 
-    def __init__(self):
+    def __init__(self, parent=None):
         super(BasicEditor, self).__init__()
         self._set_by_program = 0
 
@@ -447,6 +448,7 @@ class EmailEditor(QDialog, BasicEditor, Ui_Dialog_Editor):
         self.__mail_content_finally = None      # 窗口关闭时的MailContent
 
         self.setupUi(self)
+        self.setWindowFlags(self.windowFlags() | Qt.WindowMaximizeButtonHint | Qt.WindowMinimizeButtonHint)
         self._setup_basic_editor()
         self.__init_table_appendix()    # 初始化表格
 

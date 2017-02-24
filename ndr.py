@@ -531,7 +531,7 @@ class NdrProc(threading.Thread, NdrCfgProc):
                     break
 
             self._set_has_finish_a_loop()
-            if self._test_pause_and_sleep(30):
+            if self._test_pause_and_sleep(60):
                 break
 
         self._write_err_info(u'终止接收退信操作', True)
