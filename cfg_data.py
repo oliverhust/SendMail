@@ -459,7 +459,7 @@ class CfgNdr(dict):
             dict.__init__(self, deepcopy(self._VOID_CFG))
 
         if not self.check():
-                print(u"Warning: invalid CfgNdr: {}".format(self))
+            print(u"Warning: invalid CfgNdr: {}".format(self))
 
     # noinspection PyTypeChecker
     def __getitem__(self, key):

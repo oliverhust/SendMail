@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>338</width>
+    <width>416</width>
     <height>329</height>
    </rect>
   </property>
@@ -46,7 +46,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>230</x>
      <y>19</y>
      <width>46</width>
      <height>41</height>
@@ -82,7 +82,7 @@
   <widget class="QSpinBox" name="Box_Column">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>280</x>
      <y>20</y>
      <width>76</width>
      <height>31</height>
@@ -204,7 +204,7 @@
     <rect>
      <x>20</x>
      <y>185</y>
-     <width>181</width>
+     <width>211</width>
      <height>41</height>
     </rect>
    </property>
@@ -220,7 +220,7 @@
   <widget class="QSpinBox" name="Box_Padding">
    <property name="geometry">
     <rect>
-     <x>205</x>
+     <x>265</x>
      <y>190</y>
      <width>71</width>
      <height>31</height>
@@ -241,7 +241,7 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>350</x>
      <y>185</y>
      <width>46</width>
      <height>41</height>
@@ -261,7 +261,7 @@
     <rect>
      <x>20</x>
      <y>225</y>
-     <width>171</width>
+     <width>211</width>
      <height>41</height>
     </rect>
    </property>
@@ -277,7 +277,7 @@
   <widget class="QSpinBox" name="Box_Space">
    <property name="geometry">
     <rect>
-     <x>205</x>
+     <x>265</x>
      <y>230</y>
      <width>71</width>
      <height>31</height>
@@ -298,7 +298,7 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>350</x>
      <y>225</y>
      <width>46</width>
      <height>41</height>
@@ -316,7 +316,7 @@
   <widget class="QPushButton" name="Button_OK">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>275</y>
      <width>81</width>
      <height>41</height>
@@ -334,7 +334,7 @@
   <widget class="QPushButton" name="Button_Cancel">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>230</x>
      <y>275</y>
      <width>81</width>
      <height>41</height>
@@ -370,7 +370,7 @@
   <widget class="QSpinBox" name="Box_BorderWidth">
    <property name="geometry">
     <rect>
-     <x>205</x>
+     <x>265</x>
      <y>150</y>
      <width>71</width>
      <height>31</height>
@@ -388,13 +388,13 @@
     <number>399</number>
    </property>
    <property name="value">
-    <number>1</number>
+    <number>2</number>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>350</x>
      <y>145</y>
      <width>46</width>
      <height>41</height>
@@ -430,9 +430,9 @@
   <widget class="QPushButton" name="Button_Color">
    <property name="geometry">
     <rect>
-     <x>205</x>
+     <x>265</x>
      <y>110</y>
-     <width>71</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>

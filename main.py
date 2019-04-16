@@ -583,11 +583,10 @@ class MailDB(threading.Thread):
     def run(self):
         print("Thread maildb flush timer started.")
         while True:
-            self._lock.acquire()
-            if self._db is not None:
-                # print("flushing mail db")
-                self._db.commit()
-            self._lock.release()
+            with self._lock:
+                if self._db is not None:
+                    # print("flushing mail db")
+                    self._db.commit()
 
             # 把延时1秒拆分成多次是为了提高关闭的响应速度
             need_close = False
@@ -601,16 +600,14 @@ class MailDB(threading.Thread):
                 break
 
     def _flush_thread_close(self, need_close=True):
-        self._flush_thread_lock.acquire()
-        self._thread_need_close = need_close
-        self._flush_thread_lock.release()
+        with self._flush_thread_lock:
+            self._thread_need_close = need_close
         self.join()
         print("Thread maildb flush stopped.")
 
     def _flush_thread_get_need_close(self):
-        self._flush_thread_lock.acquire()
-        need_close = self._thread_need_close
-        self._flush_thread_lock.release()
+        with self._flush_thread_lock:
+            need_close = self._thread_need_close
         return need_close
 
     def clear_forever(self):
@@ -1133,6 +1130,40 @@ class UIInterface:
             self._db.close()
 
     def event_start_send(self):
+        # 用户设置完所有数据后的处理
+        data = self.proc_get_all_ui_data()
+        # 按下按钮后当即把界面上的所有数据保存到db
+        self._save_ui_data_to_db(data)
+        # 创建发送邮件需要的对象
+        err, err_info = self._create_mail_objects(data)
+        if err != ERROR_SUCCESS:
+            self._delete_mail_objects()
+            self.proc_err_before_send(err, err_info)
+            return
+        # 发送前的信息确认
+        last_success_num, last_failed_num, will_send_num = self._mail_matrix.curr_progress()
+        err, err_info, all_sheets_list = self._mail_matrix.get_sheet_names()
+        if not self.proc_confirm_before_send(last_success_num, last_failed_num, will_send_num,
+                                             all_sheets_list, data["SelectedList"]):
+            self._delete_mail_objects()
+            return
+        # 启动UI定时器
+        account_num = len(self._account_manger.account_list())
+        period_time = int(3600000.0/data["EachHour"]*data["EachTime"]/account_num)
+        print(u"[{}]Start Timer.The timer period is {} ms".format(get_time_str(), period_time))
+        self._timer.setup(period_time, self.__send_timer_callback, 2000)
+        self._timer.start()
+        # 弹出进度条窗口并运行
+        ret = self.proc_exec_progress_window(self._mail_matrix.curr_progress())
+        print(u"Exit the progress windows.")
+        # 窗口退出则停止定时器
+        self._timer.stop()
+        self._delete_mail_objects()
+        # 发送完成且不被暂停则启动退信识别
+        if ret:
+            self._ndr_receive_process()
+
+    def event_start_test(self):             # todo
         # 用户设置完所有数据后的处理
         data = self.proc_get_all_ui_data()
         # 按下按钮后当即把界面上的所有数据保存到db

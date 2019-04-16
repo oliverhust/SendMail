@@ -146,7 +146,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         self.pushButton_edit_mail.clicked.connect(self.slot_edit_mail)
         self.pushButton_mail_list.clicked.connect(self.slot_open_mail_list)
 
-        # 按钮 开始、退出
+        # 按钮 测试、开始、退出
+        self.connect(self.pushButton_Test, SIGNAL("clicked()"), self.slot_button_test)
         self.connect(self.pushButton_OK, SIGNAL("clicked()"), self.slot_button_run)
         self.connect(self.pushButton_cancel, SIGNAL("clicked()"), self.slot_button_cancel)
 
@@ -209,7 +210,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         else:
             self.label_mail_info.setText(QString(u""))
 
-    def _ui_data_check(self):
+    def _ui_data_check(self, is_test=False):
         if not self._mail_content:
             QMessageBox.critical(self, u"Input Error", QString(u"邮件内容为空"))
             return False
@@ -227,22 +228,25 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
             QMessageBox.critical(self, u"Input Error", QString(u"请输入包含邮箱列表的Excel表格所在路径"))
             return False
 
-        start_str = unicode(self.lineEdit_Xls_From.text())
-        end_str = unicode(self.lineEdit_Xls_To.text())
-        if len(start_str) == 0 or len(end_str) == 0:
-            QMessageBox.critical(self, u"Input Error", QString(u"请输入Excel表格中从表的起始"))
-            return False
-        col_str = unicode(self.lineEdit_Xls_Col.text())
-        if len(col_str) == 0:
-            QMessageBox.critical(self, u"Input Error", QString(u"请输入Excel表格中邮箱所在的列"))
-            return False
+        # 检查收件人设置，测试模式不检查该项
+        if not is_test:
 
-        if start_str.isdigit() and end_str.isdigit() and len(col_str) == 1 \
-           and col_str.isalpha() and 1 <= int(start_str) <= int(end_str) <= 100:
-            pass
-        else:
-            QMessageBox.critical(self, u"Input Error", QString(u"请正确输入Excel表格中从表的起始及列名"))
-            return False
+            start_str = unicode(self.lineEdit_Xls_From.text())
+            end_str = unicode(self.lineEdit_Xls_To.text())
+            if len(start_str) == 0 or len(end_str) == 0:
+                QMessageBox.critical(self, u"Input Error", QString(u"请输入Excel表格中从表的起始"))
+                return False
+            col_str = unicode(self.lineEdit_Xls_Col.text())
+            if len(col_str) == 0:
+                QMessageBox.critical(self, u"Input Error", QString(u"请输入Excel表格中邮箱所在的列"))
+                return False
+
+            if start_str.isdigit() and end_str.isdigit() and len(col_str) == 1 \
+               and col_str.isalpha() and 1 <= int(start_str) <= int(end_str) <= 100:
+                pass
+            else:
+                QMessageBox.critical(self, u"Input Error", QString(u"请正确输入Excel表格中从表的起始及列名"))
+                return False
 
         if len(unicode(self.lineEdit_Sender_Name.text())) == 0:
             QMessageBox.critical(self, u"Input Error", QString(u"请输入发件人"))
@@ -275,6 +279,14 @@ class MainWindow(QMainWindow, Ui_MainWindow, TransParentWin):
         print(u"Speed each hour = {}, each time = {}".format(self._speed_each_hour, self._speed_each_time))
         for i, account in enumerate(self._account_list):
             print(u"Account[{}] = {}".format(i, account))
+
+    def slot_button_test(self):
+        if not self._ui_data_check(True):
+            return
+
+        if self._GUIProc is not None:
+            # 【【【【调用GUI的事件处理函数: 开始测试】】】】
+            self._GUIProc.event_start_test()
 
     def slot_button_run(self):
         if not self._ui_data_check():

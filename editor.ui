@@ -17,6 +17,13 @@
    <iconset resource="send1.qrc">
     <normaloff>:/r_icon/pic/r_icon/write_mail.png</normaloff>:/r_icon/pic/r_icon/write_mail.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#Dialog_Editor
+{
+	
+	border-image: url(:/auto_back/pic/auto_back/img005.jpg);
+}</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">

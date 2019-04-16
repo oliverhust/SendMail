@@ -29,6 +29,11 @@ class Ui_Dialog_Editor(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/r_icon/pic/r_icon/write_mail.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog_Editor.setWindowIcon(icon)
+        Dialog_Editor.setStyleSheet(_fromUtf8("#Dialog_Editor\n"
+"{\n"
+"    \n"
+"    border-image: url(:/auto_back/pic/auto_back/img005.jpg);\n"
+"}"))
         self.verticalLayout_3 = QtGui.QVBoxLayout(Dialog_Editor)
         self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
         self.horizontalLayout_4 = QtGui.QHBoxLayout()
